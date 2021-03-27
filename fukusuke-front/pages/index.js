@@ -1,10 +1,15 @@
-import Navegation from '../components/Navigation';
+//Componentes
+import Container from '../components/Container';
+import Head from "next/head";
+
 export default function Home() {
 
   return (
-    <div>
-      <Navegation/>
-      <h4>Hello Word</h4>
-    </div>
+    <Container>
+      <Head>
+        <title>Fukusuke | Home</title>
+      </Head>
+      <h1>Home Work</h1>
+    </Container>
   )
 }
