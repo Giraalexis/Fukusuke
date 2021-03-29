@@ -1,4 +1,6 @@
 import Link from "next/link";
+import Login from './modal/Login'
+import Register from './modal/Register'
 
 const Navigation = () => (
   <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -12,7 +14,8 @@ const Navigation = () => (
           <Link href="/"><a className="nav-link">Home</a></Link>
         </div>
         <div className="nav navbar-nav">
-          <Link href="/Login"><a className="nav-link">Iniciar Sesion</a></Link>
+          <Login/>
+          <Register/>
         </div>
       </div>
     </div>
