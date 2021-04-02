@@ -3,6 +3,7 @@ import Container from '../components/Container';
 import CardProducto from '../components/card/CardProducto';
 import axios from 'axios'
 import fetch from "isomorphic-unfetch";
+import Carousel from '../components/Carousel'
 
 const Index = (props)=> {
   return (
@@ -10,21 +11,20 @@ const Index = (props)=> {
       <Head>
         <title>Fukusuke | Home</title>
       </Head>
-      <h1>Homework</h1>
-
+      <Carousel users={props.users}/>
       <CardProducto users={props.users}/>
-
     </Container>
   )
 }
 
-//Peticiones axios
+//Peticiones 
 Index.getInitialProps = async (ctx) =>{
   //Test Usuarios
-  const res = await fetch('https://reqres.in/api/users');
-  const resJSON = await res.json()
+  const users = await fetch('https://reqres.in/api/users');
+
+  const usersJSON = await users.json()
   return{
-    users: resJSON.data,
+    users: usersJSON.data,
   }
 }
 
