@@ -26,7 +26,7 @@ const Login = ()=>{
   }
   return(
     <div>
-      <a className="nav-link " data-bs-toggle="modal" data-bs-target="#loginModal">Iniciar Sesion</a>
+      <a className="nav-link btn" data-bs-toggle="modal" data-bs-target="#loginModal">Iniciar Sesion</a>
 
       <div className="modal fade" id="loginModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div className="modal-dialog">
@@ -36,8 +36,8 @@ const Login = ()=>{
               <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div className="modal-body">
-              <input name="correo" value={values.correo} onChange={handleInputChange} className="form-control " placeholder="Ingrese su correo" type="email" />
-              <input name="password" value={values.password} onChange={handleInputChange} className="form-control mt-3" placeholder="Ingrese su contraseña" type="password" />
+              <input name="correo" value={values.correo} onChange={handleInputChange} className="form-control " placeholder="Ingrese su correo" type="email" required/>
+              <input name="password" value={values.password} onChange={handleInputChange} className="form-control mt-3" placeholder="Ingrese su contraseña" type="password" required/>
             </div>
             <div className="modal-footer">
               <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
