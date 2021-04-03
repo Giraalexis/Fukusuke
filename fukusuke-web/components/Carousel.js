@@ -6,7 +6,7 @@ const Carousel = (props)=>{
 
         {props.users.map((user)=>{
           return(
-            <div className={"carousel-item " + (user.id == 1 ?" active" : "")}>
+            <div key={user.id} className={"carousel-item " + (user.id == 1 ?" active" : "")}>
               <img src={user.avatar} className="rounded mx-auto d-block w-25"  alt="..." />
             </div>
           )
