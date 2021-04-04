@@ -1,8 +1,8 @@
 import Navigation from "./Navigation";
 import Footer from './Footer'
 import Head from "next/head";
-import Carousel from './Carousel'
 const Container = (props) => (
+
   <div>
     <Head>
       <title>Fukusuke</title>

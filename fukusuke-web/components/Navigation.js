@@ -1,7 +1,7 @@
 import Link from "next/link";
-import Login from './modal/Login'
-import Register from './modal/Register'
-
+import Login from './modal/Login';
+import Register from './modal/Register';
+import Cart from './Cart';
 const Navigation = () => (
   <nav className="navbar navbar-expand-lg navbar-dark bg-dark ">
     <div className="container-fluid">
@@ -13,9 +13,10 @@ const Navigation = () => (
         <div className="nav navbar-nav">
           <Link href="/"><a className="nav-link">Home</a></Link>
         </div>
-        <div className="nav navbar-nav">
-          <Login/>
+        <div className="nav navbar-nav align-items-start">
+          <Cart/>
           <Register/>
+          <Login/>
         </div>
       </div>
     </div>

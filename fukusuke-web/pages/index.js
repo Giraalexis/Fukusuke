@@ -4,7 +4,7 @@ import CardProducto from '../components/card/CardProducto';
 import axios from 'axios'
 import fetch from "isomorphic-unfetch";
 import Carousel from '../components/Carousel'
-
+import Cart from '../components/Cart';
 const Index = (props)=> {
   return (
     <Container>

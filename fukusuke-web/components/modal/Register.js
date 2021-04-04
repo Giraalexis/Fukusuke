@@ -72,7 +72,7 @@ const Register = ()=>{
                   <option value="femenino">Femenino</option>
                 </select>
               </div>
-              <div className="col">
+              <div className="col-6">
                 <input name="fec_nac" value={values.fec_nac} onChange={handleInputChange} className="form-control mt-3" placeholder="Ingrese su fecha de nacimiento" type="date" required/>
               </div>
             </div>

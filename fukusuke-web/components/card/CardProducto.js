@@ -3,8 +3,11 @@ import React, {useState, useEffect} from 'react'
 const CardProducto = (props) =>{
   const users = props.users;
 
+  //añadir producto segun la id al carrito en localStorage
   const addProduct =(id) =>{
-    console.log(users[id-1]);
+    let local = JSON.parse(localStorage.getItem('cart')) || [];//obtener local de cart (si es null, retorna [])
+    local.push(users[id-1]); //añade el nuevo producto
+    window.localStorage.setItem('cart',JSON.stringify(local))//actualiza localstorage
   }
 
   return(
