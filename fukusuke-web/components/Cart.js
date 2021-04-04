@@ -8,7 +8,18 @@ const Cart = (props)=>{
     let cartLocal = JSON.parse(localStorage.getItem('cart')) || [];
     setCart(cartLocal);
   }
-
+  //eliminar producto de la cartera
+  const deleteProductCart = (id)=>{
+    let cartLocal = JSON.parse(localStorage.getItem('cart')) || [];
+    for (let i = 0; i < cartLocal.length; i++) {
+      if(id == cartLocal[i].id){
+        cartLocal.splice(i,1);
+        window.localStorage.setItem('cart',JSON.stringify(cartLocal))//actualiza localstorage
+        setCart(cartLocal);//actualiza cartera
+        break;
+      }
+    }
+  }
   return(
     <div>
       <a className="nav-link btn" onClick={refreshCart} data-bs-toggle="modal" data-bs-target="#CartModal">Carrito</a>
@@ -31,11 +42,11 @@ const Cart = (props)=>{
                       <h3 className="">123.123</h3>
                     </div>
                     <div className="col-4">
-                      <button className="btn btn-danger w-100">Borrar</button>
+                      <button onClick={()=> deleteProductCart(product.id)} className="btn btn-danger w-100">Borrar</button>
                       <div className="d-flex mt-2 justify-content-between align-items-baseline">
                         <button className="btn border rounded-circle">-</button>
                         <p>1</p>
-                        <button className="btn border rounded-circle">+</button>
+                        <button type="button" className="btn border rounded-circle">+</button>
                       </div>
                     </div>
                   </div>
