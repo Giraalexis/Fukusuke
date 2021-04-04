@@ -1,12 +1,17 @@
+import React, {useState, useEffect} from 'react'
 
 const CardProducto = (props) =>{
   const users = props.users;
-  console.log(props.users[0].id);
+
+  const addProduct =(id) =>{
+    console.log(users[id-1]);
+  }
+
   return(
     <div className="row"> 
       {users.map((user)=>{
         return(
-          <div key={user.id} className=" col-lg-4 col-md-6 col-sm-12 mx-auto p-2" >
+          <form key={user.id}  className=" col-lg-4 col-md-6 col-sm-12 mx-auto p-2" >
             <div className="card card-body text-center">
               <img src={user.avatar} className="rounded mx-auto d-block w-50" alt=""/>              
             </div>
@@ -17,10 +22,10 @@ const CardProducto = (props) =>{
               </div>
               <div className="row align-items-center">
                 <h4 className="col-6"></h4>
-                <button className=" col-6 btn btn-primary">Añadir</button>
+                <button className="col-6 btn btn-primary" onClick={() => addProduct(user.id)} type="button">Añadir</button>
               </div>
             </div>
-          </div>
+          </form>
         )
       })}
     </div>
