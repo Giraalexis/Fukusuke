@@ -65,7 +65,7 @@ const Cart = (props)=>{
                     <img className="col-3 border" src={product.avatar} alt=""/>
                     <div className="col-4">
                       <h2 className="">{product.first_name}</h2>
-                      <h3 className="">123.123</h3>
+                      <h3 className="">${123.123*product.cant}</h3>
                     </div>
                     <div className="col-4">
                       <button onClick={()=> deleteProductCart(product.id)} className="btn btn-danger w-100">Borrar</button>
