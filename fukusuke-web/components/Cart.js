@@ -2,7 +2,8 @@ import React, {useState, useEffect} from 'react'
 
 const Cart = (props)=>{
   const [cart,setCart] = useState([]);
-
+  const [total,setTotal] = useState(0);
+  
   //al abrir la cartera, se refresca con el localstorage
   function refreshCart(e){
     let cartLocal = JSON.parse(localStorage.getItem('cart')) || [];
@@ -46,6 +47,7 @@ const Cart = (props)=>{
       }
     }
   }
+  //
   return(
     <div>
       <a className="nav-link btn" onClick={refreshCart} data-bs-toggle="modal" data-bs-target="#CartModal">Carrito</a>
@@ -65,7 +67,7 @@ const Cart = (props)=>{
                     <img className="col-3 border" src={product.avatar} alt=""/>
                     <div className="col-4">
                       <h2 className="">{product.first_name}</h2>
-                      <h3 className="">${123.123*product.cant}</h3>
+                      <h3 className="">${12123*product.cant}</h3>
                     </div>
                     <div className="col-4">
                       <button onClick={()=> deleteProductCart(product.id)} className="btn btn-danger w-100">Borrar</button>
@@ -81,9 +83,12 @@ const Cart = (props)=>{
             })}
                  
             </div>
-            <div className="modal-footer">
-              <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-              <button type="submit" className="btn btn-primary">Pagar</button>
+            <div className="modal-footer justify-content-between">
+              <h4 className="text-start col-6">Total: ${total}</h4>
+              <div className="">
+                <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="submit" className="btn btn-primary ">Pagar</button>
+              </div>
             </div>
           </div>
         </div>
