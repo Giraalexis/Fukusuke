@@ -20,6 +20,32 @@ const Cart = (props)=>{
       }
     }
   }
+  //sumar Cantidad del producto
+  const sumProduct = (id)=>{
+    let cartLocal = JSON.parse(localStorage.getItem('cart')) || [];
+    for (let i = 0; i < cartLocal.length; i++) {
+      if(id == cartLocal[i].id){
+        cartLocal[i].cant ++;
+        window.localStorage.setItem('cart',JSON.stringify(cartLocal))//actualiza localstorage
+        setCart(cartLocal);//actualiza cartera
+        break;
+      }
+    }
+  }
+  //restar cantidad del producto
+  const resProduct = (id) =>{
+    let cartLocal = JSON.parse(localStorage.getItem('cart')) || [];
+    for (let i = 0; i < cartLocal.length; i++) {
+      if(id == cartLocal[i].id){
+        if(cartLocal[i].cant > 1){
+          cartLocal[i].cant --;
+        }
+        window.localStorage.setItem('cart',JSON.stringify(cartLocal))//actualiza localstorage
+        setCart(cartLocal);//actualiza cartera
+        break;
+      }
+    }
+  }
   return(
     <div>
       <a className="nav-link btn" onClick={refreshCart} data-bs-toggle="modal" data-bs-target="#CartModal">Carrito</a>
@@ -36,7 +62,7 @@ const Cart = (props)=>{
               return(
                 <div key={product.id} className="card card-body mt-2">
                   <div className="row justify-content-between">
-                    <img className="col-3 border"src="" alt=""/>
+                    <img className="col-3 border" src={product.avatar} alt=""/>
                     <div className="col-4">
                       <h2 className="">{product.first_name}</h2>
                       <h3 className="">123.123</h3>
@@ -44,9 +70,9 @@ const Cart = (props)=>{
                     <div className="col-4">
                       <button onClick={()=> deleteProductCart(product.id)} className="btn btn-danger w-100">Borrar</button>
                       <div className="d-flex mt-2 justify-content-between align-items-baseline">
-                        <button className="btn border rounded-circle">-</button>
-                        <p>1</p>
-                        <button type="button" className="btn border rounded-circle">+</button>
+                        <button  onClick={()=> resProduct(product.id)} type="button" className="btn border rounded-circle">-</button>
+                        <p>{product.cant}</p>
+                        <button onClick={()=> sumProduct(product.id)} type="button" className="btn border rounded-circle">+</button>
                       </div>
                     </div>
                   </div>
