@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\felip\\source\\repos\\Fukusuke_satelite\\Fukusuke_satelite\\Fukusuke_satelite.csproj": {}
+    "C:\\Users\\felip\\Source\\Repos\\Giraalexis\\Fukusuke\\Fukusuke_satelite\\Fukusuke_satelite\\Fukusuke_satelite.csproj": {}
   },
   "projects": {
-    "C:\\Users\\felip\\source\\repos\\Fukusuke_satelite\\Fukusuke_satelite\\Fukusuke_satelite.csproj": {
+    "C:\\Users\\felip\\Source\\Repos\\Giraalexis\\Fukusuke\\Fukusuke_satelite\\Fukusuke_satelite\\Fukusuke_satelite.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\felip\\source\\repos\\Fukusuke_satelite\\Fukusuke_satelite\\Fukusuke_satelite.csproj",
+        "projectUniqueName": "C:\\Users\\felip\\Source\\Repos\\Giraalexis\\Fukusuke\\Fukusuke_satelite\\Fukusuke_satelite\\Fukusuke_satelite.csproj",
         "projectName": "Fukusuke_satelite",
-        "projectPath": "C:\\Users\\felip\\source\\repos\\Fukusuke_satelite\\Fukusuke_satelite\\Fukusuke_satelite.csproj",
+        "projectPath": "C:\\Users\\felip\\Source\\Repos\\Giraalexis\\Fukusuke\\Fukusuke_satelite\\Fukusuke_satelite\\Fukusuke_satelite.csproj",
         "packagesPath": "C:\\Users\\felip\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\felip\\source\\repos\\Fukusuke_satelite\\Fukusuke_satelite\\obj\\",
+        "outputPath": "C:\\Users\\felip\\Source\\Repos\\Giraalexis\\Fukusuke\\Fukusuke_satelite\\Fukusuke_satelite\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
