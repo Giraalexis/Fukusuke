@@ -14,6 +14,7 @@ namespace Fukusuke_satelite
     {
         public Form1()
         {
+            
             InitializeComponent();
         }
 
