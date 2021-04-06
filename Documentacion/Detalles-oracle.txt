@@ -1,5 +1,0 @@
-ip: opc@168.138.132.149
-port: 22
-
-user: oracle
-passwd: 
