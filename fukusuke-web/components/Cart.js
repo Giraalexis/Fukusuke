@@ -7,35 +7,49 @@ const Cart = (props)=>{
   //al abrir la cartera, se refresca con el localstorage
   function refreshCart(e){
     let cartLocal = JSON.parse(localStorage.getItem('cart')) || [];
+    let subTotal = 0;
+    for (let i = 0; i < cartLocal.length; i++) {
+      subTotal += cartLocal[i].cant * 1000;
+    }
+    setTotal(subTotal);
     setCart(cartLocal);
   }
-  //eliminar producto de la cartera
+
+  //eliminar producto de la cartera y actualiza el total
   const deleteProductCart = (id)=>{
     let cartLocal = JSON.parse(localStorage.getItem('cart')) || [];
+    let subTotal = 0;
     for (let i = 0; i < cartLocal.length; i++) {
       if(id == cartLocal[i].id){
+        subTotal = total - (cartLocal[i].cant * 1000)
         cartLocal.splice(i,1);
         window.localStorage.setItem('cart',JSON.stringify(cartLocal))//actualiza localstorage
         setCart(cartLocal);//actualiza cartera
+        setTotal(subTotal); //actualiza el total
         break;
       }
     }
   }
-  //sumar Cantidad del producto
+    
+  //sumar Cantidad del producto y actualiza el total
   const sumProduct = (id)=>{
     let cartLocal = JSON.parse(localStorage.getItem('cart')) || [];
+    let subTotal = 0;
     for (let i = 0; i < cartLocal.length; i++) {
       if(id == cartLocal[i].id){
         cartLocal[i].cant ++;
-        window.localStorage.setItem('cart',JSON.stringify(cartLocal))//actualiza localstorage
-        setCart(cartLocal);//actualiza cartera
-        break;
       }
+      subTotal += cartLocal[i].cant * 1000;
     }
+    window.localStorage.setItem('cart',JSON.stringify(cartLocal))//actualiza localstorage
+    setCart(cartLocal);//actualiza cartera
+    setTotal(subTotal);// actualiza el total
   }
-  //restar cantidad del producto
+
+  //restar cantidad del producto y actualiza el total
   const resProduct = (id) =>{
     let cartLocal = JSON.parse(localStorage.getItem('cart')) || [];
+    let subTotal = 0;
     for (let i = 0; i < cartLocal.length; i++) {
       if(id == cartLocal[i].id){
         if(cartLocal[i].cant > 1){
@@ -43,11 +57,12 @@ const Cart = (props)=>{
         }
         window.localStorage.setItem('cart',JSON.stringify(cartLocal))//actualiza localstorage
         setCart(cartLocal);//actualiza cartera
-        break;
       }
+      subTotal += cartLocal[i].cant * 1000;
     }
+    setTotal(subTotal);
   }
-  //
+
   return(
     <div>
       <a className="nav-link btn" onClick={refreshCart} data-bs-toggle="modal" data-bs-target="#CartModal">Carrito</a>
@@ -60,14 +75,14 @@ const Cart = (props)=>{
               <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div className="modal-body">
-            {cart.map((product)=>{
+            {cart.map((product)=>{ 
               return(
                 <div key={product.id} className="card card-body mt-2">
                   <div className="row justify-content-between">
                     <img className="col-3 border" src={product.avatar} alt=""/>
                     <div className="col-4">
                       <h2 className="">{product.first_name}</h2>
-                      <h3 className="">${12123*product.cant}</h3>
+                      <h3 className="">${(1000*product.cant)}</h3>
                     </div>
                     <div className="col-4">
                       <button onClick={()=> deleteProductCart(product.id)} className="btn btn-danger w-100">Borrar</button>
@@ -79,6 +94,7 @@ const Cart = (props)=>{
                     </div>
                   </div>
                 </div>
+
               )
             })}
                  
