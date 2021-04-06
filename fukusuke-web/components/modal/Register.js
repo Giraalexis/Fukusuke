@@ -21,9 +21,13 @@ const Register = ()=>{
   const handleInputChange = e=>{
     //captura el nombre y el valor 
     const {name, value} = e.target;
-    //Definir valores del estado actual (Guarda lo escrito)
-    //añadir a lo existente, con el nombre, el valor.
-    setValues({...values, [name]: value})
+    if(name =="nombre" || name == "direccion"){
+      //añadir a lo existente, con el nombre, el valor.
+      setValues({...values, [name]: value})
+    }else{
+      let cleanTrim = value.trim();
+      setValues({...values, [name]: cleanTrim})
+    }
   }
 
   //cuando se realiza el submit en el form, se envia los datos para ser verificados

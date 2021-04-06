@@ -3,7 +3,7 @@ import Footer from './Footer'
 import Head from "next/head";
 const Container = (props) => (
 
-  <div>
+  <div className="container-principal">
     <Head>
       <title>Fukusuke</title>
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"/>

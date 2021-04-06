@@ -15,7 +15,9 @@ a {
 * {
   box-sizing: border-box;
 }
-
+.container{
+  min-height: 85.3vh;
+}
 /*Colores background*/
 .primary-background { background-color: #08d9d6; }
 .secondary-background { background-color: #252a34; }

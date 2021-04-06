@@ -15,9 +15,9 @@ const Login = ()=>{
   const handleInputChange = e=>{
     //Captura el nombre y el valor 
     const {name, value} = e.target;
-    //Definir valores del estado actual (Guarda lo escrito)
+    let cleanTrim = value.trim();
     //Añadir a lo existente, con el nombre, el valor.
-    setValues({...values, [name]: value})
+    setValues({...values, [name]: cleanTrim})
   }
   //cuando se realiza el submit en el form, se envia los datos para ser verificados
   const handleSubmit = e =>{
