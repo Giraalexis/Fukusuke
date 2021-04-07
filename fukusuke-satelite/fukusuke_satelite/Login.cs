@@ -26,5 +26,21 @@ namespace fukusuke_satelite
         {
             Application.Exit();
         }
+
+        private void cbMostar_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbMostrar.Checked)
+            {
+                txtPass.UseSystemPasswordChar = false;
+                var checkbox = (CheckBox)sender;
+                checkbox.Text = "Ocultar contraseña";
+            }
+            else
+            {
+                txtPass.UseSystemPasswordChar = true;
+                var checkbox = (CheckBox)sender;
+                checkbox.Text = "Mostrar contraseña";
+            }
+        }
     }
 }

@@ -34,8 +34,8 @@ namespace fukusuke_satelite
             this.lbUsuario = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.lbContraseña = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.cbMostar = new System.Windows.Forms.CheckBox();
+            this.txtPass = new System.Windows.Forms.TextBox();
+            this.cbMostrar = new System.Windows.Forms.CheckBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -90,24 +90,26 @@ namespace fukusuke_satelite
             this.lbContraseña.TabIndex = 4;
             this.lbContraseña.Text = "Contraseña";
             // 
-            // textBox2
+            // txtPass
             // 
-            this.textBox2.Location = new System.Drawing.Point(513, 178);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(213, 27);
-            this.textBox2.TabIndex = 5;
+            this.txtPass.Location = new System.Drawing.Point(513, 178);
+            this.txtPass.Name = "txtPass";
+            this.txtPass.Size = new System.Drawing.Size(213, 27);
+            this.txtPass.TabIndex = 5;
+            this.txtPass.UseSystemPasswordChar = true;
             // 
-            // cbMostar
+            // cbMostrar
             // 
-            this.cbMostar.AutoSize = true;
-            this.cbMostar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.cbMostar.ForeColor = System.Drawing.Color.Black;
-            this.cbMostar.Location = new System.Drawing.Point(513, 212);
-            this.cbMostar.Name = "cbMostar";
-            this.cbMostar.Size = new System.Drawing.Size(168, 24);
-            this.cbMostar.TabIndex = 6;
-            this.cbMostar.Text = "Mostrar contraseña";
-            this.cbMostar.UseVisualStyleBackColor = true;
+            this.cbMostrar.AutoSize = true;
+            this.cbMostrar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.cbMostrar.ForeColor = System.Drawing.Color.Black;
+            this.cbMostrar.Location = new System.Drawing.Point(513, 212);
+            this.cbMostrar.Name = "cbMostrar";
+            this.cbMostrar.Size = new System.Drawing.Size(168, 24);
+            this.cbMostrar.TabIndex = 6;
+            this.cbMostrar.Text = "Mostrar contraseña";
+            this.cbMostrar.UseVisualStyleBackColor = true;
+            this.cbMostrar.CheckedChanged += new System.EventHandler(this.cbMostar_CheckedChanged);
             // 
             // button1
             // 
@@ -146,8 +148,8 @@ namespace fukusuke_satelite
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.cbMostar);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.cbMostrar);
+            this.Controls.Add(this.txtPass);
             this.Controls.Add(this.lbContraseña);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.lbUsuario);
@@ -173,8 +175,8 @@ namespace fukusuke_satelite
         private System.Windows.Forms.Label lbUsuario;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label lbContraseña;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.CheckBox cbMostar;
+        private System.Windows.Forms.TextBox txtPass;
+        private System.Windows.Forms.CheckBox cbMostrar;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
     }
