@@ -40,7 +40,7 @@ const CardProducto = (props) =>{
             <div className="card-footer bg-light bg-gradient">
               <div className="row align-items-center">
                 <h4 className="col-6 text-truncate">{user.first_name}</h4>
-                <h2 className="col-6 text-danger">123.123</h2>
+                <h2 className="col-6 text-danger">$1000</h2>
               </div>
               <div className="row align-items-center">
                 <h4 className="col-6"></h4>
