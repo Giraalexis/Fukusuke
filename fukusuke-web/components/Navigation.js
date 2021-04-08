@@ -2,20 +2,20 @@ import Link from "next/link";
 import Login from './modal/Login';
 import Register from './modal/Register';
 import Cart from './Cart';
-
+import { useRouter } from 'next/router'
 const Navigation = () => {
-
+  const router = useRouter()
   return(
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark ">
       <div className="container-fluid">
-        <Link href="/"><a className="navbar-brand btn">福助 Fukusuke</a></Link>
+        <Link href="/"><a className="navbar-brand">福助 Fukusuke</a></Link>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse justify-content-between" id="navbarNavAltMarkup">
           <div className="nav navbar-nav align-items-start">
-            <Link href="/"><a className="nav-link btn">Comprar</a></Link>
-            <Link href="/about"><a  className="nav-link btn">Acerca de</a></Link>
+            <Link href="/"><a className={"nav-link "+(router.asPath == "/" ?" active" : "")}>Comprar</a></Link>
+            <Link href="/about"><a className={"nav-link "+(router.asPath == "/about" ?" active" : "")}>Acerca de</a></Link>
           </div>
           <div className="nav navbar-nav align-items-start">
             <Cart/>

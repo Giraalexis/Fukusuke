@@ -1,3 +1,4 @@
+import Router from "next/router";
 
 const Carousel = (props)=>{
   return(
@@ -6,7 +7,7 @@ const Carousel = (props)=>{
         {props.users.map((user)=>{
           return(
             <div key={user.id} className={"carousel-item " + (user.id == 1 ?" active" : "")}>
-              <img src={user.avatar} className="rounded mx-auto d-block w-50" alt="..." />
+              <img src={user.avatar} className="rounded btn sombra mx-auto d-block w-50" onClick={() => Router.push(`/detailProduct/[id]`, `/detailProduct/${user.id}`)} />
             </div>
           )
         })}
@@ -20,7 +21,7 @@ const Carousel = (props)=>{
         <span className="visually-hidden">Next</span>
       </button>
     </div>
-    
+
   )
 }
 

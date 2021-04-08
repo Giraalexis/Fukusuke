@@ -87,9 +87,9 @@ const Cart = (props)=>{
                     <div className="col-4">
                       <button onClick={()=> deleteProductCart(product.id)} className="btn btn-danger w-100">Borrar</button>
                       <div className="d-flex mt-2 justify-content-between align-items-baseline">
-                        <button  onClick={()=> resProduct(product.id)} type="button" className="btn border rounded-circle">-</button>
+                        <button  onClick={()=> resProduct(product.id)} type="button" className="btn sombra border rounded-circle">-</button>
                         <p>{product.cant}</p>
-                        <button onClick={()=> sumProduct(product.id)} type="button" className="btn border rounded-circle">+</button>
+                        <button onClick={()=> sumProduct(product.id)} type="button" className="btn sombra border rounded-circle">+</button>
                       </div>
                     </div>
                   </div>
