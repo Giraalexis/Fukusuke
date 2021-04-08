@@ -1,34 +1,49 @@
 import Register from './Register'
 import React, {useState, useEffect} from 'react'
 
-const Login = ()=>{
+const Login = (props)=>{
   //Valores de los input inicialmente (estado inicial)
   const initialStateValues = {
     correo: '',
     password: '',
-  }
-
+  };
+    
   //Manejo de estados de valores
   const [values, setValues] = useState(initialStateValues);
+  const [show, setShow] = useState(false); //show or hiden modal
 
   //Guardar el estado de lo escrito en input
   const handleInputChange = e=>{
-    //Captura el nombre y el valor 
-    const {name, value} = e.target;
-    let cleanTrim = value.trim();
-    //Añadir a lo existente, con el nombre, el valor.
-    setValues({...values, [name]: cleanTrim})
+    const {name, value} = e.target;//Captura el nombre y el valor 
+    let cleanTrim = value.trim(); //limpia espaciados
+    setValues({...values, [name]: cleanTrim}) //Añadir a lo existente, con el nombre, el valor.
   }
-  //cuando se realiza el submit en el form, se envia los datos para ser verificados
+
+  //cuando se realiza el submit en el form
   const handleSubmit = e =>{
-    e.preventDefault();
-    console.log(values);
+    e.preventDefault(); //prevenir recarga pagina
+    //enviar datos a api y verificar si existe (FALTA IMPLEMENTARLO AUN)
+    localStorage.setItem('session',JSON.stringify(values))//crear session en localstorage
+    handleClose(); //cerrar modal
+    props.onLogin(values);//enviar datos al 'navigation' para que cambie estados
   }
+
+  //cerrar modal
+  const handleClose = () => {
+    let backdrop = document.getElementsByClassName('modal-backdrop');
+    let modal = document.getElementById('loginModal');
+    modal.style = '';
+    backdrop[0].remove()
+    setShow(false)
+  }
+  //abrir modal
+  const handleShow = () => setShow(true);
+
   return(
     <div>
-      <a className="nav-link btn" data-bs-toggle="modal" data-bs-target="#loginModal">Iniciar Sesion</a>
+      <a className="nav-link btn" data-bs-toggle="modal" data-bs-target="#loginModal" onClick={handleShow}>Iniciar Sesion</a>
 
-      <div className="modal fade" id="loginModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div className={"modal fade "+(show? 'show': '')}  id="loginModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div className="modal-dialog">
           <form className="modal-content" onSubmit={handleSubmit}>
             <div className="modal-header">
@@ -41,7 +56,7 @@ const Login = ()=>{
             </div>
             <div className="modal-footer">
               <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-              <button type="submit" className="btn btn-primary">Continuar</button>
+              <button type="submit" className="btn btn-primary" >Continuar</button>
             </div>
           </form>
         </div>

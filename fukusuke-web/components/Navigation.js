@@ -5,9 +5,24 @@ import Cart from './Cart';
 import { useRouter } from 'next/router'
 import React, {useState, useEffect} from 'react'
 
-const Navigation = (props) => {
+const Navigation = () => {
   const router = useRouter()
-  const [isSession,setIsSession] = useState(props.session || []);
+  const [isSession, setIsSession] = useState('');
+
+  useEffect(() => { //si algo cambia en useState
+    setIsSession(localStorage.getItem('session')) //refresca isSession con el valor de localstorage
+  }, [])
+
+  //cambiar el estado si el login es exitoso
+  const onLogin = (param)=>{
+    setIsSession(param)
+    console.log(isSession);
+  }
+  //Cerrar sesion
+  const logOut = ()=>{
+    localStorage.setItem('session','');
+    setIsSession('');
+  }
   return(
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark ">
       <div className="container-fluid">
@@ -22,11 +37,14 @@ const Navigation = (props) => {
           </div>
           <div className="nav navbar-nav align-items-start">
             <Cart/>
-            {isSession.length  //si esta logeado...
-              ? <Link href="/account"><a className={"nav-link "+(router.asPath == "/account" ?" active" : "")}>Cuenta</a></Link>
+            {isSession //si esta logeado...
+              ? <>
+                  <a className="nav-link btn" onClick={()=> logOut()}>Cerrar Sesion</a>
+                  <Link href="/account"><a className={"nav-link "+(router.asPath == "/account" ?" active" : "")}>Cuenta</a></Link>
+                </>
               : <>
                   <Register/>
-                  <Login/>
+                  <Login onLogin={onLogin}/>
                 </>
             }
           </div>
@@ -36,11 +54,4 @@ const Navigation = (props) => {
   )
 };
 
-//obtener valores antes de renderizar componente
-Navigation.getInitialProps = async (ctx) =>{
-  let session = JSON.parse(localStorage.getItem('session')) || [];
-  return{
-    session: session
-  }
-}
 export default Navigation;
