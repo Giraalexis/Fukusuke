@@ -5,9 +5,9 @@ import Cart from './Cart';
 import { useRouter } from 'next/router'
 import React, {useState, useEffect} from 'react'
 
-const Navigation = () => {
+const Navigation = (props) => {
   const router = useRouter()
-  const [isSession,setIsSession] = useState([1])
+  const [isSession,setIsSession] = useState(props.session || []);
   return(
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark ">
       <div className="container-fluid">
@@ -36,4 +36,11 @@ const Navigation = () => {
   )
 };
 
+//obtener valores antes de renderizar componente
+Navigation.getInitialProps = async (ctx) =>{
+  let session = JSON.parse(localStorage.getItem('session')) || [];
+  return{
+    session: session
+  }
+}
 export default Navigation;
