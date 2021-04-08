@@ -3,8 +3,11 @@ import Login from './modal/Login';
 import Register from './modal/Register';
 import Cart from './Cart';
 import { useRouter } from 'next/router'
+import React, {useState, useEffect} from 'react'
+
 const Navigation = () => {
   const router = useRouter()
+  const [isSession,setIsSession] = useState([1])
   return(
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark ">
       <div className="container-fluid">
@@ -19,8 +22,13 @@ const Navigation = () => {
           </div>
           <div className="nav navbar-nav align-items-start">
             <Cart/>
-            <Register/>
-            <Login/>
+            {isSession.length  //si esta logeado...
+              ? <Link href="/account"><a className={"nav-link "+(router.asPath == "/account" ?" active" : "")}>Cuenta</a></Link>
+              : <>
+                  <Register/>
+                  <Login/>
+                </>
+            }
           </div>
         </div>
       </div>
