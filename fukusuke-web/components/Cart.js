@@ -63,6 +63,26 @@ const Cart = (props)=>{
     setTotal(subTotal);
   }
 
+  //Realizar Pago del pedido
+  const payOrder = ()=>{
+    if(JSON.parse(localStorage.getItem('sesion'))){ //verificar si se a logeado
+      console.log("sesion esta iniciada")
+      if(!JSON.parse(localStorage.getItem('cart'))){ //verificar si existe cartera
+        console.log("cartera no existe");
+      }else{
+        console.log("cartera existe");
+        if(!JSON.parse(localStorage.getItem('cart')).length){//verifica que la cartera este vacia
+          console.log("cartera vacia")
+        }else{
+          console.log("realizar pago")
+          //realizar el pago
+        }
+      }
+    }else{
+      console.log("sesion no iniciada")
+    }
+  }
+
   return(
     <div>
       <a className="nav-link btn" onClick={refreshCart} data-bs-toggle="modal" data-bs-target="#CartModal">Carrito</a>
@@ -102,7 +122,7 @@ const Cart = (props)=>{
               <h4 className="text-start col-6">Total: ${total}</h4>
               <div className="">
                 <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                <button type="submit" className="btn btn-primary ">Pagar</button>
+                <button onClick={()=> payOrder()} type="button" className="btn btn-primary ">Pagar</button>
               </div>
             </div>
           </div>
