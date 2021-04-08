@@ -18,6 +18,9 @@ a {
 .container{
   min-height: 85.3vh;
 }
+.btn:hover{
+  box-shadow: 0px 0px 10px 1px;
+}
 /*Colores background*/
 .primary-background { background-color: #08d9d6; }
 .secondary-background { background-color: #252a34; }

@@ -33,8 +33,8 @@ const CardProducto = (props) =>{
     <div className="row"> 
       {users.map((user)=>{
         return(
-          <form key={user.id} onClick={() => Router.push(`/detailProduct/[id]`, `/detailProduct/${user.id}`)} className=" col-lg-4 col-md-6 col-sm-12 mx-auto p-2" >
-            <div className="card card-body text-center">
+          <form key={user.id} className=" col-lg-4 col-md-6 col-sm-12 mx-auto p-2" >
+            <div className="card card-body text-center btn" onClick={() => Router.push(`/detailProduct/[id]`, `/detailProduct/${user.id}`)}>
               <img src={user.avatar} className="rounded mx-auto d-block w-50" alt=""/>              
             </div>
             <div className="card-footer bg-light bg-gradient">
