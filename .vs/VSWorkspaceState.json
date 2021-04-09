@@ -1,8 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Fukusuke_satelite"
+    "\\Fukusuke_satelite",
+    "\\Fukusuke_satelite\\Fukusuke_satelite"
   ],
-  "SelectedNode": "\\Fukusuke_satelite\\Fukusuke_satelite.sln",
+  "SelectedNode": "\\Fukusuke_satelite\\Fukusuke_satelite\\Form1.cs",
   "PreviewInSolutionExplorer": false
 }

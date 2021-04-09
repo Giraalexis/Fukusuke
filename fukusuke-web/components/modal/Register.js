@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 
-const Register = ()=>{
+const Register = (props)=>{
   //Valores de los input inicialmente (estado inicial)
   const initialStateValues = {
     rut: '',
@@ -14,31 +14,49 @@ const Register = ()=>{
     correo: '',
     password: ''
   }
-  //Utilidad que nos permite manejar los valores por un estado
+  //estado de valores
   const [values, setValues] = useState(initialStateValues);
+  const [show, setShow] = useState(false); //show or hiden modal
 
   //cuando se escriba algo (onChange), guardar en el estado
   const handleInputChange = e=>{
-    //captura el nombre y el valor 
-    const {name, value} = e.target;
-    //Definir valores del estado actual (Guarda lo escrito)
-    //añadir a lo existente, con el nombre, el valor.
-    setValues({...values, [name]: value})
+    const {name, value} = e.target; //captura el nombre y el valor
+    if(name =="nombre" || name == "direccion"){//aplicar trim en campos necesarios
+      setValues({...values, [name]: value}) //añadir a lo existente, con el nombre, el valor.
+    }else{
+      let cleanTrim = value.trim();
+      setValues({...values, [name]: cleanTrim})
+    }
   }
 
   //cuando se realiza el submit en el form, se envia los datos para ser verificados
   const handleSubmit = e =>{
     e.preventDefault();
-    console.log(values);
+    
+    handleClose() //cerrar modal
   }
+
+  //cerrar modal
+  const handleClose = () => { //bootstrap no me cierra automatico el modal :c
+    let modal = document.querySelector("#close-modal-register")
+    modal.setAttribute("data-bs-dismiss","modal")
+    modal.click();
+    setShow(false)
+  }
+  //abrir modal
+  const handleShow = () => { 
+    let modal = document.querySelector("#close-modal-register")
+    modal.setAttribute("data-bs-dismiss","")
+    setShow(true)
+   };
 
   return(
   <>
-    <a className="nav-link btn" data-bs-toggle="modal" data-bs-target="#registerModal">Registrate</a>
+    <a onClick={handleShow} className="nav-link btn" data-bs-toggle="modal" data-bs-target="#registerModal">Registrate</a>
 
-    <div className="modal fade" id="registerModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div className={"modal fade "+(show? 'show': '')} id="registerModal" tabIndex="-1" aria-labelledby="registerModal" aria-hidden="true">
       <div className="modal-dialog">
-        <form className="modal-content" onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="modal-content" >
           <div className="modal-header">
             <h5 className="modal-title" id="exampleModalLabel">Registrate</h5>
             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -81,7 +99,7 @@ const Register = ()=>{
           </div>
           <div className="modal-footer">
             <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-            <button type="submit" className="btn btn-primary">Registrar</button>
+            <button type="submit" id="close-modal-register" className="btn btn-primary"  >Registrar</button>
           </div>
         </form>
       </div>
