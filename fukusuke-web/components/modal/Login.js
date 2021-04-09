@@ -22,30 +22,33 @@ const Login = (props)=>{
   //cuando se realiza el submit en el form
   const handleSubmit = e =>{
     e.preventDefault(); //prevenir recarga pagina
-    //enviar datos a api y verificar si existe (FALTA IMPLEMENTARLO AUN)
-    localStorage.setItem('session',JSON.stringify(values))//crear session en localstorage
+    //enviar datos a api y verificar si existe, devolvera datos del usuario (FALTA IMPLEMENTARLO AUN)
+    localStorage.setItem('session',JSON.stringify(values))//crear session en localstorage(CAMBIAR VALUES POR LOS QUE TRAE LA API)
     handleClose(); //cerrar modal
     props.onLogin(values);//enviar datos al 'navigation' para que cambie estados
   }
 
   //cerrar modal
-  const handleClose = () => {
-    let backdrop = document.getElementsByClassName('modal-backdrop');
-    let modal = document.getElementById('loginModal');
-    modal.style = '';
-    backdrop[0].remove()
+  const handleClose = () => { //bootstrap no me cierra automatico el modal :c
+    let modal = document.querySelector("#close-modal-login")
+    modal.setAttribute("data-bs-dismiss","modal")
+    modal.click();
     setShow(false)
   }
   //abrir modal
-  const handleShow = () => setShow(true);
+  const handleShow = () => { 
+    let modal = document.querySelector("#close-modal-login")
+    modal.setAttribute("data-bs-dismiss","")
+    setShow(true)
+   };
 
   return(
     <div>
-      <a className="nav-link btn" data-bs-toggle="modal" data-bs-target="#loginModal" onClick={handleShow}>Iniciar Sesion</a>
+      <a onClick={handleShow} className="nav-link btn" data-bs-toggle="modal" data-bs-target="#loginModal">Iniciar Sesion</a>
 
       <div className={"modal fade "+(show? 'show': '')}  id="loginModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div className="modal-dialog">
-          <form className="modal-content" onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} className="modal-content" >
             <div className="modal-header">
               <h5 className="modal-title" id="exampleModalLabel">Iniciar Sesion</h5>
               <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -56,7 +59,7 @@ const Login = (props)=>{
             </div>
             <div className="modal-footer">
               <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-              <button type="submit" className="btn btn-primary" >Continuar</button>
+              <button type="submit" id="close-modal-login" className="btn btn-primary" >Continuar</button>
             </div>
           </form>
         </div>

@@ -8,7 +8,7 @@ import React, {useState, useEffect} from 'react'
 const Navigation = () => {
   const router = useRouter()
   const [isSession, setIsSession] = useState('');
-
+  const [onRegisterFresh,setOnRegisterFresh] = useState();
   useEffect(() => { //si algo cambia en useState
     setIsSession(localStorage.getItem('session')) //refresca isSession con el valor de localstorage
   }, [])
@@ -23,6 +23,7 @@ const Navigation = () => {
     localStorage.setItem('session','');
     setIsSession('');
   }
+
   return(
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark ">
       <div className="container-fluid">
@@ -43,7 +44,7 @@ const Navigation = () => {
                   <Link href="/account"><a className={"nav-link "+(router.asPath == "/account" ?" active" : "")}>Cuenta</a></Link>
                 </>
               : <>
-                  <Register/>
+                  <Register onRegister={onLogin}/>
                   <Login onLogin={onLogin}/>
                 </>
             }
