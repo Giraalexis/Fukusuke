@@ -1,0 +1,183 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="4F7FD61D-91D3-DC99-6749-E31D23ACBB22" name="Empleado">
+<createdBy>felipe</createdBy>
+<createdTime>2021-04-05 02:18:45 UTC</createdTime>
+<ownerDesignName>Fukusuke 1.0</ownerDesignName>
+<engineerTo>
+<item key="6D9A5785-EC90-5C98-BFAD-2914D539D6EC" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="Id_empleado" id="E21EE610-F2F2-5450-B14B-03963690E9CA">
+<createdBy>felipe</createdBy>
+<createdTime>2021-04-05 02:31:22 UTC</createdTime>
+<ownerDesignName>Fukusuke 1.0</ownerDesignName>
+<engineerTo>
+<item key="6D9A5785-EC90-5C98-BFAD-2914D539D6EC" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 CHAR</dataTypeSize>
+<ownDataTypeParameters>10 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Nombre" id="7D6031F3-001D-F77B-59D1-515F5E1556FD">
+<createdBy>felipe</createdBy>
+<createdTime>2021-04-05 02:36:33 UTC</createdTime>
+<ownerDesignName>Fukusuke 1.0</ownerDesignName>
+<engineerTo>
+<item key="6D9A5785-EC90-5C98-BFAD-2914D539D6EC" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Rut" id="466B1A33-D1AA-4736-5BA8-DF4C962096F8">
+<createdBy>felipe</createdBy>
+<createdTime>2021-04-05 02:37:07 UTC</createdTime>
+<ownerDesignName>Fukusuke 1.0</ownerDesignName>
+<engineerTo>
+<item key="6D9A5785-EC90-5C98-BFAD-2914D539D6EC" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>12 CHAR</dataTypeSize>
+<ownDataTypeParameters>12 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Email" id="23358E62-0AD9-630F-82F9-A40AE92D3EC2">
+<createdBy>felipe</createdBy>
+<createdTime>2021-04-05 02:37:40 UTC</createdTime>
+<ownerDesignName>Fukusuke 1.0</ownerDesignName>
+<engineerTo>
+<item key="6D9A5785-EC90-5C98-BFAD-2914D539D6EC" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 CHAR</dataTypeSize>
+<ownDataTypeParameters>50 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Telefono" id="0111A4FB-48FE-3F70-C6DE-A716A8DEFB41">
+<createdBy>felipe</createdBy>
+<createdTime>2021-04-05 02:37:59 UTC</createdTime>
+<ownerDesignName>Fukusuke 1.0</ownerDesignName>
+<engineerTo>
+<item key="6D9A5785-EC90-5C98-BFAD-2914D539D6EC" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Fecha_nacimiento" id="0AC169F6-B0DA-B6AE-562E-6910444F6A27">
+<createdBy>felipe</createdBy>
+<createdTime>2021-04-05 02:38:33 UTC</createdTime>
+<ownerDesignName>Fukusuke 1.0</ownerDesignName>
+<engineerTo>
+<item key="6D9A5785-EC90-5C98-BFAD-2914D539D6EC" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 CHAR</dataTypeSize>
+<ownDataTypeParameters>10 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Contraseña" id="64926970-2453-AC0E-4D5C-297DE543A57E">
+<createdBy>felipe</createdBy>
+<createdTime>2021-04-05 02:39:02 UTC</createdTime>
+<ownerDesignName>Fukusuke 1.0</ownerDesignName>
+<engineerTo>
+<item key="6D9A5785-EC90-5C98-BFAD-2914D539D6EC" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Estado" id="A1019B1C-5596-5548-AAD9-E8709C08CFBA">
+<createdBy>felipe</createdBy>
+<createdTime>2021-04-05 02:39:34 UTC</createdTime>
+<ownerDesignName>Fukusuke 1.0</ownerDesignName>
+<engineerTo>
+<item key="6D9A5785-EC90-5C98-BFAD-2914D539D6EC" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT006</logicalDatatype>
+<dataTypeSize>1 CHAR</dataTypeSize>
+<ownDataTypeParameters>1 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Id_rol" id="309B9F49-1A2A-2B60-E990-D6378AC559EC">
+<createdBy>felipe</createdBy>
+<createdTime>2021-04-05 22:12:52 UTC</createdTime>
+<generatorID>8DE8ED7D-EF15-81AD-C924-DF172979946F</generatorID>
+<ownerDesignName>Fukusuke 1.0</ownerDesignName>
+<engineerTo>
+<item key="6D9A5785-EC90-5C98-BFAD-2914D539D6EC" value="true"/>
+</engineerTo>
+<referedAttribute>9984E7C8-DD45-96A9-C9ED-51BEC502E50D</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>5 CHAR</dataTypeSize>
+<ownDataTypeParameters>5 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Id_sexo" id="E1635079-A4E6-7BD2-6356-F18011B3D33A">
+<createdBy>felipe</createdBy>
+<createdTime>2021-04-05 22:16:37 UTC</createdTime>
+<generatorID>AB75402B-F9DF-D4C9-69D2-0C4374E47CF5</generatorID>
+<ownerDesignName>Fukusuke 1.0</ownerDesignName>
+<engineerTo>
+<item key="6D9A5785-EC90-5C98-BFAD-2914D539D6EC" value="true"/>
+</engineerTo>
+<referedAttribute>B9332F8E-0F0E-E92F-B795-9F1D4C23D2E7</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>5 CHAR</dataTypeSize>
+<ownDataTypeParameters>5 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Id_comuna" id="952686BA-321E-500D-CBEC-641BD4DAF4AD">
+<createdBy>felipe</createdBy>
+<createdTime>2021-04-06 02:18:55 UTC</createdTime>
+<generatorID>01EBCA16-10FF-0CC3-2679-5B776238B7D8</generatorID>
+<ownerDesignName>Fukusuke 1.0</ownerDesignName>
+<engineerTo>
+<item key="6D9A5785-EC90-5C98-BFAD-2914D539D6EC" value="true"/>
+</engineerTo>
+<referedAttribute>1ECD5D6E-F23C-6265-21D2-5FAA647FCD79</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 CHAR</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="B3B2B262-341F-98CD-FEDA-3E47786E55AE" name="Empleado PK">
+<createdBy>felipe</createdBy>
+<createdTime>2021-04-05 02:32:21 UTC</createdTime>
+<ownerDesignName>Fukusuke 1.0</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="6D9A5785-EC90-5C98-BFAD-2914D539D6EC" value="false"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>E21EE610-F2F2-5450-B14B-03963690E9CA</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

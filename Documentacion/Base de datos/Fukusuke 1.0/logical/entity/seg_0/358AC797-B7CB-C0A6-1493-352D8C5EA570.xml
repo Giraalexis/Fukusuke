@@ -1,0 +1,59 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="358AC797-B7CB-C0A6-1493-352D8C5EA570" name="Metodo_Pago">
+<createdBy>felipe</createdBy>
+<createdTime>2021-04-05 02:55:12 UTC</createdTime>
+<ownerDesignName>Fukusuke 1.0</ownerDesignName>
+<engineerTo>
+<item key="6D9A5785-EC90-5C98-BFAD-2914D539D6EC" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="Id_pago" id="8B0B9A14-0726-9CF4-A00B-C8E1D04F571F">
+<createdBy>felipe</createdBy>
+<createdTime>2021-04-05 02:55:23 UTC</createdTime>
+<ownerDesignName>Fukusuke 1.0</ownerDesignName>
+<engineerTo>
+<item key="6D9A5785-EC90-5C98-BFAD-2914D539D6EC" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 CHAR</dataTypeSize>
+<ownDataTypeParameters>10 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Nombre" id="48FCF07B-3E47-D370-E0EF-C3508B162F80">
+<createdBy>felipe</createdBy>
+<createdTime>2021-04-05 02:55:46 UTC</createdTime>
+<ownerDesignName>Fukusuke 1.0</ownerDesignName>
+<engineerTo>
+<item key="6D9A5785-EC90-5C98-BFAD-2914D539D6EC" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="B3AEB7B4-7123-0F5C-787A-CC1331B70B69" name="Metodo_pago PK">
+<createdBy>felipe</createdBy>
+<createdTime>2021-04-05 02:55:43 UTC</createdTime>
+<ownerDesignName>Fukusuke 1.0</ownerDesignName>
+<engineerTo>
+<item key="6D9A5785-EC90-5C98-BFAD-2914D539D6EC" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>8B0B9A14-0726-9CF4-A00B-C8E1D04F571F</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Relacion_Sexo_Cliente" directorySegmentName="seg_0" id="8A16A9B1-769C-1BB4-F5CD-2C57F14C9D7F">
+<createdBy>felipe</createdBy>
+<createdTime>2021-04-05 22:18:44 UTC</createdTime>
+<ownerDesignName>Fukusuke 1.0</ownerDesignName>
+<engineerTo>
+<item key="6D9A5785-EC90-5C98-BFAD-2914D539D6EC" value="true"/>
+</engineerTo>
+<sourcePk>9FAB0D4E-9D44-72B8-0525-9484A2601B6F</sourcePk>
+<identifying>false</identifying>
+<optionalSource>false</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>2E821BE3-2084-43C7-0DBE-3989A8710BE8</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>94DB0977-B2C5-39B6-6835-26A23F293458</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

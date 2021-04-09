@@ -1,0 +1,149 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="79B156D3-EC63-F99F-A53E-C5ABC3D31536" name="Boleta">
+<createdBy>felipe</createdBy>
+<createdTime>2021-04-05 02:56:11 UTC</createdTime>
+<ownerDesignName>Fukusuke 1.0</ownerDesignName>
+<engineerTo>
+<item key="6D9A5785-EC90-5C98-BFAD-2914D539D6EC" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="Folio" id="3C8243C0-8FA5-C8F0-72A4-C6BD8DA6444C">
+<createdBy>felipe</createdBy>
+<createdTime>2021-04-05 02:56:30 UTC</createdTime>
+<ownerDesignName>Fukusuke 1.0</ownerDesignName>
+<engineerTo>
+<item key="6D9A5785-EC90-5C98-BFAD-2914D539D6EC" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10000000 CHAR</dataTypeSize>
+<ownDataTypeParameters>10000000 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Fecha" id="4FB4D72E-3BBE-DAB9-2850-630E2AA2FE40">
+<createdBy>felipe</createdBy>
+<createdTime>2021-04-05 02:58:46 UTC</createdTime>
+<ownerDesignName>Fukusuke 1.0</ownerDesignName>
+<engineerTo>
+<item key="6D9A5785-EC90-5C98-BFAD-2914D539D6EC" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 CHAR</dataTypeSize>
+<ownDataTypeParameters>10 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Total" id="CBCA48B8-5ED5-3CBD-27DD-FE49689295D6">
+<createdBy>felipe</createdBy>
+<createdTime>2021-04-05 02:59:14 UTC</createdTime>
+<ownerDesignName>Fukusuke 1.0</ownerDesignName>
+<engineerTo>
+<item key="6D9A5785-EC90-5C98-BFAD-2914D539D6EC" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 CHAR</dataTypeSize>
+<ownDataTypeParameters>10 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Id_cliente" id="1040E094-5B9C-5881-636A-F4640071A30E">
+<createdBy>felipe</createdBy>
+<createdTime>2021-04-05 22:23:11 UTC</createdTime>
+<generatorID>CA4CA33B-BA06-ABA6-2225-A9E946203B75</generatorID>
+<ownerDesignName>Fukusuke 1.0</ownerDesignName>
+<engineerTo>
+<item key="6D9A5785-EC90-5C98-BFAD-2914D539D6EC" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<referedAttribute>BD19FA46-0690-7EE1-136A-5DF37128E037</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 CHAR</dataTypeSize>
+<ownDataTypeParameters>10 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Id_pago" id="6D6815F2-5412-C7D8-E094-F90A18740B54">
+<createdBy>felipe</createdBy>
+<createdTime>2021-04-05 22:28:03 UTC</createdTime>
+<generatorID>4CF7CE1F-1FAC-7C21-5D92-A6B7833BC099</generatorID>
+<ownerDesignName>Fukusuke 1.0</ownerDesignName>
+<engineerTo>
+<item key="6D9A5785-EC90-5C98-BFAD-2914D539D6EC" value="true"/>
+</engineerTo>
+<referedAttribute>8B0B9A14-0726-9CF4-A00B-C8E1D04F571F</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 CHAR</dataTypeSize>
+<ownDataTypeParameters>10 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Id_orden" id="22F6444F-A6A0-2646-1AB6-3449BE486099">
+<createdBy>felipe</createdBy>
+<createdTime>2021-04-05 22:29:00 UTC</createdTime>
+<generatorID>ED0881FD-5F3A-D78D-3914-B6A30E53D9A5</generatorID>
+<ownerDesignName>Fukusuke 1.0</ownerDesignName>
+<engineerTo>
+<item key="6D9A5785-EC90-5C98-BFAD-2914D539D6EC" value="true"/>
+</engineerTo>
+<referedAttribute>04822D3C-9245-C423-DACE-38D2941E911A</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10000000 CHAR</dataTypeSize>
+<ownDataTypeParameters>10000000 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Id_empleado" id="6BFAB50A-08ED-D349-7BF3-86F479A89FB5">
+<createdBy>felipe</createdBy>
+<createdTime>2021-04-06 02:24:27 UTC</createdTime>
+<generatorID>DB49C9D0-B3F1-9E58-78F7-1A72841B75E8</generatorID>
+<ownerDesignName>Fukusuke 1.0</ownerDesignName>
+<engineerTo>
+<item key="6D9A5785-EC90-5C98-BFAD-2914D539D6EC" value="true"/>
+</engineerTo>
+<referedAttribute>E21EE610-F2F2-5450-B14B-03963690E9CA</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 CHAR</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Id_detalle" id="E78D955C-D832-BBA0-75ED-97A366EF09FD">
+<createdBy>felipe</createdBy>
+<createdTime>2021-04-06 02:30:11 UTC</createdTime>
+<generatorID>E97C43B1-6692-4D95-C601-486D0CED6493</generatorID>
+<ownerDesignName>Fukusuke 1.0</ownerDesignName>
+<engineerTo>
+<item key="6D9A5785-EC90-5C98-BFAD-2914D539D6EC" value="true"/>
+</engineerTo>
+<referedAttribute>7574C00C-18D5-6954-E3CD-85B57B730FB1</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10000000 CHAR</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="C43D90CA-5694-0907-7294-DE6940B52717" name="Boleta PK">
+<createdBy>felipe</createdBy>
+<createdTime>2021-04-05 02:58:39 UTC</createdTime>
+<ownerDesignName>Fukusuke 1.0</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="6D9A5785-EC90-5C98-BFAD-2914D539D6EC" value="false"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>3C8243C0-8FA5-C8F0-72A4-C6BD8DA6444C</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

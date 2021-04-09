@@ -1,0 +1,110 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="56740068-E162-03EC-F334-DFC5B4C6C1FB" name="Producto">
+<createdBy>felipe</createdBy>
+<createdTime>2021-04-05 22:33:25 UTC</createdTime>
+<generatorID>54963CA0-4460-0A3F-70A6-D15F31F8D8BB</generatorID>
+<ownerDesignName>Fukusuke 1.0</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Id_producto" id="A7AFABF6-69E9-AE7C-1A5C-8C1F303A4D7F">
+<createdBy>felipe</createdBy>
+<createdTime>2021-04-05 22:33:25 UTC</createdTime>
+<generatorID>564D963F-9D31-F7BF-6973-CE91FD949225</generatorID>
+<ownerDesignName>Fukusuke 1.0</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 CHAR</dataTypeSize>
+<ownDataTypeParameters>10 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Nombre" id="7FE0C1E2-E817-FF46-9B04-FD2128BE584B">
+<createdBy>felipe</createdBy>
+<createdTime>2021-04-05 22:33:25 UTC</createdTime>
+<generatorID>79435255-43AF-A254-D2FB-14D32BA91021</generatorID>
+<ownerDesignName>Fukusuke 1.0</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Descripcion" id="52C452A2-038B-BBCF-7582-5A787B1650BC">
+<createdBy>felipe</createdBy>
+<createdTime>2021-04-05 22:33:25 UTC</createdTime>
+<generatorID>9CC8677C-C511-B710-6E87-178EED77F559</generatorID>
+<ownerDesignName>Fukusuke 1.0</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 CHAR</dataTypeSize>
+<ownDataTypeParameters>50 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Stock" id="B28FA1C0-1B28-452A-1614-E129B45BC57B">
+<createdBy>felipe</createdBy>
+<createdTime>2021-04-05 22:33:25 UTC</createdTime>
+<generatorID>104D5713-3D2A-A23B-2B40-C8AAD15AB75D</generatorID>
+<ownerDesignName>Fukusuke 1.0</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>5 CHAR</dataTypeSize>
+<ownDataTypeParameters>5 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Precio" id="42019A7C-1251-307A-E669-4BACFE880D20">
+<createdBy>felipe</createdBy>
+<createdTime>2021-04-05 22:33:25 UTC</createdTime>
+<generatorID>A27F3415-713B-E851-AE8B-302AF431D155</generatorID>
+<ownerDesignName>Fukusuke 1.0</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>5 CHAR</dataTypeSize>
+<ownDataTypeParameters>5 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Estado" id="228231B7-E900-B23E-50E0-9A65A533DF35">
+<createdBy>felipe</createdBy>
+<createdTime>2021-04-05 22:33:25 UTC</createdTime>
+<generatorID>5D02C780-CB1D-4364-2E94-87BC16EC7EC4</generatorID>
+<ownerDesignName>Fukusuke 1.0</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT006</logicalDatatype>
+<dataTypeSize>1 CHAR</dataTypeSize>
+<ownDataTypeParameters>1 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Promocion" id="B0D132E7-27E3-4FBF-34B1-FB375BDF547D">
+<createdBy>felipe</createdBy>
+<createdTime>2021-04-05 22:33:25 UTC</createdTime>
+<generatorID>04739022-5556-EF30-DC48-95DFDC085AA7</generatorID>
+<ownerDesignName>Fukusuke 1.0</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT006</logicalDatatype>
+<dataTypeSize>1 CHAR</dataTypeSize>
+<ownDataTypeParameters>1 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="2B90397F-595A-D981-69A1-7FF00EF7CFFE" name="Producto_PK">
+<createdBy>felipe</createdBy>
+<createdTime>2021-04-05 22:33:25 UTC</createdTime>
+<generatorID>3F64D558-694F-45CE-209B-DBA68639DCED</generatorID>
+<ownerDesignName>Fukusuke 1.0</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A7AFABF6-69E9-AE7C-1A5C-8C1F303A4D7F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

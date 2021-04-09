@@ -1,0 +1,87 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="A50F70F5-DBCB-A5B0-5481-CBD8F464ECDD" name="Orden_Despacho">
+<createdBy>felipe</createdBy>
+<createdTime>2021-04-05 03:15:50 UTC</createdTime>
+<ownerDesignName>Fukusuke 1.0</ownerDesignName>
+<engineerTo>
+<item key="6D9A5785-EC90-5C98-BFAD-2914D539D6EC" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="Id_orden" id="04822D3C-9245-C423-DACE-38D2941E911A">
+<createdBy>felipe</createdBy>
+<createdTime>2021-04-05 03:16:38 UTC</createdTime>
+<ownerDesignName>Fukusuke 1.0</ownerDesignName>
+<engineerTo>
+<item key="6D9A5785-EC90-5C98-BFAD-2914D539D6EC" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10000000 CHAR</dataTypeSize>
+<ownDataTypeParameters>10000000 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Direccion" id="0EE9A71D-D3FE-DE74-B6C2-8CFD9243CB95">
+<createdBy>felipe</createdBy>
+<createdTime>2021-04-05 03:17:09 UTC</createdTime>
+<ownerDesignName>Fukusuke 1.0</ownerDesignName>
+<engineerTo>
+<item key="6D9A5785-EC90-5C98-BFAD-2914D539D6EC" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 CHAR</dataTypeSize>
+<ownDataTypeParameters>50 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Estado" id="7A9CDA21-C343-A294-260F-AADE171AC023">
+<createdBy>felipe</createdBy>
+<createdTime>2021-04-05 03:20:21 UTC</createdTime>
+<ownerDesignName>Fukusuke 1.0</ownerDesignName>
+<engineerTo>
+<item key="6D9A5785-EC90-5C98-BFAD-2914D539D6EC" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT006</logicalDatatype>
+<dataTypeSize>1 CHAR</dataTypeSize>
+<ownDataTypeParameters>1 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Folio" id="C7F9E73D-2EBB-8073-4971-2EC0351EFF1D">
+<createdBy>felipe</createdBy>
+<createdTime>2021-04-05 22:29:04 UTC</createdTime>
+<generatorID>ED0881FD-5F3A-D78D-3914-B6A30E53D9A5</generatorID>
+<ownerDesignName>Fukusuke 1.0</ownerDesignName>
+<engineerTo>
+<item key="6D9A5785-EC90-5C98-BFAD-2914D539D6EC" value="true"/>
+</engineerTo>
+<referedAttribute>3C8243C0-8FA5-C8F0-72A4-C6BD8DA6444C</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10000000 CHAR</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="99684378-2646-C672-0632-90A3DF1C8388" name="Orden_Despacho PK">
+<createdBy>felipe</createdBy>
+<createdTime>2021-04-05 03:17:07 UTC</createdTime>
+<ownerDesignName>Fukusuke 1.0</ownerDesignName>
+<engineerTo>
+<item key="6D9A5785-EC90-5C98-BFAD-2914D539D6EC" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>04822D3C-9245-C423-DACE-38D2941E911A</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

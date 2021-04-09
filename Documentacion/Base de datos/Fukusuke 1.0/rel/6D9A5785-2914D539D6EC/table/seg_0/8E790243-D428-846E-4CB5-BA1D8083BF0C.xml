@@ -1,0 +1,50 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="8E790243-D428-846E-4CB5-BA1D8083BF0C" name="Rol">
+<createdBy>felipe</createdBy>
+<createdTime>2021-04-05 22:33:25 UTC</createdTime>
+<generatorID>8F9AE46B-D610-91DF-2196-09C4FFD6E7A4</generatorID>
+<ownerDesignName>Fukusuke 1.0</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Id_rol" id="9CDD36DC-F560-FDCF-1EE3-4E16AC548891">
+<createdBy>felipe</createdBy>
+<createdTime>2021-04-05 22:33:25 UTC</createdTime>
+<generatorID>9984E7C8-DD45-96A9-C9ED-51BEC502E50D</generatorID>
+<ownerDesignName>Fukusuke 1.0</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>5 CHAR</dataTypeSize>
+<ownDataTypeParameters>5 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Nombre" id="D676E2D3-1C54-EE85-2718-B1EC5917075F">
+<createdBy>felipe</createdBy>
+<createdTime>2021-04-05 22:33:25 UTC</createdTime>
+<generatorID>98A3FF8E-0D5C-2977-12D6-DAEEC9B1233E</generatorID>
+<ownerDesignName>Fukusuke 1.0</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15 CHAR</dataTypeSize>
+<ownDataTypeParameters>15 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="3E46A7E3-EFF6-C91E-27D8-E17E4D7C5BBF" name="Rol_PK">
+<createdBy>felipe</createdBy>
+<createdTime>2021-04-05 22:33:25 UTC</createdTime>
+<generatorID>DC3C382E-587D-C298-E745-535A5D9BFB2F</generatorID>
+<ownerDesignName>Fukusuke 1.0</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9CDD36DC-F560-FDCF-1EE3-4E16AC548891"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

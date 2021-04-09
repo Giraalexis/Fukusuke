@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Relacion_Provincia_Comuna" directorySegmentName="seg_0" id="CE0C9F7C-917A-2D88-BFE6-E0878769B4C4">
+<createdBy>felipe</createdBy>
+<createdTime>2021-04-05 22:20:18 UTC</createdTime>
+<ownerDesignName>Fukusuke 1.0</ownerDesignName>
+<engineerTo>
+<item key="6D9A5785-EC90-5C98-BFAD-2914D539D6EC" value="true"/>
+</engineerTo>
+<sourcePk>A1D36818-7E33-2C67-36A1-5C09F7F75BD3</sourcePk>
+<identifying>false</identifying>
+<optionalSource>false</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>82413F56-DB4F-B784-F3C0-3AAB21178D97</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>C0A062C6-EA6B-18B9-73E9-EAB68E90091E</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

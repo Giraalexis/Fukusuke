@@ -1,0 +1,77 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="6D60DA92-9F21-BB6D-7CAE-65F6C34490CB" name="Comuna">
+<createdBy>felipe</createdBy>
+<createdTime>2021-04-05 22:33:25 UTC</createdTime>
+<generatorID>C0A062C6-EA6B-18B9-73E9-EAB68E90091E</generatorID>
+<ownerDesignName>Fukusuke 1.0</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Id_comuna" id="A68C52F3-1322-0D54-2290-7744ACEDE5FD">
+<createdBy>felipe</createdBy>
+<createdTime>2021-04-05 22:33:25 UTC</createdTime>
+<generatorID>1ECD5D6E-F23C-6265-21D2-5FAA647FCD79</generatorID>
+<ownerDesignName>Fukusuke 1.0</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 CHAR</dataTypeSize>
+<ownDataTypeParameters>10 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Nombre" id="38DF8521-1EB9-D05E-68F2-7FFD7CE6FFC0">
+<createdBy>felipe</createdBy>
+<createdTime>2021-04-05 22:33:25 UTC</createdTime>
+<generatorID>9171296C-0FFA-2E60-64D8-1C4329BCB825</generatorID>
+<ownerDesignName>Fukusuke 1.0</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Provincia_Id_provincia" id="B813430B-E85F-F06F-9813-4799C7077A9F">
+<createdBy>felipe</createdBy>
+<createdTime>2021-04-05 22:33:25 UTC</createdTime>
+<generatorID>9399D245-B30C-39F7-7017-3FD9086DE602</generatorID>
+<ownerDesignName>Fukusuke 1.0</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="6DA886BF-2D24-40AB-CE3A-B41EA9F9D9EE" referredColumn="89E6906F-B6E4-2767-F37E-2CBBAC91BE45"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="2415AC0D-52F1-4F7E-D9A4-2966ABD1073E" name="Comuna_PK">
+<createdBy>felipe</createdBy>
+<createdTime>2021-04-05 22:33:25 UTC</createdTime>
+<generatorID>8F07F09E-DFB0-FC16-2284-6BAA862D0257</generatorID>
+<ownerDesignName>Fukusuke 1.0</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A68C52F3-1322-0D54-2290-7744ACEDE5FD"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="91675B2E-320E-108D-5644-42CFDD7C239B" name="Comuna_Provincia_FK">
+<createdBy>felipe</createdBy>
+<createdTime>2021-04-05 22:33:25 UTC</createdTime>
+<generatorID>CE0C9F7C-917A-2D88-BFE6-E0878769B4C4</generatorID>
+<ownerDesignName>Fukusuke 1.0</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B813430B-E85F-F06F-9813-4799C7077A9F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

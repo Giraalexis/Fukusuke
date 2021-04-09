@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="Fukusuke 1.0" id="7AB681CE-AE47-C1DB-41B1-D4A9F428A2B9" version="3.5">
+<createdBy>felipe</createdBy>
+<createdTime>2021-04-05 02:17:44 UTC</createdTime>
+<ownerDesignName>Fukusuke 1.0</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>7AB681CE-AE47-C1DB-41B1-D4A9F428A2B9</designId>
+</OSDM_Design>

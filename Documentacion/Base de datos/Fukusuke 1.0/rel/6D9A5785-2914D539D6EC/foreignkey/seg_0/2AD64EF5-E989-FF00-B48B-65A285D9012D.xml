@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="2AD64EF5-E989-FF00-B48B-65A285D9012D" containerWithKeyObject="4E512A77-0F8F-B627-9553-95C10B7CA3FC" localFKIndex="8D523EDE-91D0-5E7F-CC01-44EEFC6AC7F5" name="Detalle_Venta_Boleta_FK">
+<createdBy>felipe</createdBy>
+<createdTime>2021-04-05 22:33:25 UTC</createdTime>
+<generatorID>80B44D8C-16EB-916D-299C-1E4AE024C315</generatorID>
+<ownerDesignName>Fukusuke 1.0</ownerDesignName>
+<referredTableLongName>Boleta</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>94B09C30-35F9-0394-E019-C91A780A48AC</referredTableID>
+<keyObject>9CB5F6C2-03BA-BD24-70CD-D2E4E733735C</keyObject>
+<referredKeyID>9CB5F6C2-03BA-BD24-70CD-D2E4E733735C</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>Folio</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

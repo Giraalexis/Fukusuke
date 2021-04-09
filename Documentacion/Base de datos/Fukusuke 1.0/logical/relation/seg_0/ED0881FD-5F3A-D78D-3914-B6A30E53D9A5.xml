@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Relacion_Despacho_Boleta" directorySegmentName="seg_0" id="ED0881FD-5F3A-D78D-3914-B6A30E53D9A5">
+<createdBy>felipe</createdBy>
+<createdTime>2021-04-05 22:29:00 UTC</createdTime>
+<ownerDesignName>Fukusuke 1.0</ownerDesignName>
+<engineerTo>
+<item key="6D9A5785-EC90-5C98-BFAD-2914D539D6EC" value="true"/>
+</engineerTo>
+<sourcePk>99684378-2646-C672-0632-90A3DF1C8388</sourcePk>
+<targetPk>C43D90CA-5694-0907-7294-DE6940B52717</targetPk>
+<identifying>false</identifying>
+<optionalSource>false</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>A50F70F5-DBCB-A5B0-5481-CBD8F464ECDD</sourceEntity>
+<targetCardinalityString>1</targetCardinalityString>
+<targetEntity>79B156D3-EC63-F99F-A53E-C5ABC3D31536</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

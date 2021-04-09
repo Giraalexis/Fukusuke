@@ -1,0 +1,88 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="5A4D2D5E-85A2-772E-BAFB-A301D73AEB7B" name="Detalle_Venta">
+<createdBy>felipe</createdBy>
+<createdTime>2021-04-05 02:59:59 UTC</createdTime>
+<ownerDesignName>Fukusuke 1.0</ownerDesignName>
+<engineerTo>
+<item key="6D9A5785-EC90-5C98-BFAD-2914D539D6EC" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="Id_detalle" id="7574C00C-18D5-6954-E3CD-85B57B730FB1">
+<createdBy>felipe</createdBy>
+<createdTime>2021-04-05 03:00:09 UTC</createdTime>
+<ownerDesignName>Fukusuke 1.0</ownerDesignName>
+<engineerTo>
+<item key="6D9A5785-EC90-5C98-BFAD-2914D539D6EC" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10000000 CHAR</dataTypeSize>
+<ownDataTypeParameters>10000000 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Cantidad" id="6E57BAE8-B66A-59A7-5658-8DDA9ABE8140">
+<createdBy>felipe</createdBy>
+<createdTime>2021-04-05 03:00:56 UTC</createdTime>
+<ownerDesignName>Fukusuke 1.0</ownerDesignName>
+<engineerTo>
+<item key="6D9A5785-EC90-5C98-BFAD-2914D539D6EC" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>5 CHAR</dataTypeSize>
+<ownDataTypeParameters>5 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Subtotal" id="3710A2C1-3DDF-E7B1-1CE5-1D58C96BFD51">
+<createdBy>felipe</createdBy>
+<createdTime>2021-04-05 03:01:23 UTC</createdTime>
+<ownerDesignName>Fukusuke 1.0</ownerDesignName>
+<engineerTo>
+<item key="6D9A5785-EC90-5C98-BFAD-2914D539D6EC" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 CHAR</dataTypeSize>
+<ownDataTypeParameters>10 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Id_producto" id="FA5A953C-A187-F9B0-2304-6DC74F420ABD">
+<createdBy>felipe</createdBy>
+<createdTime>2021-04-06 02:26:40 UTC</createdTime>
+<generatorID>288973A5-4EF4-9FF9-3E66-744EBD297331</generatorID>
+<ownerDesignName>Fukusuke 1.0</ownerDesignName>
+<engineerTo>
+<item key="6D9A5785-EC90-5C98-BFAD-2914D539D6EC" value="true"/>
+</engineerTo>
+<referedAttribute>564D963F-9D31-F7BF-6973-CE91FD949225</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 CHAR</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="8344308A-DD5D-B1D0-8D9E-051A44EF71E7" name="Detalle_venta PK">
+<createdBy>felipe</createdBy>
+<createdTime>2021-04-05 03:01:49 UTC</createdTime>
+<ownerDesignName>Fukusuke 1.0</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="6D9A5785-EC90-5C98-BFAD-2914D539D6EC" value="false"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>7574C00C-18D5-6954-E3CD-85B57B730FB1</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

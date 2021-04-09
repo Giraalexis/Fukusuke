@@ -1,0 +1,203 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="B7F183CF-5EA6-0BCE-6D51-3DB56F4B65AD" name="Empleado">
+<createdBy>felipe</createdBy>
+<createdTime>2021-04-05 22:33:25 UTC</createdTime>
+<generatorID>4F7FD61D-91D3-DC99-6749-E31D23ACBB22</generatorID>
+<ownerDesignName>Fukusuke 1.0</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Id_empleado" id="FB42129A-24B3-049D-50F8-8FE5BDCD8875">
+<createdBy>felipe</createdBy>
+<createdTime>2021-04-05 22:33:25 UTC</createdTime>
+<generatorID>E21EE610-F2F2-5450-B14B-03963690E9CA</generatorID>
+<ownerDesignName>Fukusuke 1.0</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 CHAR</dataTypeSize>
+<ownDataTypeParameters>10 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Nombre" id="55981703-DCD6-30DB-9811-47415167220E">
+<createdBy>felipe</createdBy>
+<createdTime>2021-04-05 22:33:25 UTC</createdTime>
+<generatorID>7D6031F3-001D-F77B-59D1-515F5E1556FD</generatorID>
+<ownerDesignName>Fukusuke 1.0</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Rut" id="58EB6BE5-F18E-37B5-EAA6-1BD34ADA5AC6">
+<createdBy>felipe</createdBy>
+<createdTime>2021-04-05 22:33:25 UTC</createdTime>
+<generatorID>466B1A33-D1AA-4736-5BA8-DF4C962096F8</generatorID>
+<ownerDesignName>Fukusuke 1.0</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>12 CHAR</dataTypeSize>
+<ownDataTypeParameters>12 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Email" id="536D937E-0520-9C94-113D-A61016376386">
+<createdBy>felipe</createdBy>
+<createdTime>2021-04-05 22:33:25 UTC</createdTime>
+<generatorID>23358E62-0AD9-630F-82F9-A40AE92D3EC2</generatorID>
+<ownerDesignName>Fukusuke 1.0</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 CHAR</dataTypeSize>
+<ownDataTypeParameters>50 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Telefono" id="3AE7A61A-F7D8-A8FA-37F9-817F80ED6091">
+<createdBy>felipe</createdBy>
+<createdTime>2021-04-05 22:33:25 UTC</createdTime>
+<generatorID>0111A4FB-48FE-3F70-C6DE-A716A8DEFB41</generatorID>
+<ownerDesignName>Fukusuke 1.0</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Fecha_nacimiento" id="830FD354-4EC1-039B-8312-02BC6EBE0590">
+<createdBy>felipe</createdBy>
+<createdTime>2021-04-05 22:33:25 UTC</createdTime>
+<generatorID>0AC169F6-B0DA-B6AE-562E-6910444F6A27</generatorID>
+<ownerDesignName>Fukusuke 1.0</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 CHAR</dataTypeSize>
+<ownDataTypeParameters>10 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Contraseña" id="72CC6551-D0DE-6A01-06BE-2AEFB67238D5">
+<createdBy>felipe</createdBy>
+<createdTime>2021-04-05 22:33:25 UTC</createdTime>
+<generatorID>64926970-2453-AC0E-4D5C-297DE543A57E</generatorID>
+<ownerDesignName>Fukusuke 1.0</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Estado" id="5A318980-48D4-A1C1-C02B-63DB96C88EC0">
+<createdBy>felipe</createdBy>
+<createdTime>2021-04-05 22:33:25 UTC</createdTime>
+<generatorID>A1019B1C-5596-5548-AAD9-E8709C08CFBA</generatorID>
+<ownerDesignName>Fukusuke 1.0</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT006</logicalDatatype>
+<dataTypeSize>1 CHAR</dataTypeSize>
+<ownDataTypeParameters>1 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Rol_Id_rol" id="8800BA36-88C6-A754-C689-7DA4919CA874">
+<createdBy>felipe</createdBy>
+<createdTime>2021-04-05 22:33:25 UTC</createdTime>
+<generatorID>309B9F49-1A2A-2B60-E990-D6378AC559EC</generatorID>
+<ownerDesignName>Fukusuke 1.0</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>5 CHAR</dataTypeSize>
+<ownDataTypeParameters>5 CHAR,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="011DB2B7-D45D-B59E-3562-AD4945C1EB71" referredColumn="9CDD36DC-F560-FDCF-1EE3-4E16AC548891"/>
+</associations>
+</Column>
+<Column name="Sexo_Id_sexo" id="3B827AE0-A40B-0730-4920-A9F2D030FC83">
+<createdBy>felipe</createdBy>
+<createdTime>2021-04-05 22:33:25 UTC</createdTime>
+<generatorID>E1635079-A4E6-7BD2-6356-F18011B3D33A</generatorID>
+<ownerDesignName>Fukusuke 1.0</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>5 CHAR</dataTypeSize>
+<ownDataTypeParameters>5 CHAR,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="CC3ACFF9-F5BD-EDF9-6231-9F63D24650C6" referredColumn="4C8910EB-B30A-BBFC-75A6-DC16D183BEDD"/>
+</associations>
+</Column>
+<Column name="Comuna_Id_comuna" id="0C3E655C-7CC5-41A0-56D7-9C9EE3202BC6">
+<createdBy>felipe</createdBy>
+<createdTime>2021-04-06 02:19:46 UTC</createdTime>
+<generatorID>952686BA-321E-500D-CBEC-641BD4DAF4AD</generatorID>
+<ownerDesignName>Fukusuke 1.0</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 CHAR</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="9DC526FF-D670-17A8-5059-FC2179C6CF7C" referredColumn="A68C52F3-1322-0D54-2290-7744ACEDE5FD"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="0D50D3B8-7487-FF8A-666E-D4CD78AC46E6" name="Empleado_PK">
+<createdBy>felipe</createdBy>
+<createdTime>2021-04-05 22:33:25 UTC</createdTime>
+<generatorID>B3B2B262-341F-98CD-FEDA-3E47786E55AE</generatorID>
+<ownerDesignName>Fukusuke 1.0</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="FB42129A-24B3-049D-50F8-8FE5BDCD8875"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="FD72F228-F91D-0AB5-1A17-8FC4132BB85B" name="Empleado_Rol_FK">
+<createdBy>felipe</createdBy>
+<createdTime>2021-04-05 22:33:25 UTC</createdTime>
+<generatorID>8DE8ED7D-EF15-81AD-C924-DF172979946F</generatorID>
+<ownerDesignName>Fukusuke 1.0</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="8800BA36-88C6-A754-C689-7DA4919CA874"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="DA763EBB-7821-DC2A-BD38-10C8B7733FD7" name="Empleado_Sexo_FK">
+<createdBy>felipe</createdBy>
+<createdTime>2021-04-05 22:33:25 UTC</createdTime>
+<generatorID>AB75402B-F9DF-D4C9-69D2-0C4374E47CF5</generatorID>
+<ownerDesignName>Fukusuke 1.0</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="3B827AE0-A40B-0730-4920-A9F2D030FC83"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="193FFD2E-C395-21B4-7A2C-C122698BD8B4" name="Empleado_Comuna_FK">
+<createdBy>felipe</createdBy>
+<createdTime>2021-04-06 02:19:46 UTC</createdTime>
+<generatorID>01EBCA16-10FF-0CC3-2679-5B776238B7D8</generatorID>
+<ownerDesignName>Fukusuke 1.0</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="0C3E655C-7CC5-41A0-56D7-9C9EE3202BC6"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,152 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="94B09C30-35F9-0394-E019-C91A780A48AC" name="Boleta">
+<createdBy>felipe</createdBy>
+<createdTime>2021-04-05 22:33:25 UTC</createdTime>
+<generatorID>79B156D3-EC63-F99F-A53E-C5ABC3D31536</generatorID>
+<ownerDesignName>Fukusuke 1.0</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Folio" id="154A01DE-329B-AEEC-5D95-95117D0B53E5">
+<createdBy>felipe</createdBy>
+<createdTime>2021-04-05 22:33:25 UTC</createdTime>
+<generatorID>3C8243C0-8FA5-C8F0-72A4-C6BD8DA6444C</generatorID>
+<ownerDesignName>Fukusuke 1.0</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10000000 CHAR</dataTypeSize>
+<ownDataTypeParameters>10000000 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Fecha" id="9F0354F0-9ED0-1727-20D3-B6038026A6D8">
+<createdBy>felipe</createdBy>
+<createdTime>2021-04-05 22:33:25 UTC</createdTime>
+<generatorID>4FB4D72E-3BBE-DAB9-2850-630E2AA2FE40</generatorID>
+<ownerDesignName>Fukusuke 1.0</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 CHAR</dataTypeSize>
+<ownDataTypeParameters>10 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Total" id="A0695657-288D-96D4-79F6-77CCF5AABEE4">
+<createdBy>felipe</createdBy>
+<createdTime>2021-04-05 22:33:25 UTC</createdTime>
+<generatorID>CBCA48B8-5ED5-3CBD-27DD-FE49689295D6</generatorID>
+<ownerDesignName>Fukusuke 1.0</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 CHAR</dataTypeSize>
+<ownDataTypeParameters>10 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Cliente_Id_cliente" id="1945165C-7D7A-B91B-92D6-20959FEC259F">
+<createdBy>felipe</createdBy>
+<createdTime>2021-04-05 22:33:25 UTC</createdTime>
+<generatorID>1040E094-5B9C-5881-636A-F4640071A30E</generatorID>
+<ownerDesignName>Fukusuke 1.0</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 CHAR</dataTypeSize>
+<ownDataTypeParameters>10 CHAR,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="7075FEF4-5D63-BEF3-6C57-40B3E0C0EF86" referredColumn="F4270BC6-8C7C-5B1B-9B75-9F9276DDDCFF"/>
+</associations>
+</Column>
+<Column name="Metodo_Pago_Id_pago" id="621A512C-D054-9577-D792-9E2B09124E1F">
+<createdBy>felipe</createdBy>
+<createdTime>2021-04-05 22:33:25 UTC</createdTime>
+<generatorID>6D6815F2-5412-C7D8-E094-F90A18740B54</generatorID>
+<ownerDesignName>Fukusuke 1.0</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 CHAR</dataTypeSize>
+<ownDataTypeParameters>10 CHAR,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="AEA254BB-A556-55F5-E7BC-22479AA4ABB3" referredColumn="0901C9E0-63EC-E87D-F6EC-BACC0FA122ED"/>
+</associations>
+</Column>
+<Column name="Empleado_Id_empleado" id="07B1D419-6BCB-5365-C5A0-10E6432254F4">
+<createdBy>felipe</createdBy>
+<createdTime>2021-04-06 02:25:01 UTC</createdTime>
+<generatorID>6BFAB50A-08ED-D349-7BF3-86F479A89FB5</generatorID>
+<ownerDesignName>Fukusuke 1.0</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 CHAR</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="E8A88F7D-5099-A66F-D722-B28CA610FED6" referredColumn="FB42129A-24B3-049D-50F8-8FE5BDCD8875"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="9CB5F6C2-03BA-BD24-70CD-D2E4E733735C" name="Boleta_PK">
+<createdBy>felipe</createdBy>
+<createdTime>2021-04-05 22:33:25 UTC</createdTime>
+<generatorID>C43D90CA-5694-0907-7294-DE6940B52717</generatorID>
+<ownerDesignName>Fukusuke 1.0</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="154A01DE-329B-AEEC-5D95-95117D0B53E5"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="3A40BAAA-2DBB-10EB-095B-E60EBC185F51" name="Boleta__IDX">
+<createdBy>felipe</createdBy>
+<createdTime>2021-04-06 02:40:32 UTC</createdTime>
+<ownerDesignName>Fukusuke 1.0</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<relationGeneratorID>ED0881FD-5F3A-D78D-3914-B6A30E53D9A5</relationGeneratorID>
+</ind_PK_UK>
+<ind_PK_UK id="8A5275CC-3809-ECF5-6683-C4F4C3A69C99" name="Boleta_Cliente_FK">
+<createdBy>felipe</createdBy>
+<createdTime>2021-04-05 22:33:25 UTC</createdTime>
+<generatorID>CA4CA33B-BA06-ABA6-2225-A9E946203B75</generatorID>
+<ownerDesignName>Fukusuke 1.0</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1945165C-7D7A-B91B-92D6-20959FEC259F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="D047E252-38A7-1076-09B2-1F686752CB70" name="Boleta_Metodo_Pago_FK">
+<createdBy>felipe</createdBy>
+<createdTime>2021-04-05 22:33:25 UTC</createdTime>
+<generatorID>4CF7CE1F-1FAC-7C21-5D92-A6B7833BC099</generatorID>
+<ownerDesignName>Fukusuke 1.0</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="621A512C-D054-9577-D792-9E2B09124E1F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="506F6E3B-500A-77B1-2BAD-1EB93F81AD83" name="Boleta_Empleado_FK">
+<createdBy>felipe</createdBy>
+<createdTime>2021-04-06 02:25:01 UTC</createdTime>
+<generatorID>DB49C9D0-B3F1-9E58-78F7-1A72841B75E8</generatorID>
+<ownerDesignName>Fukusuke 1.0</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="07B1D419-6BCB-5365-C5A0-10E6432254F4"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

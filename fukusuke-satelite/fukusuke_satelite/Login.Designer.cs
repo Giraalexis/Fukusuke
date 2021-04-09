@@ -101,6 +101,7 @@ namespace fukusuke_satelite
             // cbMostrar
             // 
             this.cbMostrar.AutoSize = true;
+            this.cbMostrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cbMostrar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.cbMostrar.ForeColor = System.Drawing.Color.Black;
             this.cbMostrar.Location = new System.Drawing.Point(513, 212);
@@ -155,7 +156,7 @@ namespace fukusuke_satelite
             this.Controls.Add(this.lbUsuario);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
-            this.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
