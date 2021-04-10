@@ -1,15 +1,17 @@
 import React, {useState, useEffect} from 'react'
+import Router from "next/router";
 
 const Cart = (props)=>{
   const [cart,setCart] = useState([]);
   const [total,setTotal] = useState(0);
-  
+  const [show, setShow] = useState(false); //show or hiden modal
+
   //al abrir la cartera, se refresca con el localstorage
   function refreshCart(e){
     let cartLocal = JSON.parse(localStorage.getItem('cart')) || [];
     let subTotal = 0;
     for (let i = 0; i < cartLocal.length; i++) {
-      subTotal += cartLocal[i].cant * 1000;
+      subTotal += cartLocal[i].cant * cartLocal[i].precio;
     }
     setTotal(subTotal);
     setCart(cartLocal);
@@ -21,7 +23,7 @@ const Cart = (props)=>{
     let subTotal = 0;
     for (let i = 0; i < cartLocal.length; i++) {
       if(id == cartLocal[i].id){
-        subTotal = total - (cartLocal[i].cant * 1000)
+        subTotal = total - (cartLocal[i].cant * cartLocal[i].precio)
         cartLocal.splice(i,1);
         window.localStorage.setItem('cart',JSON.stringify(cartLocal))//actualiza localstorage
         setCart(cartLocal);//actualiza cartera
@@ -39,7 +41,7 @@ const Cart = (props)=>{
       if(id == cartLocal[i].id){
         cartLocal[i].cant ++;
       }
-      subTotal += cartLocal[i].cant * 1000;
+      subTotal += cartLocal[i].cant * cartLocal[i].precio;
     }
     window.localStorage.setItem('cart',JSON.stringify(cartLocal))//actualiza localstorage
     setCart(cartLocal);//actualiza cartera
@@ -58,7 +60,7 @@ const Cart = (props)=>{
         window.localStorage.setItem('cart',JSON.stringify(cartLocal))//actualiza localstorage
         setCart(cartLocal);//actualiza cartera
       }
-      subTotal += cartLocal[i].cant * 1000;
+      subTotal += cartLocal[i].cant * cartLocal[i].precio;
     }
     setTotal(subTotal);
   }
@@ -83,9 +85,23 @@ const Cart = (props)=>{
     }
   }
 
+  //cerrar modal
+  const handleClose = () => { //bootstrap no me cierra automatico el modal :c
+    let modal = document.querySelector("#close-modal-cart")
+    modal.setAttribute("data-bs-dismiss","modal")
+    modal.click();
+    setShow(false)
+  }
+  //abrir modal
+  const handleShow = () => { 
+    let modal = document.querySelector("#close-modal-cart")
+    modal.setAttribute("data-bs-dismiss","")
+    setShow(true)
+    };
+
   return(
     <div>
-      <a className="nav-link btn" onClick={refreshCart} data-bs-toggle="modal" data-bs-target="#CartModal">Carrito</a>
+      <a className="nav-link btn" onClick={handleShow} onClick={refreshCart} data-bs-toggle="modal" data-bs-target="#CartModal">Carrito</a>
 
       <div className="modal fade modal-right" id="CartModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div className="modal-dialog">
@@ -94,18 +110,20 @@ const Cart = (props)=>{
               <h5 className="modal-title" id="exampleModalLabel">Carrito</h5>
               <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div className="modal-body">
+            <div className="modal-body overflow-auto">
             {cart.map((product)=>{ 
               return(
                 <div key={product.id} className="card card-body mt-2">
                   <div className="row justify-content-between">
-                    <img className="col-3 border" src={product.avatar} alt=""/>
-                    <div className="col-4">
-                      <h2 className="">{product.first_name}</h2>
-                      <h3 className="">${(1000*product.cant)}</h3>
+                    <img className="col-3 p-0" src={product.imagen} style={{width:'120px', height:'90px'}}/>
+                    <div className="col-4 p-0">
+                      <h5 className="text-truncate">{product.nombre}</h5>
+                      <h6 className="tertiary-text">${(product.precio*product.cant)}</h6>
                     </div>
                     <div className="col-4">
-                      <button onClick={()=> deleteProductCart(product.id)} className="btn btn-danger w-100">Borrar</button>
+                      <div className="d-flex justify-content-end">
+                        <button onClick={()=> deleteProductCart(product.id)} className="btn btn-danger ">Borrar</button>
+                      </div>
                       <div className="d-flex mt-2 justify-content-between align-items-baseline">
                         <button  onClick={()=> resProduct(product.id)} type="button" className="btn sombra border rounded-circle">-</button>
                         <p>{product.cant}</p>
@@ -119,10 +137,13 @@ const Cart = (props)=>{
                  
             </div>
             <div className="modal-footer justify-content-between">
-              <h4 className="text-start col-6">Total: ${total}</h4>
+              <div className="row">
+                <h4 className="text-start col-6 ">Total:</h4>
+                <h4 className="col-6 tertiary-text">${total}</h4>
+              </div>      
               <div className="">
                 <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                <button onClick={()=> payOrder()} type="button" className="btn btn-primary ">Pagar</button>
+                <button onClick={()=> payOrder()} id="close-modal-cart" type="button" className="btn btn-primary ">Pagar</button>
               </div>
             </div>
           </div>

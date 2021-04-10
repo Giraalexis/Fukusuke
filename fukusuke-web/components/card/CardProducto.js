@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import Router from "next/router";
 
 const CardProducto = (props) =>{
-  const users = props.users;
+  const products = props.products;
 
   //añadir producto segun la id al carrito en localStorage
   const addProduct =(id) =>{
@@ -18,12 +18,12 @@ const CardProducto = (props) =>{
         }
       }
       if(!existe){ //si no existe el producto
-        users[id-1].cant = 1;
-        local.push(users[id-1]); //añade el nuevo producto
+        products[id-1].cant = 1;
+        local.push(products[id-1]); //añade el nuevo producto
       }
     }else{//si no existe ningun producto
-      users[id-1].cant = 1;
-      local.push(users[id-1]); //añade el nuevo producto
+      products[id-1].cant = 1;
+      local.push(products[id-1]); //añade el nuevo producto
     }
     
     window.localStorage.setItem('cart',JSON.stringify(local))//actualiza localstorage
@@ -31,20 +31,21 @@ const CardProducto = (props) =>{
 
   return(
     <div className="row"> 
-      {users.map((user)=>{
+      {products.map((product)=>{
         return(
-          <form key={user.id} className=" col-lg-4 col-md-6 col-sm-12 mx-auto p-2" >
-            <div className="card card-body text-center btn sombra" onClick={() => Router.push(`/detailProduct/[id]`, `/detailProduct/${user.id}`)}>
-              <img src={user.avatar} className="rounded mx-auto d-block w-50" alt=""/>              
+          <form key={product.id} className=" col-lg-4 col-md-6 col-sm-12 mx-auto p-2" >
+            <div className="card card-body text-center btn sombra" onClick={() => Router.push(`/detailProduct/[id]`, `/detailProduct/${product.id}`)}>
+              <img src={product.imagen} className="rounded mx-auto d-block" style={{width:'150px', height:'100px'}} alt=""/>              
             </div>
             <div className="card-footer bg-light bg-gradient">
               <div className="row align-items-center">
-                <h4 className="col-6 text-truncate">{user.first_name}</h4>
-                <h2 className="col-6 text-danger">$1000</h2>
+                <h5 className="col-8 text-truncate">{product.nombre}</h5>
+                <h4 className="col-4 tertiary-text">${product.precio}</h4>
               </div>
               <div className="row align-items-center">
-                <h4 className="col-6"></h4>
-                <button className="col-6 btn btn-primary" onClick={() => addProduct(user.id)} type="button">Añadir</button>
+                <h6 className="col-8 ">Stock</h6>
+                <h6 className="col-4 ">{product.stock}</h6>
+                <button className=" btn btn-dark secondary-background cuartiary-text" onClick={() => addProduct(product.id)} type="button">Añadir</button>
               </div>
             </div>
           </form>

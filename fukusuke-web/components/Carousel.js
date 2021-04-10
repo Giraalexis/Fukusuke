@@ -4,12 +4,12 @@ const Carousel = (props)=>{
   return(
     <div id="carousel" className="carousel carousel-dark slide carousel-fade" data-bs-ride="carousel">
       <div className="carousel-inner">
-        {props.users.map((user)=>{
+        {props.products.map((product)=>{  
           return(
-            <div key={user.id} className={"carousel-item " + (user.id == 1 ?" active" : "")}>
-              <img src={user.avatar} className="rounded btn sombra mx-auto d-block w-50" onClick={() => Router.push(`/detailProduct/[id]`, `/detailProduct/${user.id}`)} />
+            <div key={product.id} className={"carousel-item " + (product.id == 1 ?" active" : "")}>
+              <img src={product.imagen} style={{width:'70vh', height:'40vh'}} className="rounded btn sombra mx-auto d-block" onClick={() => Router.push(`/detailProduct/[id]`, `/detailProduct/${product.id}`)} />
             </div>
-          )
+          )     
         })}
       </div>
       <button className="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
