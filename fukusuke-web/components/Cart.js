@@ -67,7 +67,7 @@ const Cart = (props)=>{
 
   //Realizar Pago del pedido
   const payOrder = ()=>{
-    if(JSON.parse(localStorage.getItem('sesion'))){ //verificar si se a logeado
+    if(JSON.parse(localStorage.getItem('session'))){ //verificar si se a logeado
       console.log("sesion esta iniciada")
       if(!JSON.parse(localStorage.getItem('cart'))){ //verificar si existe cartera
         console.log("cartera no existe");
