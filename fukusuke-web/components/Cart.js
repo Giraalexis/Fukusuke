@@ -11,7 +11,7 @@ const Cart = (props)=>{
     let cartLocal = JSON.parse(localStorage.getItem('cart')) || [];
     let subTotal = 0;
     for (let i = 0; i < cartLocal.length; i++) {
-      subTotal += cartLocal[i].cant * cartLocal[i].precio;
+      subTotal += cartLocal[i].cant * cartLocal[i].price;
     }
     setTotal(subTotal);
     setCart(cartLocal);
@@ -23,7 +23,7 @@ const Cart = (props)=>{
     let subTotal = 0;
     for (let i = 0; i < cartLocal.length; i++) {
       if(id == cartLocal[i].id){
-        subTotal = total - (cartLocal[i].cant * cartLocal[i].precio)  
+        subTotal = total - (cartLocal[i].cant * cartLocal[i].price)  
         //reflejar cambio de stock en el DOM
         document.getElementById(id+'-card-stock').innerHTML = cartLocal[i].stock;
         cartLocal.splice(i,1);//lo borra
@@ -45,7 +45,7 @@ const Cart = (props)=>{
         document.getElementById(id+'-card-stock').innerHTML = cartLocal[i].stock - cartLocal[i].cant//reflejar cambio en DOOM(card)
 
       }
-      subTotal += cartLocal[i].cant * cartLocal[i].precio;
+      subTotal += cartLocal[i].cant * cartLocal[i].price;
     }
     window.localStorage.setItem('cart',JSON.stringify(cartLocal))//actualiza localstorage
     setCart(cartLocal);//actualiza cartera
@@ -66,7 +66,7 @@ const Cart = (props)=>{
         window.localStorage.setItem('cart',JSON.stringify(cartLocal))//actualiza localstorage
         setCart(cartLocal);//actualiza cartera
       }
-      subTotal += cartLocal[i].cant * cartLocal[i].precio;
+      subTotal += cartLocal[i].cant * cartLocal[i].price;
     }
     setTotal(subTotal);
   }
@@ -121,10 +121,10 @@ const Cart = (props)=>{
               return(
                 <div key={product.id} className="card card-body mt-2">
                   <div className="row justify-content-between">
-                    <img className="col-3 p-0" src={product.imagen} style={{width:'120px', height:'90px'}}/>
+                    <img className="col-3 p-0" src={product.image} style={{width:'120px', height:'90px'}}/>
                     <div className="col-4 p-0">
-                      <h5 className="text-truncate">{product.nombre}</h5>
-                      <h6 className="tertiary-text">${(product.precio*product.cant)}</h6>
+                      <h5 className="text-truncate">{product.name}</h5>
+                      <h6 className="tertiary-text">${(product.price*product.cant)}</h6>
                     </div>
                     <div className="col-4">
                       <div className="d-flex justify-content-end">

@@ -6,17 +6,17 @@ const Carousel = (props)=>{
     <div id="carousel" className="carousel carousel-dark slide carousel-fade" data-bs-ride="carousel">
       <div className="carousel-inner">
         {props.products.map((product, index)=>{
-          if(product.promocion && isFirst == 0){
+          if(product.promotion && isFirst == 0){
             isFirst += 1;
             return (
               <div key={product.id} className={"carousel-item active"}>
-                <img src={product.imagen} style={{width:'70vh', height:'40vh'}} className="rounded btn sombra mx-auto d-block" onClick={() => Router.push(`/detailProduct/[id]`, `/detailProduct/${product.id}`)} />
+                <img src={product.image} style={{width:'70vh', height:'40vh'}} className="rounded btn sombra mx-auto d-block" onClick={() => Router.push(`/detailProduct/[id]`, `/detailProduct/${product.id}`)} />
               </div>  
             )
-          }else if(product.promocion ){
+          }else if(product.promotion ){
             return (
               <div key={product.id} className={"carousel-item"}>
-                <img src={product.imagen} style={{width:'70vh', height:'40vh'}} className="rounded btn sombra mx-auto d-block" onClick={() => Router.push(`/detailProduct/[id]`, `/detailProduct/${product.id}`)} />
+                <img src={product.image} style={{width:'70vh', height:'40vh'}} className="rounded btn sombra mx-auto d-block" onClick={() => Router.push(`/detailProduct/[id]`, `/detailProduct/${product.id}`)} />
               </div>  
             )
           }
