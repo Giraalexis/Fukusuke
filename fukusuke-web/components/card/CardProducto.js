@@ -52,7 +52,6 @@ const CardProducto = (props) =>{
       {products.map(product=>{
         return(
           <form key={product.id} className=" col-lg-4 col-md-6 col-sm-12 mx-auto p-2" >
-            <h1>{product.id}</h1>
             <div className="card card-body text-center btn sombra" onClick={() => Router.push(`/detailProduct/[id]`, `/detailProduct/${product.id}`)}>
               <img src={product.imagen} className="rounded mx-auto d-block" style={{width:'150px', height:'100px'}} alt=""/>              
             </div>
