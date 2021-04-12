@@ -1,0 +1,12 @@
+C:\Users\felip\Documents\portafolio\Web\Fukusuke\fukusuke-satelite\Fukusuke\CapaDatos\bin\Debug\net5.0\CapaDatos.deps.json
+C:\Users\felip\Documents\portafolio\Web\Fukusuke\fukusuke-satelite\Fukusuke\CapaDatos\bin\Debug\net5.0\CapaDatos.dll
+C:\Users\felip\Documents\portafolio\Web\Fukusuke\fukusuke-satelite\Fukusuke\CapaDatos\bin\Debug\net5.0\ref\CapaDatos.dll
+C:\Users\felip\Documents\portafolio\Web\Fukusuke\fukusuke-satelite\Fukusuke\CapaDatos\bin\Debug\net5.0\CapaDatos.pdb
+C:\Users\felip\Documents\portafolio\Web\Fukusuke\fukusuke-satelite\Fukusuke\CapaDatos\obj\Debug\net5.0\CapaDatos.csprojAssemblyReference.cache
+C:\Users\felip\Documents\portafolio\Web\Fukusuke\fukusuke-satelite\Fukusuke\CapaDatos\obj\Debug\net5.0\CapaDatos.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\felip\Documents\portafolio\Web\Fukusuke\fukusuke-satelite\Fukusuke\CapaDatos\obj\Debug\net5.0\CapaDatos.AssemblyInfoInputs.cache
+C:\Users\felip\Documents\portafolio\Web\Fukusuke\fukusuke-satelite\Fukusuke\CapaDatos\obj\Debug\net5.0\CapaDatos.AssemblyInfo.cs
+C:\Users\felip\Documents\portafolio\Web\Fukusuke\fukusuke-satelite\Fukusuke\CapaDatos\obj\Debug\net5.0\CapaDatos.csproj.CoreCompileInputs.cache
+C:\Users\felip\Documents\portafolio\Web\Fukusuke\fukusuke-satelite\Fukusuke\CapaDatos\obj\Debug\net5.0\CapaDatos.dll
+C:\Users\felip\Documents\portafolio\Web\Fukusuke\fukusuke-satelite\Fukusuke\CapaDatos\obj\Debug\net5.0\ref\CapaDatos.dll
+C:\Users\felip\Documents\portafolio\Web\Fukusuke\fukusuke-satelite\Fukusuke\CapaDatos\obj\Debug\net5.0\CapaDatos.pdb
