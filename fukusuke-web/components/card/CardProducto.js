@@ -3,22 +3,18 @@ import Router from "next/router";
 
 const CardProducto = (props) =>{
   const [products,setProducts] = useState(props.products);
-  
   //añadir producto segun la id al carrito en localStorage
   const addProduct = (id) =>{
     let local = JSON.parse(localStorage.getItem('cart')) || [];//obtener local de cart (si es null, retorna [])
     let productsChange = products;
     let existe = false;
-    if(products[id-1].stock > 0){//si el stock es mayor que 0
+    if(document.getElementById(id+'-card-stock').innerHTML > 0){//si el stock es mayor que 0
       console.log("se añade");
       if(local.length > 0){ //si existe algun producto
         for (let i= 0; i< local.length; i++) {
           if(local[i].id == id){ //si existe un producto similar añadido en la cartera
             console.log("existe un producto similar");
             local[i].cant ++;
-            local[i].stock --;
-            productsChange[id-1].cant += 1;
-            productsChange[id-1].stock -= 1;
             //reflejar cambio de stock en el DOM
             let stock = document.getElementById(id+'-card-stock').innerHTML;
             let newStock = stock - 1;
@@ -28,8 +24,8 @@ const CardProducto = (props) =>{
           }
         }
         if(!existe){ //si no existe el producto en la cartera
+          console.log("no existe en cartera");
           productsChange[id-1].cant = 1;
-          productsChange[id-1].stock -= 1;
           local.push(productsChange[id-1]); //añade el nuevo producto
           //reflejar cambio de stock en el DOM
           let stock = document.getElementById(id+'-card-stock').innerHTML;
@@ -38,7 +34,6 @@ const CardProducto = (props) =>{
         }
       }else{//si no existe ningun producto
         productsChange[id-1].cant = 1;
-        productsChange[id-1].stock -= 1;
         local.push(productsChange[id-1]); //añade el nuevo producto
         //reflejar cambio de stock en el DOM
         let stock = document.getElementById(id+'-card-stock').innerHTML;
@@ -49,7 +44,6 @@ const CardProducto = (props) =>{
       console.log("no se añade")
     }
     
-    setProducts(productsChange);
     window.localStorage.setItem('cart',JSON.stringify(local))//actualiza localstorage
   }
 

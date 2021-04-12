@@ -7,7 +7,7 @@ const Cart = (props)=>{
   const [show, setShow] = useState(false); //show or hiden modal
 
   //al abrir la cartera, se refresca con el localstorage
-  function refreshCart(e){
+  const refreshCart =(e) =>{
     let cartLocal = JSON.parse(localStorage.getItem('cart')) || [];
     let subTotal = 0;
     for (let i = 0; i < cartLocal.length; i++) {
@@ -23,9 +23,11 @@ const Cart = (props)=>{
     let subTotal = 0;
     for (let i = 0; i < cartLocal.length; i++) {
       if(id == cartLocal[i].id){
-        subTotal = total - (cartLocal[i].cant * cartLocal[i].precio)
-        cartLocal.splice(i,1);
-        window.localStorage.setItem('cart',JSON.stringify(cartLocal))//actualiza localstorage
+        subTotal = total - (cartLocal[i].cant * cartLocal[i].precio)  
+        //reflejar cambio de stock en el DOM
+        document.getElementById(id+'-card-stock').innerHTML = cartLocal[i].stock;
+        cartLocal.splice(i,1);//lo borra
+        window.localStorage.setItem('cart',JSON.stringify(cartLocal))//actualiza localstorage cartera
         setCart(cartLocal);//actualiza cartera
         setTotal(subTotal); //actualiza el total
         break;
@@ -38,8 +40,10 @@ const Cart = (props)=>{
     let cartLocal = JSON.parse(localStorage.getItem('cart')) || [];
     let subTotal = 0;
     for (let i = 0; i < cartLocal.length; i++) {
-      if(id == cartLocal[i].id){
+      if(id == cartLocal[i].id && cartLocal[i].cant < cartLocal[i].stock){
         cartLocal[i].cant ++;
+        document.getElementById(id+'-card-stock').innerHTML = cartLocal[i].stock - cartLocal[i].cant//reflejar cambio en DOOM(card)
+
       }
       subTotal += cartLocal[i].cant * cartLocal[i].precio;
     }
@@ -56,6 +60,8 @@ const Cart = (props)=>{
       if(id == cartLocal[i].id){
         if(cartLocal[i].cant > 1){
           cartLocal[i].cant --;
+          document.getElementById(id+'-card-stock').innerHTML = cartLocal[i].stock - cartLocal[i].cant//reflejar cambio en DOOM(card)
+
         }
         window.localStorage.setItem('cart',JSON.stringify(cartLocal))//actualiza localstorage
         setCart(cartLocal);//actualiza cartera
