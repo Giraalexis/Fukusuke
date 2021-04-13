@@ -5,6 +5,19 @@ import axios from 'axios'
 import fetch from "isomorphic-unfetch";
 import Carousel from '../components/Carousel'
 import Cart from '../components/Cart';
+
+//peticion por defecto
+const defaultEndpoint = 'http://localhost:8000/api/product-list';
+export async function getServerSideProps(){
+  const res = await fetch(defaultEndpoint);
+  const products = await res.json();
+  return{
+    props:{
+      products
+    }
+  }
+}
+
 const Index = (props)=> {
   return (
     <Container>
@@ -17,24 +30,5 @@ const Index = (props)=> {
   )
 }
 
-//Peticiones 
-Index.getInitialProps = async (ctx) =>{
-  //Products
-  try{
-    const products =  await fetch('http://127.0.0.1:8000/api/product-list');
-    const productsJSON = await products.json()
-    return{
-      products: productsJSON,
-    }
-  }
-  catch(e){
-    const products =  []
-    const productsJSON = products;
-    return{
-      products: productsJSON,
-    }
-  }
-  
-}
 
 export default Index;

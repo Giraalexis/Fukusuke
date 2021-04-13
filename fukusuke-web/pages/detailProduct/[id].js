@@ -2,8 +2,21 @@ import { useRouter } from "next/router";
 import fetch from "isomorphic-unfetch";
 import Head from 'next/head'
 import Container from "../../components/Container";
+import Link from "next/link";
 
-const Product = ({ user }) => {
+//peticion por defecto
+const defaultEndpoint = 'http://localhost:8000/api/product-detail/';
+export async function getServerSideProps(ctx){
+  const res = await fetch(defaultEndpoint+ctx.query.id);
+  const product = await res.json();
+  return{
+    props:{
+      product
+    }
+  }
+}
+
+const Product = ({product}) => {
   const router = useRouter();
   const { id } = router.query;
 
@@ -12,18 +25,31 @@ const Product = ({ user }) => {
       <Head>
         <title>Fukusuke | Detail</title>
       </Head>
-      <h2>Product detail Works {id}</h2>
+      <div className="row">
+        <div className="col-lg-8 col-md-8 col-sm-12 mx-auto p-2 card">
+          <div className="card-header ">
+            <Link href="/"><a className={"btn sombra"}>Volver</a></Link>
+            <h5 className="text-center">{product.name}</h5>
+          </div>
+          <div className="card-body">
+            <div className="row">
+              <div className="col">
+                <img src={product.image} style={{width:'500px', height:'200px'}} className="img-fluid" alt=""/>
+              </div>
+              <div className="col">
+                <h4>{product.description}</h4>
+                <h5>${product.price}</h5>
+              </div>
+            </div>
+          </div>
+          <div className="card-footer">
+
+          </div>
+        </div>
+      </div>
     </Container>
   );
 };
 
-//peticiones
-Product.getInitialProps = async (ctx) => {
-  // console.log(ctx.query.id)
-  const res = await fetch(`https://reqres.in/api/users/${ctx.query.id}`);
-  const resJSON = await res.json();
-  // console.log(resJSON);
-  return { user: resJSON.data };
-};
 
 export default Product;
