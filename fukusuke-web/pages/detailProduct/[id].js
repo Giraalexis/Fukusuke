@@ -25,25 +25,31 @@ const Product = ({product}) => {
       <Head>
         <title>Fukusuke | Detail</title>
       </Head>
-      <div className="row">
-        <div className="col-lg-8 col-md-8 col-sm-12 mx-auto p-2 card">
-          <div className="card-header ">
-            <Link href="/"><a className={"btn sombra"}>Volver</a></Link>
-            <h5 className="text-center">{product.name}</h5>
+      <div className="row mt-4">
+        <div className="col-lg-8 col-md-8 col-sm-12 mx-auto p-0 card">
+          <div className="card-header d-flex d-wrap  align-items-baseline justify-content-start">
+            <Link href="/"><a className={"btn sombra col-lg-2 col-md-3 col-sm-6"}>Volver</a></Link>
+            <h5 className="mx-auto">{product.name}</h5>
           </div>
-          <div className="card-body">
+          <div className="card-body p-0">
             <div className="row">
               <div className="col">
-                <img src={product.image} style={{width:'500px', height:'200px'}} className="img-fluid" alt=""/>
+                <img src={product.image} style={{width:'100vh', height:'20vh'}} className="img-fluid" alt=""/>
               </div>
               <div className="col">
-                <h4>{product.description}</h4>
-                <h5>${product.price}</h5>
+                <p className="pr-0">{product.description}</p>
+                <h5 className="tertiary-text" >${product.price}</h5>
               </div>
             </div>
           </div>
-          <div className="card-footer">
-
+          <div className="card-footer d-flex justify-content-between align-items-center">
+            <div className="col-6">
+              <div className="row ">
+                <h5 className="col-lg-3 col-md-4 col-sm-6">Stock</h5>
+                <h5 id={product.id+"-card-stock"} className="col">{product.stock}</h5>
+              </div>
+            </div>
+            <button className=" btn btn-dark secondary-background cuartiary-text" onClick={() => addProduct(product.id)} type="button">Añadir</button>   
           </div>
         </div>
       </div>

@@ -65,7 +65,7 @@ const CardProducto = (props) =>{
           return(
             <form key={product.id} className=" col-lg-4 col-md-6 col-sm-12 mx-auto p-2" >
               <div className="card card-body text-center btn sombra" onClick={() => Router.push(`/detailProduct/[id]`, `/detailProduct/${product.id}`)}>
-                <img src={product.image} className="rounded mx-auto d-block" style={{width:'150px', height:'100px'}} alt=""/>              
+                <img src={product.image} className="img-fluid rounded mx-auto d-block" style={{width:'150px', height:'100px'}} alt=""/>              
               </div>
               <div className="card-footer bg-light bg-gradient">
                 <div className="row align-items-center">
@@ -81,6 +81,7 @@ const CardProducto = (props) =>{
             </form>
           )
         }
+
       })}
     </div>
   )

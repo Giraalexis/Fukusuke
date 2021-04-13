@@ -11,13 +11,13 @@ const Carousel = (props)=>{
               isFirst += 1;
               return (
                 <div key={product.id} className={"carousel-item active"}>
-                  <img src={product.image} style={{width:'70vh', height:'40vh'}} className="rounded btn sombra mx-auto d-block" onClick={() => Router.push(`/detailProduct/[id]`, `/detailProduct/${product.id}`)} />
+                  <img src={product.image} style={{width:'100%', height:'40vh'}} className="rounded btn sombra mx-auto d-block p-0" onClick={() => Router.push(`/detailProduct/[id]`, `/detailProduct/${product.id}`)} />
                 </div>  
               )
             }else if(product.promotion ){
               return (
                 <div key={product.id} className={"carousel-item"}>
-                  <img src={product.image} style={{width:'70vh', height:'40vh'}} className="rounded btn sombra mx-auto d-block" onClick={() => Router.push(`/detailProduct/[id]`, `/detailProduct/${product.id}`)} />
+                  <img src={product.image} style={{width:'100%', height:'40vh'}} className="rounded btn sombra mx-auto d-block p-0" onClick={() => Router.push(`/detailProduct/[id]`, `/detailProduct/${product.id}`)} />
                 </div>  
               )
             }
