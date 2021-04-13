@@ -59,13 +59,13 @@ const CardProducto = (props) =>{
   }
 
   return(
-    <div className="row" id="cards-container-render"> 
+    <div className="row pt-3" id="cards-container-render"> 
       {products.map(product=>{
         if(product.state){
           return(
-            <form key={product.id} className=" col-lg-4 col-md-6 col-sm-12 mx-auto p-2" >
+            <form key={product.id} className=" col-lg-4 col-md-6 col-sm-12 mx-auto" >
               <div className="card card-body text-center btn sombra" onClick={() => Router.push(`/detailProduct/[id]`, `/detailProduct/${product.id}`)}>
-                <img src={product.image} className="img-fluid rounded mx-auto d-block" style={{width:'150px', height:'100px'}} alt=""/>              
+                <img src={product.image} className="img-fluid rounded mx-auto d-block" style={{width:'70%', height:'20vh'}} alt=""/>              
               </div>
               <div className="card-footer bg-light bg-gradient">
                 <div className="row align-items-center">

@@ -20,6 +20,50 @@ const Product = ({product}) => {
   const router = useRouter();
   const { id } = router.query;
 
+  //añadir producto segun la id al carrito en localStorage
+  const addProduct = (id) =>{
+    let local = JSON.parse(localStorage.getItem('cart')) || [];//obtener local de cart (si es null, retorna [])
+    let productsChange = product;
+    console.log(productsChange);
+    let existe = false;
+    if(document.getElementById(id+'-card-stock').innerHTML > 0){//si el stock es mayor que 0
+      console.log("se añade");
+      if(local.length > 0){ //si existe algun producto
+        for (let i= 0; i< local.length; i++) {
+          if(local[i].id == id){ //si existe un producto similar añadido en la cartera
+            console.log("existe un producto similar");
+            local[i].cant ++;
+            //reflejar cambio de stock en el DOM
+            let stock = document.getElementById(id+'-card-stock').innerHTML;
+            let newStock = stock - 1;
+            document.getElementById(id+'-card-stock').innerHTML = newStock;
+            existe = true;
+            break;
+          }
+        }
+        if(!existe){ //si no existe el producto en la cartera
+          console.log("no existe en cartera");
+          productsChange.cant = 1;
+          local.push(productsChange); //añade el nuevo producto
+          //reflejar cambio de stock en el DOM
+          let stock = document.getElementById(id+'-card-stock').innerHTML;
+          let newStock = stock - 1;
+          document.getElementById(id+'-card-stock').innerHTML = newStock;
+        }
+      }else{//si no existe ningun producto
+        productsChange.cant = 1;
+        local.push(productsChange); //añade el nuevo producto
+        //reflejar cambio de stock en el DOM
+        let stock = document.getElementById(id+'-card-stock').innerHTML;
+        let newStock = stock - 1;
+        document.getElementById(id+'-card-stock').innerHTML = newStock;
+      }
+    }else{
+      console.log("no se añade")
+    }
+    window.localStorage.setItem('cart',JSON.stringify(local))//actualiza localstorage
+  }
+
   return (
     <Container>
       <Head>
@@ -34,10 +78,10 @@ const Product = ({product}) => {
           <div className="card-body p-0">
             <div className="row">
               <div className="col">
-                <img src={product.image} style={{width:'100vh', height:'20vh'}} className="img-fluid" alt=""/>
+                <img src={product.image} style={{width:'100vh', height:'30vh'}} className="img-fluid" alt=""/>
               </div>
               <div className="col">
-                <p className="pr-0">{product.description}</p>
+                <p className="pr-0 pt-2">{product.description}</p>
                 <h5 className="tertiary-text" >${product.price}</h5>
               </div>
             </div>
