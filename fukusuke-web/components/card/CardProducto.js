@@ -3,10 +3,12 @@ import Router from "next/router";
 
 const CardProducto = (props) =>{
   const [products,setProducts] = useState(props.products);
+
   //añadir producto segun la id al carrito en localStorage
   const addProduct = (id) =>{
     let local = JSON.parse(localStorage.getItem('cart')) || [];//obtener local de cart (si es null, retorna [])
     let productsChange = products;
+    console.log(productsChange);
     let existe = false;
     if(document.getElementById(id+'-card-stock').innerHTML > 0){//si el stock es mayor que 0
       console.log("se añade");
@@ -25,16 +27,26 @@ const CardProducto = (props) =>{
         }
         if(!existe){ //si no existe el producto en la cartera
           console.log("no existe en cartera");
-          productsChange[id-1].cant = 1;
-          local.push(productsChange[id-1]); //añade el nuevo producto
+          for (let i = 0; i < productsChange.length; i++) {
+            if(productsChange[i].id == id){
+              productsChange[i].cant = 1;
+              local.push(productsChange[i]); //añade el nuevo producto
+              break;
+            }
+          }
           //reflejar cambio de stock en el DOM
           let stock = document.getElementById(id+'-card-stock').innerHTML;
           let newStock = stock - 1;
           document.getElementById(id+'-card-stock').innerHTML = newStock;
         }
       }else{//si no existe ningun producto
-        productsChange[id-1].cant = 1;
-        local.push(productsChange[id-1]); //añade el nuevo producto
+        for (let i = 0; i < productsChange.length; i++) {
+          if(productsChange[i].id == id){
+            productsChange[i].cant = 1;
+            local.push(productsChange[i]); //añade el nuevo producto
+            break;
+          }
+        }
         //reflejar cambio de stock en el DOM
         let stock = document.getElementById(id+'-card-stock').innerHTML;
         let newStock = stock - 1;
@@ -43,31 +55,33 @@ const CardProducto = (props) =>{
     }else{
       console.log("no se añade")
     }
-    
     window.localStorage.setItem('cart',JSON.stringify(local))//actualiza localstorage
   }
 
   return(
-    <div className="row" id="cards-container-render"> 
+    <div className="row pt-3" id="cards-container-render"> 
       {products.map(product=>{
-        return(
-          <form key={product.id} className=" col-lg-4 col-md-6 col-sm-12 mx-auto p-2" >
-            <div className="card card-body text-center btn sombra" onClick={() => Router.push(`/detailProduct/[id]`, `/detailProduct/${product.id}`)}>
-              <img src={product.imagen} className="rounded mx-auto d-block" style={{width:'150px', height:'100px'}} alt=""/>              
-            </div>
-            <div className="card-footer bg-light bg-gradient">
-              <div className="row align-items-center">
-                <h5 className="col-8 text-truncate">{product.nombre}</h5>
-                <h4 className="col-4 tertiary-text">${product.precio}</h4>
+        if(product.state){
+          return(
+            <form key={product.id} className=" col-lg-4 col-md-6 col-sm-12 mx-auto" >
+              <div className="card card-body text-center btn sombra" onClick={() => Router.push(`/detailProduct/[id]`, `/detailProduct/${product.id}`)}>
+                <img src={product.image} className="img-fluid rounded mx-auto d-block" style={{width:'70%', height:'20vh'}} alt=""/>              
               </div>
-              <div className="row align-items-center">
-                <h6 className="col-8 ">Stock</h6>
-                <h6 id={product.id+"-card-stock"} className="col-4 ">{product.stock}</h6>
-                <button className=" btn btn-dark secondary-background cuartiary-text" onClick={() => addProduct(product.id)} type="button">Añadir</button>
+              <div className="card-footer bg-light bg-gradient">
+                <div className="row align-items-center">
+                  <h5 className="col-8 text-truncate">{product.name}</h5>
+                  <h4 className="col-4 tertiary-text">${product.price}</h4>
+                </div>
+                <div className="row align-items-center">
+                  <h6 className="col-8 ">Stock</h6>
+                  <h6 id={product.id+"-card-stock"} className="col-4 ">{product.stock}</h6>
+                  <button className=" btn btn-dark secondary-background cuartiary-text" onClick={() => addProduct(product.id)} type="button">Añadir</button>
+                </div>
               </div>
-            </div>
-          </form>
-        )
+            </form>
+          )
+        }
+
       })}
     </div>
   )
