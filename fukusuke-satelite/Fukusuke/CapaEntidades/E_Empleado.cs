@@ -16,7 +16,7 @@ namespace CapaEntidades
         private string _EMAIL;
         private string _PASSWORD;
         private int _STATE;
-        private int COMMUNE_ID;
+        private int _COMMUNE_ID;
         private int _ROLE_ID;
         private int _SEX_ID;
 
@@ -28,7 +28,7 @@ namespace CapaEntidades
         public string EMAIL { get => _EMAIL; set => _EMAIL = value; }
         public string PASSWORD { get => _PASSWORD; set => _PASSWORD = value; }
         public int STATE { get => _STATE; set => _STATE = value; }
-        public int COMMUNE_ID1 { get => COMMUNE_ID; set => COMMUNE_ID = value; }
+        public int COMMUNE_ID { get => _COMMUNE_ID; set => _COMMUNE_ID = value; }
         public int ROLE_ID { get => _ROLE_ID; set => _ROLE_ID = value; }
         public int SEX_ID { get => _SEX_ID; set => _SEX_ID = value; }
     }

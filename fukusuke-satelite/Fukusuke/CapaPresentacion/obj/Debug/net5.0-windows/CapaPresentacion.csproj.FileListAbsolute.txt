@@ -25,3 +25,9 @@ C:\Users\felip\Desktop\Nueva carpeta\fukusuke\CapaPresentacion\obj\Debug\net5.0-
 C:\Users\felip\Desktop\Nueva carpeta\fukusuke\CapaPresentacion\obj\Debug\net5.0-windows\ref\CapaPresentacion.dll
 C:\Users\felip\Desktop\Nueva carpeta\fukusuke\CapaPresentacion\obj\Debug\net5.0-windows\CapaPresentacion.pdb
 C:\Users\felip\Desktop\Nueva carpeta\fukusuke\CapaPresentacion\obj\Debug\net5.0-windows\CapaPresentacion.genruntimeconfig.cache
+C:\Users\felip\Desktop\Nueva carpeta\fukusuke\CapaPresentacion\obj\Debug\net5.0-windows\CapaPresentacion.FrmEmpleado.resources
+C:\Users\felip\Desktop\Nueva carpeta\fukusuke\CapaPresentacion\obj\Debug\net5.0-windows\CapaPresentacion.FrmLogin.resources
+C:\Users\felip\Desktop\Nueva carpeta\fukusuke\CapaPresentacion\obj\Debug\net5.0-windows\CapaPresentacion.FrmAdmin.resources
+C:\Users\felip\Desktop\Nueva carpeta\fukusuke\CapaPresentacion\obj\Debug\net5.0-windows\CapaPresentacion.FrmInicio.resources
+C:\Users\felip\Desktop\Nueva carpeta\fukusuke\CapaPresentacion\obj\Debug\net5.0-windows\CapaPresentacion.FrmGerente.resources
+C:\Users\felip\Desktop\Nueva carpeta\fukusuke\CapaPresentacion\obj\Debug\net5.0-windows\CapaPresentacion.FrmReporte.resources
