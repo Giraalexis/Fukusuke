@@ -1,5 +1,8 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios';
+import fetch from "isomorphic-unfetch";
+
+
 const Register = (props)=>{
   //Valores de los input inicialmente (estado inicial)
   const initialStateValues = {
@@ -14,9 +17,21 @@ const Register = (props)=>{
     sex: '',
     commune: ''
   }
+
   //estado de valores
   const [values, setValues] = useState(initialStateValues);
   const [show, setShow] = useState(false); //show or hiden modal
+  const [communes,setCommunes] = useState([]);
+
+  //useEffect
+  useEffect(()=>{
+    const getCommunes = async () => { //obtener las comunas
+      const res = await fetch('http://localhost:8000/api/commune-list');
+      const communesJSON = await res.json();
+      setCommunes(communesJSON);
+    };
+    getCommunes();
+  },[])
 
   //cuando se escriba algo (onChange), guardar en el estado
   const handleInputChange = e=>{
@@ -30,12 +45,15 @@ const Register = (props)=>{
   }
 
   //cuando se realiza el submit en el form, se envia los datos para ser verificados
-  const handleSubmit = e =>{
+  const handleSubmit =  async e =>{
     e.preventDefault();
-    console.log(values);
-    //let res = axios.post(`http://localhost:8000/api/client-create`,values)
-    //console.log(res.data);
-    //handleClose() //cerrar modal
+    const res = await axios.post(`http://localhost:8000/api/client-create`,values)
+    console.log(res);
+    if(res.status == 200){
+      handleClose() //cerrar modal
+    }else{
+      console.log("error al registrar")
+    }
   }
 
   //cerrar modal
@@ -77,7 +95,16 @@ const Register = (props)=>{
                 <input name="adress" value={values.adress} onChange={handleInputChange} className="form-control mt-3" placeholder="Ingrese su direccion" type="text" required/>
               </div>
               <div className="col-6">
-                <input name="commune" value={values.commune} onChange={handleInputChange} className="form-control mt-3" placeholder="Comuna" type="text" required/>
+                <select name="commune" value={values.commune} onChange={handleInputChange} className="form-select mt-3" placeholder="Comuna" required>
+                <option defaultValue >Ingrese su Comuna</option>
+                  { 
+                    communes.map(commune =>{                 
+                      return(
+                        <option key={commune.id} value={commune.id}>{commune.name}</option>
+                      )
+                    })
+                  }
+                </select>
               </div>
             </div>
             <div className="row">

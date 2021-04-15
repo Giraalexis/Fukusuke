@@ -4,11 +4,11 @@ import Register from './modal/Register';
 import Cart from './Cart';
 import { useRouter } from 'next/router'
 import React, {useState, useEffect} from 'react'
+import Router from "next/router";
 
 const Navigation = () => {
   const router = useRouter()
   const [isSession, setIsSession] = useState('');
-  const [onRegisterFresh,setOnRegisterFresh] = useState();
   useEffect(() => { //si algo cambia en useState
     setIsSession(localStorage.getItem('session')) //refresca isSession con el valor de localstorage
   }, [])
@@ -22,6 +22,10 @@ const Navigation = () => {
   const logOut = ()=>{
     localStorage.setItem('session','');
     setIsSession('');
+    if(router.asPath == '/account'){
+      console.log("redireccionar a inicio")
+      Router.push('/');
+    }
   }
 
   return(
@@ -44,7 +48,7 @@ const Navigation = () => {
                   <Link href="/account"><a className={"nav-link "+(router.asPath == "/account" ?" active" : "")}>Cuenta</a></Link>
                 </>
               : <>
-                  <Register onRegister={onLogin}/>
+                  <Register />
                   <Login onLogin={onLogin}/>
                 </>
             }
