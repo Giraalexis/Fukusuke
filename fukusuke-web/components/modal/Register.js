@@ -103,7 +103,7 @@ const Register = (props)=>{
                         <option key={commune.id} value={commune.id}>{commune.name}</option>
                       )
                     })
-                   }
+                  }
                 </select>
               </div>
             </div>

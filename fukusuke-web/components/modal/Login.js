@@ -30,7 +30,7 @@ const Login = (props)=>{
       if(client.email == values.correo && client.password == values.password){
         if(!client.state){ //para probar, lo dejo falso ,SE DEBE CAMBIAR
           console.log('login exitoso')
-          localStorage.setItem('session',JSON.stringify(client))//crear session en localstorage(CAMBIAR VALUES POR LOS QUE TRAE LA API)
+          localStorage.setItem('session',JSON.stringify(client))//guarda sesion con los datos del cliente
           handleClose(); //cerrar modal
           props.onLogin(values);//enviar datos al 'navigation' para que cambie estados
         }else{

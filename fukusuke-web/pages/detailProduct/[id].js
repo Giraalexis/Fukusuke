@@ -4,7 +4,7 @@ import Head from 'next/head'
 import Container from "../../components/Container";
 import Link from "next/link";
 
-//peticion por defecto
+//peticion por defecto al cargar esta pagina
 const defaultEndpoint = 'http://localhost:8000/api/product-detail/';
 export async function getServerSideProps(ctx){
   const res = await fetch(defaultEndpoint+ctx.query.id);
