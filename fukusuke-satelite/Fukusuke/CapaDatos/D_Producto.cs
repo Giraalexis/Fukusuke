@@ -21,7 +21,7 @@ namespace CapaDatos
             cmd.CommandType = CommandType.StoredProcedure;
             conexion.Open();
 
-            cmd.Parameters.AddWithValue("@BSUCAR", buscar); //VARIABLE DE ENTRADA DEL PROCEDIMIENTO ALMACENADO
+            cmd.Parameters.AddWithValue("@BUSCAR", buscar); //VARIABLE DE ENTRADA DEL PROCEDIMIENTO ALMACENADO
 
             LeerFilas = cmd.ExecuteReader();
 
