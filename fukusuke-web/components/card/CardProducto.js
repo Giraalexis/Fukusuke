@@ -4,6 +4,17 @@ import Router from "next/router";
 const CardProducto = (props) =>{
   const [products,setProducts] = useState(props.products);
 
+  useEffect(()=>{ //ejecuta luego de cargar la pagina
+    const setStockonCant = ()=>{ //actualiza el stock al cargar la pagina, segun la cant en la cartera
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      for (let i = 0; i < cart.length; i++) {
+        console.log(cart[i].cant);
+        document.getElementById(cart[i].id+'-card-stock').innerHTML = cart[i].stock - cart[i].cant;
+      }
+    }
+    setStockonCant();
+  },[])//ejecuta solo 1 vez
+
   //añadir producto segun la id al carrito en localStorage
   const addProduct = (id) =>{
     let local = JSON.parse(localStorage.getItem('cart')) || [];//obtener local de cart (si es null, retorna [])
