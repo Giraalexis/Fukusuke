@@ -5,11 +5,9 @@ import fetch from "isomorphic-unfetch";
 import React, {useState, useEffect} from 'react'
 
 const Account = (props)=> {
-  const [values, setValues] = useState('');
-  const [account,setAccount] = useState('');
+  const [values, setValues] = useState({});
   const [communes,setCommunes] = useState([]);
   useEffect(()=>{
-    setAccount(JSON.parse(localStorage.getItem('session')));
     setValues(JSON.parse(localStorage.getItem('session')));
     const getCommunes = async () => { //obtener las comunas
       const res = await fetch('http://localhost:8000/api/commune-list');
@@ -28,15 +26,15 @@ const Account = (props)=> {
       let cleanTrim = value.trim();
       setValues({...values, [name]: cleanTrim})
     }
-    console.log(values);
   }
 
   //actualizar datos de la cuenta
   const handleSubmit =  async e =>{
     e.preventDefault();
-    const res = await axios.put(`http://localhost:8000/api/client-update/${account.id}`,values)
+    const res = await axios.put(`http://localhost:8000/api/client-update/${values.id}`,values)
     console.log(res);
     if(res.status == 200){
+      localStorage.setItem('session',JSON.stringify(values))
       console.log("Update correct")
     }else{
       console.log("error al actualizar")
@@ -59,7 +57,7 @@ const Account = (props)=> {
                 <label className="col-form-label">Nombre</label>
               </div>
               <div className="col">
-                <input name="name" onChange={handleInputChange} className="form-control" type="text" value={account.name}/>
+                <input name="name" onChange={handleInputChange} className="form-control" type="text" value={values.name}/>
               </div>
             </div>
             
@@ -68,7 +66,7 @@ const Account = (props)=> {
                 <label className="col-form-label">Rut</label>
               </div>
               <div className="col">
-                <input name="rut" onChange={handleInputChange} className="form-control" type="text" value={account.rut}/>
+                <input name="rut" onChange={handleInputChange} className="form-control" type="text" value={values.rut}/>
               </div>
             </div>
 
@@ -77,7 +75,7 @@ const Account = (props)=> {
                 <label className="col-form-label">Fecha de nacimiento</label>
               </div>
               <div className="col">
-                <input name="date_burn" onChange={handleInputChange} className="form-control" type="date" value={account.date_burn}/>
+                <input name="date_burn" onChange={handleInputChange} className="form-control" type="date" value={values.date_burn}/>
               </div>
             </div>
 
@@ -86,7 +84,7 @@ const Account = (props)=> {
                 <label className="col-form-label">Telefono</label>
               </div>
               <div className="col">
-                <input name="telphone" onChange={handleInputChange} className="form-control" type="text" value={account.telphone}/>
+                <input name="telphone" onChange={handleInputChange} className="form-control" type="text" value={values.telphone}/>
               </div>
             </div>
 
@@ -95,7 +93,7 @@ const Account = (props)=> {
                 <label className="col-form-label">Correo electronico</label>
               </div>
               <div className="col">
-                <input name="email" onChange={handleInputChange} className="form-control" type="text" value={account.email}/>
+                <input name="email" onChange={handleInputChange} className="form-control" type="text" value={values.email}/>
               </div>
             </div>
 
@@ -104,7 +102,7 @@ const Account = (props)=> {
                 <label className="col-form-label">Sexo</label>
               </div>
               <div className="col">
-                <select name="sex" onChange={handleInputChange} className="form-select" type="text" value={account.sex}>
+                <select name="sex" onChange={handleInputChange} className="form-select" type="text" value={values.sex}>
                   <option value="1">Masculino</option>
                   <option value="2">Femenino</option>
                 </select>
@@ -116,7 +114,7 @@ const Account = (props)=> {
                 <label className="col-form-label">Comuna</label>
               </div>
               <div className="col">
-                <select name="commune" onChange={handleInputChange} className="form-select" type="text" value={account.commune}>
+                <select name="commune" onChange={handleInputChange} className="form-select" type="text" value={values.commune}>
                   { 
                     communes.map(commune =>{                 
                       return(
