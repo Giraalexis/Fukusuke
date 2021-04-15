@@ -1,147 +1,68 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\felip\\Documents\\portafolio\\Web\\Fukusuke\\fukusuke-satelite\\Fukusuke\\CapaPresentacion\\CapaPresentacion.csproj": {}
+    "C:\\Users\\felip\\Documents\\portafolio\\Web\\Fukusuke\\fukusuke-satelite\\fukusuke\\CapaPresentacion\\CapaPresentacion.csproj": {}
   },
   "projects": {
-    "C:\\Users\\felip\\Documents\\portafolio\\Web\\Fukusuke\\fukusuke-satelite\\Fukusuke\\CapaDatos\\CapaDatos.csproj": {
-      "version": "1.0.0",
+    "C:\\Users\\felip\\Documents\\portafolio\\Web\\Fukusuke\\fukusuke-satelite\\fukusuke\\CapaDatos\\CapaDatos.csproj": {
       "restore": {
-        "projectUniqueName": "C:\\Users\\felip\\Documents\\portafolio\\Web\\Fukusuke\\fukusuke-satelite\\Fukusuke\\CapaDatos\\CapaDatos.csproj",
+        "projectUniqueName": "C:\\Users\\felip\\Documents\\portafolio\\Web\\Fukusuke\\fukusuke-satelite\\fukusuke\\CapaDatos\\CapaDatos.csproj",
         "projectName": "CapaDatos",
-        "projectPath": "C:\\Users\\felip\\Documents\\portafolio\\Web\\Fukusuke\\fukusuke-satelite\\Fukusuke\\CapaDatos\\CapaDatos.csproj",
-        "packagesPath": "C:\\Users\\felip\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\felip\\Documents\\portafolio\\Web\\Fukusuke\\fukusuke-satelite\\Fukusuke\\CapaDatos\\obj\\",
-        "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
-        ],
-        "configFilePaths": [
-          "C:\\Users\\felip\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
-        ],
-        "originalTargetFrameworks": [
-          "net5.0"
-        ],
-        "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
-        },
+        "projectPath": "C:\\Users\\felip\\Documents\\portafolio\\Web\\Fukusuke\\fukusuke-satelite\\fukusuke\\CapaDatos\\CapaDatos.csproj",
         "frameworks": {
-          "net5.0": {
-            "targetAlias": "net5.0",
-            "projectReferences": {}
-          }
-        },
-        "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
-        }
-      },
-      "frameworks": {
-        "net5.0": {
-          "targetAlias": "net5.0",
-          "dependencies": {
-            "System.Data.SqlClient": {
-              "target": "Package",
-              "version": "[4.8.2, )"
-            }
-          },
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
-        }
-      }
-    },
-    "C:\\Users\\felip\\Documents\\portafolio\\Web\\Fukusuke\\fukusuke-satelite\\Fukusuke\\CapaNegocio\\CapaNegocio.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\felip\\Documents\\portafolio\\Web\\Fukusuke\\fukusuke-satelite\\Fukusuke\\CapaNegocio\\CapaNegocio.csproj",
-        "projectName": "CapaNegocio",
-        "projectPath": "C:\\Users\\felip\\Documents\\portafolio\\Web\\Fukusuke\\fukusuke-satelite\\Fukusuke\\CapaNegocio\\CapaNegocio.csproj",
-        "packagesPath": "C:\\Users\\felip\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\felip\\Documents\\portafolio\\Web\\Fukusuke\\fukusuke-satelite\\Fukusuke\\CapaNegocio\\obj\\",
-        "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
-        ],
-        "configFilePaths": [
-          "C:\\Users\\felip\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
-        ],
-        "originalTargetFrameworks": [
-          "net5.0"
-        ],
-        "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
-        },
-        "frameworks": {
-          "net5.0": {
-            "targetAlias": "net5.0",
+          "net472": {
             "projectReferences": {
-              "C:\\Users\\felip\\Documents\\portafolio\\Web\\Fukusuke\\fukusuke-satelite\\Fukusuke\\CapaDatos\\CapaDatos.csproj": {
-                "projectPath": "C:\\Users\\felip\\Documents\\portafolio\\Web\\Fukusuke\\fukusuke-satelite\\Fukusuke\\CapaDatos\\CapaDatos.csproj"
+              "C:\\Users\\felip\\Documents\\portafolio\\Web\\Fukusuke\\fukusuke-satelite\\fukusuke\\CapaEntidades\\CapaEntidades.csproj": {
+                "projectPath": "C:\\Users\\felip\\Documents\\portafolio\\Web\\Fukusuke\\fukusuke-satelite\\fukusuke\\CapaEntidades\\CapaEntidades.csproj"
               }
             }
           }
-        },
-        "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
         }
       },
       "frameworks": {
-        "net5.0": {
-          "targetAlias": "net5.0",
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
-        }
+        "net472": {}
       }
     },
-    "C:\\Users\\felip\\Documents\\portafolio\\Web\\Fukusuke\\fukusuke-satelite\\Fukusuke\\CapaPresentacion\\CapaPresentacion.csproj": {
+    "C:\\Users\\felip\\Documents\\portafolio\\Web\\Fukusuke\\fukusuke-satelite\\fukusuke\\CapaEntidades\\CapaEntidades.csproj": {
+      "restore": {
+        "projectUniqueName": "C:\\Users\\felip\\Documents\\portafolio\\Web\\Fukusuke\\fukusuke-satelite\\fukusuke\\CapaEntidades\\CapaEntidades.csproj",
+        "projectName": "CapaEntidades",
+        "projectPath": "C:\\Users\\felip\\Documents\\portafolio\\Web\\Fukusuke\\fukusuke-satelite\\fukusuke\\CapaEntidades\\CapaEntidades.csproj"
+      },
+      "frameworks": {
+        "net472": {}
+      }
+    },
+    "C:\\Users\\felip\\Documents\\portafolio\\Web\\Fukusuke\\fukusuke-satelite\\fukusuke\\CapaNegocio\\CapaNegocio.csproj": {
+      "restore": {
+        "projectUniqueName": "C:\\Users\\felip\\Documents\\portafolio\\Web\\Fukusuke\\fukusuke-satelite\\fukusuke\\CapaNegocio\\CapaNegocio.csproj",
+        "projectName": "CapaNegocio",
+        "projectPath": "C:\\Users\\felip\\Documents\\portafolio\\Web\\Fukusuke\\fukusuke-satelite\\fukusuke\\CapaNegocio\\CapaNegocio.csproj",
+        "frameworks": {
+          "net472": {
+            "projectReferences": {
+              "C:\\Users\\felip\\Documents\\portafolio\\Web\\Fukusuke\\fukusuke-satelite\\fukusuke\\CapaDatos\\CapaDatos.csproj": {
+                "projectPath": "C:\\Users\\felip\\Documents\\portafolio\\Web\\Fukusuke\\fukusuke-satelite\\fukusuke\\CapaDatos\\CapaDatos.csproj"
+              },
+              "C:\\Users\\felip\\Documents\\portafolio\\Web\\Fukusuke\\fukusuke-satelite\\fukusuke\\CapaEntidades\\CapaEntidades.csproj": {
+                "projectPath": "C:\\Users\\felip\\Documents\\portafolio\\Web\\Fukusuke\\fukusuke-satelite\\fukusuke\\CapaEntidades\\CapaEntidades.csproj"
+              }
+            }
+          }
+        }
+      },
+      "frameworks": {
+        "net472": {}
+      }
+    },
+    "C:\\Users\\felip\\Documents\\portafolio\\Web\\Fukusuke\\fukusuke-satelite\\fukusuke\\CapaPresentacion\\CapaPresentacion.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\felip\\Documents\\portafolio\\Web\\Fukusuke\\fukusuke-satelite\\Fukusuke\\CapaPresentacion\\CapaPresentacion.csproj",
+        "projectUniqueName": "C:\\Users\\felip\\Documents\\portafolio\\Web\\Fukusuke\\fukusuke-satelite\\fukusuke\\CapaPresentacion\\CapaPresentacion.csproj",
         "projectName": "CapaPresentacion",
-        "projectPath": "C:\\Users\\felip\\Documents\\portafolio\\Web\\Fukusuke\\fukusuke-satelite\\Fukusuke\\CapaPresentacion\\CapaPresentacion.csproj",
+        "projectPath": "C:\\Users\\felip\\Documents\\portafolio\\Web\\Fukusuke\\fukusuke-satelite\\fukusuke\\CapaPresentacion\\CapaPresentacion.csproj",
         "packagesPath": "C:\\Users\\felip\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\felip\\Documents\\portafolio\\Web\\Fukusuke\\fukusuke-satelite\\Fukusuke\\CapaPresentacion\\obj\\",
+        "outputPath": "C:\\Users\\felip\\Documents\\portafolio\\Web\\Fukusuke\\fukusuke-satelite\\fukusuke\\CapaPresentacion\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -164,8 +85,11 @@
           "net5.0-windows7.0": {
             "targetAlias": "net5.0-windows",
             "projectReferences": {
-              "C:\\Users\\felip\\Documents\\portafolio\\Web\\Fukusuke\\fukusuke-satelite\\Fukusuke\\CapaNegocio\\CapaNegocio.csproj": {
-                "projectPath": "C:\\Users\\felip\\Documents\\portafolio\\Web\\Fukusuke\\fukusuke-satelite\\Fukusuke\\CapaNegocio\\CapaNegocio.csproj"
+              "C:\\Users\\felip\\Documents\\portafolio\\Web\\Fukusuke\\fukusuke-satelite\\fukusuke\\CapaEntidades\\CapaEntidades.csproj": {
+                "projectPath": "C:\\Users\\felip\\Documents\\portafolio\\Web\\Fukusuke\\fukusuke-satelite\\fukusuke\\CapaEntidades\\CapaEntidades.csproj"
+              },
+              "C:\\Users\\felip\\Documents\\portafolio\\Web\\Fukusuke\\fukusuke-satelite\\fukusuke\\CapaNegocio\\CapaNegocio.csproj": {
+                "projectPath": "C:\\Users\\felip\\Documents\\portafolio\\Web\\Fukusuke\\fukusuke-satelite\\fukusuke\\CapaNegocio\\CapaNegocio.csproj"
               }
             }
           }
