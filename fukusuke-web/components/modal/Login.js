@@ -1,5 +1,6 @@
 import Register from './Register'
 import React, {useState, useEffect} from 'react'
+import axios from 'axios';
 
 const Login = (props)=>{
   //Valores de los input inicialmente (estado inicial)
@@ -20,12 +21,28 @@ const Login = (props)=>{
   }
 
   //cuando se realiza el submit en el form
-  const handleSubmit = e =>{
+  const handleSubmit = async e =>{
     e.preventDefault(); //prevenir recarga pagina
-    //enviar datos a api y verificar si existe, devolvera datos del usuario (FALTA IMPLEMENTARLO AUN)
-    localStorage.setItem('session',JSON.stringify(values))//crear session en localstorage(CAMBIAR VALUES POR LOS QUE TRAE LA API)
-    handleClose(); //cerrar modal
-    props.onLogin(values);//enviar datos al 'navigation' para que cambie estados
+    try{
+      const res = await axios.get('http://localhost:8000/api/client-search-email/'+values.correo) //enviar datos a api y verificar si existe, devolvera datos del usuario
+      const client = res.data;
+      console.log(client.email);
+      if(client.email == values.correo && client.password == values.password){
+        if(!client.state){ //para probar, lo dejo falso ,SE DEBE CAMBIAR
+          console.log('login exitoso')
+          localStorage.setItem('session',JSON.stringify(client))//crear session en localstorage(CAMBIAR VALUES POR LOS QUE TRAE LA API)
+          handleClose(); //cerrar modal
+          props.onLogin(values);//enviar datos al 'navigation' para que cambie estados
+        }else{
+          console.log('debe validar correo')
+        }
+      }else{
+        console.log('error de login')
+      }
+    }catch(e){
+      console.log(e);
+      console.log('Cuenta no existe')
+    }
   }
 
   //cerrar modal

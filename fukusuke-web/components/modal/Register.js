@@ -5,7 +5,6 @@ import fetch from "isomorphic-unfetch";
 
 const Register = (props)=>{
   //Valores de los input inicialmente (estado inicial)
-  console.log(props);
   const initialStateValues = {
     name: '',
     adress: '',
@@ -30,7 +29,6 @@ const Register = (props)=>{
       const res = await fetch('http://localhost:8000/api/commune-list');
       const communesJSON = await res.json();
       setCommunes(communesJSON);
-      console.log('respuesta'+ communesJSON);
     };
     getCommunes();
   },[])
