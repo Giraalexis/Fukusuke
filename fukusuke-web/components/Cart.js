@@ -73,7 +73,7 @@ const Cart = (props)=>{
 
   //Realizar Pago del pedido
   const payOrder = ()=>{
-    if(JSON.parse(localStorage.getItem('session'))){ //verificar si se a logeado
+    if(localStorage.getItem('session')){ //verificar si se a logeado
       console.log("sesion esta iniciada")
       if(!JSON.parse(localStorage.getItem('cart'))){ //verificar si existe cartera
         console.log("cartera no existe");
@@ -84,6 +84,8 @@ const Cart = (props)=>{
         }else{
           console.log("realizar pago")
           //realizar el pago
+          handleClose();
+          Router.push('/pay')
         }
       }
     }else{

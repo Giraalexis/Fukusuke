@@ -3,6 +3,7 @@ import fetch from "isomorphic-unfetch";
 import Head from 'next/head'
 import Container from "../../components/Container";
 import Link from "next/link";
+import Image from 'next/image';
 
 //peticion por defecto al cargar esta pagina
 const defaultEndpoint = 'http://localhost:8000/api/product-detail/';
@@ -78,7 +79,8 @@ const Product = ({product}) => {
           <div className="card-body p-0">
             <div className="row">
               <div className="col">
-                <img src={product.image} style={{width:'100vh', height:'30vh'}} className="img-fluid" alt=""/>
+                <img src={product.image} style={{width:'100vh', height:'30vh'}} className="img-fluid"
+                onError={(e)=>{e.target.onerror = null; e.target.src="/Sushi404.png"}}/>
               </div>
               <div className="col">
                 <p className="pr-0 pt-2">{product.description}</p>

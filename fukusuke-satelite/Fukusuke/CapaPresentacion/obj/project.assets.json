@@ -62,28 +62,20 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\felip\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
-    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
+    "C:\\Users\\Gira\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\felip\\Desktop\\Nueva carpeta\\fukusuke\\CapaPresentacion\\CapaPresentacion.csproj",
+      "projectUniqueName": "C:\\Users\\Gira\\Desktop\\U\\Semestre 5 - 3er Año\\Fukusuke\\fukusuke-satelite\\Fukusuke\\CapaPresentacion\\CapaPresentacion.csproj",
       "projectName": "CapaPresentacion",
-      "projectPath": "C:\\Users\\felip\\Desktop\\Nueva carpeta\\fukusuke\\CapaPresentacion\\CapaPresentacion.csproj",
-      "packagesPath": "C:\\Users\\felip\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\felip\\Desktop\\Nueva carpeta\\fukusuke\\CapaPresentacion\\obj\\",
+      "projectPath": "C:\\Users\\Gira\\Desktop\\U\\Semestre 5 - 3er Año\\Fukusuke\\fukusuke-satelite\\Fukusuke\\CapaPresentacion\\CapaPresentacion.csproj",
+      "packagesPath": "C:\\Users\\Gira\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Gira\\Desktop\\U\\Semestre 5 - 3er Año\\Fukusuke\\fukusuke-satelite\\Fukusuke\\CapaPresentacion\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
-      ],
       "configFilePaths": [
-        "C:\\Users\\felip\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Users\\Gira\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net5.0-windows7.0"
@@ -96,11 +88,11 @@
         "net5.0-windows7.0": {
           "targetAlias": "net5.0-windows",
           "projectReferences": {
-            "C:\\Users\\felip\\Desktop\\Nueva carpeta\\fukusuke\\CapaEntidades\\CapaEntidades.csproj": {
-              "projectPath": "C:\\Users\\felip\\Desktop\\Nueva carpeta\\fukusuke\\CapaEntidades\\CapaEntidades.csproj"
+            "C:\\Users\\Gira\\Desktop\\U\\Semestre 5 - 3er Año\\Fukusuke\\fukusuke-satelite\\Fukusuke\\CapaEntidades\\CapaEntidades.csproj": {
+              "projectPath": "C:\\Users\\Gira\\Desktop\\U\\Semestre 5 - 3er Año\\Fukusuke\\fukusuke-satelite\\Fukusuke\\CapaEntidades\\CapaEntidades.csproj"
             },
-            "C:\\Users\\felip\\Desktop\\Nueva carpeta\\fukusuke\\CapaNegocio\\CapaNegocio.csproj": {
-              "projectPath": "C:\\Users\\felip\\Desktop\\Nueva carpeta\\fukusuke\\CapaNegocio\\CapaNegocio.csproj"
+            "C:\\Users\\Gira\\Desktop\\U\\Semestre 5 - 3er Año\\Fukusuke\\fukusuke-satelite\\Fukusuke\\CapaNegocio\\CapaNegocio.csproj": {
+              "projectPath": "C:\\Users\\Gira\\Desktop\\U\\Semestre 5 - 3er Año\\Fukusuke\\fukusuke-satelite\\Fukusuke\\CapaNegocio\\CapaNegocio.csproj"
             }
           }
         }
@@ -132,7 +124,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
       }
     }
   }

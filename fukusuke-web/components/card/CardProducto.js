@@ -76,7 +76,8 @@ const CardProducto = (props) =>{
           return(
             <form key={product.id} className=" col-lg-4 col-md-6 col-sm-12 mx-auto pt-3" >
               <div className="card card-body text-center btn sombra" onClick={() => Router.push(`/detailProduct/[id]`, `/detailProduct/${product.id}`)}>
-                <img src={product.image} className="img-fluid rounded mx-auto d-block" style={{width:'70%', height:'20vh'}} alt=""/>              
+                <img src={product.image} className="img-fluid rounded mx-auto d-block" style={{width:'70%', height:'20vh'}} alt=""
+                onError={(e)=>{e.target.onerror = null; e.target.src="/Sushi404.png"}}/>              
               </div>
               <div className="card-footer bg-light bg-gradient">
                 <div className="row align-items-center">
