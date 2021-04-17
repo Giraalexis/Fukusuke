@@ -1,4 +1,5 @@
 import { useRouter } from "next/router";
+import React, {useState, useEffect} from 'react'
 import fetch from "isomorphic-unfetch";
 import Head from 'next/head'
 import Container from "../../components/Container";
@@ -32,6 +33,17 @@ export async function getServerSideProps(ctx){
 const Product = ({product}) => {
   const router = useRouter();
   const { id } = router.query;
+
+  useEffect(()=>{ //ejecuta luego de cargar la pagina
+    const setStockonCant = ()=>{ //actualiza el stock al cargar la pagina, segun la cant en la cartera
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      for (let i = 0; i < cart.length; i++) {
+        console.log(cart[i].cant);
+        document.getElementById(cart[i].id+'-card-stock').innerHTML = cart[i].stock - cart[i].cant;
+      }
+    }
+    setStockonCant();
+  },[])//ejecuta solo 1 vez
 
   //añadir producto segun la id al carrito en localStorage
   const addProduct = (id) =>{

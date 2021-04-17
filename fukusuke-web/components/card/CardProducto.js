@@ -5,7 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const CardProducto = (props) =>{
   const [products,setProducts] = useState(props.products);
-
+  console.log(products)
   useEffect(()=>{ //ejecuta luego de cargar la pagina
     const setStockonCant = ()=>{ //actualiza el stock al cargar la pagina, segun la cant en la cartera
       let cart = JSON.parse(localStorage.getItem('cart')) || [];

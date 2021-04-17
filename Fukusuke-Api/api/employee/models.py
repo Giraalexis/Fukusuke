@@ -7,7 +7,7 @@ from django.db import models
 
 class Employee(models.Model):
     name = models.CharField(max_length=50)
-    rut = models.IntegerField()
+    rut = models.CharField(max_length=25)
     date_burn = models.DateField()
     telphone = models.IntegerField()
     email = models.CharField(max_length=50)
