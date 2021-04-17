@@ -1,7 +1,8 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios';
 import fetch from "isomorphic-unfetch";
-
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Register = (props)=>{
   //Valores de los input inicialmente (estado inicial)
@@ -51,13 +52,25 @@ const Register = (props)=>{
     if(values.password == values.password2){
       const res = await axios.post(`http://localhost:8000/api/client-create`,values)
       if(res.status == 200){
-        console.log("exito al registrar")
+        toast.success("Cuenta creada, le enviamos un correo para validar cuenta",{
+          position:"top-center",
+          autoClose: 5000,
+          hideProgressBar: true
+        });
         handleClose() //cerrar modal
       }else{
-        console.log("error al registrar")
+        toast.error("Error al registrar cuenta",{
+          position:"top-center",
+          autoClose: 2000,
+          hideProgressBar: true
+        });
       }
     }else{
-      console.log("Password diferentes")
+      toast.warning("Las contraseñas no son iguales",{
+        position:"top-center",
+        autoClose: 2000,
+        hideProgressBar: true
+      });
     }
   }
 
@@ -80,7 +93,7 @@ const Register = (props)=>{
     <a onClick={handleShow} className="nav-link btn" data-bs-toggle="modal" data-bs-target="#registerModal">Registrate</a>
 
     <div className={"modal fade "+(show? 'show': '')} id="registerModal" tabIndex="-1" aria-labelledby="registerModal" aria-hidden="true">
-      <div className="modal-dialog">
+      <div className="modal-dialog" style={{marginTop: '15vh'}}>
         <form onSubmit={handleSubmit} className="modal-content" >
           <div className="modal-header">
             <h5 className="modal-title" id="exampleModalLabel">Registrate</h5>

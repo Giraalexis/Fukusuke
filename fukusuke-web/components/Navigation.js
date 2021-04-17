@@ -5,6 +5,8 @@ import Cart from './Cart';
 import { useRouter } from 'next/router'
 import React, {useState, useEffect} from 'react'
 import Router from "next/router";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Navigation = () => {
   const router = useRouter()
@@ -22,6 +24,11 @@ const Navigation = () => {
   const logOut = ()=>{
     localStorage.setItem('session','');
     setIsSession('');
+    toast.info("Hasta luego",{
+      position:"top-center",
+      autoClose: 2000,
+      hideProgressBar: true
+    });
     if(router.asPath == '/account'){
       console.log("redireccionar a inicio")
       Router.push('/');

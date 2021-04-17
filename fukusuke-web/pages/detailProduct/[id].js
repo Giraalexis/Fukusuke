@@ -3,7 +3,8 @@ import fetch from "isomorphic-unfetch";
 import Head from 'next/head'
 import Container from "../../components/Container";
 import Link from "next/link";
-import Image from 'next/image';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 //peticion por defecto al cargar esta pagina
 const defaultEndpoint = 'http://localhost:8000/api/product-detail/';
@@ -50,6 +51,11 @@ const Product = ({product}) => {
             let newStock = stock - 1;
             document.getElementById(id+'-card-stock').innerHTML = newStock;
             existe = true;
+            toast.success("Sushi Añadido",{
+              position:"top-center",
+              autoClose: 2000,
+              hideProgressBar: true
+            });
             break;
           }
         }
@@ -61,6 +67,11 @@ const Product = ({product}) => {
           let stock = document.getElementById(id+'-card-stock').innerHTML;
           let newStock = stock - 1;
           document.getElementById(id+'-card-stock').innerHTML = newStock;
+          toast.success("Sushi Añadido",{
+            position:"top-center",
+            autoClose: 2000,
+            hideProgressBar: true
+          });
         }
       }else{//si no existe ningun producto
         productsChange.cant = 1;
@@ -69,9 +80,18 @@ const Product = ({product}) => {
         let stock = document.getElementById(id+'-card-stock').innerHTML;
         let newStock = stock - 1;
         document.getElementById(id+'-card-stock').innerHTML = newStock;
+        toast.success("Sushi Añadido",{
+          position:"top-center",
+          autoClose: 2000,
+          hideProgressBar: true
+        });
       }
     }else{
-      console.log("no se añade")
+      toast.warning("No hay Stock",{
+        position:"top-center",
+        autoClose: 2000,
+        hideProgressBar: true
+      });
     }
     window.localStorage.setItem('cart',JSON.stringify(local))//actualiza localstorage
   }

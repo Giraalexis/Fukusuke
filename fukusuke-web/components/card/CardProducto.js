@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import Router from "next/router";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const CardProducto = (props) =>{
   const [products,setProducts] = useState(props.products);
@@ -33,6 +35,11 @@ const CardProducto = (props) =>{
             let newStock = stock - 1;
             document.getElementById(id+'-card-stock').innerHTML = newStock;
             existe = true;
+            toast.success("Sushi añadido",{
+              position:"top-center",
+              autoClose: 2000,
+              hideProgressBar: true
+            });
             break;
           }
         }
@@ -45,6 +52,11 @@ const CardProducto = (props) =>{
               break;
             }
           }
+          toast.success("Sushi añadido",{
+            position:"top-center",
+            autoClose: 2000,
+            hideProgressBar: true
+          });
           //reflejar cambio de stock en el DOM
           let stock = document.getElementById(id+'-card-stock').innerHTML;
           let newStock = stock - 1;
@@ -55,6 +67,11 @@ const CardProducto = (props) =>{
           if(productsChange[i].id == id){
             productsChange[i].cant = 1;
             local.push(productsChange[i]); //añade el nuevo producto
+            toast.success("Sushi añadido",{
+              position:"top-center",
+              autoClose: 2000,
+              hideProgressBar: true
+            });
             break;
           }
         }
@@ -64,13 +81,17 @@ const CardProducto = (props) =>{
         document.getElementById(id+'-card-stock').innerHTML = newStock;
       }
     }else{
-      console.log("no se añade")
+      toast.warning("No hay Stock",{
+        position:"top-center",
+        autoClose: 2000,
+        hideProgressBar: true
+      });
     }
     window.localStorage.setItem('cart',JSON.stringify(local))//actualiza localstorage
   }
 
   return(
-    <div className="row" id="cards-container-render"> 
+    <div className="row" id="cards-container-render">
       {products.map(product=>{
         if(product.state){
           return(

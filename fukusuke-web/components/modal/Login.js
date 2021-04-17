@@ -1,6 +1,8 @@
 import Register from './Register'
 import React, {useState, useEffect} from 'react'
 import axios from 'axios';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = (props)=>{
   //Valores de los input inicialmente (estado inicial)
@@ -28,20 +30,36 @@ const Login = (props)=>{
       const client = res.data;
       console.log(client.email);
       if(client.email == values.correo && client.password == values.password){
-        if(!client.state){ //para probar, lo dejo falso ,SE DEBE CAMBIAR
-          console.log('login exitoso')
+        if(!client.state){ //para probar, lo dejo falso SE DEBE CAMBIAR
+          toast.success("Inicio de sesion exitoso",{
+            position:"top-center",
+            autoClose: 2000,
+            hideProgressBar: true
+          });
           localStorage.setItem('session',JSON.stringify(client))//guarda sesion con los datos del cliente
           handleClose(); //cerrar modal
           props.onLogin(values);//enviar datos al 'navigation' para que cambie estados
         }else{
-          console.log('debe validar correo')
+          toast.warning("Debe validar correo",{
+            position:"top-center",
+            autoClose: 2000,
+            hideProgressBar: true
+          });
         }
       }else{
-        console.log('error de login')
+        toast.error("Correo o contraseña invalido",{
+          position:"top-center",
+          autoClose: 2000,
+          hideProgressBar: true
+        });
       }
     }catch(e){
       console.log(e);
-      console.log('Cuenta no existe')
+      toast.error("La cuenta no existe",{
+        position:"top-center",
+        autoClose: 2000,
+        hideProgressBar: true
+      });
     }
   }
 
@@ -64,7 +82,7 @@ const Login = (props)=>{
       <a onClick={handleShow} className="nav-link btn" data-bs-toggle="modal" data-bs-target="#loginModal">Iniciar Sesion</a>
 
       <div className={"modal fade "+(show? 'show': '')}  id="loginModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div className="modal-dialog">
+        <div className="modal-dialog " style={{marginTop: '15vh'}}>
           <form onSubmit={handleSubmit} className="modal-content" >
             <div className="modal-header">
               <h5 className="modal-title" id="exampleModalLabel">Iniciar Sesion</h5>

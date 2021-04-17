@@ -123,12 +123,12 @@ const Cart = (props)=>{
               return(
                 <div key={product.id} className="card card-body mt-2">
                   <div className="row justify-content-between">
-                    <img className="col-3 p-0" src={product.image} style={{width:'120px', height:'90px'}}/>
-                    <div className="col-4 p-0">
+                    <img className="col-lg-3 col-md-3 col-sm-3 p-0" src={product.image} style={{width:'120px', height:'90px'}}/>
+                    <div className="col-lg-4 col-md-3 col p-0">
                       <h5 className="text-truncate">{product.name}</h5>
                       <h6 className="tertiary-text">${(product.price*product.cant)}</h6>
                     </div>
-                    <div className="col-4">
+                    <div className="col-lg-4 col-md-4 col">
                       <div className="d-flex justify-content-end">
                         <button onClick={()=> deleteProductCart(product.id)} className="btn btn-danger ">Borrar</button>
                       </div>

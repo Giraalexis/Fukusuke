@@ -3,6 +3,8 @@ import Container from '../components/Container';
 import axios from 'axios'
 import fetch from "isomorphic-unfetch";
 import React, {useState, useEffect} from 'react'
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Account = (props)=> {
   const [values, setValues] = useState({});
@@ -35,9 +37,17 @@ const Account = (props)=> {
     console.log(res);
     if(res.status == 200){
       localStorage.setItem('session',JSON.stringify(values))
-      console.log("Update correct")
+      toast.success("Se han actualizado los datos",{
+        position:"top-center",
+        autoClose: 4000,
+        hideProgressBar: true
+      });
     }else{
-      console.log("error al actualizar")
+      toast.error("Error al actualizar datos",{
+        position:"top-center",
+        autoClose: 4000,
+        hideProgressBar: true
+      });
     }
   }
 
