@@ -8,13 +8,24 @@ import Image from 'next/image';
 //peticion por defecto al cargar esta pagina
 const defaultEndpoint = 'http://localhost:8000/api/product-detail/';
 export async function getServerSideProps(ctx){
-  const res = await fetch(defaultEndpoint+ctx.query.id);
-  const product = await res.json();
-  return{
-    props:{
-      product
+  try{
+    const res = await fetch(defaultEndpoint+ctx.query.id);
+    const product = await res.json();
+    return{
+      props:{
+        product
+      }
+    }
+  }catch(e){
+    console.log("error al obtener el producto")
+    const product = [];
+    return{
+      props:{
+        product
+      }
     }
   }
+  
 }
 
 const Product = ({product}) => {

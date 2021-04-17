@@ -9,11 +9,21 @@ import Cart from '../components/Cart';
 //peticion por defecto
 const defaultEndpoint = 'http://localhost:8000/api/product-list';
 export async function getServerSideProps(){
-  const res = await fetch(defaultEndpoint);
-  const products = await res.json();
-  return{
-    props:{
-      products
+  try{
+    const res = await fetch(defaultEndpoint);
+    const products = await res.json();
+    return{
+      props:{
+        products
+      }
+    }
+  }catch(e){
+    console.log("error al obtener productos")
+    const products = [];
+    return{
+      props:{
+        products
+      }
     }
   }
 }

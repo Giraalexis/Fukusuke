@@ -13,6 +13,7 @@ const Register = (props)=>{
     telphone: '',
     email: '',
     password: '',
+    password2: '',
     state: false,
     sex: '',
     commune: ''
@@ -47,12 +48,16 @@ const Register = (props)=>{
   //cuando se realiza el submit en el form, se envia los datos para ser verificados
   const handleSubmit =  async e =>{
     e.preventDefault();
-    const res = await axios.post(`http://localhost:8000/api/client-create`,values)
-    console.log(res);
-    if(res.status == 200){
-      handleClose() //cerrar modal
+    if(values.password == values.password2){
+      const res = await axios.post(`http://localhost:8000/api/client-create`,values)
+      if(res.status == 200){
+        console.log("exito al registrar")
+        handleClose() //cerrar modal
+      }else{
+        console.log("error al registrar")
+      }
     }else{
-      console.log("error al registrar")
+      console.log("Password diferentes")
     }
   }
 
@@ -127,7 +132,14 @@ const Register = (props)=>{
                 <input name="date_burn" value={values.date_burn} onChange={handleInputChange} className="form-control mt-3" placeholder="Ingrese su fecha de nacimiento" type="date" required/>
               </div>
             </div>
-            <input name="password" value={values.password} onChange={handleInputChange} className="form-control mt-3" placeholder="Ingrese su contraseña" type="password" required/>
+            <div className="row">
+              <div className="col-6">
+                <input name="password" value={values.password} onChange={handleInputChange} className="form-control mt-3" placeholder="Ingrese su contraseña" type="password" required/>
+              </div>
+              <div className="col">
+                <input name="password2" id="password2" value={values.password2} onChange={handleInputChange} className="form-control mt-3" placeholder="Repetir contraseña" type="password" required/>
+              </div>
+            </div>
           </div>
           <div className="modal-footer">
             <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
