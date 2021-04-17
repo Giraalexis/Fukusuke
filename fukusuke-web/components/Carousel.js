@@ -13,9 +13,9 @@ const Carousel = (props)=>{
                 <div key={product.id} className={"carousel-item active"} onClick={() => Router.push(`/detailProduct/[id]`, `/detailProduct/${product.id}`)}>
                   <img src={product.image} style={{width:'100%', height:'40vh',opacity:'0.8'}} className="rounded btn mx-auto d-block p-0"  
                     onError={(e)=>{e.target.onerror = null; e.target.src="/Sushi404.png"}}/>
-                  <div className="carousel-caption d-none d-md-block">
-                    <h1 className="primary-text text-wrap">{product.name}</h1>
-                    <h5 className="primary-text text-wrap"> {product.description}</h5>
+                  <div className="carousel-caption d-md-block">
+                    <h1 className="primary-text font-weight-bold text-uppercase">{product.name}</h1>
+                    <h5 className="primary-text font-weight-bold text-capitalize"> {product.description}</h5>
                   </div>
                 </div>  
               )
@@ -24,9 +24,9 @@ const Carousel = (props)=>{
                 <div key={product.id} className={"carousel-item"} onClick={() => Router.push(`/detailProduct/[id]`, `/detailProduct/${product.id}`)}>
                   <img src={product.image} style={{width:'100%', height:'40vh', opacity:'0.8'}} className="rounded btn sombra mx-auto d-block p-0"
                     onError={(e)=>{e.target.onerror = null; e.target.src="/Sushi404.png"}}/>
-                  <div className="carousel-caption d-none d-md-block">
-                    <h1 className="primary-text text-wrap">{product.name}</h1>
-                    <h5 className="primary-text text-wrap"> {product.description}</h5>
+                  <div className="carousel-caption d-md-block">
+                    <h1 className="primary-text font-weight-bold text-uppercase">{product.name}</h1>
+                    <h5 className="primary-text font-weight-bold text-capitalize"> {product.description}</h5>
                   </div>
                 </div>  
               )
