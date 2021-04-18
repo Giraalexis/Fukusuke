@@ -53,3 +53,13 @@ a {
 .modal-open .modal{
   padding-right: 0px !important;
 }
+
+/*Contorneado texto*/
+.text-stroke {
+  -webkit-text-stroke-color: #ff2e63;
+  -webkit-text-stroke-width: 2px;
+/* shorthand */
+  -webkit-text-stroke: 1px #252a34;
+/* color del texto */
+  -webkit-text-fill-color: #ff2e63;
+}

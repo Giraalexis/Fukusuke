@@ -25,7 +25,9 @@ const Cart = (props)=>{
       if(id == cartLocal[i].id){
         subTotal = total - (cartLocal[i].cant * cartLocal[i].price)  
         //reflejar cambio de stock en el DOM
-        document.getElementById(id+'-card-stock').innerHTML = cartLocal[i].stock;
+        if(Router.asPath == '/' || Router.asPath == '/detailProduct/'+id){
+          document.getElementById(id+'-card-stock').innerHTML = cartLocal[i].stock;
+        }
         cartLocal.splice(i,1);//lo borra
         window.localStorage.setItem('cart',JSON.stringify(cartLocal))//actualiza localstorage cartera
         setCart(cartLocal);//actualiza cartera

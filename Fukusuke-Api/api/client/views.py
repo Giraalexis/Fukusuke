@@ -6,6 +6,8 @@ from rest_framework.response import Response
 from .serializers import ClientSerializer
 from django.forms.models import model_to_dict
 from .models import Client
+from django.core.mail import EmailMessage
+
 # Create your views here.
 
 @api_view(['GET'])
@@ -45,7 +47,18 @@ def clientCreate(request):
 
 	if serializer.is_valid():
 		serializer.save()
-
+		#enviar correo de prueba
+		nombre = serializer.data.get("name",'')
+		correo = serializer.data.get("email",'')
+		mensaje = "hola"
+		link = "localhost:3000/account/"+ str(serializer.data.get("id",''))
+		email = EmailMessage("Confirma cuenta Fukusuke",
+            "Estimado {} Ingrese al siguiente enlace para confirmar la cuenta {}".format(nombre,link),
+            "gameduoc123@gmail.com",
+            ['gameduoc123@gmail.com',correo],
+            reply_to=[correo])
+		email.send()
+			
 	return Response(serializer.data)
 
 @api_view(['PUT'])

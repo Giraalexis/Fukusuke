@@ -39,7 +39,7 @@ const Product = ({product}) => {
       let cart = JSON.parse(localStorage.getItem('cart')) || [];
       for (let i = 0; i < cart.length; i++) {
         console.log(cart[i].cant);
-        document.getElementById(cart[i].id+'-card-stock').innerHTML = cart[i].stock - cart[i].cant;
+        document.getElementById(product.id+'-card-stock').innerHTML = cart[i].stock - cart[i].cant;
       }
     }
     setStockonCant();
