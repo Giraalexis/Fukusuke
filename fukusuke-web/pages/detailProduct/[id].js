@@ -27,7 +27,6 @@ export async function getServerSideProps(ctx){
       }
     }
   }
-  
 }
 
 const Product = ({product}) => {

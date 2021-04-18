@@ -50,15 +50,14 @@ def clientCreate(request):
 		#enviar correo de prueba
 		nombre = serializer.data.get("name",'')
 		correo = serializer.data.get("email",'')
-		mensaje = "hola"
-		link = "localhost:3000/account/"+ str(serializer.data.get("id",''))
+		link = "localhost:3000/confirm/"+ str(serializer.data.get("id",''))
 		email = EmailMessage("Confirma cuenta Fukusuke",
             "Estimado {} Ingrese al siguiente enlace para confirmar la cuenta {}".format(nombre,link),
             "gameduoc123@gmail.com",
             ['gameduoc123@gmail.com',correo],
             reply_to=[correo])
 		email.send()
-			
+
 	return Response(serializer.data)
 
 @api_view(['PUT'])

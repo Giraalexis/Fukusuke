@@ -30,7 +30,7 @@ const Login = (props)=>{
       const client = res.data;
       console.log(client.email);
       if(client.email == values.correo && client.password == values.password){
-        if(!client.state){ //para probar, lo dejo falso SE DEBE CAMBIAR
+        if(client.state){ 
           toast.success("Inicio de sesion exitoso",{
             position:"top-center",
             autoClose: 2000,
