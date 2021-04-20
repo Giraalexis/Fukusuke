@@ -96,11 +96,14 @@ const Cart = (props)=>{
           //realizar el pago
           toast.info("Redireccionando al pago",{
             position:"top-center",
-            autoClose: 4000,
+            autoClose: 3000,
             hideProgressBar: true
           });
           handleClose();
-          Router.push('/pay')
+          Router.push({
+           pathname: '/pay',
+           query: {total: total}
+          })
         }
       }
     }else{
@@ -142,7 +145,8 @@ const Cart = (props)=>{
               return(
                 <div key={product.id} className="card card-body mt-2">
                   <div className="row justify-content-between">
-                    <img className="col-lg-3 col-md-3 col-sm-3 p-0" src={product.image} style={{width:'120px', height:'90px'}}/>
+                    <img className="col-lg-3 col-md-3 col-sm-3 p-0" src={product.image} style={{width:'120px', height:'90px'}}
+                      onError={(e)=>{e.target.onerror = null; e.target.src="/Sushi404.png"}}/>   
                     <div className="col-lg-4 col-md-3 col p-0">
                       <h5 className="text-truncate">{product.name}</h5>
                       <h6 className="tertiary-text">${(product.price*product.cant)}</h6>

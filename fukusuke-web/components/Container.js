@@ -1,7 +1,7 @@
 import Navigation from "./Navigation";
 import Footer from './Footer'
 import Head from "next/head";
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Container = (props) => (
