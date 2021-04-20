@@ -5,12 +5,10 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const CardProducto = (props) =>{
   const [products,setProducts] = useState(props.products);
-  console.log(products)
   useEffect(()=>{ //ejecuta luego de cargar la pagina
     const setStockonCant = ()=>{ //actualiza el stock al cargar la pagina, segun la cant en la cartera
       let cart = JSON.parse(localStorage.getItem('cart')) || [];
       for (let i = 0; i < cart.length; i++) {
-        console.log(cart[i].cant);
         document.getElementById(cart[i].id+'-card-stock').innerHTML = cart[i].stock - cart[i].cant;
       }
     }
@@ -21,7 +19,6 @@ const CardProducto = (props) =>{
   const addProduct = (id) =>{
     let local = JSON.parse(localStorage.getItem('cart')) || [];//obtener local de cart (si es null, retorna [])
     let productsChange = products;
-    console.log(productsChange);
     let existe = false;
     if(document.getElementById(id+'-card-stock').innerHTML > 0){//si el stock es mayor que 0
       console.log("se añade");

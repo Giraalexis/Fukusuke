@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import Router from "next/router";
+import { toast } from 'react-toastify';
 
 const Cart = (props)=>{
   const [cart,setCart] = useState([]);
@@ -78,20 +79,36 @@ const Cart = (props)=>{
     if(localStorage.getItem('session')){ //verificar si se a logeado
       console.log("sesion esta iniciada")
       if(!JSON.parse(localStorage.getItem('cart'))){ //verificar si existe cartera
-        console.log("cartera no existe");
+        toast.warning("Añade un producto antes de pagar",{
+          position:"top-center",
+          autoClose: 4000,
+          hideProgressBar: true
+        });
       }else{
         console.log("cartera existe");
         if(!JSON.parse(localStorage.getItem('cart')).length){//verifica que la cartera este vacia
-          console.log("cartera vacia")
+          toast.warning("Añade un producto antes de pagar",{
+            position:"top-center",
+            autoClose: 4000,
+            hideProgressBar: true
+          });
         }else{
-          console.log("realizar pago")
           //realizar el pago
+          toast.info("Redireccionando al pago",{
+            position:"top-center",
+            autoClose: 4000,
+            hideProgressBar: true
+          });
           handleClose();
           Router.push('/pay')
         }
       }
     }else{
-      console.log("sesion no iniciada")
+      toast.warning("Inicia Sesion para poder pagar",{
+        position:"top-center",
+        autoClose: 4000,
+        hideProgressBar: true
+      });
     }
   }
 

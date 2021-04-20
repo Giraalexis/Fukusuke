@@ -37,8 +37,9 @@ const Product = ({product}) => {
     const setStockonCant = ()=>{ //actualiza el stock al cargar la pagina, segun la cant en la cartera
       let cart = JSON.parse(localStorage.getItem('cart')) || [];
       for (let i = 0; i < cart.length; i++) {
-        console.log(cart[i].cant);
-        document.getElementById(product.id+'-card-stock').innerHTML = cart[i].stock - cart[i].cant;
+        if(cart[i].id == product.id){
+          document.getElementById(product.id+'-card-stock').innerHTML = cart[i].stock - cart[i].cant;
+        }
       }
     }
     setStockonCant();
