@@ -111,7 +111,7 @@ public class producto extends javax.swing.JFrame {
             
             DefaultTableModel modelo = new DefaultTableModel();
             
-            //modelo.addColumn("Id");
+            modelo.addColumn("Id");
             modelo.addColumn("nombre");
             modelo.addColumn("Descripcion");
             modelo.addColumn("Promocion");
@@ -122,22 +122,23 @@ public class producto extends javax.swing.JFrame {
             
             
             for (Producto productore : productos) {
-                String[] fila = new String[7];
-                fila[0] = productore.getName();
-                fila[1] = productore.getDescription();
+                String[] fila = new String[8];
+                fila[0] = String.valueOf(productore.getId());
+                fila[1] = productore.getName();
+                fila[2] = productore.getDescription();
                 if(productore.getPromotion() == 1){
-                    fila[2] = "Activo";
+                    fila[3] = "Activo";
                 }else{
-                    fila[2] = "Inactivo";
+                    fila[3] = "Inactivo";
                 }
-                fila[3] = String.valueOf(productore.getStock());
-                fila[4] = String.valueOf(productore.getPrice());
+                fila[4] = String.valueOf(productore.getStock());
+                fila[5] = String.valueOf(productore.getPrice());
                 if(productore.getState() == 1){
-                    fila [5] = "Activo";
+                    fila [6] = "Activo";
                 }else{
-                    fila [5] = "Inactivo";
+                    fila [6] = "Inactivo";
                 }
-                fila[6] = String.valueOf(productore.getImage());
+                fila[7] = String.valueOf(productore.getImage());
                 
                 modelo.addRow(fila);
             }

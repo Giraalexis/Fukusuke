@@ -3,8 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/felip/Documents/portafolio/Web/Fukusuke/FukusukeJAva/src/dao/ProductoDAO.java</file>
-            <file>file:/C:/Users/felip/Documents/portafolio/Web/Fukusuke/FukusukeJAva/src/vistas/producto.java</file>
+            <file>file:/C:/Users/felip/Documents/portafolio/Web/Fukusuke/FukusukeJAva/src/vistas/cliente.java</file>
+            <file>file:/C:/Users/felip/Documents/portafolio/Web/Fukusuke/FukusukeJAva/src/dao/ClienteDAO.java</file>
             <file>file:/C:/Users/felip/Documents/portafolio/Web/Fukusuke/FukusukeJAva/src/vistas/empleado.java</file>
             <file>file:/C:/Users/felip/Documents/portafolio/Web/Fukusuke/FukusukeJAva/src/dao/EmpleadoDAO.java</file>
         </group>
