@@ -5,6 +5,8 @@ import entidades.Producto;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.sql.ResultSet;
 
 public class ProductoDAO {
     
@@ -46,4 +48,42 @@ public class ProductoDAO {
         return fueAgregado;
     }
     
+    
+    public ArrayList<Producto> listarProductos() throws SQLException{
+        
+        
+        ArrayList<Producto> productos = new ArrayList<>();
+        Connection conn = conexion.conectar();
+        
+        try {
+            String sql = "select * from api_product";
+            
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            
+            ResultSet  rs = stmt.executeQuery();
+            
+            while(rs.next()){
+                Producto t = new Producto();
+                
+                t.setId(rs.getInt("ID"));
+                t.setName(rs.getString("NAME"));
+                t.setDescription(rs.getString("DESCRIPTION"));
+                t.setPromotion(rs.getInt("PROMOTION"));
+                t.setStock(rs.getInt("STOCK"));
+                t.setPrice(rs.getInt("PRICE"));
+                t.setState(rs.getInt("STATE"));
+                t.setImage(rs.getString("IMAGE"));
+                
+                productos.add(t);
+            }
+            
+        } catch (Exception e) {
+            System.out.println("Error listando" + e.getMessage());
+            
+        }finally{
+            conn.close();
+        }
+        
+        return productos;
+    }
 }
