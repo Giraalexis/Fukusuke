@@ -250,6 +250,7 @@ public class cliente extends javax.swing.JFrame {
         txtId = new javax.swing.JTextField();
         txtBuscar = new javax.swing.JTextField();
         btnBuscar = new javax.swing.JButton();
+        lblSeleccionar = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -431,6 +432,10 @@ public class cliente extends javax.swing.JFrame {
             }
         });
 
+        lblSeleccionar.setBackground(new java.awt.Color(255, 255, 255));
+        lblSeleccionar.setForeground(new java.awt.Color(255, 102, 0));
+        lblSeleccionar.setText("(Seleccione una fila para editar o eliminar)");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -499,6 +504,10 @@ public class cliente extends javax.swing.JFrame {
                                 .addGap(19, 19, 19))
                             .addComponent(lblLogo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(150, 150, 150))))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(341, 341, 341)
+                .addComponent(lblSeleccionar)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -555,7 +564,9 @@ public class cliente extends javax.swing.JFrame {
                     .addComponent(btnEliminar)
                     .addComponent(btnGuardar)
                     .addComponent(btnEditar))
-                .addGap(53, 53, 53)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblSeleccionar)
+                .addGap(33, 33, 33)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnBuscar))
@@ -819,6 +830,7 @@ public class cliente extends javax.swing.JFrame {
     private javax.swing.JLabel lblNacimiento;
     private javax.swing.JLabel lblNombre;
     private javax.swing.JLabel lblRut;
+    private javax.swing.JLabel lblSeleccionar;
     private javax.swing.JLabel lblSexo;
     private javax.swing.JLabel lblTelefono;
     private javax.swing.JLabel lblTitulo;

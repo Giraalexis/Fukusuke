@@ -3,10 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/felip/Documents/portafolio/Web/Fukusuke/FukusukeJAva/src/vistas/cliente.java</file>
-            <file>file:/C:/Users/felip/Documents/portafolio/Web/Fukusuke/FukusukeJAva/src/dao/ClienteDAO.java</file>
-            <file>file:/C:/Users/felip/Documents/portafolio/Web/Fukusuke/FukusukeJAva/src/vistas/empleado.java</file>
-            <file>file:/C:/Users/felip/Documents/portafolio/Web/Fukusuke/FukusukeJAva/src/dao/EmpleadoDAO.java</file>
+            <file>file:/C:/Users/felip/Documents/portafolio/Web/Fukusuke/FukusukeJAva/src/vistas/menuMantenedor.java</file>
+            <file>file:/C:/Users/felip/Documents/portafolio/Web/Fukusuke/FukusukeJAva/src/vistas/menuDueno.java</file>
+            <file>file:/C:/Users/felip/Documents/portafolio/Web/Fukusuke/FukusukeJAva/src/vistas/menuAdministrador.java</file>
+            <file>file:/C:/Users/felip/Documents/portafolio/Web/Fukusuke/FukusukeJAva/src/vistas/menuCajero.java</file>
         </group>
     </open-files>
 </project-private>
