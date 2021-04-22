@@ -9,7 +9,9 @@ const CardProducto = (props) =>{
     const setStockonCant = ()=>{ //actualiza el stock al cargar la pagina, segun la cant en la cartera
       let cart = JSON.parse(localStorage.getItem('cart')) || [];
       for (let i = 0; i < cart.length; i++) {
-        document.getElementById(cart[i].id+'-card-stock').innerHTML = cart[i].stock - cart[i].cant;
+        if(document.getElementById(cart[i].id+'-card-stock').innerHTML){
+          document.getElementById(cart[i].id+'-card-stock').innerHTML = cart[i].stock - cart[i].cant;
+        }
       }
     }
     setStockonCant();
