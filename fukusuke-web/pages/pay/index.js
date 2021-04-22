@@ -39,7 +39,7 @@ const Pay = (props)=> {
   return (
     <Container>
       <Head>
-        <title>Fukusuke | Account</title>
+        <title>Fukusuke | Pay</title>
       </Head>
       <PayDetail response={props.response}/>
     </Container>

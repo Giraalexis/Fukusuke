@@ -27,7 +27,7 @@ const ReturnPay = (props)=> {
   return (
     <Container>
       <Head>
-        <title>Fukusuke | Account</title>
+        <title>Fukusuke | Pay</title>
       </Head>
       <h4>Redirecting....</h4>
     </Container>
