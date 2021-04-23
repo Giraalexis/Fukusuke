@@ -3,6 +3,7 @@ import axios from 'axios';
 import fetch from "isomorphic-unfetch";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import {  validate, clean, format, getCheckDigit } from 'rut.js';
 
 const Register = (props)=>{
   //Valores de los input inicialmente (estado inicial)
@@ -40,7 +41,11 @@ const Register = (props)=>{
     const {name, value} = e.target; //captura el nombre y el valor
     if(name =="name" || name == "adress"){//aplicar trim en campos necesarios
       setValues({...values, [name]: value}) //añadir a lo existente, con el nombre, el valor.
-    }else{
+    }
+    else if (name=="rut"){
+      setValues({...values, [name]: format(value)})
+    }
+    else{
       let cleanTrim = value.trim();
       setValues({...values, [name]: cleanTrim})
     }
@@ -49,28 +54,36 @@ const Register = (props)=>{
   //cuando se realiza el submit en el form, se envia los datos para ser verificados
   const handleSubmit =  async e =>{
     e.preventDefault();
-    if(values.password == values.password2){
-      const res = await axios.post(`http://localhost:8000/api/client-create`,values)
-      if(res.status == 200){
-        toast.success("Cuenta creada, le enviamos un correo para validar cuenta",{
-          position:"top-center",
-          autoClose: 5000,
-          hideProgressBar: true
-        });
-        handleClose() //cerrar modal
+    if(!validate(values.rut)){
+      toast.warning("Ingrese un rut valido",{
+        position:"top-center",
+        autoClose: 4000,
+        hideProgressBar: true
+      });
+    }else{
+      if(values.password == values.password2){
+        const res = await axios.post(`http://localhost:8000/api/client-create`,values)
+        if(res.status == 200){
+          toast.success("Cuenta creada, le enviamos un correo para validar cuenta",{
+            position:"top-center",
+            autoClose: 5000,
+            hideProgressBar: true
+          });
+          handleClose() //cerrar modal
+        }else{
+          toast.error("Error al registrar cuenta",{
+            position:"top-center",
+            autoClose: 2000,
+            hideProgressBar: true
+          });
+        }
       }else{
-        toast.error("Error al registrar cuenta",{
+        toast.warning("Las contraseñas no son iguales",{
           position:"top-center",
           autoClose: 2000,
           hideProgressBar: true
         });
       }
-    }else{
-      toast.warning("Las contraseñas no son iguales",{
-        position:"top-center",
-        autoClose: 2000,
-        hideProgressBar: true
-      });
     }
   }
 

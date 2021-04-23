@@ -15,7 +15,6 @@ const ReturnPay = (props)=> {
   useEffect(()=>{
     const getTokentoRedirect = ()=>{
       const token = JSON.parse(localStorage.getItem('response'))
-      console.log(token.token)
       Router.push({
         pathname: '/pay/voucher',
         query: {token: token.token}

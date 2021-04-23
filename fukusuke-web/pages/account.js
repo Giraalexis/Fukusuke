@@ -5,12 +5,19 @@ import fetch from "isomorphic-unfetch";
 import React, {useState, useEffect} from 'react'
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import {  validate, clean, format, getCheckDigit } from 'rut.js';
 
 const Account = (props)=> {
   const [values, setValues] = useState({});
   const [communes,setCommunes] = useState([]);
   useEffect(()=>{
-    setValues(JSON.parse(localStorage.getItem('session')));
+    const getAccount = async () =>{
+      const id = JSON.parse(localStorage.getItem('session')).id
+      const res = await axios.get('http://localhost:8000/api/client-detail/'+id)
+      setValues(res.data);
+    }
+    getAccount();
+    
     const getCommunes = async () => { //obtener las comunas
       const res = await fetch('http://localhost:8000/api/commune-list');
       const communesJSON = await res.json();
@@ -24,7 +31,11 @@ const Account = (props)=> {
     const {name, value} = e.target; //captura el nombre y el valor
     if(name =="name" || name == "adress"){//aplicar trim en campos necesarios
       setValues({...values, [name]: value}) //añadir a lo existente, con el nombre, el valor.
-    }else{
+    }
+    else if (name=="rut"){
+      setValues({...values, [name]: format(value)})
+    }
+    else{
       let cleanTrim = value.trim();
       setValues({...values, [name]: cleanTrim})
     }
@@ -33,22 +44,31 @@ const Account = (props)=> {
   //actualizar datos de la cuenta
   const handleSubmit =  async e =>{
     e.preventDefault();
-    const res = await axios.put(`http://localhost:8000/api/client-update/${values.id}`,values)
-    console.log(res);
-    if(res.status == 200){
-      localStorage.setItem('session',JSON.stringify(values))
-      toast.success("Se han actualizado los datos",{
+    if(!validate(values.rut)){
+      toast.warning("Ingrese un rut valido",{
         position:"top-center",
         autoClose: 4000,
         hideProgressBar: true
       });
     }else{
-      toast.error("Error al actualizar datos",{
-        position:"top-center",
-        autoClose: 4000,
-        hideProgressBar: true
-      });
+      const res = await axios.put(`http://localhost:8000/api/client-update/${values.id}`,values)
+      console.log(res);
+      if(res.status == 200){
+        localStorage.setItem('session',JSON.stringify(values))
+        toast.success("Se han actualizado los datos",{
+          position:"top-center",
+          autoClose: 4000,
+          hideProgressBar: true
+        });
+      }else{
+        toast.error("Error al actualizar datos",{
+          position:"top-center",
+          autoClose: 4000,
+          hideProgressBar: true
+        });
+      }
     }
+    
   }
 
   return (
@@ -77,6 +97,15 @@ const Account = (props)=> {
               </div>
               <div className="col">
                 <input name="rut" onChange={handleInputChange} className="form-control" type="text" value={values.rut}/>
+              </div>
+            </div>
+
+            <div className="row mt-2">
+              <div className="col-lg-5 col-md-5 col-sm-12">
+                <label className="col-form-label">Contraseña</label>
+              </div>
+              <div className="col">
+                <input name="rut" onChange={handleInputChange} className="form-control" type="password" value={values.password}/>
               </div>
             </div>
 

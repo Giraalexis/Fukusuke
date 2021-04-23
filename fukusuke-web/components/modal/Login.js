@@ -18,8 +18,7 @@ const Login = (props)=>{
   //Guardar el estado de lo escrito en input
   const handleInputChange = e=>{
     const {name, value} = e.target;//Captura el nombre y el valor 
-    let cleanTrim = value.trim(); //limpia espaciados
-    setValues({...values, [name]: cleanTrim}) //Añadir a lo existente, con el nombre, el valor.
+    setValues({...values, [name]: value.trim()}) //Añadir a lo existente, con el nombre, el valor.
   }
 
   //cuando se realiza el submit en el form
