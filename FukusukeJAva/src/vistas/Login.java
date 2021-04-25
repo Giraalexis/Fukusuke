@@ -1,19 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package vistas;
 
-/**
- *
- * @author felipe
- */
+import dao.EmpleadoDAO;
+import entidades.Empleado;
+import javax.swing.JOptionPane;
+
 public class login extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Login
-     */
     public login() {
         initComponents();
     }
@@ -38,6 +30,8 @@ public class login extends javax.swing.JFrame {
         lblLogin = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Fukusuke - Login");
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -63,6 +57,11 @@ public class login extends javax.swing.JFrame {
         btnIngresar.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         btnIngresar.setForeground(new java.awt.Color(0, 0, 0));
         btnIngresar.setText("Ingresar");
+        btnIngresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIngresarActionPerformed(evt);
+            }
+        });
 
         lblLogin.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         lblLogin.setForeground(new java.awt.Color(0, 0, 0));
@@ -129,7 +128,53 @@ public class login extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
+
+        EmpleadoDAO empDAO = new EmpleadoDAO();
+        Empleado emp = new Empleado();
+
+        String pass = new String(txtPassword.getPassword());
+
+        if (!txtRut.getText().equals("") && !pass.equals("")) {
+
+            emp.setRut(txtRut.getText());
+            emp.setPassword(pass);
+            
+
+            if (empDAO.validarLogin(emp)) {
+
+                if (emp.getRol_id() == 1) {
+                    menuAdministrador menuADM = new menuAdministrador();
+                    menuADM.setVisible(true);
+                    this.dispose();
+                } else if (emp.getRol_id() == 2) {
+                    menuMantenedor menuMAN = new menuMantenedor();
+                    menuMAN.setVisible(true);
+                    this.dispose();
+                } else if (emp.getRol_id() == 3) {
+                    reporte report = new reporte();
+                    report.setVisible(true);
+                    this.dispose();
+                } else if (emp.getRol_id() == 4) {
+                    orden or = new orden();
+                    or.setVisible(true);
+                    this.dispose();
+                }else{
+                    JOptionPane.showMessageDialog(this, "No tiene los privilegios necesarios");
+                }
+
+            } else {
+                JOptionPane.showMessageDialog(this, "Datos incorrectos");
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Ingrese los datos");
+        }
+
+
+    }//GEN-LAST:event_btnIngresarActionPerformed
 
     /**
      * @param args the command line arguments

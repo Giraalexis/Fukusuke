@@ -5,6 +5,8 @@
  */
 package vistas;
 
+
+
 /**
  *
  * @author felipe
@@ -16,8 +18,12 @@ public class menuMantenedor extends javax.swing.JFrame {
      */
     public menuMantenedor() {
         initComponents();
+        
     }
-
+    public boolean emp = true;
+    producto frmProducto;
+    cliente frmCliente;
+    empleado frmEmpleado;
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -36,6 +42,8 @@ public class menuMantenedor extends javax.swing.JFrame {
         lblLogo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Fukusuke - Menu Mantenedor");
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -49,18 +57,36 @@ public class menuMantenedor extends javax.swing.JFrame {
         btnUsuarios.setForeground(new java.awt.Color(0, 0, 0));
         btnUsuarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/account-group-outline.png"))); // NOI18N
         btnUsuarios.setText("  Usuarios");
+        btnUsuarios.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnUsuarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUsuariosActionPerformed(evt);
+            }
+        });
 
         btnProductos.setBackground(new java.awt.Color(255, 102, 0));
         btnProductos.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         btnProductos.setForeground(new java.awt.Color(0, 0, 0));
         btnProductos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/food-fork-drink.png"))); // NOI18N
         btnProductos.setText("  Productos");
+        btnProductos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnProductos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnProductosActionPerformed(evt);
+            }
+        });
 
         btnClientes.setBackground(new java.awt.Color(255, 102, 0));
         btnClientes.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         btnClientes.setForeground(new java.awt.Color(0, 0, 0));
         btnClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/account-group.png"))); // NOI18N
         btnClientes.setText("  Clientes");
+        btnClientes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnClientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClientesActionPerformed(evt);
+            }
+        });
 
         lblFukusuke.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/FUKUSUKE-chico.jpg"))); // NOI18N
 
@@ -123,7 +149,39 @@ public class menuMantenedor extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsuariosActionPerformed
+        // TODO add your handling code here:
+        if(frmEmpleado == null){
+            frmEmpleado = new empleado();
+            frmEmpleado.setVisible(true);
+            
+        }      
+                   
+           
+    }//GEN-LAST:event_btnUsuariosActionPerformed
+
+    private void btnProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProductosActionPerformed
+        // TODO add your handling code here:
+        
+        if(frmProducto == null){
+            frmProducto = new producto();
+            frmProducto.setVisible(true);
+            
+        }      
+    }//GEN-LAST:event_btnProductosActionPerformed
+
+    private void btnClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClientesActionPerformed
+        // TODO add your handling code here:
+        
+        if(frmCliente == null){
+            frmCliente = new cliente();
+            frmCliente.setVisible(true);
+            
+        }     
+    }//GEN-LAST:event_btnClientesActionPerformed
 
     /**
      * @param args the command line arguments

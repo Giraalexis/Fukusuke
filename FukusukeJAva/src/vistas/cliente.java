@@ -15,6 +15,10 @@ public class cliente extends javax.swing.JFrame {
         initComponents();
         txtId.setVisible(false);
         this.listar();
+        
+        
+        //ANCHO DE COLUMNAS
+        tblClientes.getColumnModel().getColumn(0).setPreferredWidth(10);
     }
     
     private void listar(){
@@ -57,28 +61,83 @@ public class cliente extends javax.swing.JFrame {
                     fila[8] = "Inactivo";
                 }
                 
-                if(clientore.getCommune_id() == 29)
-                    fila[9] = "Juan Fernandez";
-                else if(clientore.getCommune_id() == 20)
-                    fila[9] = "Quillota";
-                else if(clientore.getCommune_id() == 34)
-                    fila[9] = "Limache";
-                else if(clientore.getCommune_id() == 1)
+                if(clientore.getCommune_id() == 1)
                     fila[9] = "Catemu";
-                else if(clientore.getCommune_id() == 7)
-                    fila[9] = "Calle Larga";
+                else if(clientore.getCommune_id() == 2)
+                    fila[9] = "Llay Llay";
+                else if(clientore.getCommune_id() == 3)
+                    fila[9] = "Panquehue";
+                else if(clientore.getCommune_id() == 4)
+                    fila[9] = "Putaendo";
+                else if(clientore.getCommune_id() == 5)
+                    fila[9] = "San Felipe";
                 else if(clientore.getCommune_id() == 6)
                     fila[9] = "Santa Maria";
-                else if(clientore.getCommune_id() == 33)
-                    fila[9] = "Viña del mar";
-                else if(clientore.getCommune_id() == 32)
-                    fila[9] = "Valparaiso";
-                else if(clientore.getCommune_id() == 37)
-                    fila[9] = "Quilpue";
-                else if(clientore.getCommune_id() == 36)
-                    fila[9] = "Villa Alemana";
+                else if(clientore.getCommune_id() == 7)
+                    fila[9] = "Calle Larga";
+                else if(clientore.getCommune_id() == 8)
+                    fila[9] = "Los Andes";
+                else if(clientore.getCommune_id() == 9)
+                    fila[9] = "Rinconada";
+                else if(clientore.getCommune_id() == 10)
+                    fila[9] = "San Esteban";
+                else if(clientore.getCommune_id() == 11)
+                    fila[9] = "Cabildo";
+                else if(clientore.getCommune_id() == 12)
+                    fila[9] = "La Ligua";
+                else if(clientore.getCommune_id() == 13)
+                    fila[9] = "Papudo";
+                else if(clientore.getCommune_id() == 14)
+                    fila[9] = "Petorca";
+                else if(clientore.getCommune_id() == 15)
+                    fila[9] = "Zapallar";
+                else if(clientore.getCommune_id() == 16)
+                    fila[9] = "Hijuelas";
+                else if(clientore.getCommune_id() == 17)
+                    fila[9] = "La Calera";
+                else if(clientore.getCommune_id() == 18)
+                    fila[9] = "La Cruz";
+                else if(clientore.getCommune_id() == 19)
+                    fila[9] = "Nogales";
+                else if(clientore.getCommune_id() == 20)
+                    fila[9] = "Quillota";
+                else if(clientore.getCommune_id() == 21)
+                    fila[9] = "Algarrobo";
+                else if(clientore.getCommune_id() == 22)
+                    fila[9] = "Cartagena";
+                else if(clientore.getCommune_id() == 23)
+                    fila[9] = "El Quisco";
+                else if(clientore.getCommune_id() == 24)
+                    fila[9] = "El Tabo";
+                else if(clientore.getCommune_id() == 25)
+                    fila[9] = "San Antonio";
+                else if(clientore.getCommune_id() == 26)
+                    fila[9] = "Santo Domingo";
+                else if(clientore.getCommune_id() == 27)
+                    fila[9] = "Casablanca";
                 else if(clientore.getCommune_id() == 28)
                     fila[9] = "Concon";
+                else if(clientore.getCommune_id() == 29)
+                    fila[9] = "Juan Fernandez";
+                else if(clientore.getCommune_id() == 30)
+                    fila[9] = "Puchuncavi";
+                else if(clientore.getCommune_id() == 31)
+                    fila[9] = "Quintero";
+                else if(clientore.getCommune_id() == 32)
+                    fila[9] = "Valparaiso";
+                else if(clientore.getCommune_id() == 33)
+                    fila[9] = "Vina del Mar";
+                else if(clientore.getCommune_id() == 34)
+                    fila[9] = "Limache";
+                else if(clientore.getCommune_id() == 35)
+                    fila[9] = "Olmue";
+                else if(clientore.getCommune_id() == 36)
+                    fila[9] = "Villa Alemana";
+                else if(clientore.getCommune_id() == 37)
+                    fila[9] = "Quilpue";
+                else if(clientore.getCommune_id() == 38)
+                    fila[9] = "Rapa Nui";
+                
                                                 
                 if(clientore.getSex_id() == 1){
                     fila [10] = "Masculino";
@@ -166,28 +225,82 @@ public class cliente extends javax.swing.JFrame {
                     fila[8] = "Inactivo";
                 }
                 
-                if(clientore.getCommune_id() == 29)
-                    fila[9] = "Juan Fernandez";
-                else if(clientore.getCommune_id() == 20)
-                    fila[9] = "Quillota";
-                else if(clientore.getCommune_id() == 34)
-                    fila[9] = "Limache";
-                else if(clientore.getCommune_id() == 1)
+                if(clientore.getCommune_id() == 1)
                     fila[9] = "Catemu";
-                else if(clientore.getCommune_id() == 7)
-                    fila[9] = "Calle Larga";
+                else if(clientore.getCommune_id() == 2)
+                    fila[9] = "Llay Llay";
+                else if(clientore.getCommune_id() == 3)
+                    fila[9] = "Panquehue";
+                else if(clientore.getCommune_id() == 4)
+                    fila[9] = "Putaendo";
+                else if(clientore.getCommune_id() == 5)
+                    fila[9] = "San Felipe";
                 else if(clientore.getCommune_id() == 6)
                     fila[9] = "Santa Maria";
-                else if(clientore.getCommune_id() == 33)
-                    fila[9] = "Viña del mar";
-                else if(clientore.getCommune_id() == 32)
-                    fila[9] = "Valparaiso";
-                else if(clientore.getCommune_id() == 37)
-                    fila[9] = "Quilpue";
-                else if(clientore.getCommune_id() == 36)
-                    fila[9] = "Villa Alemana";
+                else if(clientore.getCommune_id() == 7)
+                    fila[9] = "Calle Larga";
+                else if(clientore.getCommune_id() == 8)
+                    fila[9] = "Los Andes";
+                else if(clientore.getCommune_id() == 9)
+                    fila[9] = "Rinconada";
+                else if(clientore.getCommune_id() == 10)
+                    fila[9] = "San Esteban";
+                else if(clientore.getCommune_id() == 11)
+                    fila[9] = "Cabildo";
+                else if(clientore.getCommune_id() == 12)
+                    fila[9] = "La Ligua";
+                else if(clientore.getCommune_id() == 13)
+                    fila[9] = "Papudo";
+                else if(clientore.getCommune_id() == 14)
+                    fila[9] = "Petorca";
+                else if(clientore.getCommune_id() == 15)
+                    fila[9] = "Zapallar";
+                else if(clientore.getCommune_id() == 16)
+                    fila[9] = "Hijuelas";
+                else if(clientore.getCommune_id() == 17)
+                    fila[9] = "La Calera";
+                else if(clientore.getCommune_id() == 18)
+                    fila[9] = "La Cruz";
+                else if(clientore.getCommune_id() == 19)
+                    fila[9] = "Nogales";
+                else if(clientore.getCommune_id() == 20)
+                    fila[9] = "Quillota";
+                else if(clientore.getCommune_id() == 21)
+                    fila[9] = "Algarrobo";
+                else if(clientore.getCommune_id() == 22)
+                    fila[9] = "Cartagena";
+                else if(clientore.getCommune_id() == 23)
+                    fila[9] = "El Quisco";
+                else if(clientore.getCommune_id() == 24)
+                    fila[9] = "El Tabo";
+                else if(clientore.getCommune_id() == 25)
+                    fila[9] = "San Antonio";
+                else if(clientore.getCommune_id() == 26)
+                    fila[9] = "Santo Domingo";
+                else if(clientore.getCommune_id() == 27)
+                    fila[9] = "Casablanca";
                 else if(clientore.getCommune_id() == 28)
                     fila[9] = "Concon";
+                else if(clientore.getCommune_id() == 29)
+                    fila[9] = "Juan Fernandez";
+                else if(clientore.getCommune_id() == 30)
+                    fila[9] = "Puchuncavi";
+                else if(clientore.getCommune_id() == 31)
+                    fila[9] = "Quintero";
+                else if(clientore.getCommune_id() == 32)
+                    fila[9] = "Valparaiso";
+                else if(clientore.getCommune_id() == 33)
+                    fila[9] = "Vina del Mar";
+                else if(clientore.getCommune_id() == 34)
+                    fila[9] = "Limache";
+                else if(clientore.getCommune_id() == 35)
+                    fila[9] = "Olmue";
+                else if(clientore.getCommune_id() == 36)
+                    fila[9] = "Villa Alemana";
+                else if(clientore.getCommune_id() == 37)
+                    fila[9] = "Quilpue";
+                else if(clientore.getCommune_id() == 38)
+                    fila[9] = "Rapa Nui";
                                                 
                 if(clientore.getSex_id() == 1){
                     fila [10] = "Masculino";
@@ -252,7 +365,9 @@ public class cliente extends javax.swing.JFrame {
         btnBuscar = new javax.swing.JButton();
         lblSeleccionar = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Fukusuke - Clientes");
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -354,7 +469,7 @@ public class cliente extends javax.swing.JFrame {
         cbComuna.setBackground(new java.awt.Color(255, 255, 255));
         cbComuna.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         cbComuna.setForeground(new java.awt.Color(0, 0, 0));
-        cbComuna.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Viña del mar", "Valparaiso", "Quilpue", "Limache", "Villa Alemana", "Concon" }));
+        cbComuna.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Catemu", "Llay Llay", "Panquehue", "Putaendo", "San Felipe", "Santa Maria", "Calle Larga", "Los Andes", "Rinconada", "San Esteban", "Cabildo", "La Ligua", "Papudo", "Petorca", "Zapallar", "Hijuelas", "La Calera", "La Cruz", "Nogales", "Quillota", "Algarrobo", "Cartagena", "El Quisco", "El Tabo", "San Antonio", "Santo Domingo", "Casablanca", "Concon", "Juan Fernandez", "Puchuncavi", "Quintero", "Valparaiso", "Viña del Mar", "Limache", "Olmue", "Villa Alemana", "Quilpue", "Rapa Nui" }));
 
         cbSexo.setBackground(new java.awt.Color(255, 255, 255));
         cbSexo.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
@@ -449,54 +564,54 @@ public class cliente extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(32, 32, 32)
                                 .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(195, 195, 195)
+                                .addGap(163, 163, 163)
                                 .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(89, 89, 89)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                        .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(56, 56, 56)
+                                .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(lblNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(lblDireccion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(lblRut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(lblNacimiento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(lblTelefono, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(lblTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtNombre)
+                                    .addComponent(txtDireccion)
+                                    .addComponent(txtRut)
+                                    .addComponent(txtNacimiento)
+                                    .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(50, 50, 50)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(lblContraseña, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lblEmail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lblEstado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lblComuna, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lblSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtEmail)
+                                    .addComponent(txtContraseña)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(txtNombre)
-                                            .addComponent(txtDireccion)
-                                            .addComponent(txtRut)
-                                            .addComponent(txtNacimiento)
-                                            .addComponent(txtTelefono, javax.swing.GroupLayout.DEFAULT_SIZE, 161, Short.MAX_VALUE))
-                                        .addGap(50, 50, 50)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(lblContraseña, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(lblEmail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(lblEstado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(lblComuna, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(lblSexo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(txtEmail)
-                                            .addComponent(txtContraseña)
-                                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addComponent(rbActivo, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(rbInactivo, javax.swing.GroupLayout.DEFAULT_SIZE, 77, Short.MAX_VALUE))
-                                            .addComponent(cbComuna, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(cbSexo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                                .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addGap(56, 56, 56)
-                                        .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                        .addComponent(rbActivo, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(rbInactivo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(cbComuna, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(cbSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 177, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -587,6 +702,7 @@ public class cliente extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
@@ -617,22 +733,83 @@ public class cliente extends javax.swing.JFrame {
                 clientes.setState(0);
             }
             
-            if(cbComuna.getSelectedItem() == "Santa Maria")
+            if(cbComuna.getSelectedItem() == "Catemu")
+                clientes.setCommune_id(1);
+            else if(cbComuna.getSelectedItem() == "Llay Llay")
+                clientes.setCommune_id(2);
+            else if(cbComuna.getSelectedItem() == "Panquehue")
+                clientes.setCommune_id(3);
+            else if(cbComuna.getSelectedItem() == "Putaendo")
+                clientes.setCommune_id(4);
+            else if(cbComuna.getSelectedItem() == "San Felipe")
+                clientes.setCommune_id(5);
+            else if(cbComuna.getSelectedItem() == "Santa Maria")
                 clientes.setCommune_id(6);
             else if(cbComuna.getSelectedItem() == "Calle Larga")
                 clientes.setCommune_id(7);
-            else if(cbComuna.getSelectedItem() == "Viña del mar")
-                clientes.setCommune_id(33);
-            else if(cbComuna.getSelectedItem() == "Valparaiso")
-                clientes.setCommune_id(32);
-            else if(cbComuna.getSelectedItem() == "Quilpue")
-                clientes.setCommune_id(37);
-            else if(cbComuna.getSelectedItem() == "Limache")
-                clientes.setCommune_id(34);
-            else if(cbComuna.getSelectedItem() == "Villa Alemana")
-                clientes.setCommune_id(36);
+            else if(cbComuna.getSelectedItem() == "Los Andes")
+                clientes.setCommune_id(8);   
+            else if(cbComuna.getSelectedItem() == "Rinconada")
+                clientes.setCommune_id(9); 
+            else if(cbComuna.getSelectedItem() == "San Esteban")
+                clientes.setCommune_id(10); 
+            else if(cbComuna.getSelectedItem() == "Cabildo")
+                clientes.setCommune_id(11); 
+            else if(cbComuna.getSelectedItem() == "La Ligua")
+                clientes.setCommune_id(12); 
+            else if(cbComuna.getSelectedItem() == "Papudo")
+                clientes.setCommune_id(13); 
+            else if(cbComuna.getSelectedItem() == "Petorca")
+                clientes.setCommune_id(14); 
+            else if(cbComuna.getSelectedItem() == "Zapallar")
+                clientes.setCommune_id(15); 
+            else if(cbComuna.getSelectedItem() == "Hijuelas")
+                clientes.setCommune_id(16); 
+            else if(cbComuna.getSelectedItem() == "La Calera")
+                clientes.setCommune_id(17); 
+            else if(cbComuna.getSelectedItem() == "La Cruz")
+                clientes.setCommune_id(18); 
+            else if(cbComuna.getSelectedItem() == "Nogales")
+                clientes.setCommune_id(19); 
+            else if(cbComuna.getSelectedItem() == "Quillota")
+                clientes.setCommune_id(20); 
+            else if(cbComuna.getSelectedItem() == "Algarrobo")
+                clientes.setCommune_id(21); 
+            else if(cbComuna.getSelectedItem() == "Cartagena")
+                clientes.setCommune_id(22); 
+            else if(cbComuna.getSelectedItem() == "El Quisco")
+                clientes.setCommune_id(23); 
+            else if(cbComuna.getSelectedItem() == "El Tabo")
+                clientes.setCommune_id(24); 
+            else if(cbComuna.getSelectedItem() == "San Antonio")
+                clientes.setCommune_id(25); 
+            else if(cbComuna.getSelectedItem() == "Santo Domingo")
+                clientes.setCommune_id(26); 
+            else if(cbComuna.getSelectedItem() == "Casablanca")
+                clientes.setCommune_id(27); 
             else if(cbComuna.getSelectedItem() == "Concon")
-                clientes.setCommune_id(28);           
+                clientes.setCommune_id(28); 
+            else if(cbComuna.getSelectedItem() == "Juan Fernandez")
+                clientes.setCommune_id(29); 
+            else if(cbComuna.getSelectedItem() == "Puchuncavi")
+                clientes.setCommune_id(30); 
+            else if(cbComuna.getSelectedItem() == "Quintero")
+                clientes.setCommune_id(31); 
+            else if(cbComuna.getSelectedItem() == "Valparaiso")
+                clientes.setCommune_id(32); 
+            else if(cbComuna.getSelectedItem() == "Viña del Mar")
+                clientes.setCommune_id(33); 
+            else if(cbComuna.getSelectedItem() == "Limache")
+                clientes.setCommune_id(34); 
+            else if(cbComuna.getSelectedItem() == "Olmue")
+                clientes.setCommune_id(35); 
+            else if(cbComuna.getSelectedItem() == "Villa Alemana")
+                clientes.setCommune_id(36); 
+            else if(cbComuna.getSelectedItem() == "Quilpue")
+                clientes.setCommune_id(37); 
+            else if(cbComuna.getSelectedItem() == "Rapa Nui")
+                clientes.setCommune_id(38); 
+            
             
             if(cbSexo.getSelectedItem() == "Masculino")
                 clientes.setSex_id(1);
@@ -673,22 +850,82 @@ public class cliente extends javax.swing.JFrame {
         }
         
         String comuna = tblClientes.getValueAt(seleccion, 9)+"";
-        if(comuna.equals("Santa Maria"))
-            cbComuna.setSelectedIndex(6);
-        else if(comuna.equals("Calle Larga"))
-            cbComuna.setSelectedIndex(7);
-        else if(comuna.equals("Viña del mar"))
+        if(comuna.equals("Catemu"))
             cbComuna.setSelectedIndex(0);
-        else if(comuna.equals("Valparaiso"))
+        else if(comuna.equals("Llay Llay"))
             cbComuna.setSelectedIndex(1);
-        else if(comuna.equals("Quilpue"))
+        else if(comuna.equals("Panquehue"))
             cbComuna.setSelectedIndex(2);
-        else if(comuna.equals("Limache"))
+        else if(comuna.equals("Putaendo"))
             cbComuna.setSelectedIndex(3);
-        else if(comuna.equals("Villa Alemana"))
+        else if(comuna.equals("San Felipe"))
             cbComuna.setSelectedIndex(4);
-        else if(comuna.equals("Concon"))
+        else if(comuna.equals("Santa Maria"))
             cbComuna.setSelectedIndex(5);
+        else if(comuna.equals("Calle Larga"))
+            cbComuna.setSelectedIndex(6);
+        else if(comuna.equals("Los Andes"))
+            cbComuna.setSelectedIndex(7);
+        else if(comuna.equals("Rinconada"))
+            cbComuna.setSelectedIndex(8);
+        else if(comuna.equals("San Esteban"))
+            cbComuna.setSelectedIndex(9);
+        else if(comuna.equals("Cabildo"))
+            cbComuna.setSelectedIndex(10);
+        else if(comuna.equals("La Ligua"))
+            cbComuna.setSelectedIndex(11);
+        else if(comuna.equals("Papudo"))
+            cbComuna.setSelectedIndex(12);
+        else if(comuna.equals("Petorca"))
+            cbComuna.setSelectedIndex(13);
+        else if(comuna.equals("Zapallar"))
+            cbComuna.setSelectedIndex(14);
+        else if(comuna.equals("Hijuelas"))
+            cbComuna.setSelectedIndex(15);
+        else if(comuna.equals("La Calera"))
+            cbComuna.setSelectedIndex(16);
+        else if(comuna.equals("La Cruz"))
+            cbComuna.setSelectedIndex(17);
+        else if(comuna.equals("Nogales"))
+            cbComuna.setSelectedIndex(18);
+        else if(comuna.equals("Quillota"))
+            cbComuna.setSelectedIndex(19);
+        else if(comuna.equals("Algarrobo"))
+            cbComuna.setSelectedIndex(20);
+        else if(comuna.equals("Cartagena"))
+            cbComuna.setSelectedIndex(21);
+        else if(comuna.equals("El Quisco"))
+            cbComuna.setSelectedIndex(22);
+        else if(comuna.equals("El Tabo"))
+            cbComuna.setSelectedIndex(23);
+        else if(comuna.equals("San Antonio"))
+            cbComuna.setSelectedIndex(24);
+        else if(comuna.equals("Santo Domingo"))
+            cbComuna.setSelectedIndex(25);
+        else if(comuna.equals("Casablanca"))
+            cbComuna.setSelectedIndex(26);
+        else if(comuna.equals("Concon"))
+            cbComuna.setSelectedIndex(27);
+        else if(comuna.equals("Juan Fernandez"))
+            cbComuna.setSelectedIndex(28);
+        else if(comuna.equals("Puchuncavi"))
+            cbComuna.setSelectedIndex(29);
+        else if(comuna.equals("Quintero"))
+            cbComuna.setSelectedIndex(30);
+        else if(comuna.equals("Valparaiso"))
+            cbComuna.setSelectedIndex(31);
+        else if(comuna.equals("Viña del Mar"))
+            cbComuna.setSelectedIndex(32);
+        else if(comuna.equals("Limache"))
+            cbComuna.setSelectedIndex(33);
+        else if(comuna.equals("Olmue"))
+            cbComuna.setSelectedIndex(34);
+        else if(comuna.equals("Villa Alemana"))
+            cbComuna.setSelectedIndex(35);
+        else if(comuna.equals("Quilpue"))
+            cbComuna.setSelectedIndex(36);
+        else if(comuna.equals("Rapa Nui"))
+            cbComuna.setSelectedIndex(37);
                        
         String sexo = tblClientes.getValueAt(seleccion, 10)+"";
         if(sexo.equals("Masculino"))
@@ -740,22 +977,88 @@ public class cliente extends javax.swing.JFrame {
                 clientes.setState(0);
             }
             
-            if(cbComuna.getSelectedItem() == "Santa Maria")
+            if(cbComuna.getSelectedItem() == "Catemu")
+                clientes.setCommune_id(1);
+            else if(cbComuna.getSelectedItem() == "Llay Llay")
+                clientes.setCommune_id(2);
+            else if(cbComuna.getSelectedItem() == "Panquehue")
+                clientes.setCommune_id(3);
+            else if(cbComuna.getSelectedItem() == "Putaendo")
+                clientes.setCommune_id(4);
+            else if(cbComuna.getSelectedItem() == "San Felipe")
+                clientes.setCommune_id(5);
+            else if(cbComuna.getSelectedItem() == "Santa Maria")
                 clientes.setCommune_id(6);
             else if(cbComuna.getSelectedItem() == "Calle Larga")
                 clientes.setCommune_id(7);
-            else if(cbComuna.getSelectedItem() == "Viña del mar")
-                clientes.setCommune_id(33);
-            else if(cbComuna.getSelectedItem() == "Valparaiso")
-                clientes.setCommune_id(32);
-            else if(cbComuna.getSelectedItem() == "Quilpue")
-                clientes.setCommune_id(37);
-            else if(cbComuna.getSelectedItem() == "Limache")
-                clientes.setCommune_id(34);
-            else if(cbComuna.getSelectedItem() == "Villa Alemana")
-                clientes.setCommune_id(36);
+            else if(cbComuna.getSelectedItem() == "Los Andes")
+                clientes.setCommune_id(8);   
+            else if(cbComuna.getSelectedItem() == "Rinconada")
+                clientes.setCommune_id(9); 
+            else if(cbComuna.getSelectedItem() == "San Esteban")
+                clientes.setCommune_id(10); 
+            else if(cbComuna.getSelectedItem() == "Cabildo")
+                clientes.setCommune_id(11); 
+            else if(cbComuna.getSelectedItem() == "La Ligua")
+                clientes.setCommune_id(12); 
+            else if(cbComuna.getSelectedItem() == "Papudo")
+                clientes.setCommune_id(13); 
+            else if(cbComuna.getSelectedItem() == "Petorca")
+                clientes.setCommune_id(14); 
+            else if(cbComuna.getSelectedItem() == "Zapallar")
+                clientes.setCommune_id(15); 
+            else if(cbComuna.getSelectedItem() == "Hijuelas")
+                clientes.setCommune_id(16); 
+            else if(cbComuna.getSelectedItem() == "La Calera")
+                clientes.setCommune_id(17); 
+            else if(cbComuna.getSelectedItem() == "La Cruz")
+                clientes.setCommune_id(18); 
+            else if(cbComuna.getSelectedItem() == "Nogales")
+                clientes.setCommune_id(19); 
+            else if(cbComuna.getSelectedItem() == "Quillota")
+                clientes.setCommune_id(20); 
+            else if(cbComuna.getSelectedItem() == "Algarrobo")
+                clientes.setCommune_id(21); 
+            else if(cbComuna.getSelectedItem() == "Cartagena")
+                clientes.setCommune_id(22); 
+            else if(cbComuna.getSelectedItem() == "El Quisco")
+                clientes.setCommune_id(23); 
+            else if(cbComuna.getSelectedItem() == "El Tabo")
+                clientes.setCommune_id(24); 
+            else if(cbComuna.getSelectedItem() == "San Antonio")
+                clientes.setCommune_id(25); 
+            else if(cbComuna.getSelectedItem() == "Santo Domingo")
+                clientes.setCommune_id(26); 
+            else if(cbComuna.getSelectedItem() == "Casablanca")
+                clientes.setCommune_id(27); 
             else if(cbComuna.getSelectedItem() == "Concon")
-                clientes.setCommune_id(28);
+                clientes.setCommune_id(28); 
+            else if(cbComuna.getSelectedItem() == "Juan Fernandez")
+                clientes.setCommune_id(29); 
+            else if(cbComuna.getSelectedItem() == "Puchuncavi")
+                clientes.setCommune_id(30); 
+            else if(cbComuna.getSelectedItem() == "Quintero")
+                clientes.setCommune_id(31); 
+            else if(cbComuna.getSelectedItem() == "Valparaiso")
+                clientes.setCommune_id(32); 
+            else if(cbComuna.getSelectedItem() == "Viña del Mar")
+                clientes.setCommune_id(33); 
+            else if(cbComuna.getSelectedItem() == "Limache")
+                clientes.setCommune_id(34); 
+            else if(cbComuna.getSelectedItem() == "Olmue")
+                clientes.setCommune_id(35); 
+            else if(cbComuna.getSelectedItem() == "Villa Alemana")
+                clientes.setCommune_id(36); 
+            else if(cbComuna.getSelectedItem() == "Quilpue")
+                clientes.setCommune_id(37); 
+            else if(cbComuna.getSelectedItem() == "Rapa Nui")
+                clientes.setCommune_id(38); 
+            
+            
+            if(cbSexo.getSelectedItem() == "Masculino")
+                clientes.setSex_id(1);
+            else if(cbSexo.getSelectedItem() == "Femenino")
+                clientes.setSex_id(2);
                                     
             if(cbSexo.getSelectedItem() == "Masculino")
                 clientes.setSex_id(1);

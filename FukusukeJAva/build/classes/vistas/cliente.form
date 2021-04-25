@@ -6,11 +6,13 @@
     </Component>
   </NonVisualComponents>
   <Properties>
-    <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="defaultCloseOperation" type="int" value="2"/>
+    <Property name="title" type="java.lang.String" value="Fukusuke - Clientes"/>
+    <Property name="resizable" type="boolean" value="false"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
-    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="true"/>
   </SyntheticProperties>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
@@ -57,65 +59,63 @@
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                                   <Component id="lblTitulo" min="-2" pref="155" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="195" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="163" max="-2" attributes="0"/>
                                   <Component id="txtId" min="-2" pref="56" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="89" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <Component id="btnGuardar" min="-2" pref="130" max="-2" attributes="0"/>
+                                          <EmptySpace max="32767" attributes="0"/>
+                                          <Component id="btnEliminar" min="-2" pref="130" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="txtBuscar" min="-2" pref="175" max="-2" attributes="0"/>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Component id="btnBuscar" min="-2" pref="130" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
+                                  <Component id="btnEditar" min="-2" pref="130" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="1" attributes="0">
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                       <Component id="lblNombre" max="32767" attributes="0"/>
                                       <Component id="lblDireccion" alignment="0" max="32767" attributes="0"/>
                                       <Component id="lblRut" alignment="0" max="32767" attributes="0"/>
                                       <Component id="lblNacimiento" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="lblTelefono" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="lblTelefono" alignment="0" min="-2" pref="77" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                              <Component id="txtNombre" max="32767" attributes="0"/>
-                                              <Component id="txtDireccion" max="32767" attributes="0"/>
-                                              <Component id="txtRut" max="32767" attributes="0"/>
-                                              <Component id="txtNacimiento" max="32767" attributes="0"/>
-                                              <Component id="txtTelefono" pref="161" max="32767" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                              <Component id="lblContraseña" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="lblEmail" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="lblEstado" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="lblComuna" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="lblSexo" alignment="0" max="32767" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                              <Component id="txtEmail" max="32767" attributes="0"/>
-                                              <Component id="txtContraseña" max="32767" attributes="0"/>
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Component id="rbActivo" min="-2" pref="80" max="-2" attributes="0"/>
-                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                  <Component id="rbInactivo" pref="77" max="32767" attributes="0"/>
-                                              </Group>
-                                              <Component id="cbComuna" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="cbSexo" alignment="0" max="32767" attributes="0"/>
-                                          </Group>
-                                      </Group>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="txtNombre" max="32767" attributes="0"/>
+                                      <Component id="txtDireccion" max="32767" attributes="0"/>
+                                      <Component id="txtRut" max="32767" attributes="0"/>
+                                      <Component id="txtNacimiento" max="32767" attributes="0"/>
+                                      <Component id="txtTelefono" min="-2" pref="161" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="lblContraseña" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="lblEmail" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="lblEstado" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="lblComuna" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="lblSexo" alignment="0" min="-2" pref="66" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="txtEmail" max="32767" attributes="0"/>
+                                      <Component id="txtContraseña" max="32767" attributes="0"/>
                                       <Group type="102" alignment="0" attributes="0">
-                                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                              <Group type="102" attributes="0">
-                                                  <Component id="btnGuardar" min="-2" pref="130" max="-2" attributes="0"/>
-                                                  <EmptySpace max="32767" attributes="0"/>
-                                                  <Component id="btnEliminar" min="-2" pref="130" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Component id="txtBuscar" min="-2" pref="175" max="-2" attributes="0"/>
-                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                  <Component id="btnBuscar" min="-2" pref="130" max="-2" attributes="0"/>
-                                              </Group>
-                                          </Group>
-                                          <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
-                                          <Component id="btnEditar" min="-2" pref="130" max="-2" attributes="0"/>
+                                          <Component id="rbActivo" min="-2" pref="80" max="-2" attributes="0"/>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Component id="rbInactivo" max="32767" attributes="0"/>
                                       </Group>
+                                      <Component id="cbComuna" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="cbSexo" alignment="0" min="-2" pref="161" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -207,7 +207,7 @@
                       <Component id="btnGuardar" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="btnEditar" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace min="-2" max="-2" attributes="0"/>
                   <Component id="lblSeleccionar" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -513,13 +513,45 @@
               <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="6">
-                <StringItem index="0" value="Vi&#xf1;a del mar"/>
-                <StringItem index="1" value="Valparaiso"/>
-                <StringItem index="2" value="Quilpue"/>
-                <StringItem index="3" value="Limache"/>
-                <StringItem index="4" value="Villa Alemana"/>
-                <StringItem index="5" value="Concon"/>
+              <StringArray count="38">
+                <StringItem index="0" value="Catemu"/>
+                <StringItem index="1" value="Llay Llay"/>
+                <StringItem index="2" value="Panquehue"/>
+                <StringItem index="3" value="Putaendo"/>
+                <StringItem index="4" value="San Felipe"/>
+                <StringItem index="5" value="Santa Maria"/>
+                <StringItem index="6" value="Calle Larga"/>
+                <StringItem index="7" value="Los Andes"/>
+                <StringItem index="8" value="Rinconada"/>
+                <StringItem index="9" value="San Esteban"/>
+                <StringItem index="10" value="Cabildo"/>
+                <StringItem index="11" value="La Ligua"/>
+                <StringItem index="12" value="Papudo"/>
+                <StringItem index="13" value="Petorca"/>
+                <StringItem index="14" value="Zapallar"/>
+                <StringItem index="15" value="Hijuelas"/>
+                <StringItem index="16" value="La Calera"/>
+                <StringItem index="17" value="La Cruz"/>
+                <StringItem index="18" value="Nogales"/>
+                <StringItem index="19" value="Quillota"/>
+                <StringItem index="20" value="Algarrobo"/>
+                <StringItem index="21" value="Cartagena"/>
+                <StringItem index="22" value="El Quisco"/>
+                <StringItem index="23" value="El Tabo"/>
+                <StringItem index="24" value="San Antonio"/>
+                <StringItem index="25" value="Santo Domingo"/>
+                <StringItem index="26" value="Casablanca"/>
+                <StringItem index="27" value="Concon"/>
+                <StringItem index="28" value="Juan Fernandez"/>
+                <StringItem index="29" value="Puchuncavi"/>
+                <StringItem index="30" value="Quintero"/>
+                <StringItem index="31" value="Valparaiso"/>
+                <StringItem index="32" value="Vi&#xf1;a del Mar"/>
+                <StringItem index="33" value="Limache"/>
+                <StringItem index="34" value="Olmue"/>
+                <StringItem index="35" value="Villa Alemana"/>
+                <StringItem index="36" value="Quilpue"/>
+                <StringItem index="37" value="Rapa Nui"/>
               </StringArray>
             </Property>
           </Properties>

@@ -17,6 +17,9 @@ public class menuAdministrador extends javax.swing.JFrame {
     public menuAdministrador() {
         initComponents();
     }
+    
+    producto frmProducto;
+    cliente frmCliente;
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -35,6 +38,8 @@ public class menuAdministrador extends javax.swing.JFrame {
         lblLogo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Fukusuke - Menu Administrador");
+        setResizable(false);
 
         panelAdmin.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -49,6 +54,11 @@ public class menuAdministrador extends javax.swing.JFrame {
         btnProductos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/food-fork-drink.png"))); // NOI18N
         btnProductos.setText("   Productos");
         btnProductos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnProductos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnProductosActionPerformed(evt);
+            }
+        });
 
         btnClientes.setBackground(new java.awt.Color(255, 102, 0));
         btnClientes.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
@@ -56,6 +66,11 @@ public class menuAdministrador extends javax.swing.JFrame {
         btnClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/account-group.png"))); // NOI18N
         btnClientes.setText("   Clientes");
         btnClientes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnClientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClientesActionPerformed(evt);
+            }
+        });
 
         lblFukusuke.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/FUKUSUKE-chico.jpg"))); // NOI18N
 
@@ -112,7 +127,29 @@ public class menuAdministrador extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProductosActionPerformed
+        // TODO add your handling code here:
+        
+        if(frmProducto == null){
+            frmProducto = new producto();
+            frmProducto.setVisible(true);
+            
+        }
+        
+    }//GEN-LAST:event_btnProductosActionPerformed
+
+    private void btnClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClientesActionPerformed
+        // TODO add your handling code here:
+        
+        if(frmCliente == null){
+            frmCliente = new cliente();
+            frmCliente.setVisible(true);
+            
+        }
+    }//GEN-LAST:event_btnClientesActionPerformed
 
     /**
      * @param args the command line arguments

@@ -16,6 +16,9 @@ public class orden extends javax.swing.JFrame {
      */
     public orden() {
         initComponents();
+        
+        //ANCHO DE COLUMNAS
+        tblOrdenes.getColumnModel().getColumn(0).setPreferredWidth(10);
     }
 
     /**
@@ -30,12 +33,14 @@ public class orden extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         lblTitulo = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblOrdenes = new javax.swing.JTable();
         lblFukusuke = new javax.swing.JLabel();
         lblLogo = new javax.swing.JLabel();
         btnImprimir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Fukusuke - Orden");
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -44,9 +49,9 @@ public class orden extends javax.swing.JFrame {
         lblTitulo.setForeground(new java.awt.Color(255, 102, 0));
         lblTitulo.setText("Orden");
 
-        jTable1.setBackground(new java.awt.Color(255, 255, 255));
-        jTable1.setForeground(new java.awt.Color(102, 102, 102));
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblOrdenes.setBackground(new java.awt.Color(255, 255, 255));
+        tblOrdenes.setForeground(new java.awt.Color(102, 102, 102));
+        tblOrdenes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -57,7 +62,7 @@ public class orden extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tblOrdenes);
 
         lblFukusuke.setBackground(new java.awt.Color(255, 255, 255));
         lblFukusuke.setForeground(new java.awt.Color(0, 0, 0));
@@ -123,6 +128,7 @@ public class orden extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     /**
@@ -164,9 +170,9 @@ public class orden extends javax.swing.JFrame {
     private javax.swing.JButton btnImprimir;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JLabel lblFukusuke;
     private javax.swing.JLabel lblLogo;
     private javax.swing.JLabel lblTitulo;
+    private javax.swing.JTable tblOrdenes;
     // End of variables declaration//GEN-END:variables
 }
