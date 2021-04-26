@@ -11,7 +11,6 @@ WebpayPlus.commerceCode = 597055555532;
 WebpayPlus.apiKey = '579B532A7440BB0C9079DED94D31EA1615BACEB56610332264630D42D0A36B1C';
 WebpayPlus.environment = Environment.Integration;
 export async function getServerSideProps(ctx){
-  console.log(ctx);
   const token = ctx.query.token;
   const response = await WebpayPlus.Transaction.commit(token);
   return {
@@ -26,11 +25,55 @@ export async function getServerSideProps(ctx){
 const Voucher = (props)=> {
   const [values,setvalues] = useState(props.response);
   useEffect(()=>{
+
+    const sendDataBD = async() =>{
+      const client = JSON.parse(localStorage.getItem('session'));
+      const cartLocal = JSON.parse(localStorage.getItem('cart'));
+      const adressLocal = JSON.parse(localStorage.getItem('adress'));
+      const date = new Date()
+      let fecha = date.getFullYear()+"-"+date.getMonth()+"-"+date.getDate()
+      //Crea Boleta
+      const resBoleta = await axios.post(`http://localhost:8000/api/ticket-create`,{
+        fecha: fecha,
+        total: values.amount,
+        employee: 101,
+        client: client.id,
+        payment: 1
+      })
+      console.log(resBoleta)
+      //Guarda el detalle boleta
+      for (let i = 0; i < cartLocal.length; i++) {
+        let res = await axios.post(`http://localhost:8000/api/saildetail-create`,{
+          name: cartLocal[i].name,
+          amout: cartLocal[i].cant,
+          sub_total: cartLocal[i].cant * cartLocal[i].price,
+          product: cartLocal[i].id,
+          ticket: resBoleta.data.id
+        })
+        console.log(res);
+      }
+      
+      const resDespatch = await axios.post(`http://localhost:8000/api/orderdispatch-create`,{
+        adress: adressLocal,
+        state: 0,
+        ticket: resBoleta.data.id
+      })
+      console.log(resDespatch)
+      
+    }
+    const createDetailOrder = async () =>{
+
+    }
+    const createOrderDispatch = async ()=>{
+      
+    }
+    sendDataBD();
+
     const cleanData = () =>{
       localStorage.removeItem('response');
       localStorage.removeItem('cart');
     }
-    cleanData();
+    //cleanData();
   },[])
 
   return (
