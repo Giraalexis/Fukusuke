@@ -122,10 +122,13 @@ public class EmpleadoDAO {
                 t.setSex_id(rs.getInt("SEX_ID"));
                 
                 empleados.add(t);
+                
+                
+                
             }
             
         } catch (Exception e) {
-            System.out.println("Error listando" + e.getMessage());
+            System.out.println("Error buscando" + e.getMessage());
             
         }finally{
             conn.close();
@@ -199,6 +202,43 @@ public class EmpleadoDAO {
         }
         
         
+    }
+    
+    public boolean validarLogin (Empleado emp){
+        
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Connection conn = conexion.conectar();
+        
+        String sql = "Select ID, NAME, RUT, PASSWORD, STATE, ROLE_ID FROM api_employee WHERE RUT = ?";
+        
+        
+        try {
+            
+            ps = conn.prepareStatement(sql);
+            ps.setString(1, emp.getRut());
+            rs = ps.executeQuery();
+            
+            if(rs.next()){
+                
+                if(emp.getPassword().equals(rs.getString(4))) {
+                    
+                    emp.setId(rs.getInt(1));
+                    emp.setName(rs.getString(2));
+                    emp.setRol_id(rs.getInt(6));
+                    
+                    return true;
+                }else{
+                    return false;
+                }               
+            }            
+            return false;
+        } catch (Exception e) {
+            
+            
+        }        
+        
+        return false;
     }
     
 }

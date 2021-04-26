@@ -9,7 +9,6 @@ import dao.EmpleadoDAO;
 import entidades.Empleado;
 import java.sql.Date;
 import java.sql.SQLException;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -27,6 +26,9 @@ public class empleado extends javax.swing.JFrame {
         initComponents();
         txtId.setVisible(false);
         this.listar();
+        
+        //ANCHO DE COLUMNAS
+        tblEmpleados.getColumnModel().getColumn(0).setPreferredWidth(10);
     }
     
     private void listar(){
@@ -68,28 +70,82 @@ public class empleado extends javax.swing.JFrame {
                     fila[7] = "Inactivo";
                 }
                 
-                if(empleadore.getCommune_id() == 29)
-                    fila[8] = "Juan Fernandez";
-                else if(empleadore.getCommune_id() == 20)
-                    fila[8] = "Quillota";
-                else if(empleadore.getCommune_id() == 34)
-                    fila[8] = "Limache";
-                else if(empleadore.getCommune_id() == 1)
+                if(empleadore.getCommune_id() == 1)
                     fila[8] = "Catemu";
-                else if(empleadore.getCommune_id() == 7)
-                    fila[8] = "Calle Larga";
+                else if(empleadore.getCommune_id() == 2)
+                    fila[8] = "Llay Llay";
+                else if(empleadore.getCommune_id() == 3)
+                    fila[8] = "Panquehue";
+                else if(empleadore.getCommune_id() == 4)
+                    fila[8] = "Putaendo";
+                else if(empleadore.getCommune_id() == 5)
+                    fila[8] = "San Felipe";
                 else if(empleadore.getCommune_id() == 6)
                     fila[8] = "Santa Maria";
-                else if(empleadore.getCommune_id() == 33)
-                    fila[8] = "Viña del mar";
-                else if(empleadore.getCommune_id() == 32)
-                    fila[8] = "Valparaiso";
-                else if(empleadore.getCommune_id() == 37)
-                    fila[8] = "Quilpue";
-                else if(empleadore.getCommune_id() == 36)
-                    fila[8] = "Villa Alemana";
+                else if(empleadore.getCommune_id() == 7)
+                    fila[8] = "Calle Larga";
+                else if(empleadore.getCommune_id() == 8)
+                    fila[8] = "Los Andes";
+                else if(empleadore.getCommune_id() == 9)
+                    fila[8] = "Rinconada";
+                else if(empleadore.getCommune_id() == 10)
+                    fila[8] = "San Esteban";
+                else if(empleadore.getCommune_id() == 11)
+                    fila[8] = "Cabildo";
+                else if(empleadore.getCommune_id() == 12)
+                    fila[8] = "La Ligua";
+                else if(empleadore.getCommune_id() == 13)
+                    fila[8] = "Papudo";
+                else if(empleadore.getCommune_id() == 14)
+                    fila[8] = "Petorca";
+                else if(empleadore.getCommune_id() == 15)
+                    fila[8] = "Zapallar";
+                else if(empleadore.getCommune_id() == 16)
+                    fila[8] = "Hijuelas";
+                else if(empleadore.getCommune_id() == 17)
+                    fila[8] = "La Calera";
+                else if(empleadore.getCommune_id() == 18)
+                    fila[8] = "La Cruz";
+                else if(empleadore.getCommune_id() == 19)
+                    fila[8] = "Nogales";
+                else if(empleadore.getCommune_id() == 20)
+                    fila[8] = "Quillota";
+                else if(empleadore.getCommune_id() == 21)
+                    fila[8] = "Algarrobo";
+                else if(empleadore.getCommune_id() == 22)
+                    fila[8] = "Cartagena";
+                else if(empleadore.getCommune_id() == 23)
+                    fila[8] = "El Quisco";
+                else if(empleadore.getCommune_id() == 24)
+                    fila[8] = "El Tabo";
+                else if(empleadore.getCommune_id() == 25)
+                    fila[8] = "San Antonio";
+                else if(empleadore.getCommune_id() == 26)
+                    fila[8] = "Santo Domingo";
+                else if(empleadore.getCommune_id() == 27)
+                    fila[8] = "Casablanca";
                 else if(empleadore.getCommune_id() == 28)
                     fila[8] = "Concon";
+                else if(empleadore.getCommune_id() == 29)
+                    fila[8] = "Juan Fernandez";
+                else if(empleadore.getCommune_id() == 30)
+                    fila[8] = "Puchuncavi";
+                else if(empleadore.getCommune_id() == 31)
+                    fila[8] = "Quintero";
+                else if(empleadore.getCommune_id() == 32)
+                    fila[8] = "Valparaiso";
+                else if(empleadore.getCommune_id() == 33)
+                    fila[8] = "Vina del Mar";
+                else if(empleadore.getCommune_id() == 34)
+                    fila[8] = "Limache";
+                else if(empleadore.getCommune_id() == 35)
+                    fila[8] = "Olmue";
+                else if(empleadore.getCommune_id() == 36)
+                    fila[8] = "Villa Alemana";
+                else if(empleadore.getCommune_id() == 37)
+                    fila[8] = "Quilpue";
+                else if(empleadore.getCommune_id() == 38)
+                    fila[8] = "Rapa Nui";
                 
                 if(empleadore.getRol_id() == 1)
                     fila[9] = "Administrador";
@@ -184,28 +240,82 @@ public class empleado extends javax.swing.JFrame {
                     fila[7] = "Inactivo";
                 }
                 
-                if(empleadore.getCommune_id() == 29)
-                    fila[8] = "Juan Fernandez";
-                else if(empleadore.getCommune_id() == 20)
-                    fila[8] = "Quillota";
-                else if(empleadore.getCommune_id() == 34)
-                    fila[8] = "Limache";
-                else if(empleadore.getCommune_id() == 1)
+                if(empleadore.getCommune_id() == 1)
                     fila[8] = "Catemu";
-                else if(empleadore.getCommune_id() == 7)
-                    fila[8] = "Calle Larga";
+                else if(empleadore.getCommune_id() == 2)
+                    fila[8] = "Llay Llay";
+                else if(empleadore.getCommune_id() == 3)
+                    fila[8] = "Panquehue";
+                else if(empleadore.getCommune_id() == 4)
+                    fila[8] = "Putaendo";
+                else if(empleadore.getCommune_id() == 5)
+                    fila[8] = "San Felipe";
                 else if(empleadore.getCommune_id() == 6)
                     fila[8] = "Santa Maria";
-                else if(empleadore.getCommune_id() == 33)
-                    fila[8] = "Viña del mar";
-                else if(empleadore.getCommune_id() == 32)
-                    fila[8] = "Valparaiso";
-                else if(empleadore.getCommune_id() == 37)
-                    fila[8] = "Quilpue";
-                else if(empleadore.getCommune_id() == 36)
-                    fila[8] = "Villa Alemana";
+                else if(empleadore.getCommune_id() == 7)
+                    fila[8] = "Calle Larga";
+                else if(empleadore.getCommune_id() == 8)
+                    fila[8] = "Los Andes";
+                else if(empleadore.getCommune_id() == 9)
+                    fila[8] = "Rinconada";
+                else if(empleadore.getCommune_id() == 10)
+                    fila[8] = "San Esteban";
+                else if(empleadore.getCommune_id() == 11)
+                    fila[8] = "Cabildo";
+                else if(empleadore.getCommune_id() == 12)
+                    fila[8] = "La Ligua";
+                else if(empleadore.getCommune_id() == 13)
+                    fila[8] = "Papudo";
+                else if(empleadore.getCommune_id() == 14)
+                    fila[8] = "Petorca";
+                else if(empleadore.getCommune_id() == 15)
+                    fila[8] = "Zapallar";
+                else if(empleadore.getCommune_id() == 16)
+                    fila[8] = "Hijuelas";
+                else if(empleadore.getCommune_id() == 17)
+                    fila[8] = "La Calera";
+                else if(empleadore.getCommune_id() == 18)
+                    fila[8] = "La Cruz";
+                else if(empleadore.getCommune_id() == 19)
+                    fila[8] = "Nogales";
+                else if(empleadore.getCommune_id() == 20)
+                    fila[8] = "Quillota";
+                else if(empleadore.getCommune_id() == 21)
+                    fila[8] = "Algarrobo";
+                else if(empleadore.getCommune_id() == 22)
+                    fila[8] = "Cartagena";
+                else if(empleadore.getCommune_id() == 23)
+                    fila[8] = "El Quisco";
+                else if(empleadore.getCommune_id() == 24)
+                    fila[8] = "El Tabo";
+                else if(empleadore.getCommune_id() == 25)
+                    fila[8] = "San Antonio";
+                else if(empleadore.getCommune_id() == 26)
+                    fila[8] = "Santo Domingo";
+                else if(empleadore.getCommune_id() == 27)
+                    fila[8] = "Casablanca";
                 else if(empleadore.getCommune_id() == 28)
                     fila[8] = "Concon";
+                else if(empleadore.getCommune_id() == 29)
+                    fila[8] = "Juan Fernandez";
+                else if(empleadore.getCommune_id() == 30)
+                    fila[8] = "Puchuncavi";
+                else if(empleadore.getCommune_id() == 31)
+                    fila[8] = "Quintero";
+                else if(empleadore.getCommune_id() == 32)
+                    fila[8] = "Valparaiso";
+                else if(empleadore.getCommune_id() == 33)
+                    fila[8] = "Vina del Mar";
+                else if(empleadore.getCommune_id() == 34)
+                    fila[8] = "Limache";
+                else if(empleadore.getCommune_id() == 35)
+                    fila[8] = "Olmue";
+                else if(empleadore.getCommune_id() == 36)
+                    fila[8] = "Villa Alemana";
+                else if(empleadore.getCommune_id() == 37)
+                    fila[8] = "Quilpue";
+                else if(empleadore.getCommune_id() == 38)
+                    fila[8] = "Rapa Nui";
                 
                 if(empleadore.getRol_id() == 1)
                     fila[9] = "Administrador";
@@ -278,7 +388,10 @@ public class empleado extends javax.swing.JFrame {
         btnEliminar1 = new javax.swing.JButton();
         lblSeleccionar = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Fukusuke - Empleados");
+        setPreferredSize(new java.awt.Dimension(1175, 781));
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setForeground(new java.awt.Color(0, 0, 0));
@@ -362,10 +475,15 @@ public class empleado extends javax.swing.JFrame {
         rbInactivo.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         rbInactivo.setForeground(new java.awt.Color(0, 0, 0));
         rbInactivo.setText("Inactivo");
+        rbInactivo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbInactivoActionPerformed(evt);
+            }
+        });
 
         cbComuna.setBackground(new java.awt.Color(255, 255, 255));
         cbComuna.setForeground(new java.awt.Color(0, 0, 0));
-        cbComuna.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Viña del mar", "Valparaiso", "Quilpue", "Limache", "Villa Alemana", "Concon", "Santa Maria", "Calle Larga" }));
+        cbComuna.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Catemu", "Llay Llay", "Panquehue", "Putaendo", "San Felipe", "Santa Maria", "Calle Larga", "Los Andes", "Rinconada", "San Esteban", "Cabildo", "La Ligua", "Papudo", "Petorca", "Zapallar", "Hijuelas", "La Calera", "La Cruz", "Nogales", "Quillota", "Algarrobo", "Cartagena", "El Quisco", "El Tabo", "San Antonio", "Santo Domingo", "Casablanca", "Concon", "Juan Fernandez", "Puchuncavi", "Quintero", "Valparaiso", "Viña del Mar", "Limache", "Olmue", "Villa Alemana", "Quilpue", "Rapa Nui" }));
 
         cbRol.setBackground(new java.awt.Color(255, 255, 255));
         cbRol.setForeground(new java.awt.Color(0, 0, 0));
@@ -373,7 +491,7 @@ public class empleado extends javax.swing.JFrame {
 
         cbSexo.setBackground(new java.awt.Color(255, 255, 255));
         cbSexo.setForeground(new java.awt.Color(0, 0, 0));
-        cbSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masculino", "Femenino", " ", " ", " " }));
+        cbSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masculino", "Femenino" }));
 
         btnGuardar.setBackground(new java.awt.Color(255, 102, 0));
         btnGuardar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
@@ -434,6 +552,11 @@ public class empleado extends javax.swing.JFrame {
         txtBuscar.setBackground(new java.awt.Color(255, 255, 255));
         txtBuscar.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         txtBuscar.setForeground(new java.awt.Color(0, 0, 0));
+        txtBuscar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtBuscarKeyReleased(evt);
+            }
+        });
 
         btnEliminar1.setBackground(new java.awt.Color(255, 102, 0));
         btnEliminar1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
@@ -455,162 +578,149 @@ public class empleado extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jScrollPane1)
-                        .addContainerGap())
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(lblNacimiento, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
-                                    .addComponent(lblTelefono, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(lblEmail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtNacimiento, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE)
-                                    .addComponent(txtTelefono)
-                                    .addComponent(txtEmail))
-                                .addGap(39, 39, 39)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                        .addComponent(lblRol, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGap(224, 224, 224))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(lblSexo)
-                                        .addGap(0, 0, Short.MAX_VALUE)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(173, 173, 173))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(lblRut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(lblNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(txtRut, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtNombre, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(39, 39, 39)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblContraseña, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
-                                    .addComponent(lblEstado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(lblComuna, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, Short.MAX_VALUE)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(txtContraseña)
-                                        .addGap(6, 6, 6))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(rbActivo, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(rbInactivo, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, Short.MAX_VALUE))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(cbSexo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGap(6, 6, 6))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(cbRol, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(cbComuna, 0, 214, Short.MAX_VALUE))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))))
-                        .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(145, 145, 145)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(lblFukusuke)
-                                .addGap(18, 18, 18))
-                            .addComponent(lblLogo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(108, 108, 108))))
+                .addComponent(jScrollPane1)
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(225, 225, 225))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(44, 44, 44)
+                .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(93, 93, 93)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnEliminar1, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(61, 61, 61)
-                        .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(364, 364, 364)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblComuna, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblRol, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(47, 47, 47)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(cbRol, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addComponent(rbActivo, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(29, 29, 29)
+                                                .addComponent(rbInactivo, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(cbComuna, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(cbSexo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(1, 1, 1))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(332, 332, 332)
-                        .addComponent(lblSeleccionar)))
-                .addGap(0, 0, Short.MAX_VALUE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(93, 93, 93)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(btnEliminar1, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(51, 51, 51)
+                                .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(332, 332, 332)
+                                .addComponent(lblSeleccionar)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(57, 57, 57)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(lblNacimiento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblTelefono, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtNacimiento)
+                            .addComponent(txtTelefono)
+                            .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(lblRut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(txtRut, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtNombre, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(44, 44, 44)
+                        .addComponent(lblContraseña)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 391, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(lblFukusuke)
+                        .addGap(18, 18, 18))
+                    .addComponent(lblLogo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(120, 120, 120))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
+                .addComponent(lblTitulo)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblNombre)
+                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblContraseña)
+                    .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblTitulo)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(8, 8, 8)
-                                .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblRut)
+                            .addComponent(txtRut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblEstado)
+                            .addComponent(rbActivo)
+                            .addComponent(rbInactivo))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(lblNombre)
-                                    .addComponent(lblContraseña)
-                                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(lblRut)
-                                    .addComponent(lblEstado)
-                                    .addComponent(txtRut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(lblNacimiento)
-                                    .addComponent(txtNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(cbComuna, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblComuna))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(lblTelefono)
-                                    .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblRol)
-                                    .addComponent(cbRol, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(lblEmail)
-                                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblSexo)
-                                    .addComponent(cbSexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(rbActivo)
-                                    .addComponent(rbInactivo))))
-                        .addGap(37, 37, 37))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblNacimiento)
+                            .addComponent(txtNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblComuna)
+                            .addComponent(cbComuna, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblTelefono)
+                            .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblRol)
+                            .addComponent(cbRol, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblEmail)
+                            .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblSexo)
+                            .addComponent(cbSexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(52, 52, 52)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnGuardar)
+                            .addComponent(btnEditar)
+                            .addComponent(btnEliminar1)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(lblFukusuke)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lblLogo)
-                        .addGap(18, 18, 18)))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnGuardar)
-                    .addComponent(btnEditar)
-                    .addComponent(btnEliminar1))
+                        .addComponent(lblLogo)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblSeleccionar)
                 .addGap(46, 46, 46)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnBuscar))
-                .addGap(48, 48, 48)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(17, 17, 17)
+                .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 322, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -625,6 +735,7 @@ public class empleado extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
@@ -652,22 +763,82 @@ public class empleado extends javax.swing.JFrame {
                 empleados.setState(0);
             }
             
-            if(cbComuna.getSelectedItem() == "Santa Maria")
+            if(cbComuna.getSelectedItem() == "Catemu")
+                empleados.setCommune_id(1);
+            else if(cbComuna.getSelectedItem() == "Llay Llay")
+                empleados.setCommune_id(2);
+            else if(cbComuna.getSelectedItem() == "Panquehue")
+                empleados.setCommune_id(3);
+            else if(cbComuna.getSelectedItem() == "Putaendo")
+                empleados.setCommune_id(4);
+            else if(cbComuna.getSelectedItem() == "San Felipe")
+                empleados.setCommune_id(5);
+            else if(cbComuna.getSelectedItem() == "Santa Maria")
                 empleados.setCommune_id(6);
             else if(cbComuna.getSelectedItem() == "Calle Larga")
                 empleados.setCommune_id(7);
-            else if(cbComuna.getSelectedItem() == "Viña del mar")
-                empleados.setCommune_id(33);
-            else if(cbComuna.getSelectedItem() == "Valparaiso")
-                empleados.setCommune_id(32);
-            else if(cbComuna.getSelectedItem() == "Quilpue")
-                empleados.setCommune_id(37);
-            else if(cbComuna.getSelectedItem() == "Limache")
-                empleados.setCommune_id(34);
-            else if(cbComuna.getSelectedItem() == "Villa Alemana")
-                empleados.setCommune_id(36);
+            else if(cbComuna.getSelectedItem() == "Los Andes")
+                empleados.setCommune_id(8);   
+            else if(cbComuna.getSelectedItem() == "Rinconada")
+                empleados.setCommune_id(9); 
+            else if(cbComuna.getSelectedItem() == "San Esteban")
+                empleados.setCommune_id(10); 
+            else if(cbComuna.getSelectedItem() == "Cabildo")
+                empleados.setCommune_id(11); 
+            else if(cbComuna.getSelectedItem() == "La Ligua")
+                empleados.setCommune_id(12); 
+            else if(cbComuna.getSelectedItem() == "Papudo")
+                empleados.setCommune_id(13); 
+            else if(cbComuna.getSelectedItem() == "Petorca")
+                empleados.setCommune_id(14); 
+            else if(cbComuna.getSelectedItem() == "Zapallar")
+                empleados.setCommune_id(15); 
+            else if(cbComuna.getSelectedItem() == "Hijuelas")
+                empleados.setCommune_id(16); 
+            else if(cbComuna.getSelectedItem() == "La Calera")
+                empleados.setCommune_id(17); 
+            else if(cbComuna.getSelectedItem() == "La Cruz")
+                empleados.setCommune_id(18); 
+            else if(cbComuna.getSelectedItem() == "Nogales")
+                empleados.setCommune_id(19); 
+            else if(cbComuna.getSelectedItem() == "Quillota")
+                empleados.setCommune_id(20); 
+            else if(cbComuna.getSelectedItem() == "Algarrobo")
+                empleados.setCommune_id(21); 
+            else if(cbComuna.getSelectedItem() == "Cartagena")
+                empleados.setCommune_id(22); 
+            else if(cbComuna.getSelectedItem() == "El Quisco")
+                empleados.setCommune_id(23); 
+            else if(cbComuna.getSelectedItem() == "El Tabo")
+                empleados.setCommune_id(24); 
+            else if(cbComuna.getSelectedItem() == "San Antonio")
+                empleados.setCommune_id(25); 
+            else if(cbComuna.getSelectedItem() == "Santo Domingo")
+                empleados.setCommune_id(26); 
+            else if(cbComuna.getSelectedItem() == "Casablanca")
+                empleados.setCommune_id(27); 
             else if(cbComuna.getSelectedItem() == "Concon")
-                empleados.setCommune_id(28);
+                empleados.setCommune_id(28); 
+            else if(cbComuna.getSelectedItem() == "Juan Fernandez")
+                empleados.setCommune_id(29); 
+            else if(cbComuna.getSelectedItem() == "Puchuncavi")
+                empleados.setCommune_id(30); 
+            else if(cbComuna.getSelectedItem() == "Quintero")
+                empleados.setCommune_id(31); 
+            else if(cbComuna.getSelectedItem() == "Valparaiso")
+                empleados.setCommune_id(32); 
+            else if(cbComuna.getSelectedItem() == "Viña del Mar")
+                empleados.setCommune_id(33); 
+            else if(cbComuna.getSelectedItem() == "Limache")
+                empleados.setCommune_id(34); 
+            else if(cbComuna.getSelectedItem() == "Olmue")
+                empleados.setCommune_id(35); 
+            else if(cbComuna.getSelectedItem() == "Villa Alemana")
+                empleados.setCommune_id(36); 
+            else if(cbComuna.getSelectedItem() == "Quilpue")
+                empleados.setCommune_id(37); 
+            else if(cbComuna.getSelectedItem() == "Rapa Nui")
+                empleados.setCommune_id(38); 
             
             if(cbRol.getSelectedItem() == "Administrador")
                 empleados.setRol_id(1);
@@ -715,28 +886,88 @@ public class empleado extends javax.swing.JFrame {
                 empleados.setState(0);
             }
             
-            if(cbComuna.getSelectedItem() == "Santa Maria")
+            if(cbComuna.getSelectedItem() == "Catemu")
+                empleados.setCommune_id(1);
+            else if(cbComuna.getSelectedItem() == "Llay Llay")
+                empleados.setCommune_id(2);
+            else if(cbComuna.getSelectedItem() == "Panquehue")
+                empleados.setCommune_id(3);
+            else if(cbComuna.getSelectedItem() == "Putaendo")
+                empleados.setCommune_id(4);
+            else if(cbComuna.getSelectedItem() == "San Felipe")
+                empleados.setCommune_id(5);
+            else if(cbComuna.getSelectedItem() == "Santa Maria")
                 empleados.setCommune_id(6);
             else if(cbComuna.getSelectedItem() == "Calle Larga")
                 empleados.setCommune_id(7);
-            else if(cbComuna.getSelectedItem() == "Viña del mar")
-                empleados.setCommune_id(33);
-            else if(cbComuna.getSelectedItem() == "Valparaiso")
-                empleados.setCommune_id(32);
-            else if(cbComuna.getSelectedItem() == "Quilpue")
-                empleados.setCommune_id(37);
-            else if(cbComuna.getSelectedItem() == "Limache")
-                empleados.setCommune_id(34);
-            else if(cbComuna.getSelectedItem() == "Villa Alemana")
-                empleados.setCommune_id(36);
+            else if(cbComuna.getSelectedItem() == "Los Andes")
+                empleados.setCommune_id(8);   
+            else if(cbComuna.getSelectedItem() == "Rinconada")
+                empleados.setCommune_id(9); 
+            else if(cbComuna.getSelectedItem() == "San Esteban")
+                empleados.setCommune_id(10); 
+            else if(cbComuna.getSelectedItem() == "Cabildo")
+                empleados.setCommune_id(11); 
+            else if(cbComuna.getSelectedItem() == "La Ligua")
+                empleados.setCommune_id(12); 
+            else if(cbComuna.getSelectedItem() == "Papudo")
+                empleados.setCommune_id(13); 
+            else if(cbComuna.getSelectedItem() == "Petorca")
+                empleados.setCommune_id(14); 
+            else if(cbComuna.getSelectedItem() == "Zapallar")
+                empleados.setCommune_id(15); 
+            else if(cbComuna.getSelectedItem() == "Hijuelas")
+                empleados.setCommune_id(16); 
+            else if(cbComuna.getSelectedItem() == "La Calera")
+                empleados.setCommune_id(17); 
+            else if(cbComuna.getSelectedItem() == "La Cruz")
+                empleados.setCommune_id(18); 
+            else if(cbComuna.getSelectedItem() == "Nogales")
+                empleados.setCommune_id(19); 
+            else if(cbComuna.getSelectedItem() == "Quillota")
+                empleados.setCommune_id(20); 
+            else if(cbComuna.getSelectedItem() == "Algarrobo")
+                empleados.setCommune_id(21); 
+            else if(cbComuna.getSelectedItem() == "Cartagena")
+                empleados.setCommune_id(22); 
+            else if(cbComuna.getSelectedItem() == "El Quisco")
+                empleados.setCommune_id(23); 
+            else if(cbComuna.getSelectedItem() == "El Tabo")
+                empleados.setCommune_id(24); 
+            else if(cbComuna.getSelectedItem() == "San Antonio")
+                empleados.setCommune_id(25); 
+            else if(cbComuna.getSelectedItem() == "Santo Domingo")
+                empleados.setCommune_id(26); 
+            else if(cbComuna.getSelectedItem() == "Casablanca")
+                empleados.setCommune_id(27); 
             else if(cbComuna.getSelectedItem() == "Concon")
-                empleados.setCommune_id(28);
+                empleados.setCommune_id(28); 
+            else if(cbComuna.getSelectedItem() == "Juan Fernandez")
+                empleados.setCommune_id(29); 
+            else if(cbComuna.getSelectedItem() == "Puchuncavi")
+                empleados.setCommune_id(30); 
+            else if(cbComuna.getSelectedItem() == "Quintero")
+                empleados.setCommune_id(31); 
+            else if(cbComuna.getSelectedItem() == "Valparaiso")
+                empleados.setCommune_id(32); 
+            else if(cbComuna.getSelectedItem() == "Viña del Mar")
+                empleados.setCommune_id(33); 
+            else if(cbComuna.getSelectedItem() == "Limache")
+                empleados.setCommune_id(34); 
+            else if(cbComuna.getSelectedItem() == "Olmue")
+                empleados.setCommune_id(35); 
+            else if(cbComuna.getSelectedItem() == "Villa Alemana")
+                empleados.setCommune_id(36); 
+            else if(cbComuna.getSelectedItem() == "Quilpue")
+                empleados.setCommune_id(37); 
+            else if(cbComuna.getSelectedItem() == "Rapa Nui")
+                empleados.setCommune_id(38); 
             
             if(cbRol.getSelectedItem() == "Administrador")
                 empleados.setRol_id(1);
             else if(cbRol.getSelectedItem() == "Mantenedor")
                 empleados.setRol_id(2);
-            else if(cbRol.getSelectedItem() == "Dueno")
+            else if(cbRol.getSelectedItem() == "Dueño")
                 empleados.setRol_id(3);
             else if(cbRol.getSelectedItem() == "Cajero")
                 empleados.setRol_id(4);
@@ -781,29 +1012,89 @@ public class empleado extends javax.swing.JFrame {
         }
         
         String comuna = tblEmpleados.getValueAt(seleccion, 8)+"";
-        if(comuna.equals("Santa Maria"))
-            cbComuna.setSelectedIndex(6);
-        else if(comuna.equals("Calle Larga"))
-            cbComuna.setSelectedIndex(7);
-        else if(comuna.equals("Viña del mar"))
+        if(comuna.equals("Catemu"))
             cbComuna.setSelectedIndex(0);
-        else if(comuna.equals("Valparaiso"))
+        else if(comuna.equals("Llay Llay"))
             cbComuna.setSelectedIndex(1);
-        else if(comuna.equals("Quilpue"))
+        else if(comuna.equals("Panquehue"))
             cbComuna.setSelectedIndex(2);
-        else if(comuna.equals("Limache"))
+        else if(comuna.equals("Putaendo"))
             cbComuna.setSelectedIndex(3);
-        else if(comuna.equals("Villa Alemana"))
+        else if(comuna.equals("San Felipe"))
             cbComuna.setSelectedIndex(4);
-        else if(comuna.equals("Concon"))
+        else if(comuna.equals("Santa Maria"))
             cbComuna.setSelectedIndex(5);
+        else if(comuna.equals("Calle Larga"))
+            cbComuna.setSelectedIndex(6);
+        else if(comuna.equals("Los Andes"))
+            cbComuna.setSelectedIndex(7);
+        else if(comuna.equals("Rinconada"))
+            cbComuna.setSelectedIndex(8);
+        else if(comuna.equals("San Esteban"))
+            cbComuna.setSelectedIndex(9);
+        else if(comuna.equals("Cabildo"))
+            cbComuna.setSelectedIndex(10);
+        else if(comuna.equals("La Ligua"))
+            cbComuna.setSelectedIndex(11);
+        else if(comuna.equals("Papudo"))
+            cbComuna.setSelectedIndex(12);
+        else if(comuna.equals("Petorca"))
+            cbComuna.setSelectedIndex(13);
+        else if(comuna.equals("Zapallar"))
+            cbComuna.setSelectedIndex(14);
+        else if(comuna.equals("Hijuelas"))
+            cbComuna.setSelectedIndex(15);
+        else if(comuna.equals("La Calera"))
+            cbComuna.setSelectedIndex(16);
+        else if(comuna.equals("La Cruz"))
+            cbComuna.setSelectedIndex(17);
+        else if(comuna.equals("Nogales"))
+            cbComuna.setSelectedIndex(18);
+        else if(comuna.equals("Quillota"))
+            cbComuna.setSelectedIndex(19);
+        else if(comuna.equals("Algarrobo"))
+            cbComuna.setSelectedIndex(20);
+        else if(comuna.equals("Cartagena"))
+            cbComuna.setSelectedIndex(21);
+        else if(comuna.equals("El Quisco"))
+            cbComuna.setSelectedIndex(22);
+        else if(comuna.equals("El Tabo"))
+            cbComuna.setSelectedIndex(23);
+        else if(comuna.equals("San Antonio"))
+            cbComuna.setSelectedIndex(24);
+        else if(comuna.equals("Santo Domingo"))
+            cbComuna.setSelectedIndex(25);
+        else if(comuna.equals("Casablanca"))
+            cbComuna.setSelectedIndex(26);
+        else if(comuna.equals("Concon"))
+            cbComuna.setSelectedIndex(27);
+        else if(comuna.equals("Juan Fernandez"))
+            cbComuna.setSelectedIndex(28);
+        else if(comuna.equals("Puchuncavi"))
+            cbComuna.setSelectedIndex(29);
+        else if(comuna.equals("Quintero"))
+            cbComuna.setSelectedIndex(30);
+        else if(comuna.equals("Valparaiso"))
+            cbComuna.setSelectedIndex(31);
+        else if(comuna.equals("Viña del Mar"))
+            cbComuna.setSelectedIndex(32);
+        else if(comuna.equals("Limache"))
+            cbComuna.setSelectedIndex(33);
+        else if(comuna.equals("Olmue"))
+            cbComuna.setSelectedIndex(34);
+        else if(comuna.equals("Villa Alemana"))
+            cbComuna.setSelectedIndex(35);
+        else if(comuna.equals("Quilpue"))
+            cbComuna.setSelectedIndex(36);
+        else if(comuna.equals("Rapa Nui"))
+            cbComuna.setSelectedIndex(37);
         
         String rol = tblEmpleados.getValueAt(seleccion, 9)+"";
         if(rol.equals("Administrador"))
             cbRol.setSelectedIndex(0);
         else if(rol.equals("Mantenedor"))
             cbRol.setSelectedIndex(1);
-        else if(rol.equals("dueno"))
+        else if(rol.equals("Dueño"))
             cbRol.setSelectedIndex(2);
         else if(rol.equals("Cajero"))
             cbRol.setSelectedIndex(3);
@@ -836,6 +1127,19 @@ public class empleado extends javax.swing.JFrame {
         this.listar();
         this.limpiarCampos();
     }//GEN-LAST:event_btnEliminar1ActionPerformed
+
+    private void rbInactivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbInactivoActionPerformed
+        // TODO add your handling code here:
+        
+        //PENDIENTE
+    }//GEN-LAST:event_rbInactivoActionPerformed
+
+    private void txtBuscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarKeyReleased
+        // TODO add your handling code here:
+        
+        
+       
+    }//GEN-LAST:event_txtBuscarKeyReleased
 
     /**
      * @param args the command line arguments
