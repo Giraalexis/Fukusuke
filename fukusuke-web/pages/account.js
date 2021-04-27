@@ -120,7 +120,7 @@ const Account = (props)=> {
 
             <div className="row mt-2">
               <div className="col-lg-5 col-md-5 col-sm-12">
-                <label className="col-form-label">Telefono</label>
+                <label className="col-form-label">Teléfono</label>
               </div>
               <div className="col">
                 <input name="telphone" onChange={handleInputChange} className="form-control" type="text" value={values.telphone}/>
@@ -129,7 +129,7 @@ const Account = (props)=> {
 
             <div className="row mt-2">
               <div className="col-lg-5 col-md-5 col-sm-12">
-                <label className="col-form-label">Correo electronico</label>
+                <label className="col-form-label">Correo electrónico</label>
               </div>
               <div className="col">
                 <input name="email" onChange={handleInputChange} className="form-control" type="text" value={values.email}/>

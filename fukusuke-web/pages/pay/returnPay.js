@@ -28,7 +28,7 @@ const ReturnPay = (props)=> {
       <Head>
         <title>Fukusuke | Pay</title>
       </Head>
-      <h4>Redirecting....</h4>
+      <h4 className="mx-auto">Cargando....</h4>
     </Container>
   )
 }

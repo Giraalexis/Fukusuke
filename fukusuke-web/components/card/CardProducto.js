@@ -113,8 +113,8 @@ const CardProducto = (props) =>{
   return(
     <div className="row" id="cards-container-render">
       <div className="input-group pt-3">
-        <input onChange={handleInputChange} type="text" className="form-control" placeholder="Ingresa algun nombre"/>
-        <button className="btn btn-primary col-lg-3 col-md-3">Buscar</button>
+        <div className="col-lg-8 col-md-6 col-sm-12"></div>
+        <input onChange={handleInputChange} type="text" className="form-control text-center rounded-pill" placeholder="Buscar Producto"/>
       </div>
       {viewProducts.map(product=>{
         if(product.state && product.stock > 0){//si su estado es activo y tienen stock

@@ -88,7 +88,7 @@ const Voucher = (props)=> {
           </div>
           <div className="card-body">
           <div className="row">
-            <h6 className="col-6">Transaccion</h6>
+            <h6 className="col-6">Transacción</h6>
             <h6 className="col">{values.vci == 'TSY'? 'Exitosa' : 'Fallida'}</h6>
           </div>
           <div className="row">
@@ -104,15 +104,15 @@ const Voucher = (props)=> {
             <h6 className="col">{values.buy_order}</h6>
           </div>
           <div className="row">
-            <h6 className="col-6">ID Session</h6>
+            <h6 className="col-6">ID Sessión</h6>
             <h6 className="col">{values.session_id}</h6>
           </div>
           <div className="row">
-            <h6 className="col-6">Codigo de Transaccion</h6>
+            <h6 className="col-6">Código de Transacción</h6>
             <h6 className="col">{values.authorization_code}</h6>
           </div>
           <div className="row">
-            <h6 className="col-6">Codigo de Tarjeta</h6>
+            <h6 className="col-6">Código de Tarjeta</h6>
             <h6 className="col">{values.card_detail.card_number}</h6>
           </div>
           <div className="row">

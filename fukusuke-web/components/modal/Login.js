@@ -78,13 +78,13 @@ const Login = (props)=>{
 
   return(
     <div>
-      <a onClick={handleShow} className="nav-link btn" data-bs-toggle="modal" data-bs-target="#loginModal">Iniciar Sesion</a>
+      <a onClick={handleShow} className="nav-link btn" data-bs-toggle="modal" data-bs-target="#loginModal">Iniciar Sesión</a>
 
       <div className={"modal fade "+(show? 'show': '')}  id="loginModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div className="modal-dialog " style={{marginTop: '15vh'}}>
           <form onSubmit={handleSubmit} className="modal-content" >
             <div className="modal-header">
-              <h5 className="modal-title" id="exampleModalLabel">Iniciar Sesion</h5>
+              <h5 className="modal-title" id="exampleModalLabel">Iniciar Sesión</h5>
               <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div className="modal-body">

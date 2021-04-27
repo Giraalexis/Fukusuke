@@ -63,7 +63,7 @@ const PayDetail = (props)=> {
         }
         </div>
         <div className="row justify-content-center m-3">
-          <h6 className="col-5 col-form-label">Direccion de despacho:</h6>
+          <h6 className="col-5 col-form-label">Dirección de despacho:</h6>
           <input onChange={handleInputChange} value={direccion} className="col form-control " />
         </div> 
         <div className="row justify-content-center p-3">

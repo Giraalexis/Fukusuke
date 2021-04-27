@@ -51,7 +51,7 @@ const Navigation = () => {
             <Cart/>
             {isSession //si esta logeado...
               ? <>
-                  <a className="nav-link btn" onClick={()=> logOut()}>Cerrar Sesion</a>
+                  <a className="nav-link btn" onClick={()=> logOut()}>Cerrar Sesión</a>
                   <Link href="/account"><a className={"nav-link "+(router.asPath == "/account" ?" active" : "")}>Cuenta</a></Link>
                 </>
               : <>
