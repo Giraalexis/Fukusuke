@@ -102,7 +102,10 @@ const Cart = (props)=>{
           handleClose();
           Router.push({
            pathname: '/pay',
-           query: {total: total}
+           query: {
+             total: total,
+             idSession: JSON.parse(localStorage.getItem('session')).id
+            }
           })
         }
       }

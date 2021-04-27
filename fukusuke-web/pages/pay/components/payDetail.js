@@ -29,8 +29,9 @@ const PayDetail = (props)=> {
   //Guardar el estado de lo escrito en input
   const handleInputChange = e=>{
     const {name, value} = e.target;//Captura el nombre y el valor 
+    console.log(value)
     setDireccion(value)
-    localStorage.setItem('adress',JSON.stringify(direccion));
+    localStorage.setItem('adress',JSON.stringify(value));
   }
 
   return (

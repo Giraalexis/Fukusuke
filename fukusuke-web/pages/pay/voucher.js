@@ -59,21 +59,10 @@ const Voucher = (props)=> {
         ticket: resBoleta.data.id
       })
       console.log(resDespatch)
-      
-    }
-    const createDetailOrder = async () =>{
-
-    }
-    const createOrderDispatch = async ()=>{
-      
-    }
-    sendDataBD();
-
-    const cleanData = () =>{
       localStorage.removeItem('response');
       localStorage.removeItem('cart');
     }
-    cleanData();
+    //sendDataBD();
   },[])
 
   return (
@@ -97,14 +86,14 @@ const Voucher = (props)=> {
           </div>
           <div className="row">
             <h6 className="col-6">Fecha</h6>
-            <h6 className="col">{values.transaction_date}</h6>
+            <h6 className="col">{values.transaction_date.substr(0,10)}</h6>
           </div>
           <div className="row">
             <h6 className="col-6">Orden de Compra</h6>
             <h6 className="col">{values.buy_order}</h6>
           </div>
           <div className="row">
-            <h6 className="col-6">ID Sessión</h6>
+            <h6 className="col-6">ID Cliente</h6>
             <h6 className="col">{values.session_id}</h6>
           </div>
           <div className="row">
