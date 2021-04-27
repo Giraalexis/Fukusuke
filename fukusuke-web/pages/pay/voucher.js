@@ -73,7 +73,7 @@ const Voucher = (props)=> {
       localStorage.removeItem('response');
       localStorage.removeItem('cart');
     }
-    //cleanData();
+    cleanData();
   },[])
 
   return (
