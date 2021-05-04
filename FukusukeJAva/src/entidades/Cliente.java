@@ -41,7 +41,7 @@ public class Cliente {
         this.id = id;
     }
 
-    public String getName() {
+    public String getName() {        
         return name;
     }
 
@@ -77,7 +77,7 @@ public class Cliente {
         return telphone;
     }
 
-    public void setTelphone(int telphone) {
+    public void setTelphone(int telphone) {        
         this.telphone = telphone;
     }
 
@@ -93,7 +93,7 @@ public class Cliente {
         return password;
     }
 
-    public void setPassword(String password) {
+    public void setPassword(String password) {        
         this.password = password;
     }
 

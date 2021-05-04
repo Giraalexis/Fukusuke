@@ -234,7 +234,7 @@ public class EmpleadoDAO {
             }            
             return false;
         } catch (Exception e) {
-            
+            System.out.println("Error al validar: " + e.getMessage());
             
         }        
         

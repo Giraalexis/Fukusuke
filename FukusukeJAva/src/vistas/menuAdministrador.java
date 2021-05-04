@@ -36,6 +36,7 @@ public class menuAdministrador extends javax.swing.JFrame {
         btnClientes = new javax.swing.JButton();
         lblFukusuke = new javax.swing.JLabel();
         lblLogo = new javax.swing.JLabel();
+        btnSesion = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Fukusuke - Menu Administrador");
@@ -76,6 +77,16 @@ public class menuAdministrador extends javax.swing.JFrame {
 
         lblLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/sushi-derecha-chico.jpg"))); // NOI18N
 
+        btnSesion.setBackground(new java.awt.Color(255, 102, 0));
+        btnSesion.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        btnSesion.setForeground(new java.awt.Color(0, 0, 0));
+        btnSesion.setText("Cerrar sesión");
+        btnSesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSesionActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelAdminLayout = new javax.swing.GroupLayout(panelAdmin);
         panelAdmin.setLayout(panelAdminLayout);
         panelAdminLayout.setHorizontalGroup(
@@ -93,13 +104,17 @@ public class menuAdministrador extends javax.swing.JFrame {
             .addGroup(panelAdminLayout.createSequentialGroup()
                 .addGap(55, 55, 55)
                 .addComponent(lblTitutlo, javax.swing.GroupLayout.PREFERRED_SIZE, 359, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         panelAdminLayout.setVerticalGroup(
             panelAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelAdminLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblTitutlo)
+                .addGroup(panelAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnSesion)
+                    .addComponent(lblTitutlo))
                 .addGroup(panelAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelAdminLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 119, Short.MAX_VALUE)
@@ -133,23 +148,30 @@ public class menuAdministrador extends javax.swing.JFrame {
     private void btnProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProductosActionPerformed
         // TODO add your handling code here:
         
-        if(frmProducto == null){
+        
             frmProducto = new producto();
             frmProducto.setVisible(true);
             
-        }
+        
         
     }//GEN-LAST:event_btnProductosActionPerformed
 
     private void btnClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClientesActionPerformed
         // TODO add your handling code here:
         
-        if(frmCliente == null){
+        
             frmCliente = new cliente();
             frmCliente.setVisible(true);
             
-        }
+        
     }//GEN-LAST:event_btnClientesActionPerformed
+
+    private void btnSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSesionActionPerformed
+        // TODO add your handling code here:
+        login log = new login();
+        log.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnSesionActionPerformed
 
     /**
      * @param args the command line arguments
@@ -189,6 +211,7 @@ public class menuAdministrador extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnClientes;
     private javax.swing.JButton btnProductos;
+    private javax.swing.JButton btnSesion;
     private javax.swing.JLabel lblFukusuke;
     private javax.swing.JLabel lblLogo;
     private javax.swing.JLabel lblTitutlo;

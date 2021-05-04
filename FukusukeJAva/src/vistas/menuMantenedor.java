@@ -40,6 +40,7 @@ public class menuMantenedor extends javax.swing.JFrame {
         btnClientes = new javax.swing.JButton();
         lblFukusuke = new javax.swing.JLabel();
         lblLogo = new javax.swing.JLabel();
+        btnSesion = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Fukusuke - Menu Mantenedor");
@@ -92,6 +93,16 @@ public class menuMantenedor extends javax.swing.JFrame {
 
         lblLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/sushi-derecha-chico.jpg"))); // NOI18N
 
+        btnSesion.setBackground(new java.awt.Color(255, 102, 0));
+        btnSesion.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        btnSesion.setForeground(new java.awt.Color(0, 0, 0));
+        btnSesion.setText("Cerrar sesión");
+        btnSesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSesionActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -99,7 +110,9 @@ public class menuMantenedor extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(56, 56, 56)
                 .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnSesion)
+                .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(88, 88, 88)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -119,7 +132,9 @@ public class menuMantenedor extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblTitulo)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnSesion)
+                    .addComponent(lblTitulo))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(110, 110, 110)
@@ -154,11 +169,11 @@ public class menuMantenedor extends javax.swing.JFrame {
 
     private void btnUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsuariosActionPerformed
         // TODO add your handling code here:
-        if(frmEmpleado == null){
+        
             frmEmpleado = new empleado();
             frmEmpleado.setVisible(true);
             
-        }      
+              
                    
            
     }//GEN-LAST:event_btnUsuariosActionPerformed
@@ -166,22 +181,29 @@ public class menuMantenedor extends javax.swing.JFrame {
     private void btnProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProductosActionPerformed
         // TODO add your handling code here:
         
-        if(frmProducto == null){
+        
             frmProducto = new producto();
             frmProducto.setVisible(true);
             
-        }      
+              
     }//GEN-LAST:event_btnProductosActionPerformed
 
     private void btnClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClientesActionPerformed
         // TODO add your handling code here:
         
-        if(frmCliente == null){
+        
             frmCliente = new cliente();
             frmCliente.setVisible(true);
             
-        }     
+             
     }//GEN-LAST:event_btnClientesActionPerformed
+
+    private void btnSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSesionActionPerformed
+        // TODO add your handling code here:
+        login log = new login();
+        log.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnSesionActionPerformed
 
     /**
      * @param args the command line arguments
@@ -221,6 +243,7 @@ public class menuMantenedor extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnClientes;
     private javax.swing.JButton btnProductos;
+    private javax.swing.JButton btnSesion;
     private javax.swing.JButton btnUsuarios;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblFukusuke;
