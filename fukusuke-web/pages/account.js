@@ -87,7 +87,7 @@ const Account = (props)=> {
                 <label className="col-form-label">Nombre</label>
               </div>
               <div className="col">
-                <input name="name" onChange={handleInputChange} className="form-control" type="text" value={values.name}/>
+                <input name="name" onChange={handleInputChange} className="form-control" type="text" value={values.name || ''}/>
               </div>
             </div>
             
@@ -96,7 +96,7 @@ const Account = (props)=> {
                 <label className="col-form-label">Rut</label>
               </div>
               <div className="col">
-                <input name="rut" onChange={handleInputChange} className="form-control" type="text" value={values.rut}/>
+                <input name="rut" onChange={handleInputChange} className="form-control" type="text" value={values.rut || ''}/>
               </div>
             </div>
 
@@ -105,7 +105,7 @@ const Account = (props)=> {
                 <label className="col-form-label">Contraseña</label>
               </div>
               <div className="col">
-                <input name="rut" onChange={handleInputChange} className="form-control" type="password" value={values.password}/>
+                <input name="rut" onChange={handleInputChange} className="form-control" type="password" value={values.password || ''}/>
               </div>
             </div>
 
@@ -114,25 +114,25 @@ const Account = (props)=> {
                 <label className="col-form-label">Fecha de nacimiento</label>
               </div>
               <div className="col">
-                <input name="date_burn" onChange={handleInputChange} className="form-control" type="date" value={values.date_burn}/>
+                <input name="date_burn" onChange={handleInputChange} className="form-control" type="date" value={values.date_burn || ''}/>
               </div>
             </div>
 
             <div className="row mt-2">
               <div className="col-lg-5 col-md-5 col-sm-12">
-                <label className="col-form-label">Telefono</label>
+                <label className="col-form-label">Teléfono</label>
               </div>
               <div className="col">
-                <input name="telphone" onChange={handleInputChange} className="form-control" type="text" value={values.telphone}/>
+                <input name="telphone" onChange={handleInputChange} className="form-control" type="text" value={values.telphone || ''}/>
               </div>
             </div>
 
             <div className="row mt-2">
               <div className="col-lg-5 col-md-5 col-sm-12">
-                <label className="col-form-label">Correo electronico</label>
+                <label className="col-form-label">Correo electrónico</label>
               </div>
               <div className="col">
-                <input name="email" onChange={handleInputChange} className="form-control" type="text" value={values.email}/>
+                <input name="email" onChange={handleInputChange} className="form-control" type="text" value={values.email || ''}/>
               </div>
             </div>
 
@@ -141,7 +141,7 @@ const Account = (props)=> {
                 <label className="col-form-label">Sexo</label>
               </div>
               <div className="col">
-                <select name="sex" onChange={handleInputChange} className="form-select" type="text" value={values.sex}>
+                <select name="sex" onChange={handleInputChange} className="form-select" type="text" value={values.sex || '1'}>
                   <option value="1">Masculino</option>
                   <option value="2">Femenino</option>
                 </select>
@@ -153,7 +153,7 @@ const Account = (props)=> {
                 <label className="col-form-label">Comuna</label>
               </div>
               <div className="col">
-                <select name="commune" onChange={handleInputChange} className="form-select" type="text" value={values.commune}>
+                <select name="commune" onChange={handleInputChange} className="form-select" type="text" value={values.commune || '1'}>
                   { 
                     communes.map(commune =>{                 
                       return(

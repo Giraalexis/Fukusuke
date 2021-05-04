@@ -2,9 +2,12 @@ import React, {useState, useEffect} from 'react'
 import Router from "next/router";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import stringSimilarity from 'string-similarity';
 
 const CardProducto = (props) =>{
-  const [products,setProducts] = useState(props.products);
+  const [products,setProducts] = useState(props.products); //todos los productos
+  const [viewProducts, setViewProducts] = useState(props.products); //los productos que se mostraran
+
   useEffect(()=>{ //ejecuta luego de cargar la pagina
     const setStockonCant = ()=>{ //actualiza el stock al cargar la pagina, segun la cant en la cartera
       let cart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -89,10 +92,32 @@ const CardProducto = (props) =>{
     window.localStorage.setItem('cart',JSON.stringify(local))//actualiza localstorage
   }
 
+  //Buscar Producto al escribir
+  const handleInputChange = e=>{
+    let findProduct = [];
+    const {name, value} = e.target;//Captura el nombre y el valor 
+    for (let i = 0; i < products.length; i++) {
+      let prob = stringSimilarity.compareTwoStrings(products[i].name,value); //Devuelve una probabilidad de similitud
+      if(prob > 0.5){ //si es similar en un 50%
+        findProduct.push(products[i]) //guarda ese producto
+      }
+    }
+    if(findProduct.length){ //si encontro algun producto, que los muestre
+      console.log("encontro uno")
+      setViewProducts(findProduct);
+    }else{ //si no, que muestre todos
+      setViewProducts(products);
+    }
+  }
+
   return(
     <div className="row" id="cards-container-render">
-      {products.map(product=>{
-        if(product.state){
+      <div className="input-group pt-3">
+        <div className="col-lg-8 col-md-6 col-sm-12"></div>
+        <input onChange={handleInputChange} type="text" className="form-control text-center rounded-pill" placeholder="Buscar Producto"/>
+      </div>
+      {viewProducts.map(product=>{
+        if(product.state && product.stock > 0){//si su estado es activo y tienen stock
           return(
             <form key={product.id} className=" col-lg-4 col-md-6 col-sm-12 mx-auto pt-3 " >
               <div className="card card-body text-center btn sombra" onClick={() => Router.push(`/detailProduct/[id]`, `/detailProduct/${product.id}`)}>

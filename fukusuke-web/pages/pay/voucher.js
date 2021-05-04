@@ -11,7 +11,6 @@ WebpayPlus.commerceCode = 597055555532;
 WebpayPlus.apiKey = '579B532A7440BB0C9079DED94D31EA1615BACEB56610332264630D42D0A36B1C';
 WebpayPlus.environment = Environment.Integration;
 export async function getServerSideProps(ctx){
-  console.log(ctx);
   const token = ctx.query.token;
   const response = await WebpayPlus.Transaction.commit(token);
   return {
@@ -26,11 +25,44 @@ export async function getServerSideProps(ctx){
 const Voucher = (props)=> {
   const [values,setvalues] = useState(props.response);
   useEffect(()=>{
-    const cleanData = () =>{
+
+    const sendDataBD = async() =>{
+      const client = JSON.parse(localStorage.getItem('session'));
+      const cartLocal = JSON.parse(localStorage.getItem('cart'));
+      const adressLocal = JSON.parse(localStorage.getItem('adress'));
+      const date = new Date()
+      let fecha = date.getFullYear()+"-"+date.getMonth()+"-"+date.getDate()
+      //Crea Boleta
+      const resBoleta = await axios.post(`http://localhost:8000/api/ticket-create`,{
+        fecha: fecha,
+        total: values.amount,
+        employee: 101,
+        client: client.id,
+        payment: 1
+      })
+      console.log(resBoleta)
+      //Guarda el detalle boleta
+      for (let i = 0; i < cartLocal.length; i++) {
+        let res = await axios.post(`http://localhost:8000/api/saildetail-create`,{
+          name: cartLocal[i].name,
+          amout: cartLocal[i].cant,
+          sub_total: cartLocal[i].cant * cartLocal[i].price,
+          product: cartLocal[i].id,
+          ticket: resBoleta.data.id
+        })
+        console.log(res);
+      }
+      
+      const resDespatch = await axios.post(`http://localhost:8000/api/orderdispatch-create`,{
+        adress: adressLocal,
+        state: 0,
+        ticket: resBoleta.data.id
+      })
+      console.log(resDespatch)
       localStorage.removeItem('response');
       localStorage.removeItem('cart');
     }
-    cleanData();
+    //sendDataBD();
   },[])
 
   return (
@@ -45,7 +77,7 @@ const Voucher = (props)=> {
           </div>
           <div className="card-body">
           <div className="row">
-            <h6 className="col-6">Transaccion</h6>
+            <h6 className="col-6">Transacción</h6>
             <h6 className="col">{values.vci == 'TSY'? 'Exitosa' : 'Fallida'}</h6>
           </div>
           <div className="row">
@@ -54,22 +86,22 @@ const Voucher = (props)=> {
           </div>
           <div className="row">
             <h6 className="col-6">Fecha</h6>
-            <h6 className="col">{values.transaction_date}</h6>
+            <h6 className="col">{values.transaction_date.substr(0,10)}</h6>
           </div>
           <div className="row">
             <h6 className="col-6">Orden de Compra</h6>
             <h6 className="col">{values.buy_order}</h6>
           </div>
           <div className="row">
-            <h6 className="col-6">ID Session</h6>
+            <h6 className="col-6">ID Cliente</h6>
             <h6 className="col">{values.session_id}</h6>
           </div>
           <div className="row">
-            <h6 className="col-6">Codigo de Transaccion</h6>
+            <h6 className="col-6">Código de Transacción</h6>
             <h6 className="col">{values.authorization_code}</h6>
           </div>
           <div className="row">
-            <h6 className="col-6">Codigo de Tarjeta</h6>
+            <h6 className="col-6">Código de Tarjeta</h6>
             <h6 className="col">{values.card_detail.card_number}</h6>
           </div>
           <div className="row">

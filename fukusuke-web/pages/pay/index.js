@@ -12,11 +12,12 @@ WebpayPlus.environment = Environment.Integration;
 
 export async function getServerSideProps(ctx){
     const totalPago = ctx.query.total;
+    const idSession = ctx.query.idSession;
     //Valores para solicitar pago a transbank
     const values = {
       buyOrder: 1,
       amount: totalPago,
-      sessionId: '1234',
+      sessionId: idSession,
       returnUrl: 'http://localhost:3000/pay/returnPay'
     }
     const response = await WebpayPlus.Transaction.create(values.buyOrder, values.sessionId, values.amount, values.returnUrl);

@@ -103,19 +103,19 @@ const Register = (props)=>{
 
   return(
   <>
-    <a onClick={handleShow} className="nav-link btn" data-bs-toggle="modal" data-bs-target="#registerModal">Registrate</a>
+    <a onClick={handleShow} className="nav-link btn" data-bs-toggle="modal" data-bs-target="#registerModal">Regístrate</a>
 
     <div className={"modal fade "+(show? 'show': '')} id="registerModal" tabIndex="-1" aria-labelledby="registerModal" aria-hidden="true">
       <div className="modal-dialog" style={{marginTop: '15vh'}}>
         <form onSubmit={handleSubmit} className="modal-content" >
           <div className="modal-header">
-            <h5 className="modal-title" id="exampleModalLabel">Registrate</h5>
+            <h5 className="modal-title" id="exampleModalLabel">Regístrate</h5>
             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div className="modal-body">
             <div className="row">
               <div className="col-6">
-                <input name="rut" value={values.rut} onChange={handleInputChange} className="form-control col-6" placeholder="Ingrese rut" type="text" required/>
+                <input name="rut" value={values.rut} onChange={handleInputChange} className="form-control col-6" placeholder="Ingrese su Rut" type="text" required/>
               </div>
               <div className="col">
                 <input name="name" value={values.name} onChange={handleInputChange} className="form-control" placeholder="Ingrese nombre completo" type="text" required/>  
@@ -123,7 +123,7 @@ const Register = (props)=>{
             </div>
             <div className="row">
               <div className="col-6">
-                <input name="adress" value={values.adress} onChange={handleInputChange} className="form-control mt-3" placeholder="Ingrese su direccion" type="text" required/>
+                <input name="adress" value={values.adress} onChange={handleInputChange} className="form-control mt-3" placeholder="Ingrese su dirección" type="text" required/>
               </div>
               <div className="col-6">
                 <select name="commune" value={values.commune} onChange={handleInputChange} className="form-select mt-3" placeholder="Comuna" required>
@@ -140,10 +140,10 @@ const Register = (props)=>{
             </div>
             <div className="row">
               <div className="col-6">
-                <input name="telphone" value={values.telphone} onChange={handleInputChange} className="form-control mt-3" placeholder="Telefono" type="text" required/>
+                <input name="telphone" value={values.telphone} onChange={handleInputChange} className="form-control mt-3" placeholder="Teléfono" type="text" required/>
               </div>
               <div className="col">
-                <input name="email" value={values.email} onChange={handleInputChange} className="form-control mt-3" placeholder="Correo electronico" type="email" required/>
+                <input name="email" value={values.email} onChange={handleInputChange} className="form-control mt-3" placeholder="Correo electrónico" type="email" required/>
               </div>
             </div>
             <div className="row">

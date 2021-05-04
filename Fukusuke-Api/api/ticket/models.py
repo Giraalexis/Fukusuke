@@ -13,4 +13,4 @@ class Ticket(models.Model):
     payment = models.ForeignKey(Payment, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.name
+        return str(self.id)

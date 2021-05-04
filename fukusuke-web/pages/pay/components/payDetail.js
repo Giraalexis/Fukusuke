@@ -9,14 +9,16 @@ const PayDetail = (props)=> {
 
   const [cart,setCart] = useState([]);
   const [total,setTotal] = useState(0);
-
+  const [direccion,setDireccion] = useState('');
   useEffect(()=>{
-    const loadData = ()=>{ //Mostrar productos
+    const loadData = ()=>{ //Mostrar productos y Direccion
+      let direccion = JSON.parse(localStorage.getItem('session')).adress
       let cartLocal = JSON.parse(localStorage.getItem('cart')) || [];
       let subTotal = 0;
       for (let i = 0; i < cartLocal.length; i++) {
         subTotal += cartLocal[i].cant * cartLocal[i].price;
       }
+      setDireccion(direccion);
       setTotal(subTotal);
       setCart(cartLocal);
     }
@@ -24,10 +26,21 @@ const PayDetail = (props)=> {
     loadData();
   },[])
 
+  //Guardar el estado de lo escrito en input
+  const handleInputChange = e=>{
+    const {name, value} = e.target;//Captura el nombre y el valor 
+    console.log(value)
+    setDireccion(value)
+    localStorage.setItem('adress',JSON.stringify(value));
+  }
+
   return (
     <>
       <div className="row mt-4">
       <form method="post" action={props.response.url} className="col-lg-8 col-md-8 col-sm-12 mx-auto p-0 card">
+        <div className="card-header">
+          <h5>Detalle de la compra</h5>
+        </div>
         <div className="card-body">
         {cart.map((product)=>{
           return(
@@ -50,6 +63,10 @@ const PayDetail = (props)=> {
         })
         }
         </div>
+        <div className="row justify-content-center m-3">
+          <h6 className="col-5 col-form-label">Dirección de despacho:</h6>
+          <input onChange={handleInputChange} value={direccion} className="col form-control " />
+        </div> 
         <div className="row justify-content-center p-3">
           <h4 className="col-5">Total:</h4>
           <h4 className="col-6 tertiary-text d-flex justify-content-end">${total}</h4>

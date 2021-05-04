@@ -27,7 +27,6 @@ const Login = (props)=>{
     try{
       const res = await axios.get('http://localhost:8000/api/client-search-email/'+values.correo) //enviar datos a api y verificar si existe, devolvera datos del usuario
       const client = res.data;
-      console.log(client.email);
       if(client.email == values.correo && client.password == values.password){
         if(client.state){ 
           toast.success("Inicio de sesion exitoso",{
@@ -35,6 +34,7 @@ const Login = (props)=>{
             autoClose: 2000,
             hideProgressBar: true
           });
+          delete client.password; //eliminar la password de localstorage
           localStorage.setItem('session',JSON.stringify(client))//guarda sesion con los datos del cliente
           handleClose(); //cerrar modal
           props.onLogin(values);//enviar datos al 'navigation' para que cambie estados
@@ -78,13 +78,13 @@ const Login = (props)=>{
 
   return(
     <div>
-      <a onClick={handleShow} className="nav-link btn" data-bs-toggle="modal" data-bs-target="#loginModal">Iniciar Sesion</a>
+      <a onClick={handleShow} className="nav-link btn" data-bs-toggle="modal" data-bs-target="#loginModal">Iniciar Sesión</a>
 
       <div className={"modal fade "+(show? 'show': '')}  id="loginModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div className="modal-dialog " style={{marginTop: '15vh'}}>
           <form onSubmit={handleSubmit} className="modal-content" >
             <div className="modal-header">
-              <h5 className="modal-title" id="exampleModalLabel">Iniciar Sesion</h5>
+              <h5 className="modal-title" id="exampleModalLabel">Iniciar Sesión</h5>
               <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div className="modal-body">
