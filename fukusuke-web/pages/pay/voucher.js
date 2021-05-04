@@ -12,12 +12,22 @@ WebpayPlus.apiKey = '579B532A7440BB0C9079DED94D31EA1615BACEB56610332264630D42D0A
 WebpayPlus.environment = Environment.Integration;
 export async function getServerSideProps(ctx){
   const token = ctx.query.token;
-  const response = await WebpayPlus.Transaction.commit(token);
-  return {
-    props:{
-      response,
+  try{
+    const response = await WebpayPlus.Transaction.commit(token);
+    return {
+      props:{
+        response,
+      }
+    }
+  }catch(e){
+    const response = '';
+    return {
+      props:{
+        response,
+      }
     }
   }
+  
   
 }
 
@@ -31,7 +41,7 @@ const Voucher = (props)=> {
       const cartLocal = JSON.parse(localStorage.getItem('cart'));
       const adressLocal = JSON.parse(localStorage.getItem('adress'));
       const date = new Date()
-      let fecha = date.getFullYear()+"-"+date.getMonth()+"-"+date.getDate()
+      let fecha = date.getFullYear()+"-"+(date.getMonth()+1)+"-"+date.getDate()
       //Crea Boleta
       const resBoleta = await axios.post(`http://localhost:8000/api/ticket-create`,{
         fecha: fecha,
@@ -62,7 +72,8 @@ const Voucher = (props)=> {
       localStorage.removeItem('response');
       localStorage.removeItem('cart');
     }
-    //sendDataBD();
+    console.log(props.response)
+    sendDataBD();
   },[])
 
   return (
@@ -82,31 +93,31 @@ const Voucher = (props)=> {
           </div>
           <div className="row">
             <h6 className="col-6">Monto</h6>
-            <h6 className="col">$ {values.amount}</h6>
+            <h6 className="col">$ {values.amount || ''}</h6>
           </div>
           <div className="row">
             <h6 className="col-6">Fecha</h6>
-            <h6 className="col">{values.transaction_date.substr(0,10)}</h6>
+            <h6 className="col">{values.transaction_date.substr(0,10) || ''}</h6>
           </div>
           <div className="row">
             <h6 className="col-6">Orden de Compra</h6>
-            <h6 className="col">{values.buy_order}</h6>
+            <h6 className="col">{values.buy_order || ''}</h6>
           </div>
           <div className="row">
             <h6 className="col-6">ID Cliente</h6>
-            <h6 className="col">{values.session_id}</h6>
+            <h6 className="col">{values.session_id || ''}</h6>
           </div>
           <div className="row">
             <h6 className="col-6">Código de Transacción</h6>
-            <h6 className="col">{values.authorization_code}</h6>
+            <h6 className="col">{values.authorization_code || ''}</h6>
           </div>
           <div className="row">
             <h6 className="col-6">Código de Tarjeta</h6>
-            <h6 className="col">{values.card_detail.card_number}</h6>
+            <h6 className="col">{values.card_detail.card_number || ''}</h6>
           </div>
           <div className="row">
             <h6 className="col-6">Tipo de Pago</h6>
-            <h6 className="col">{values.payment_type_code}</h6>
+            <h6 className="col">{values.payment_type_code || ''}</h6>
           </div>
           </div>
           <div className="card-footer">

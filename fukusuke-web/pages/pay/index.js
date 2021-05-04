@@ -11,6 +11,7 @@ WebpayPlus.apiKey = '579B532A7440BB0C9079DED94D31EA1615BACEB56610332264630D42D0A
 WebpayPlus.environment = Environment.Integration;
 
 export async function getServerSideProps(ctx){
+  try{
     const totalPago = ctx.query.total;
     const idSession = ctx.query.idSession;
     //Valores para solicitar pago a transbank
@@ -26,6 +27,15 @@ export async function getServerSideProps(ctx){
         response,
       }
     }
+  }catch(e){
+    const response = '';
+    return {
+      props:{
+        response,
+      }
+    }
+  }
+    
   }
 
 const Pay = (props)=> {
