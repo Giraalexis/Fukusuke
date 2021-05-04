@@ -2,10 +2,8 @@ package entidades;
 
 import java.sql.Date;
 
-
-
 public class Empleado {
-    
+
     private int id;
     private String name;
     private String rut;
@@ -47,7 +45,7 @@ public class Empleado {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(String name) {        
         this.name = name;
     }
 
@@ -55,7 +53,7 @@ public class Empleado {
         return rut;
     }
 
-    public void setRut(String rut) {
+    public void setRut(String rut) {        
         this.rut = rut;
     }
 
@@ -71,7 +69,7 @@ public class Empleado {
         return telphone;
     }
 
-    public void setTelphone(int telphone) {
+    public void setTelphone(int telphone) {         
         this.telphone = telphone;
     }
 
@@ -79,7 +77,7 @@ public class Empleado {
         return email;
     }
 
-    public void setEmail(String email) {
+    public void setEmail(String email) {        
         this.email = email;
     }
 
@@ -87,7 +85,7 @@ public class Empleado {
         return password;
     }
 
-    public void setPassword(String password) {
+    public void setPassword(String password) {        
         this.password = password;
     }
 
@@ -127,9 +125,5 @@ public class Empleado {
     public String toString() {
         return "Empleado{" + "id=" + id + ", name=" + name + ", rut=" + rut + ", date_burn=" + date_burn + ", telphone=" + telphone + ", email=" + email + ", password=" + password + ", state=" + state + ", commune_id=" + commune_id + ", rol_id=" + rol_id + ", sex_id=" + sex_id + '}';
     }
-    
-    
-    
-    
-    
+
 }

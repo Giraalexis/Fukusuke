@@ -12,7 +12,6 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-
 /**
  *
  * @author felipe
@@ -29,17 +28,16 @@ public class producto extends javax.swing.JFrame {
         //ANCHO DE COLUMNAS
         tblProductos.getColumnModel().getColumn(0).setPreferredWidth(10);
     }
-    
-        
-    private void listar(){
-        
+
+    private void listar() {
+
         ProductoDAO tDAO = new ProductoDAO();
-        
+
         try {
             ArrayList<Producto> productos = tDAO.listarProductos();
-            
+
             DefaultTableModel modelo = new DefaultTableModel();
-            
+
             modelo.addColumn("Id");
             modelo.addColumn("nombre");
             modelo.addColumn("Descripcion");
@@ -48,39 +46,37 @@ public class producto extends javax.swing.JFrame {
             modelo.addColumn("Precio");
             modelo.addColumn("Estado");
             modelo.addColumn("Imagen");
-            
-            
+
             for (Producto productore : productos) {
                 String[] fila = new String[8];
                 fila[0] = String.valueOf(productore.getId());
                 fila[1] = productore.getName();
                 fila[2] = productore.getDescription();
-                if(productore.getPromotion() == 1){
+                if (productore.getPromotion() == 1) {
                     fila[3] = "Activo";
-                }else{
+                } else {
                     fila[3] = "Inactivo";
                 }
                 fila[4] = String.valueOf(productore.getStock());
                 fila[5] = String.valueOf(productore.getPrice());
-                if(productore.getState() == 1){
-                    fila [6] = "Activo";
-                }else{
-                    fila [6] = "Inactivo";
+                if (productore.getState() == 1) {
+                    fila[6] = "Activo";
+                } else {
+                    fila[6] = "Inactivo";
                 }
                 fila[7] = String.valueOf(productore.getImage());
-                
+
                 modelo.addRow(fila);
             }
-            
+
             tblProductos.setModel(modelo);
-            
-            
+
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
     }
-    
-    private void limpiarCampos(){
+
+    private void limpiarCampos() {
         txtNombre.setText("");
         txtDescripcion.setText("");
         bgPromocion.clearSelection();;
@@ -90,29 +86,27 @@ public class producto extends javax.swing.JFrame {
         txtImagen.setText("");
         txtId.setText("");
     }
-        
-    private void buscar(){
-        
+
+    private void buscar() {
+
         ProductoDAO tDAO = new ProductoDAO();
-        
+
         try {
             ArrayList<Producto> productos = null;
-            
-            if(txtBuscar.getText().isEmpty()){
+
+            if (txtBuscar.getText().isEmpty()) {
                 productos = tDAO.listarProductos();
-            }else{
+            } else {
                 productos = tDAO.buscarProductos(txtBuscar.getText());
-                
-                if(productos.size() == 0){
-                JOptionPane.showMessageDialog(this, "No encontrado");
-                
+
+                if (productos.size() == 0) {
+                    JOptionPane.showMessageDialog(this, "No encontrado");
+
                 }
             }
-            
-            
-            
+
             DefaultTableModel modelo = new DefaultTableModel();
-            
+
             modelo.addColumn("Id");
             modelo.addColumn("nombre");
             modelo.addColumn("Descripcion");
@@ -121,39 +115,35 @@ public class producto extends javax.swing.JFrame {
             modelo.addColumn("Precio");
             modelo.addColumn("Estado");
             modelo.addColumn("Imagen");
-            
-            
+
             for (Producto productore : productos) {
                 String[] fila = new String[8];
                 fila[0] = String.valueOf(productore.getId());
                 fila[1] = productore.getName();
                 fila[2] = productore.getDescription();
-                if(productore.getPromotion() == 1){
+                if (productore.getPromotion() == 1) {
                     fila[3] = "Activo";
-                }else{
+                } else {
                     fila[3] = "Inactivo";
                 }
                 fila[4] = String.valueOf(productore.getStock());
                 fila[5] = String.valueOf(productore.getPrice());
-                if(productore.getState() == 1){
-                    fila [6] = "Activo";
-                }else{
-                    fila [6] = "Inactivo";
+                if (productore.getState() == 1) {
+                    fila[6] = "Activo";
+                } else {
+                    fila[6] = "Inactivo";
                 }
                 fila[7] = String.valueOf(productore.getImage());
-                
+
                 modelo.addRow(fila);
             }
-            
+
             tblProductos.setModel(modelo);
-            
-            
+
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
     }
-    
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -240,9 +230,19 @@ public class producto extends javax.swing.JFrame {
 
         txtStock.setBackground(new java.awt.Color(255, 255, 255));
         txtStock.setForeground(new java.awt.Color(0, 0, 0));
+        txtStock.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtStockKeyTyped(evt);
+            }
+        });
 
         txtPrecio.setBackground(new java.awt.Color(255, 255, 255));
         txtPrecio.setForeground(new java.awt.Color(0, 0, 0));
+        txtPrecio.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtPrecioKeyTyped(evt);
+            }
+        });
 
         txtImagen.setBackground(new java.awt.Color(255, 255, 255));
         txtImagen.setForeground(new java.awt.Color(0, 0, 0));
@@ -294,7 +294,7 @@ public class producto extends javax.swing.JFrame {
         btnEditar.setBackground(new java.awt.Color(255, 102, 0));
         btnEditar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         btnEditar.setForeground(new java.awt.Color(0, 0, 0));
-        btnEditar.setText("Editar");
+        btnEditar.setText("Grabar");
         btnEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEditarActionPerformed(evt);
@@ -511,41 +511,43 @@ public class producto extends javax.swing.JFrame {
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         // TODO add your handling code here:
-        
-        try {
-            Producto productos = new Producto();
-            ProductoDAO pDAO = new ProductoDAO();
+        if (txtNombre.getText().isEmpty() || txtDescripcion.getText().isEmpty() || txtStock.getText().isEmpty()
+                || txtPrecio.getText().isEmpty() || txtImagen.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Favor completar todos los campos");
+        } else {
 
-            productos.setName(txtNombre.getText());
-            productos.setDescription(txtDescripcion.getText());
-            if(rbPromoSi.isSelected()){
-                productos.setPromotion(1);
-            }else{
-                productos.setPromotion(0);
+            try {
+                Producto productos = new Producto();
+                ProductoDAO pDAO = new ProductoDAO();
+
+                productos.setName(txtNombre.getText());
+                productos.setDescription(txtDescripcion.getText());
+                if (rbPromoSi.isSelected()) {
+                    productos.setPromotion(1);
+                } else {
+                    productos.setPromotion(0);
+                }
+                productos.setStock(Integer.parseInt(txtStock.getText()));
+                productos.setPrice(Integer.parseInt(txtPrecio.getText()));
+                if (rbEstadoOn.isSelected()) {
+                    productos.setState(1);
+                } else {
+                    productos.setState(0);
+                }
+                productos.setImage(txtImagen.getText());
+
+                pDAO.agregarproducto(productos);
+
+                this.listar();
+                this.limpiarCampos();
+
+            } catch (Exception e) {
+
+                JOptionPane.showMessageDialog(this, e.getMessage());
             }
-            productos.setStock(Integer.parseInt(txtStock.getText()));
-            productos.setPrice(Integer.parseInt(txtPrecio.getText()));
-            if(rbEstadoOn.isSelected()){
-                productos.setState(1);
-            }else{
-                productos.setState(0);
-            }
-            productos.setImage(txtImagen.getText());
-            
-            pDAO.agregarproducto(productos);
-        
-        
-            
-        } catch (Exception e) {
-            
-            JOptionPane.showMessageDialog(this, e.getMessage());
         }
-        this.listar();
-        this.limpiarCampos();
-                
-        
-        
-        
+
+
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
@@ -559,30 +561,28 @@ public class producto extends javax.swing.JFrame {
         try {
             Producto productos = new Producto();
             ProductoDAO pDAO = new ProductoDAO();
-            
+
             productos.setId(Integer.parseInt(txtId.getText()));
             productos.setName(txtNombre.getText());
             productos.setDescription(txtDescripcion.getText());
-            if(rbPromoSi.isSelected()){
+            if (rbPromoSi.isSelected()) {
                 productos.setPromotion(1);
-            }else{
+            } else {
                 productos.setPromotion(0);
             }
             productos.setStock(Integer.parseInt(txtStock.getText()));
             productos.setPrice(Integer.parseInt(txtPrecio.getText()));
-            if(rbEstadoOn.isSelected()){
+            if (rbEstadoOn.isSelected()) {
                 productos.setState(1);
-            }else{
+            } else {
                 productos.setState(0);
             }
             productos.setImage(txtImagen.getText());
-            
+
             pDAO.editarproducto(productos);
-        
-        
-            
+
         } catch (Exception e) {
-            
+
             JOptionPane.showMessageDialog(this, e.getMessage());
         }
         this.listar();
@@ -592,47 +592,76 @@ public class producto extends javax.swing.JFrame {
     private void tblProductosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblProductosMouseClicked
         // TODO add your handling code here:
         int seleccion = tblProductos.rowAtPoint(evt.getPoint());
-        
-        txtId.setText(tblProductos.getValueAt(seleccion, 0)+"");
-        txtNombre.setText(tblProductos.getValueAt(seleccion, 1)+"");
-        txtDescripcion.setText(tblProductos.getValueAt(seleccion, 2)+"");
-        String promocion = tblProductos.getValueAt(seleccion, 3)+"";
-        if(promocion.equals("Activo")){
+
+        txtId.setText(tblProductos.getValueAt(seleccion, 0) + "");
+        txtNombre.setText(tblProductos.getValueAt(seleccion, 1) + "");
+        txtDescripcion.setText(tblProductos.getValueAt(seleccion, 2) + "");
+        String promocion = tblProductos.getValueAt(seleccion, 3) + "";
+        if (promocion.equals("Activo")) {
             rbPromoSi.setSelected(true);
-        }else{
+        } else {
             rbPromoNo.setSelected(true);
         }
-        txtStock.setText(tblProductos.getValueAt(seleccion, 4)+"");
-        txtPrecio.setText(tblProductos.getValueAt(seleccion, 5)+"");
-        String estado = tblProductos.getValueAt(seleccion, 6)+"";
-        if(estado.equals("Activo")){
+        txtStock.setText(tblProductos.getValueAt(seleccion, 4) + "");
+        txtPrecio.setText(tblProductos.getValueAt(seleccion, 5) + "");
+        String estado = tblProductos.getValueAt(seleccion, 6) + "";
+        if (estado.equals("Activo")) {
             rbEstadoOn.setSelected(true);
-        }else{
+        } else {
             rbEstadoOff.setSelected(true);
         }
-        txtImagen.setText(tblProductos.getValueAt(seleccion, 7)+"");
+        txtImagen.setText(tblProductos.getValueAt(seleccion, 7) + "");
     }//GEN-LAST:event_tblProductosMouseClicked
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         // TODO add your handling code here:
-        
-        try {
-            Producto productos = new Producto();
-            ProductoDAO pDAO = new ProductoDAO();
-            
-            productos.setId(Integer.parseInt(txtId.getText()));
-                        
-            pDAO.eliminarproducto(productos);
-        
-        
-            
-        } catch (Exception e) {
-            
-            JOptionPane.showMessageDialog(this, e.getMessage());
+
+        int respuesta = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea eliminar?");
+
+        if (respuesta == JOptionPane.YES_OPTION) {
+            try {
+                Producto productos = new Producto();
+                ProductoDAO pDAO = new ProductoDAO();
+
+                productos.setId(Integer.parseInt(txtId.getText()));
+
+                pDAO.eliminarproducto(productos);
+
+            } catch (Exception e) {
+
+                JOptionPane.showMessageDialog(this, e.getMessage());
+            }
         }
+
         this.listar();
         this.limpiarCampos();
     }//GEN-LAST:event_btnEliminarActionPerformed
+
+    private void txtStockKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtStockKeyTyped
+        // TODO add your handling code here:
+
+        char validar = evt.getKeyChar();
+
+        if (Character.isLetter(validar)) {
+            getToolkit().beep();
+            evt.consume();
+
+            JOptionPane.showMessageDialog(this, "Ingresar solo números");
+        }
+    }//GEN-LAST:event_txtStockKeyTyped
+
+    private void txtPrecioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPrecioKeyTyped
+        // TODO add your handling code here:
+
+        char validar = evt.getKeyChar();
+
+        if (Character.isLetter(validar)) {
+            getToolkit().beep();
+            evt.consume();
+
+            JOptionPane.showMessageDialog(this, "Ingresar solo números");
+        }
+    }//GEN-LAST:event_txtPrecioKeyTyped
 
     /**
      * @param args the command line arguments

@@ -37,7 +37,7 @@ public class Producto {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(String name) {        
         this.name = name;
     }
 
@@ -45,7 +45,7 @@ public class Producto {
         return description;
     }
 
-    public void setDescription(String description) {
+    public void setDescription(String description) {        
         this.description = description;
     }
 
@@ -85,7 +85,7 @@ public class Producto {
         return image;
     }
 
-    public void setImage(String image) {
+    public void setImage(String image) {        
         this.image = image;
     }
 
