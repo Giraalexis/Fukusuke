@@ -61,14 +61,27 @@ const Voucher = (props)=> {
           ticket: resBoleta.data.id
         })
         console.log(res);
+        //Actualizar Stock del producto
+        let resStock = await axios.put(`http://localhost:8000/api/product-update/${cartLocal[i].id}`,{
+          name: cartLocal[i].name,
+          description: cartLocal[i].description,
+          promotion: cartLocal[i].promotion,
+          stock: (cartLocal[i].stock - cartLocal[i].cant),
+          price: cartLocal[i].price,
+          state: cartLocal[i].state,
+          image: cartLocal[i].image
+        })
+        
       }
-      
+      //Crea orden de despacho
       const resDespatch = await axios.post(`http://localhost:8000/api/orderdispatch-create`,{
         adress: adressLocal,
         state: 0,
         ticket: resBoleta.data.id
       })
       console.log(resDespatch)
+
+      //Limpia el Local Storage
       localStorage.removeItem('response');
       localStorage.removeItem('cart');
     }
