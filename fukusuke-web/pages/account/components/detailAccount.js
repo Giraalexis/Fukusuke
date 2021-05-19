@@ -96,7 +96,7 @@ const DetailAccount = (props)=> {
 
   return (
     <div className="row mt-4">
-      <form onSubmit={handleSubmit} className="col-lg-8 col-md-8 col-sm-12 mx-auto p-0 card">
+      <form onSubmit={handleSubmit} className="col-lg-8 col-md-10 col-sm-12 mx-auto p-0 card">
           <div className="card-header">
             <h5>Cuenta</h5>
             </div>
