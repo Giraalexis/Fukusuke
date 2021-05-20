@@ -6,25 +6,41 @@ import { toast } from 'react-toastify';
 
 export async function getServerSideProps(ctx){
   const idTicket = ctx.query.id;
+
+  //Obtener todos el detalle de venta
   const resDetalle = await axios.get(`http://localhost:8000/api/saildetail-list`); //obtener detalle de ventas
   const detalle = []
-  
   for (let i = 0; i < resDetalle.data.length; i++) {
-    if(resDetalle.data[i].ticket_id == idTicket){
+    if(resDetalle.data[i].ticket_id == idTicket){ //si es el detalle de la boleta, lo guarda
       detalle.push(resDetalle.data[i])
     }
   }
-  console.log(detalle)
+
+  //Obtener la orden de despacho
+  const resDispatch = await axios.get(`http://localhost:8000/api/orderdispatch-list`) //obtener despacho
+  let order = ''
+  for (let i = 0; i < resDispatch.data.length; i++) {
+    if(resDispatch.data[i].ticket_id == idTicket){
+      order = resDispatch.data[i]
+    }
+  }
+
   return {
     props:{
       idTicket : idTicket,
-      detalleList: detalle
+      detalleList: detalle,
+      orderDispatch: order,
     }
   }
 }
 
 const SailDetail = (props)=>{
   const [detalle,SetDetalle] = useState(props.detalleList)
+  const [order, setOrder] = useState(props.orderDispatch || {
+    id: '',
+    adress: 'Error al cargar',
+    state: 'Error al cargar',
+  })
   return(
     <Container>
       <Head>
@@ -44,11 +60,12 @@ const SailDetail = (props)=>{
                     <h6>Cantidad: {sailDetail.amout}</h6>
                   </div>
                   <h6 className="tertiary-text" style={{marginLeft: "auto"}}>${sailDetail.sub_total}</h6>
-  
-                  
                 </div>
               )
             })}
+          </div>
+          <div className="card-footer">
+            Estado de Envío: {order.state? 'Despachado': 'Pendiente'}
           </div>
           
         </div>
