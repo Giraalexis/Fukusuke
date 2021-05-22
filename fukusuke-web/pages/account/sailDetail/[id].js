@@ -4,8 +4,12 @@ import axios from 'axios'
 import React, {useState, useEffect} from 'react'
 import { toast } from 'react-toastify';
 
+//Previo a cargar el componente
 export async function getServerSideProps(ctx){
   const idTicket = ctx.query.id;
+  
+  //Obtener Token para realizar cancelacion del ticket
+  const resTicket = await axios.get(`http://localhost:8000/api/ticket-detail/${idTicket}`)
 
   //Obtener todos el detalle de venta
   const resDetalle = await axios.get(`http://localhost:8000/api/saildetail-list`); //obtener detalle de ventas
@@ -22,34 +26,42 @@ export async function getServerSideProps(ctx){
   for (let i = 0; i < resDispatch.data.length; i++) {
     if(resDispatch.data[i].ticket_id == idTicket){
       order = resDispatch.data[i]
+      break;
     }
   }
 
   return {
     props:{
-      idTicket : idTicket,
+      ticket: resTicket.data,
       detalleList: detalle,
       orderDispatch: order,
     }
   }
 }
 
+//Componente
 const SailDetail = (props)=>{
   const [detalle,SetDetalle] = useState(props.detalleList)
   const [order, setOrder] = useState(props.orderDispatch || {
-    id: '',
+    id: 'Error al cargar',
     adress: 'Error al cargar',
     state: 'Error al cargar',
   })
+
+  //Cancelar Pedido
+  const cancelarPedido = (token)=>{
+    console.log(token)
+  }
+
   return(
     <Container>
       <Head>
-      
+        <title>Fukusuke | Sail Detail</title>
       </Head>
       <div className="row mt-4">
         <div className="col-lg-8 col-md-10 col-sm-12 mx-auto p-0 card">
-          <div className="card-header">
-            <h6>Boleta N° {props.idTicket}</h6>
+          <div className="card-header pt-3">
+            <h6>Boleta N° {props.ticket.id || 'Error al cargar'}</h6>
           </div>
           <div className="card-body">
             {detalle.map((sailDetail)=>{
@@ -63,9 +75,27 @@ const SailDetail = (props)=>{
                 </div>
               )
             })}
+            <div className="d-flex justify-content-end">
+              <h6 className="">Total:&nbsp;</h6>
+              <h6 className="tertiary-text">{props.ticket.total}&nbsp;</h6>
+            </div>
           </div>
+
           <div className="card-footer">
-            Estado de Envío: {order.state? 'Despachado': 'Pendiente'}
+            <div className="d-flex">
+              <h6 >Dirección de envío:</h6>
+              <h6 >&nbsp;{order.adress}</h6>
+            </div>
+            <div className="d-flex justify-content-between align-items-baseline">
+              <div className="d-flex">
+                <h6 >Estado de envío:</h6>
+                <h6 className={order.state? 'primary-text' : 'tertiary-text'}>&nbsp;{order.state? 'Despachado': 'Pendiente'}</h6>
+              </div>
+              {!order.state
+                ? <button onClick={()=>{cancelarPedido(props.ticket.token)}} className="btn btn-outline-danger btn-sm">Cancelar Pedido</button>
+                : <> </>
+              }
+            </div>
           </div>
           
         </div>

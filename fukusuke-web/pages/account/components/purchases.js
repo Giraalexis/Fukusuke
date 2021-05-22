@@ -16,7 +16,6 @@ const Purchases = ()=>{
       const tickets = [];
       for (let i = 0; i < res.data.length; i++) {
         if(res.data[i].client_id == JSON.parse(localStorage.getItem('session')).id){ //si el ticket es del cliente
-          console.log(res.data[i]);
           tickets.push(res.data[i]);
         }
       }
@@ -43,7 +42,7 @@ const Purchases = ()=>{
                     <h6 className="tertiary-text"> ${ticket.total}</h6>
                   </div>
                 </div>
-                <button onClick={() =>{Router.push(`/account/sailDetail/[id]`, `/account/sailDetail/${ticket.id}`) }} className="btn btn-outline-primary btn-sm align-self-end">Detalle de Venta</button>
+                <button onClick={() =>{Router.push(`/account/sailDetail/[id]`,`/account/sailDetail/${ticket.id}`) }} className="btn btn-outline-primary btn-sm align-self-end">Detalle de Venta</button>
               </div>
             </div>
           )

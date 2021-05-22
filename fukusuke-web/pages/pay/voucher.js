@@ -16,14 +16,16 @@ export async function getServerSideProps(ctx){
     const response = await WebpayPlus.Transaction.commit(token);
     return {
       props:{
-        response,
+        response : response,
+        token: token
       }
     }
   }catch(e){
     const response = '';
     return {
       props:{
-        response,
+        response : response,
+        token: token
       }
     }
   }
@@ -48,7 +50,8 @@ const Voucher = (props)=> {
         total: values.amount,
         employee: 101,
         client: client.id,
-        payment: 1
+        payment: 1,
+        token: props.token
       })
       console.log(resBoleta)
       //Guarda el detalle boleta
@@ -85,7 +88,7 @@ const Voucher = (props)=> {
       localStorage.removeItem('response');
       localStorage.removeItem('cart');
     }
-    console.log(props.response)
+
     if(values){
       sendDataBD();
     }
