@@ -12,6 +12,7 @@ class Ticket(models.Model):
     client = models.ForeignKey(Client, on_delete=models.CASCADE)
     payment = models.ForeignKey(Payment, on_delete=models.CASCADE)
     token = models.CharField(max_length=80, null=True)
+    cancel = models.BooleanField(default=False)
 
     def __str__(self):
         return str(self.id)

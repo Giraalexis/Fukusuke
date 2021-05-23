@@ -3,6 +3,7 @@ import Container from "../../../components/Container";
 import axios from 'axios'
 import React, {useState, useEffect} from 'react'
 import { toast } from 'react-toastify';
+import Router from "next/router";
 
 //Previo a cargar el componente
 export async function getServerSideProps(ctx){
@@ -42,15 +43,18 @@ export async function getServerSideProps(ctx){
 //Componente
 const SailDetail = (props)=>{
   const [detalle,SetDetalle] = useState(props.detalleList)
-  const [order, setOrder] = useState(props.orderDispatch || {
-    id: 'Error al cargar',
-    adress: 'Error al cargar',
-    state: 'Error al cargar',
-  })
 
   //Cancelar Pedido
-  const cancelarPedido = (token)=>{
+  const cancelarPedido = async(token)=>{
     console.log(token)
+    Router.push({
+      pathname: '/account/sailDetail/sailCancel',
+      query: {
+        token: token,
+        total: props.ticket.total,
+        idTicket : props.ticket.id
+      }
+    })
   }
 
   return(
@@ -84,14 +88,16 @@ const SailDetail = (props)=>{
           <div className="card-footer">
             <div className="d-flex">
               <h6 >Dirección de envío:</h6>
-              <h6 >&nbsp;{order.adress}</h6>
+              <h6 >&nbsp;{props.orderDispatch.adress}</h6>
             </div>
             <div className="d-flex justify-content-between align-items-baseline">
               <div className="d-flex">
                 <h6 >Estado de envío:</h6>
-                <h6 className={order.state? 'primary-text' : 'tertiary-text'}>&nbsp;{order.state? 'Despachado': 'Pendiente'}</h6>
+                <h6 className={props.ticket.cancel ? 'tertiary-text': props.orderDispatch.state? 'primary-text' : 'tertiary-text'}>&nbsp;
+                  {props.ticket.cancel ? 'Cancelado': props.orderDispatch.state? 'Despachado' : 'Pendiente'}
+                </h6>
               </div>
-              {!order.state
+              {!props.orderDispatch.state && !props.ticket.cancel
                 ? <button onClick={()=>{cancelarPedido(props.ticket.token)}} className="btn btn-outline-danger btn-sm">Cancelar Pedido</button>
                 : <> </>
               }

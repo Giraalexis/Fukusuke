@@ -51,7 +51,7 @@ const Voucher = (props)=> {
         employee: 101,
         client: client.id,
         payment: 1,
-        token: props.token
+        token: props.token,
       })
       console.log(resBoleta)
       //Guarda el detalle boleta
