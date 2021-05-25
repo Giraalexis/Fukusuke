@@ -12,7 +12,7 @@ export async function getServerSideProps(ctx){
   //Obtener Token para realizar cancelacion del ticket
   const resTicket = await axios.get(`http://localhost:8000/api/ticket-detail/${idTicket}`)
 
-  //Obtener todos el detalle de venta
+  //Obtener todos el detalle de venta segun Ticket
   const resDetalle = await axios.get(`http://localhost:8000/api/saildetail-list`); //obtener detalle de ventas
   const detalle = []
   for (let i = 0; i < resDetalle.data.length; i++) {

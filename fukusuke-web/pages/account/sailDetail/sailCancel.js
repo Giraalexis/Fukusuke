@@ -15,10 +15,11 @@ export async function getServerSideProps(ctx){
   const token = ctx.query.token
 
   try{
-    //Cancelar por WebPay
+    //Cancelar por WebPay, Tiempo limite: 1 hora luego de la compra
     const response = await WebpayPlus.Transaction.refund(ctx.query.token, ctx.query.total);
     console.log(response.type)
-    //Cancelar por la BD
+    
+    //Cancelar Ticket en la BD
     const ticket = await axios.get(`http://localhost:8000/api/ticket-detail/${ctx.query.idTicket}`)
     console.log(ticket.data)
     const resUpdate = await axios.put(`http://localhost:8000/api/ticket-update/${ctx.query.idTicket}`,{
@@ -28,15 +29,18 @@ export async function getServerSideProps(ctx){
       employee : ticket.data.employee,
       client : ticket.data.client,
       payment : ticket.data.payment,
-      token : ticket.data.token,
+      token : ticket.data.token || 'Sin Token',
       cancel: true
     })
     console.log(resUpdate.data)
+    
+
     return{
       props:{
-        token: token,
+        token: token || 'Sin Token',
         response: response,
-        msgError: ''
+        msgError: '',
+        idTicket: ctx.query.idTicket
       }
     }
   }catch(e){
@@ -53,6 +57,29 @@ export async function getServerSideProps(ctx){
 
 
 const sailCancel = (props) =>{
+  useEffect( ()=>{
+    const updateStock = async ()=>{
+      //Obtener todos el detalle de venta segun Ticket
+      const resDetalle = await axios.get(`http://localhost:8000/api/saildetail-list`); //obtener detalle de ventas
+      for (let i = 0; i < resDetalle.data.length; i++) {
+        if(resDetalle.data[i].ticket_id == props.idTicket){ //si es el detalle de la boleta
+          let resProduct = await axios.get(`http://localhost:8000/api/product-detail/${resDetalle.data[i].product_id}`)
+          console.log(resProduct.data)
+          let resProductUpdate = await axios.put(`http://localhost:8000/api/product-update/${resDetalle.data[i].product_id}`,{
+          name: resProduct.data.name,
+          description: resProduct.data.description,
+          promotion: resProduct.data.promotion,
+          stock: (resProduct.data.stock + resDetalle.data[i].amout),
+          price: resProduct.data.price,
+          state: resProduct.data.state,
+          image: resProduct.data.image
+          })
+          console.log(resProductUpdate)
+        }
+      }
+    }
+    updateStock();
+  },[])
   return(
     <Container>
       <Head>
