@@ -36,7 +36,7 @@ const Purchases = ()=>{
 
   return(
     <div className="row mt-4">
-      <div className="col-lg-8 col-md-10 col-sm-12 mx-auto p-0 card">
+      <div className="col-lg-10 col-md-10 col-sm-12 mx-auto p-0 card">
         <div className="card-header">
           <h5>Compras</h5>
         </div>

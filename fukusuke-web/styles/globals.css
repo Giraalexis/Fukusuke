@@ -16,12 +16,16 @@ a {
   box-sizing: border-box;
 }
 .container{
-  min-height: 85.3vh;
+  min-height: 100vh;
 }
 .btn.sombra:hover{
   box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
 }
 
+/*Nav-Link*/
+.nav-link{
+  border-bottom: 1px solid transparent;
+}
 .nav-link:hover{
   border-bottom: 1px solid #eaeaea;
 }

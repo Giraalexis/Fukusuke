@@ -4,6 +4,10 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import stringSimilarity from 'string-similarity';
 
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {faCartPlus} from '@fortawesome/free-solid-svg-icons' //FAS --> SOLIDO
+//import {} from '@fortawesome/free-brands-svg-icons' //FAB --> MARCA
+
 const CardProducto = (props) =>{
   const [products,setProducts] = useState(props.products); //todos los productos
   const [viewProducts, setViewProducts] = useState(props.products); //los productos que se mostraran
@@ -97,13 +101,12 @@ const CardProducto = (props) =>{
     let findProduct = [];
     const {name, value} = e.target;//Captura el nombre y el valor 
     for (let i = 0; i < products.length; i++) {
-      let prob = stringSimilarity.compareTwoStrings(products[i].name,value); //Devuelve una probabilidad de similitud
+      let prob = stringSimilarity.compareTwoStrings(products[i].name.toLowerCase(),value.toLowerCase()); //Devuelve una probabilidad de similitud
       if(prob > 0.5){ //si es similar en un 50%
         findProduct.push(products[i]) //guarda ese producto
       }
     }
     if(findProduct.length){ //si encontro algun producto, que los muestre
-      console.log("encontro uno")
       setViewProducts(findProduct);
     }else{ //si no, que muestre todos
       setViewProducts(products);
@@ -132,7 +135,10 @@ const CardProducto = (props) =>{
                 <div className="row align-items-center">
                   <h6 className="col-8 ">Stock</h6>
                   <h6 id={product.id+"-card-stock"} className="col-4 ">{product.stock}</h6>
-                  <button className=" btn btn-dark secondary-background cuartiary-text" onClick={() => addProduct(product.id)} type="button">Añadir</button>
+                  <button className=" btn btn-dark secondary-background cuartiary-text d-flex justify-content-center align-items-center" onClick={() => addProduct(product.id)} type="button">
+                    <FontAwesomeIcon  icon={faCartPlus} style={{width: "1.2em",marginRight:'5px', color: 'white'}}/>
+                    Añadir
+                  </button>
                 </div>
               </div>
             </form>

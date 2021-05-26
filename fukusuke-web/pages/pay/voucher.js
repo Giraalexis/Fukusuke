@@ -103,11 +103,13 @@ const Voucher = (props)=> {
         {
           !values
           ? <>
-              <h4>Transaccion Fallida</h4>
+              <div className="col-lg-10 col-md-10 colsm-12 card p-0 pt-4 pb-4 mx-auto">
+                <h4 className="mx-auto">Transacción Fallida</h4>
+              </div>
             </>
            
           : <>
-              <div className="col-lg-8 col-md 8 col-sm-12 card p-0 mx-auto">
+              <div className="col-lg-10 col-md-10 col-sm-12 card p-0 mx-auto">
                 <div className="card-header">
                   <h4>Pago Finalizado</h4>
                 </div>

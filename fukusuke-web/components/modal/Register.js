@@ -5,6 +5,10 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import {  validate, clean, format, getCheckDigit } from 'rut.js';
 
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {faUserPlus,faTimes} from '@fortawesome/free-solid-svg-icons' //FAS --> SOLIDO
+//import {} from '@fortawesome/free-brands-svg-icons' //FAB --> MARCA
+
 const Register = (props)=>{
   //Valores de los input inicialmente (estado inicial)
   const initialStateValues = {
@@ -26,15 +30,13 @@ const Register = (props)=>{
   const [show, setShow] = useState(false); //show or hiden modal
   const [communes,setCommunes] = useState([]);
 
-  //useEffect
-  useEffect(()=>{
-    const getCommunes = async () => { //obtener las comunas
-      const res = await fetch('http://localhost:8000/api/commune-list');
-      const communesJSON = await res.json();
-      setCommunes(communesJSON);
-    };
-    getCommunes();
-  },[])
+
+  //obtener las comunas
+  const getCommunes = async () => { 
+    const res = await fetch('http://localhost:8000/api/commune-list');
+    const communesJSON = await res.json();
+    setCommunes(communesJSON);
+  };
 
   //cuando se escriba algo (onChange), guardar en el estado
   const handleInputChange = e=>{
@@ -103,7 +105,10 @@ const Register = (props)=>{
 
   return(
   <>
-    <a onClick={handleShow} className="nav-link btn" data-bs-toggle="modal" data-bs-target="#registerModal">Regístrate</a>
+    <a onClick={handleShow,getCommunes} className="nav-link btn d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#registerModal">
+      <FontAwesomeIcon  icon={faUserPlus} style={{width: "1.2em",marginRight:'5px'}}/>
+      Regístrate
+    </a>
 
     <div className={"modal fade "+(show? 'show': '')} id="registerModal" tabIndex="-1" aria-labelledby="registerModal" aria-hidden="true">
       <div className="modal-dialog" style={{marginTop: '15vh'}}>
@@ -168,8 +173,14 @@ const Register = (props)=>{
             </div>
           </div>
           <div className="modal-footer">
-            <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-            <button type="submit" id="close-modal-register" className="btn btn-primary"  >Registrar</button>
+            <button type="button" className="btn btn-secondary d-flex justify-content-center align-items-center" data-bs-dismiss="modal">
+              <FontAwesomeIcon  icon={faTimes} style={{width: "1.0em",height:'1em',marginRight:'5px'}}/>
+              Cerrar
+            </button>
+            <button type="submit" id="close-modal-register" className="btn btn-success d-flex justify-content-center align-items-center"  >
+              <FontAwesomeIcon  icon={faUserPlus} style={{width: "1.0em",marginRight:'5px'}}/>
+              Registrar
+            </button>
           </div>
         </form>
       </div>

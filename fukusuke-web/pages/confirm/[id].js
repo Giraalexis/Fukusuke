@@ -66,7 +66,7 @@ const Confirm = (props) =>{
             <div className="row mx-auto mt-4">
                 <div className="card col-lg-6 col-md-6 col-sm-12 mx-auto">
                     <div className="card-body">
-                        <h6>Gracias por registrarte en Fukusuke, para terminar el proceso de registro, por favor confirme la cuenta con el siguiente boton</h6>
+                        <h6>Gracias por registrarte en Fukusuke, para terminar el proceso de registro presione el siguiente botón.</h6>
                     </div>
                     <div className="card-footer d-flex">
                         <button  onClick={()=>{confirmAccount()}} className="col mx-auto btn btn-success">Confirmar Cuenta</button>
