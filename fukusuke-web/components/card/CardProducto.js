@@ -122,25 +122,28 @@ const CardProducto = (props) =>{
       {viewProducts.map(product=>{
         if(product.state && product.stock > 0){//si su estado es activo y tienen stock
           return(
-            <form key={product.id} className="sombra col-lg-4 col-md-6 col-sm-12 mx-auto pt-3 " >
-              <div className="card card-body text-center btn " onClick={() => Router.push(`/detailProduct/[id]`, `/detailProduct/${product.id}`)}>
-                <img src={product.image} className="img-fluid rounded mx-auto d-block" style={{width:'100%', height:'20vh'}} alt=""
-                onError={(e)=>{e.target.onerror = null; e.target.src="/Sushi404.png"}}/>              
-              </div>
-              <div className="card-footer bg-light bg-gradient">
-                <div className="row align-items-center">
-                  <h5 className="col-8 text-truncate text-capitalize">{product.name}</h5>
-                  <h4 className="col-4 tertiary-text">${product.price}</h4>
+            <form key={product.id} className="col-lg-4 col-md-6 col-sm-12  pt-3 " >
+              <div className="sombra">
+                <div className="card card-body text-center btn " onClick={() => Router.push(`/detailProduct/[id]`, `/detailProduct/${product.id}`)}>
+                  <img src={product.image} className="img-fluid rounded mx-auto d-block" style={{width:'100%', height:'20vh'}} alt=""
+                  onError={(e)=>{e.target.onerror = null; e.target.src="/Sushi404.png"}}/>              
                 </div>
-                <div className="row align-items-center">
-                  <h6 className="col-8 ">Stock</h6>
-                  <h6 id={product.id+"-card-stock"} className="col-4 ">{product.stock}</h6>
-                  <button className=" btn btn-dark secondary-background cuartiary-text d-flex justify-content-center align-items-center" onClick={() => addProduct(product.id)} type="button">
-                    <FontAwesomeIcon  icon={faCartPlus} style={{width: "1.2em",marginRight:'5px', color: 'white'}}/>
-                    Añadir
-                  </button>
+                <div className="card-footer bg-light bg-gradient">
+                  <div className="row align-items-center">
+                    <h5 className="col-8 text-truncate text-capitalize">{product.name}</h5>
+                    <h4 className="col-4 tertiary-text">${product.price}</h4>
+                  </div>
+                  <div className="row align-items-center">
+                    <h6 className="col-8 ">Stock</h6>
+                    <h6 id={product.id+"-card-stock"} className="col-4 ">{product.stock}</h6>
+                    <button className=" btn btn-dark secondary-background cuartiary-text d-flex justify-content-center align-items-center" onClick={() => addProduct(product.id)} type="button">
+                      <FontAwesomeIcon  icon={faCartPlus} style={{width: "1.2em",marginRight:'5px', color: 'white'}}/>
+                      Añadir
+                    </button>
+                  </div>
                 </div>
               </div>
+              
             </form>
           )
         }

@@ -85,10 +85,11 @@ const SailDetail = (props)=>{
       </Head>
       <div className="row mt-4">
         <div className="col-lg-10 col-md-10 col-sm-12 mx-auto p-0 card">
-          <div className="card-header pt-3">
-            <h6>Boleta N° {props.ticket.id || 'Error al cargar'}</h6>
+          <div className="card-header bg-primary bg-gradient pt-3">
+            <h6 className="card-title text-white">Boleta N° {props.ticket.id || 'Error al cargar'}</h6>
           </div>
           <div className="card-body">
+            <h6>Detalle</h6>
             {detalle.map((sailDetail)=>{
               return(
                 <div key={sailDetail.id} className="card card-body mb-3">

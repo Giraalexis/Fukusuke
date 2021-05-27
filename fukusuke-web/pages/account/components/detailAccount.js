@@ -97,8 +97,8 @@ const DetailAccount = (props)=> {
   return (
     <div className="row mt-4">
       <form onSubmit={handleSubmit} className="col-lg-10 col-md-10 col-sm-12 mx-auto p-0 card">
-          <div className="card-header">
-            <h5>Cuenta</h5>
+          <div className="card-header bg-secondary">
+            <h5 className="card-title text-white">Cuenta</h5>
             </div>
             <div className="card-body">
             <div className="row ">
@@ -184,9 +184,9 @@ const DetailAccount = (props)=> {
                 </div>
             </div>
 
+            <div className=" d-flex justify-content-end mt-3">
+              <button type="submit" className="btn btn-secondary" >Actualizar Datos</button>
             </div>
-            <div className="card-footer d-flex justify-content-end">
-            <button type="submit" className="btn btn-secondary" >Actualizar Datos</button>
           </div>
       </form>
     </div>

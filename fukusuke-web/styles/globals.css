@@ -4,14 +4,18 @@ body {
   margin: 0;
   font-family: cursive,-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  background-color: #eaeaea;
+  
+    background: rgb(122,122,122);
+    background: linear-gradient(0deg, rgba(122,122,122,0.05) 0%, rgba(255,220,0,0.05) 40%);
 }
 
 a {
   color: inherit;
   text-decoration: none;
 }
-
+a:hover{
+  color: black;
+}
 * {
   box-sizing: border-box;
 }
@@ -19,20 +23,20 @@ a {
   min-height: 100vh;
 }
 .btn.sombra:hover{
-  box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
+  box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.25);
 }
 .sombra:hover{
-  box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
+  box-shadow: 0 .5rem 1rem rgba(0,0,0,0.25);
 }
 /*Nav-Link*/
 .nav-link{
-  border-bottom: 1px solid transparent;
+  border-bottom: 2px solid transparent;
 }
 .nav-link:hover{
-  border-bottom: 1px solid #eaeaea;
+  border-bottom: 2px solid #942d2d;
 }
 .nav-link.active{
-  border-bottom: 1px solid #ff2e63;
+  border-bottom: 2px solid #ff2e63;
 }
 /*Colores background*/
 .primary-background { background-color: #08d9d6; }

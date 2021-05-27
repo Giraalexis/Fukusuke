@@ -37,8 +37,8 @@ const Purchases = ()=>{
   return(
     <div className="row mt-4">
       <div className="col-lg-10 col-md-10 col-sm-12 mx-auto p-0 card">
-        <div className="card-header">
-          <h5>Compras</h5>
+        <div className="card-header bg-primary bg-gradient">
+          <h5 className="card-title text-white">Compras</h5>
         </div>
         {ticket.map((ticket)=>{
           return(
