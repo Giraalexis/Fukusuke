@@ -86,11 +86,11 @@ const sailCancel = (props) =>{
         <title>Fukusuke | Sail Cancel</title>
       </Head>
       {props.msgError
-        ? <div className="col-lg-10 col-md-10 colsm-12 card p-4 mt-4 mx-auto">
+        ? <div className="col-lg-10 col-md-10 col-sm-12 card p-4 mt-4 mx-auto rounded-pill">
             <h5 className="mx-auto">{props.msgError}</h5>
           </div>
         
-        : <div className="col-lg-10 col-md-10 colsm-12 card p-0 pt-4 pb-4 mx-auto">
+        : <div className="col-lg-10 col-md-10 col-sm-12 card p-0 pt-4 pb-4 mx-auto rounded-pill">
             <h4 className="mx-auto">Pedido Cancelado</h4>
           </div>
 

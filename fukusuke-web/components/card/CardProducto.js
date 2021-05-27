@@ -122,8 +122,8 @@ const CardProducto = (props) =>{
       {viewProducts.map(product=>{
         if(product.state && product.stock > 0){//si su estado es activo y tienen stock
           return(
-            <form key={product.id} className=" col-lg-4 col-md-6 col-sm-12 mx-auto pt-3 " >
-              <div className="card card-body text-center btn sombra" onClick={() => Router.push(`/detailProduct/[id]`, `/detailProduct/${product.id}`)}>
+            <form key={product.id} className="sombra col-lg-4 col-md-6 col-sm-12 mx-auto pt-3 " >
+              <div className="card card-body text-center btn " onClick={() => Router.push(`/detailProduct/[id]`, `/detailProduct/${product.id}`)}>
                 <img src={product.image} className="img-fluid rounded mx-auto d-block" style={{width:'100%', height:'20vh'}} alt=""
                 onError={(e)=>{e.target.onerror = null; e.target.src="/Sushi404.png"}}/>              
               </div>

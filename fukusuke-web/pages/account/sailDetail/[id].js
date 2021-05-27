@@ -5,6 +5,10 @@ import React, {useState, useEffect} from 'react'
 import { toast } from 'react-toastify';
 import Router from "next/router";
 
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {faSignInAlt,faTimes} from '@fortawesome/free-solid-svg-icons' //FAS --> SOLIDO
+//import {} from '@fortawesome/free-brands-svg-icons' //FAB --> MARCA
+
 //Previo a cargar el componente
 export async function getServerSideProps(ctx){
   const idTicket = ctx.query.id;
@@ -43,10 +47,13 @@ export async function getServerSideProps(ctx){
 //Componente
 const SailDetail = (props)=>{
   const [detalle,SetDetalle] = useState(props.detalleList)
+  const [show, setShow] = useState(false); //show or hiden modal
 
   //Cancelar Pedido
   const cancelarPedido = async(token)=>{
     console.log(token)
+    //Cerrar modal
+    handleClose();
     Router.push({
       pathname: '/account/sailDetail/sailCancel',
       query: {
@@ -56,6 +63,20 @@ const SailDetail = (props)=>{
       }
     })
   }
+
+  //cerrar modal
+  const handleClose = () => { //bootstrap no me cierra automatico el modal :c
+    let modal = document.querySelector("#close-modal-cancel")
+    modal.setAttribute("data-bs-dismiss","modal")
+    modal.click();
+    setShow(false)
+  }
+  //abrir modal
+  const handleShow = () => { 
+    let modal = document.querySelector("#close-modal-cancel")
+    modal.setAttribute("data-bs-dismiss","")
+    setShow(true)
+   };
 
   return(
     <Container>
@@ -98,7 +119,37 @@ const SailDetail = (props)=>{
                 </h6>
               </div>
               {!props.orderDispatch.state && !props.ticket.cancel
-                ? <button onClick={()=>{cancelarPedido(props.ticket.token)}} className="btn btn-outline-danger btn-sm">Cancelar Pedido</button>
+                ? <>
+                  <button 
+                    className="btn btn-outline-danger btn-sm"
+                    data-bs-toggle="modal" data-bs-target="#cancelModal">
+                      Cancelar Pedido
+                  </button>
+
+                  <div className={"modal fade "+(show? 'show': '')}  id="cancelModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div className="modal-dialog " style={{marginTop: '15vh'}}>
+                        <form className="modal-content" >
+                          <div className="modal-header">
+                            <h5 className="modal-title" id="exampleModalLabel">Cancelar Pedido</h5>
+                            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div className="modal-body p-4">
+                            <h5 className="text-center">¿ Estas seguro de cancelar el pedido ?</h5>
+                          </div>
+                          <div className="modal-footer">
+                            <button type="button" className="btn btn-secondary d-flex justify-content-center align-items-center" data-bs-dismiss="modal">
+                              <FontAwesomeIcon  icon={faTimes} style={{width: "1.0em",height:'1em',marginRight:'5px'}}/>
+                              Cerrar
+                            </button>
+                            <button onClick={()=>{cancelarPedido(props.ticket.token, handleShow)}} type="button" id="close-modal-cancel" className="btn btn-danger d-flex justify-content-center align-items-center" >
+                              <FontAwesomeIcon  icon={faSignInAlt} style={{width: "1.0em",marginRight:'5px'}}/>
+                              Cancelar
+                            </button> 
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </>
                 : <> </>
               }
             </div>

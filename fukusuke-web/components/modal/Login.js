@@ -106,7 +106,7 @@ const Login = (props)=>{
               <button type="submit" id="close-modal-login" className="btn btn-success d-flex justify-content-center align-items-center" >
                 <FontAwesomeIcon  icon={faSignInAlt} style={{width: "1.0em",marginRight:'5px'}}/>
                 Continuar
-              </button>
+              </button> 
             </div>
           </form>
         </div>

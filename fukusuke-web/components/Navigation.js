@@ -33,10 +33,9 @@ const Navigation = () => {
       autoClose: 2000,
       hideProgressBar: true
     });
-    if(router.asPath == '/account'){
-      console.log("redireccionar a inicio")
-      Router.push('/');
-    }
+    //Redireccionar a inicio
+    console.log("redireccionar a inicio")
+    Router.push('/');
   }
 
   return(
