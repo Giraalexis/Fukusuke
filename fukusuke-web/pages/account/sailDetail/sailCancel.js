@@ -3,6 +3,9 @@ import Container from "../../../components/Container";
 import axios from 'axios'
 import React, {useState, useEffect} from 'react'
 
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {faExclamationCircle,faCheckCircle} from '@fortawesome/free-solid-svg-icons' //FAS --> SOLIDO
+//import {} from '@fortawesome/free-brands-svg-icons' //FAB --> MARCA
 
 const WebpayPlus = require('transbank-sdk').WebpayPlus;
 const Environment = require('transbank-sdk').Environment;
@@ -86,12 +89,14 @@ const sailCancel = (props) =>{
         <title>Fukusuke | Sail Cancel</title>
       </Head>
       {props.msgError
-        ? <div className="col-lg-10 col-md-10 col-sm-12 card p-4 mt-4 mx-auto rounded-pill">
-            <h5 className="mx-auto">{props.msgError}</h5>
+        ? <div className="col-lg-10 col-md-10 col-sm-12 card p-4 m-4 mx-auto rounded-pill">
+            <FontAwesomeIcon  icon={faExclamationCircle} style={{width: "4.0em", margin:'auto',color:'red'}}/>
+            <h6 className="mx-auto mt-4 mb-4">{props.msgError}</h6>
           </div>
         
-        : <div className="col-lg-10 col-md-10 col-sm-12 card p-0 pt-4 pb-4 mx-auto rounded-pill">
-            <h4 className="mx-auto">Pedido Cancelado</h4>
+        : <div className="col-lg-10 col-md-10 col-sm-12 card p-4 m-4 mx-auto rounded-pill">
+            <FontAwesomeIcon  icon={faCheckCircle} style={{width: "4.0em", margin:'auto',color:'green'}}/>
+            <h4 className="mx-auto mt-4 mb-4">Pedido Cancelado</h4>
           </div>
 
       }

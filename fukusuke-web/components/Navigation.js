@@ -9,7 +9,7 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {faSignOutAlt,faUsersCog} from '@fortawesome/free-solid-svg-icons' //FAS --> SOLIDO
+import {faSignOutAlt,faUsersCog,faStore,faBuilding} from '@fortawesome/free-solid-svg-icons' //FAS --> SOLIDO
 //import {} from '@fortawesome/free-brands-svg-icons' //FAB --> MARCA
 
 const Navigation = () => {
@@ -47,8 +47,14 @@ const Navigation = () => {
         </button>
         <div className="collapse navbar-collapse justify-content-between" id="navbarNavAltMarkup">
           <div className="nav navbar-nav align-items-start">
-            <Link href="/"><a className={"nav-link"+(router.asPath == "/" ?" active" : "")}>Comprar</a></Link>
-            <Link href="/about"><a className={"nav-link"+(router.asPath == "/about" ?" active" : "")}>Acerca de</a></Link>
+            <Link href="/"><a className={"nav-link"+(router.asPath == "/" ?" active" : "")}>
+              <FontAwesomeIcon  icon={faStore} style={{width: "1.2em",marginRight:'5px'}}/>
+              Comprar</a>
+            </Link>
+            <Link href="/about"><a className={"nav-link"+(router.asPath == "/about" ?" active" : "")}>
+              <FontAwesomeIcon  icon={faBuilding} style={{width: "1.2em",marginRight:'5px'}}/>
+              Acerca de</a>
+            </Link>
           </div>
           <div className="nav navbar-nav align-items-start">
             <Cart/>

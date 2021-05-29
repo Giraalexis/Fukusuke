@@ -32,8 +32,13 @@ const Index = (props)=> {
       <Head>
         <title>Fukusuke | Home</title>
       </Head>
-      <Carousel products={props.products}/>
-      <CardProducto products={props.products}/>
+      <div className="row">
+        <div className="col-lg-10 col-md-10 col-sm-12 mx-auto">
+          <Carousel products={props.products}/>
+          <CardProducto products={props.products}/>
+        </div> 
+      </div>
+      
     </Container>
   )
 }

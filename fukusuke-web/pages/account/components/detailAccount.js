@@ -5,6 +5,10 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import {  validate, clean, format, getCheckDigit } from 'rut.js';
 
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {faUser, faSyncAlt} from '@fortawesome/free-solid-svg-icons' //FAS --> SOLIDO
+//import {} from '@fortawesome/free-brands-svg-icons' //FAB --> MARCA
+
 const DetailAccount = (props)=> {
   const initialStateValues = {
     name: '',
@@ -97,16 +101,17 @@ const DetailAccount = (props)=> {
   return (
     <div className="row mt-4">
       <form onSubmit={handleSubmit} className="col-lg-10 col-md-10 col-sm-12 mx-auto p-0 card">
-          <div className="card-header bg-secondary">
-            <h5 className="card-title text-white">Cuenta</h5>
-            </div>
-            <div className="card-body">
+          <div className="card-header bg-secondary d-flex align-items-center">
+            <FontAwesomeIcon  icon={faUser} style={{width: "1em",marginRight:'5px', color: 'white'}}/>
+            <h5 className="card-title text-white m-0">Cuenta</h5>
+          </div>
+          <div className="card-body">
             <div className="row ">
                 <div className="col-lg-5 col-md-5 col-sm-12">
-                <label className="col-form-label">Nombre</label>
+                  <label className="col-form-label">Nombre</label>
                 </div>
                 <div className="col">
-                <input name="name" onChange={handleInputChange} className="form-control" type="text" value={values.name || ''}/>
+                  <input name="name" onChange={handleInputChange} className="form-control" type="text" value={values.name || ''}/>
                 </div>
             </div>
             
@@ -185,7 +190,10 @@ const DetailAccount = (props)=> {
             </div>
 
             <div className=" d-flex justify-content-end mt-3">
-              <button type="submit" className="btn btn-secondary" >Actualizar Datos</button>
+              <button type="submit" className="btn btn-secondary" >
+                <FontAwesomeIcon  icon={faSyncAlt} style={{width: "1em",marginRight:'5px', color: 'white'}}/>
+                Actualizar Datos
+              </button>
             </div>
           </div>
       </form>

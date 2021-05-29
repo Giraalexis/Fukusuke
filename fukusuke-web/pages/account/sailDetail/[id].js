@@ -6,7 +6,7 @@ import { toast } from 'react-toastify';
 import Router from "next/router";
 
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {faSignInAlt,faTimes} from '@fortawesome/free-solid-svg-icons' //FAS --> SOLIDO
+import {faSignInAlt,faTimes,faClipboardList,faBan} from '@fortawesome/free-solid-svg-icons' //FAS --> SOLIDO
 //import {} from '@fortawesome/free-brands-svg-icons' //FAB --> MARCA
 
 //Previo a cargar el componente
@@ -85,8 +85,9 @@ const SailDetail = (props)=>{
       </Head>
       <div className="row mt-4">
         <div className="col-lg-10 col-md-10 col-sm-12 mx-auto p-0 card">
-          <div className="card-header bg-primary bg-gradient pt-3">
-            <h6 className="card-title text-white">Boleta N° {props.ticket.id || 'Error al cargar'}</h6>
+          <div className="card-header bg-primary bg-gradient pt-3 d-flex align-items-center">
+            <FontAwesomeIcon  icon={faClipboardList} style={{width: "1.0em", marginRight:'5px',color:'white'}}/>
+            <h6 className="card-title text-white m-0">Boleta N° {props.ticket.id || 'Error al cargar'}</h6>
           </div>
           <div className="card-body">
             <h6>Detalle</h6>
@@ -122,8 +123,9 @@ const SailDetail = (props)=>{
               {!props.orderDispatch.state && !props.ticket.cancel
                 ? <>
                   <button 
-                    className="btn btn-outline-danger btn-sm"
+                    className="btn btn-outline-danger btn-sm d-flex align-items-center"
                     data-bs-toggle="modal" data-bs-target="#cancelModal">
+                      <FontAwesomeIcon  icon={faBan} style={{width: "1.0em",marginRight:'5px'}}/>
                       Cancelar Pedido
                   </button>
 

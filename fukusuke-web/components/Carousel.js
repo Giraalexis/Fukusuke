@@ -6,6 +6,7 @@ const Carousel = (props)=>{
     <div id="carousel" className="carousel carousel-dark slide carousel-fade sombra" data-bs-ride="carousel">
       <div className="carousel-inner">
         {props.products.map((product, index)=>{
+          product.description = product.description.toLowerCase();
           if(product.state){
             if(product.promotion && isFirst == 0){
               isFirst += 1;
@@ -14,8 +15,8 @@ const Carousel = (props)=>{
                   <img src={product.image} style={{width:'100%', height:'40vh'}} className="rounded btn mx-auto d-block p-0"  
                     onError={(e)=>{e.target.onerror = null; e.target.src="/Sushi404.png"}}/>
                   <div className="carousel-caption d-md-block ">
-                    <h1 className="tertiary-text text-stroke font-weight-bold text-uppercase">{product.name}</h1>
-                    <h4 className="tertiary-text text-stroke font-weight-bold text-capitalize"> {product.description}</h4>
+                    <h1 className="tertiary-text text-stroke font-weight-bold ">{product.name}</h1>
+                    <h4 className="tertiary-text text-stroke font-weight-bold "> {product.description}</h4>
                   </div>
                 </div>  
               )
@@ -25,8 +26,8 @@ const Carousel = (props)=>{
                   <img src={product.image} style={{width:'100%', height:'40vh'}} className="rounded btn sombra mx-auto d-block p-0"
                     onError={(e)=>{e.target.onerror = null; e.target.src="/Sushi404.png"}}/>
                   <div className="carousel-caption d-md-block">
-                    <h1 className="tertiary-text text-stroke font-weight-bold text-uppercase">{product.name}</h1>
-                    <h4 className="tertiary-text text-stroke font-weight-bold text-capitalize"> {product.description}</h4>
+                    <h1 className="tertiary-text text-stroke font-weight-bold ">{product.name}</h1>
+                    <h4 className="tertiary-text text-stroke font-weight-bold "> {product.description}</h4>
                   </div>
                 </div>  
               )

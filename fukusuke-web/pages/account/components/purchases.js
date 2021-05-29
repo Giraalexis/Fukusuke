@@ -5,6 +5,10 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Router from "next/router";
 
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {faShoppingBag} from '@fortawesome/free-solid-svg-icons' //FAS --> SOLIDO
+//import {} from '@fortawesome/free-brands-svg-icons' //FAB --> MARCA
+
 const Purchases = ()=>{
   const [ticket,SetTicket] = useState([])
   const [orderDispatch,setOrderDispatch] = useState('')
@@ -37,12 +41,13 @@ const Purchases = ()=>{
   return(
     <div className="row mt-4">
       <div className="col-lg-10 col-md-10 col-sm-12 mx-auto p-0 card">
-        <div className="card-header bg-primary bg-gradient">
-          <h5 className="card-title text-white">Compras</h5>
+        <div className="card-header bg-primary bg-gradient d-flex align-items-center">
+          <FontAwesomeIcon  icon={faShoppingBag} style={{width: "1em",marginRight:'5px', color: 'white'}}/>
+          <h5 className="card-title text-white m-0">Compras</h5>
         </div>
         {ticket.map((ticket)=>{
           return(
-            <div key={ticket.id} className="card m-4 mb-0">
+            <div key={ticket.id} className="card m-4 mb-0 sombra">
               <div className="card-body d-flex flex-column">
                 <div className="d-flex justify-content-between mb-1">
                   <h6 className="">Boleta N°: {ticket.id}</h6>

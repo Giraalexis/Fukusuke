@@ -66,10 +66,17 @@ a:hover{
 
 /*Contorneado texto*/
 .text-stroke {
-  -webkit-text-stroke-color: #ff2e63;
-  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: #ffffff;
+  -webkit-text-stroke-width: 5px;
 /* shorthand */
-  -webkit-text-stroke: 1px #252a34;
+  -webkit-text-stroke: 1.5px #000000;
 /* color del texto */
-  -webkit-text-fill-color: #ff2e63;
+  -webkit-text-fill-color: #ffffff;
+}
+
+div.carousel-caption > h1{
+  text-transform: uppercase;
+}
+div.carousel-caption > h4{
+  text-transform: capitalize;
 }
