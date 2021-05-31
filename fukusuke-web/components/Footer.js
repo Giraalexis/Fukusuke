@@ -11,7 +11,7 @@ const Footer = () => (
         <Link href="/"><a className="navbar-brand">福助 Fukusuke</a></Link>
       </div>
       <div className="d-flex">
-        <a href="https://github.com/Giraalexis/Fukusuke">
+        <a href="https://github.com/Giraalexis/Fukusuke" target="_blank">
           <FontAwesomeIcon  icon={faGithub} style={{width: "2em", color: 'white'}}/>
         </a>
         

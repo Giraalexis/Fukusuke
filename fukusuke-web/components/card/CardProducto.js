@@ -130,8 +130,8 @@ const CardProducto = (props) =>{
                 </div>
                 <div className="card-footer bg-light bg-gradient">
                   <div className="row align-items-center">
-                    <h5 className="col-8 text-truncate text-capitalize">{product.name}</h5>
-                    <h4 className="col-4 tertiary-text">${product.price}</h4>
+                    <h6 className="col-8 text-truncate text-capitalize">{product.name.toLowerCase()}</h6>
+                    <h5 className="col-4 tertiary-text">${product.price}</h5>
                   </div>
                   <div className="row align-items-center">
                     <h6 className="col-8 ">Stock</h6>

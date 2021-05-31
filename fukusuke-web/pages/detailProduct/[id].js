@@ -121,7 +121,7 @@ const Product = ({product}) => {
         <div className="col-lg-10 col-md-10 col-sm-12 mx-auto p-0 card">
           <div className="card-header d-flex d-wrap  align-items-baseline justify-content-start">
             <Link href="/"><a className={"btn sombra col-lg-2 col-md-3 col-sm-6"}>Volver</a></Link>
-            <h5 className="mx-auto">{product.name}</h5>
+            <h5 className="mx-auto text-capitalize">{product.name.toLowerCase()}</h5>
           </div>
           <div className="card-body p-0">
             <div className="row">
@@ -130,7 +130,7 @@ const Product = ({product}) => {
                 onError={(e)=>{e.target.onerror = null; e.target.src="/Sushi404.png"}}/>
               </div>
               <div className="col">
-                <p className="pr-0 pt-2">{product.description}</p>
+                <p className="pr-0 pt-2">{product.description[0].toUpperCase() + (product.description.slice(1)).toLowerCase()}</p>
                 <h5 className="tertiary-text" >${product.price}</h5>
               </div>
             </div>
