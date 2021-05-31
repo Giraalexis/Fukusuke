@@ -5,7 +5,7 @@ import {faGithub} from '@fortawesome/free-brands-svg-icons' //FAB --> MARCA
 
 
 const Footer = () => (
-  <nav className="navbar navbar-expand-lg navbar-dark bg-dark mt-4">
+  <nav className="navbar navbar-expand-lg navbar-dark bg-dark mt-4 hide-print">
     <div className="container-fluid">
       <div className="d-flex">
         <Link href="/"><a className="navbar-brand">福助 Fukusuke</a></Link>

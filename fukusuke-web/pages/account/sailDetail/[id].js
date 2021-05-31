@@ -84,7 +84,7 @@ const SailDetail = (props)=>{
         <title>Fukusuke | Sail Detail</title>
       </Head>
       <div className="row mt-4">
-        <div className="col-lg-10 col-md-10 col-sm-12 mx-auto p-0 card">
+        <div className="col-lg-10 col-md-10 col-sm-12 mx-auto p-0 card" id="imp1">
           <div className="card-header bg-primary bg-gradient pt-3 d-flex align-items-center">
             <FontAwesomeIcon  icon={faClipboardList} style={{width: "1.0em", marginRight:'5px',color:'white'}}/>
             <h6 className="card-title text-white m-0">Boleta N° {props.ticket.id || 'Error al cargar'}</h6>
@@ -120,41 +120,52 @@ const SailDetail = (props)=>{
                   {props.ticket.cancel ? 'Cancelado': props.orderDispatch.state? 'Despachado' : 'Pendiente'}
                 </h6>
               </div>
-              {!props.orderDispatch.state && !props.ticket.cancel
-                ? <>
-                  <button 
-                    className="btn btn-outline-danger btn-sm d-flex align-items-center"
-                    data-bs-toggle="modal" data-bs-target="#cancelModal">
-                      <FontAwesomeIcon  icon={faBan} style={{width: "1.0em",marginRight:'5px'}}/>
-                      Cancelar Pedido
-                  </button>
+              <div className="d-flex ">
+                <button className="btn btn-outline-success btn-sm hide-print"
+                      style={{marginRight:'10px'}}
+                      onClick={() =>{window.print()}}
+                      >
+                      Imprimir
+                </button>
+                <div className="hide-print">
+                  {!props.orderDispatch.state && !props.ticket.cancel
+                    ? <>
+                      <button 
+                        className="btn btn-outline-danger btn-sm d-flex align-items-center hide-print"
+                        data-bs-toggle="modal" data-bs-target="#cancelModal">
+                          <FontAwesomeIcon  icon={faBan} style={{width: "1.0em",marginRight:'5px'}}/>
+                          Cancelar Pedido
+                      </button>
 
-                  <div className={"modal fade "+(show? 'show': '')}  id="cancelModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div className="modal-dialog " style={{marginTop: '15vh'}}>
-                        <form className="modal-content" >
-                          <div className="modal-header">
-                            <h5 className="modal-title" id="exampleModalLabel">Cancelar Pedido</h5>
-                            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      <div className={"modal fade "+(show? 'show': '')}  id="cancelModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div className="modal-dialog " style={{marginTop: '15vh'}}>
+                            <form className="modal-content" >
+                              <div className="modal-header">
+                                <h5 className="modal-title" id="exampleModalLabel">Cancelar Pedido</h5>
+                                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                              </div>
+                              <div className="modal-body p-4">
+                                <h5 className="text-center">¿ Estas seguro de cancelar el pedido ?</h5>
+                              </div>
+                              <div className="modal-footer">
+                                <button type="button" className="btn btn-secondary d-flex justify-content-center align-items-center" data-bs-dismiss="modal">
+                                  <FontAwesomeIcon  icon={faTimes} style={{width: "1.0em",height:'1em',marginRight:'5px'}}/>
+                                  Cerrar
+                                </button>
+                                <button onClick={()=>{cancelarPedido(props.ticket.token, handleShow)}} type="button" id="close-modal-cancel" className="btn btn-danger d-flex justify-content-center align-items-center" >
+                                  <FontAwesomeIcon  icon={faSignInAlt} style={{width: "1.0em",marginRight:'5px'}}/>
+                                  Cancelar
+                                </button> 
+                              </div>
+                            </form>
                           </div>
-                          <div className="modal-body p-4">
-                            <h5 className="text-center">¿ Estas seguro de cancelar el pedido ?</h5>
-                          </div>
-                          <div className="modal-footer">
-                            <button type="button" className="btn btn-secondary d-flex justify-content-center align-items-center" data-bs-dismiss="modal">
-                              <FontAwesomeIcon  icon={faTimes} style={{width: "1.0em",height:'1em',marginRight:'5px'}}/>
-                              Cerrar
-                            </button>
-                            <button onClick={()=>{cancelarPedido(props.ticket.token, handleShow)}} type="button" id="close-modal-cancel" className="btn btn-danger d-flex justify-content-center align-items-center" >
-                              <FontAwesomeIcon  icon={faSignInAlt} style={{width: "1.0em",marginRight:'5px'}}/>
-                              Cancelar
-                            </button> 
-                          </div>
-                        </form>
-                      </div>
-                    </div>
-                  </>
-                : <> </>
-              }
+                        </div>
+                      </>
+                    : <> </>
+                  }
+                </div>
+                
+              </div>
             </div>
           </div>
           

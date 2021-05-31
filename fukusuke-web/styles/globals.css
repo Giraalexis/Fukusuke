@@ -80,3 +80,8 @@ div.carousel-caption > h1{
 div.carousel-caption > h4{
   text-transform: capitalize;
 }
+
+
+@media print {
+  .hide-print {display: none;}
+}

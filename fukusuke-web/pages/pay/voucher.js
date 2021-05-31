@@ -110,45 +110,52 @@ const Voucher = (props)=> {
            
           : <>
               <div className="col-lg-10 col-md-10 col-sm-12 card p-0 mx-auto">
-                <div className="card-header">
-                  <h4>Pago Finalizado</h4>
+                <div id="imp1">
+                  <div className="card-header">
+                    <h4>Pago Finalizado</h4>
+                  </div>
+                  <div className="card-body">
+                  <div className="row">
+                    <h6 className="col-6">Transacción</h6>
+                    <h6 className="col">{values.vci == 'TSY'? 'Exitosa' : 'Fallida'}</h6>
+                  </div>
+                  <div className="row">
+                    <h6 className="col-6">Monto</h6>
+                    <h6 className="col">$ {values.amount || ''}</h6>
+                  </div>
+                  <div className="row">
+                    <h6 className="col-6">Fecha</h6>
+                    <h6 className="col">{values.transaction_date.substr(0,10) || ''}</h6>
+                  </div>
+                  <div className="row">
+                    <h6 className="col-6">Orden de Compra</h6>
+                    <h6 className="col">{values.buy_order || ''}</h6>
+                  </div>
+                  <div className="row">
+                    <h6 className="col-6">ID Cliente</h6>
+                    <h6 className="col">{values.session_id || ''}</h6>
+                  </div>
+                  <div className="row">
+                    <h6 className="col-6">Código de Transacción</h6>
+                    <h6 className="col">{values.authorization_code || ''}</h6>
+                  </div>
+                  <div className="row">
+                    <h6 className="col-6">Código de Tarjeta</h6>
+                    <h6 className="col">{values.card_detail.card_number || ''}</h6>
+                  </div>
+                  <div className="row">
+                    <h6 className="col-6">Tipo de Pago</h6>
+                    <h6 className="col">{values.payment_type_code || ''}</h6>
+                  </div>
+                  </div>
                 </div>
-                <div className="card-body">
-                <div className="row">
-                  <h6 className="col-6">Transacción</h6>
-                  <h6 className="col">{values.vci == 'TSY'? 'Exitosa' : 'Fallida'}</h6>
-                </div>
-                <div className="row">
-                  <h6 className="col-6">Monto</h6>
-                  <h6 className="col">$ {values.amount || ''}</h6>
-                </div>
-                <div className="row">
-                  <h6 className="col-6">Fecha</h6>
-                  <h6 className="col">{values.transaction_date.substr(0,10) || ''}</h6>
-                </div>
-                <div className="row">
-                  <h6 className="col-6">Orden de Compra</h6>
-                  <h6 className="col">{values.buy_order || ''}</h6>
-                </div>
-                <div className="row">
-                  <h6 className="col-6">ID Cliente</h6>
-                  <h6 className="col">{values.session_id || ''}</h6>
-                </div>
-                <div className="row">
-                  <h6 className="col-6">Código de Transacción</h6>
-                  <h6 className="col">{values.authorization_code || ''}</h6>
-                </div>
-                <div className="row">
-                  <h6 className="col-6">Código de Tarjeta</h6>
-                  <h6 className="col">{values.card_detail.card_number || ''}</h6>
-                </div>
-                <div className="row">
-                  <h6 className="col-6">Tipo de Pago</h6>
-                  <h6 className="col">{values.payment_type_code || ''}</h6>
-                </div>
-                </div>
-                <div className="card-footer">
-
+                
+                <div className="card-footer hide-print">
+                  <button className="btn btn-success hide-print"
+                    onclick={() => {window.print()}}
+                    >
+                    Imprimir
+                  </button>
                 </div>
               </div>
             </>
