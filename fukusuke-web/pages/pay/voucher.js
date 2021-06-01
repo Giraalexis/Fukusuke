@@ -12,12 +12,38 @@ WebpayPlus.apiKey = '579B532A7440BB0C9079DED94D31EA1615BACEB56610332264630D42D0A
 WebpayPlus.environment = Environment.Integration;
 export async function getServerSideProps(ctx){
   const token = ctx.query.token;
+  const idClient = ctx.query.idClient
+  const adress = ctx.query.adress
   try{
     const response = await WebpayPlus.Transaction.commit(token);
+
+    //Crear Boleta
+    const date = new Date()
+    const fecha = date.getFullYear()+"-"+(date.getMonth()+1)+"-"+date.getDate()
+
+    const resBoleta = await axios.post(`http://localhost:8000/api/ticket-create`,{
+        fecha: fecha,
+        total: response.amount,
+        employee: 101,
+        client: idClient,
+        payment: 1,
+        token: token,
+    })
+    console.log(resBoleta)
+
+    //Crea orden de despacho
+    const resDespatch = await axios.post(`http://localhost:8000/api/orderdispatch-create`,{
+      adress: adress,
+      state: 0,
+      ticket: resBoleta.data.id
+    })
+    console.log(resDespatch)
+
     return {
       props:{
         response : response,
-        token: token
+        token: token,
+        resBoleta: resBoleta.data
       }
     }
   }catch(e){
@@ -39,31 +65,18 @@ const Voucher = (props)=> {
   useEffect(()=>{
 
     const sendDataBD = async() =>{
-      const client = JSON.parse(localStorage.getItem('session'));
       const cartLocal = JSON.parse(localStorage.getItem('cart'));
-      const adressLocal = JSON.parse(localStorage.getItem('adress'));
-      const date = new Date()
-      let fecha = date.getFullYear()+"-"+(date.getMonth()+1)+"-"+date.getDate()
-      //Crea Boleta
-      const resBoleta = await axios.post(`http://localhost:8000/api/ticket-create`,{
-        fecha: fecha,
-        total: values.amount,
-        employee: 101,
-        client: client.id,
-        payment: 1,
-        token: props.token,
-      })
-      console.log(resBoleta)
+      
       //Guarda el detalle boleta
       for (let i = 0; i < cartLocal.length; i++) {
-        let res = await axios.post(`http://localhost:8000/api/saildetail-create`,{
+        let resDetalle = await axios.post(`http://localhost:8000/api/saildetail-create`,{
           name: cartLocal[i].name,
           amout: cartLocal[i].cant,
           sub_total: cartLocal[i].cant * cartLocal[i].price,
           product: cartLocal[i].id,
-          ticket: resBoleta.data.id
+          ticket: props.resBoleta.id
         })
-        console.log(res);
+        console.log(resDetalle);
         //Actualizar Stock del producto
         let resStock = await axios.put(`http://localhost:8000/api/product-update/${cartLocal[i].id}`,{
           name: cartLocal[i].name,
@@ -74,15 +87,7 @@ const Voucher = (props)=> {
           state: cartLocal[i].state,
           image: cartLocal[i].image
         })
-        
       }
-      //Crea orden de despacho
-      const resDespatch = await axios.post(`http://localhost:8000/api/orderdispatch-create`,{
-        adress: adressLocal,
-        state: 0,
-        ticket: resBoleta.data.id
-      })
-      console.log(resDespatch)
 
       //Limpia el Local Storage
       localStorage.removeItem('response');
@@ -128,10 +133,6 @@ const Voucher = (props)=> {
                     <h6 className="col">{values.transaction_date.substr(0,10) || ''}</h6>
                   </div>
                   <div className="row">
-                    <h6 className="col-6">Orden de Compra</h6>
-                    <h6 className="col">{values.buy_order || ''}</h6>
-                  </div>
-                  <div className="row">
                     <h6 className="col-6">ID Cliente</h6>
                     <h6 className="col">{values.session_id || ''}</h6>
                   </div>
@@ -150,9 +151,9 @@ const Voucher = (props)=> {
                   </div>
                 </div>
                 
-                <div className="card-footer hide-print">
+                <div className="card-footer hide-print d-flex justify-content-end">
                   <button className="btn btn-success hide-print"
-                    onclick={() => {window.print()}}
+                    onClick={() => {window.print()}}
                     >
                     Imprimir
                   </button>
