@@ -4,6 +4,10 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {faSignInAlt,faTimes} from '@fortawesome/free-solid-svg-icons' //FAS --> SOLIDO
+//import {} from '@fortawesome/free-brands-svg-icons' //FAB --> MARCA
+
 const Login = (props)=>{
   //Valores de los input inicialmente (estado inicial)
   const initialStateValues = {
@@ -78,7 +82,10 @@ const Login = (props)=>{
 
   return(
     <div>
-      <a onClick={handleShow} className="nav-link btn" data-bs-toggle="modal" data-bs-target="#loginModal">Iniciar Sesión</a>
+      <a onClick={handleShow} className="nav-link btn d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#loginModal">
+        <FontAwesomeIcon  icon={faSignInAlt} style={{width: "1.2em",marginRight:'5px'}}/>
+        Iniciar Sesión
+        </a>
 
       <div className={"modal fade "+(show? 'show': '')}  id="loginModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div className="modal-dialog " style={{marginTop: '15vh'}}>
@@ -92,8 +99,14 @@ const Login = (props)=>{
               <input name="password" value={values.password} onChange={handleInputChange} className="form-control mt-3" placeholder="Ingrese su contraseña" type="password" required/>
             </div>
             <div className="modal-footer">
-              <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-              <button type="submit" id="close-modal-login" className="btn btn-primary" >Continuar</button>
+              <button type="button" className="btn btn-secondary d-flex justify-content-center align-items-center" data-bs-dismiss="modal">
+                <FontAwesomeIcon  icon={faTimes} style={{width: "1.0em",height:'1em',marginRight:'5px'}}/>
+                Cerrar
+              </button>
+              <button type="submit" id="close-modal-login" className="btn btn-success d-flex justify-content-center align-items-center" >
+                <FontAwesomeIcon  icon={faSignInAlt} style={{width: "1.0em",marginRight:'5px'}}/>
+                Continuar
+              </button> 
             </div>
           </form>
         </div>

@@ -7,6 +7,10 @@ import Link from "next/link";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {faCartPlus} from '@fortawesome/free-solid-svg-icons' //FAS --> SOLIDO
+//import {} from '@fortawesome/free-brands-svg-icons' //FAB --> MARCA
+
 //peticion por defecto al cargar esta pagina
 const defaultEndpoint = 'http://localhost:8000/api/product-detail/';
 export async function getServerSideProps(ctx){
@@ -114,10 +118,10 @@ const Product = ({product}) => {
         <title>Fukusuke | Detail</title>
       </Head>
       <div className="row mt-4">
-        <div className="col-lg-8 col-md-8 col-sm-12 mx-auto p-0 card">
+        <div className="col-lg-10 col-md-10 col-sm-12 mx-auto p-0 card">
           <div className="card-header d-flex d-wrap  align-items-baseline justify-content-start">
             <Link href="/"><a className={"btn sombra col-lg-2 col-md-3 col-sm-6"}>Volver</a></Link>
-            <h5 className="mx-auto">{product.name}</h5>
+            <h5 className="mx-auto text-capitalize">{product.name.toLowerCase()}</h5>
           </div>
           <div className="card-body p-0">
             <div className="row">
@@ -126,7 +130,7 @@ const Product = ({product}) => {
                 onError={(e)=>{e.target.onerror = null; e.target.src="/Sushi404.png"}}/>
               </div>
               <div className="col">
-                <p className="pr-0 pt-2">{product.description}</p>
+                <p className="pr-0 pt-2">{product.description[0].toUpperCase() + (product.description.slice(1)).toLowerCase()}</p>
                 <h5 className="tertiary-text" >${product.price}</h5>
               </div>
             </div>
@@ -138,7 +142,11 @@ const Product = ({product}) => {
                 <h5 id={product.id+"-card-stock"} className="col">{product.stock}</h5>
               </div>
             </div>
-            <button className=" btn btn-dark secondary-background cuartiary-text" onClick={() => addProduct(product.id)} type="button">Añadir</button>   
+            
+            <button className=" btn btn-dark secondary-background cuartiary-text d-flex align-items-center" onClick={() => addProduct(product.id)} type="button">
+              <FontAwesomeIcon  icon={faCartPlus} style={{width: "1.2em",marginRight:'5px', color: 'white'}}/>
+              Añadir
+            </button>   
           </div>
         </div>
       </div>

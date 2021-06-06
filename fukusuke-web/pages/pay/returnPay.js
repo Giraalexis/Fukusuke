@@ -14,10 +14,13 @@ error de cors y la unica forma que encontre fue hacerlo de esta manera)
 const ReturnPay = (props)=> {
   useEffect(()=>{
     const getTokentoRedirect = ()=>{
-      const token = JSON.parse(localStorage.getItem('response'))
       Router.push({
         pathname: '/pay/voucher',
-        query: {token: token.token}
+        query: {
+          token: JSON.parse(localStorage.getItem('response')).token,
+          idClient: JSON.parse(localStorage.getItem('session')).id,
+          adress: JSON.parse(localStorage.getItem('adress'))
+        }
       })
     };
     getTokentoRedirect();

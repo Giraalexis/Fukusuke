@@ -2,6 +2,10 @@ import React, {useState, useEffect} from 'react'
 import Router from "next/router";
 import { toast } from 'react-toastify';
 
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {faShoppingCart,faTrash,faTimes,faHandHoldingUsd} from '@fortawesome/free-solid-svg-icons' //FAS --> SOLIDO
+//import {} from '@fortawesome/free-brands-svg-icons' //FAB --> MARCA
+
 const Cart = (props)=>{
   const [cart,setCart] = useState([]);
   const [total,setTotal] = useState(0);
@@ -134,7 +138,10 @@ const Cart = (props)=>{
 
   return(
     <div>
-      <a className="nav-link btn" onClick={handleShow} onClick={refreshCart} data-bs-toggle="modal" data-bs-target="#CartModal">Carrito</a>
+      <a className="nav-link btn d-flex justify-content-center align-items-center" onClick={handleShow} onClick={refreshCart} data-bs-toggle="modal" data-bs-target="#CartModal">
+      <FontAwesomeIcon  icon={faShoppingCart} style={{width: "1.2em",marginRight:'5px'}}/>
+        Carrito
+      </a>
 
       <div className="modal fade modal-right" id="CartModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div className="modal-dialog">
@@ -156,7 +163,10 @@ const Cart = (props)=>{
                     </div>
                     <div className="col-lg-4 col-md-4 col">
                       <div className="d-flex justify-content-end">
-                        <button onClick={()=> deleteProductCart(product.id)} className="btn btn-danger ">Borrar</button>
+                        <button onClick={()=> deleteProductCart(product.id)} className="btn btn-danger d-flex justify-content-center align-items-center">
+                        <FontAwesomeIcon  icon={faTrash} style={{width: "1.0em",marginRight:'5px'}}/>
+                          Borrar
+                        </button>
                       </div>
                       <div className="d-flex mt-2 justify-content-between align-items-baseline">
                         <button  onClick={()=> resProduct(product.id)} type="button" className="btn sombra border rounded-circle">-</button>
@@ -175,9 +185,15 @@ const Cart = (props)=>{
                 <h4 className="text-start col-6 ">Total:</h4>
                 <h4 className="col-6 tertiary-text">${total}</h4>
               </div>      
-              <div className="">
-                <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                <button onClick={()=> payOrder()} id="close-modal-cart" type="button" className="btn btn-primary ">Pagar</button>
+              <div className="d-flex">
+                <button type="button" className="btn btn-secondary d-flex justify-content-center align-items-center" data-bs-dismiss="modal">
+                  <FontAwesomeIcon  icon={faTimes} style={{width: "1.0em",height:'1.0em',marginRight:'5px'}}/>
+                  Cerrar
+                </button>
+                <button onClick={()=> payOrder()} id="close-modal-cart" type="button" style={{marginLeft: '10px'}}className="btn btn-success d-flex justify-content-center align-items-center">
+                  <FontAwesomeIcon  icon={faHandHoldingUsd} style={{width: "1.0em",height:'1.0em',marginRight:'5px'}}/>
+                  Pagar
+                </button>
               </div>
             </div>
           </div>
