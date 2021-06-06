@@ -125,7 +125,7 @@ public class ClienteDAO {
             }
             
         } catch (Exception e) {
-            System.out.println("Error listando" + e.getMessage());
+            System.out.println("Error listando " + e.getMessage());
             
         }finally{
             conn.close();
