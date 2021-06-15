@@ -10,20 +10,9 @@ import {faUser, faSyncAlt} from '@fortawesome/free-solid-svg-icons' //FAS --> SO
 //import {} from '@fortawesome/free-brands-svg-icons' //FAB --> MARCA
 
 const DetailAccount = (props)=> {
-  const initialStateValues = {
-    name: '',
-    adress: '',
-    rut: '',
-    date_burn: '',
-    telphone: '',
-    email: '',
-    password: '',
-    password2: '',
-    state: true,
-    sex: '',
-    commune: ''
-  }
-  const [values, setValues] = useState(initialStateValues);
+
+  
+  const [values, setValues] = useState('Error al Cargar');
   const [communes,setCommunes] = useState([]);
 
   useEffect(()=>{
@@ -111,7 +100,7 @@ const DetailAccount = (props)=> {
                   <label className="col-form-label">Nombre</label>
                 </div>
                 <div className="col">
-                  <input name="name" onChange={handleInputChange} className="form-control" type="text" value={values.name || ''}/>
+                  <input name="name" onChange={handleInputChange} className="form-control" type="text" value={values.name || 'Cargando...'}/>
                 </div>
             </div>
             
@@ -120,7 +109,7 @@ const DetailAccount = (props)=> {
                 <label className="col-form-label">Rut</label>
                 </div>
                 <div className="col">
-                <input name="rut" onChange={handleInputChange} className="form-control" type="text" value={values.rut || ''}/>
+                <input name="rut" onChange={handleInputChange} className="form-control" type="text" value={values.rut || 'Cargando...'}/>
                 </div>
             </div>
 
@@ -129,7 +118,7 @@ const DetailAccount = (props)=> {
                 <label className="col-form-label">Contraseña</label>
                 </div>
                 <div className="col">
-                <input name="password" onChange={handleInputChange} className="form-control" type="password" value={values.password || ''}/>
+                <input name="password" onChange={handleInputChange} className="form-control" type="password" value={values.password || 'Cargando...'}/>
                 </div>
             </div>
 
@@ -147,7 +136,7 @@ const DetailAccount = (props)=> {
                 <label className="col-form-label">Teléfono</label>
                 </div>
                 <div className="col">
-                <input name="telphone" onChange={handleInputChange} className="form-control" type="text" value={values.telphone || ''}/>
+                <input name="telphone" onChange={handleInputChange} className="form-control" type="text" value={values.telphone || 'Cargando...'}/>
                 </div>
             </div>
 
@@ -156,7 +145,7 @@ const DetailAccount = (props)=> {
                 <label className="col-form-label">Correo electrónico</label>
                 </div>
                 <div className="col">
-                <input name="email" onChange={handleInputChange} className="form-control" type="text" value={values.email || ''}/>
+                <input name="email" onChange={handleInputChange} className="form-control" type="text" value={values.email || 'Cargando...'}/>
                 </div>
             </div>
 
@@ -165,7 +154,8 @@ const DetailAccount = (props)=> {
                 <label className="col-form-label">Sexo</label>
                 </div>
                 <div className="col">
-                <select name="sex" onChange={handleInputChange} className="form-select" type="text" value={values.sex || '1'}>
+                <select name="sex" onChange={handleInputChange}  className="form-select" type="text" value={values.sex} defaultValue={'default'}>
+                    <option value="default"  disabled hidden>Cargando...</option>
                     <option value="1">Masculino</option>
                     <option value="2">Femenino</option>
                 </select>
@@ -177,7 +167,8 @@ const DetailAccount = (props)=> {
                 <label className="col-form-label">Comuna</label>
                 </div>
                 <div className="col">
-                <select name="commune" onChange={handleInputChange} className="form-select" type="text" value={values.commune || '1'}>
+                <select name="commune" onChange={handleInputChange} selected="selected" className="form-select" type="text" value={values.commune} defaultValue={'default'}>
+                    <option value="default" disabled hidden>Cargando...</option>
                     { 
                     communes.map(commune =>{                 
                         return(
