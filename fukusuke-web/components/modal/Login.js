@@ -31,7 +31,7 @@ const Login = (props)=>{
     //obtener datos
     let res = ''
     try{
-      res = await axios.get('http://http://168.138.144.35:8000/api/client-search-email/'+values.correo);
+      res = await axios.get('http://168.138.144.35:8000/api/client-search-email/'+values.correo);
     }catch(e){
       res = await axios.get('http://localhost:8000/api/client-search-email/'+values.correo);
     }
