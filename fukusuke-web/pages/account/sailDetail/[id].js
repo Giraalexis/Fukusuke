@@ -100,7 +100,7 @@ const SailDetail = (props)=>{
               <FontAwesomeIcon  icon={faClipboardList} style={{width: "1.0em", marginRight:'5px',color:'white'}}/>
               <h6 className="card-title text-white m-0">Boleta N° {props.ticket.id || 'Error al cargar'}</h6>
             </div>
-            <button onClick={()=>{Router.push('/account')}}className="btn btn-outline-light btn-sm hide-print">Volver</button>
+            <button onClick={()=>{Router.push('/account')}} style={{minWidth:'100px'}}className="btn btn-outline-light btn-sm hide-print">Volver</button>
           </div>
           <div className="card-body">
             <div className="card-body ">
