@@ -16,8 +16,17 @@ const Purchases = ()=>{
   useEffect(()=>{
     //Obtener Los Tickets y estado del despacho
     const getData =async ()=>{
-      const res = await axios.get('http://localhost:8000/api/ticket-list'); //obtener tickets
-      const resDispatch = await axios.get(`http://localhost:8000/api/orderdispatch-list`) //obtener despacho
+      let res = ''
+      let resDispatch = ''
+      try{
+        res = await axios.get('http://168.138.144.35:8000/api/ticket-list'); //obtener tickets
+        resDispatch = await axios.get(`http://168.138.144.35:8000/api/orderdispatch-list`)
+      }catch(e){
+        res = await axios.get('http://localhost:8000/api/ticket-list'); 
+        resDispatch = await axios.get(`http://localhost:8000/api/orderdispatch-list`)
+      }
+      //const res = await axios.get('http://localhost:8000/api/ticket-list'); //obtener tickets
+      //const resDispatch = await axios.get(`http://localhost:8000/api/orderdispatch-list`) //obtener despacho
       const idClient = JSON.parse(localStorage.getItem('session')).id
       const tickets = [];
       for (let i = 0; i < res.data.length; i++) { //recorre todos los ticket

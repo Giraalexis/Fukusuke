@@ -19,7 +19,7 @@ export async function getServerSideProps(ctx){
       buyOrder: 1,
       amount: totalPago,
       sessionId: idSession,
-      returnUrl: 'http://localhost:3000/pay/returnPay'
+      returnUrl: 'http://168.138.144.35:3000/pay/returnPay' //localhost para pruevas / 168.138.144.35 para produccion
     }
     const response = await WebpayPlus.Transaction.create(values.buyOrder, values.sessionId, values.amount, values.returnUrl);
     return {

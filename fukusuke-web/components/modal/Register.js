@@ -33,7 +33,13 @@ const Register = (props)=>{
 
   //obtener las comunas
   const getCommunes = async () => { 
-    const res = await fetch('http://localhost:8000/api/commune-list');
+    let res = ''
+    try{
+      res = await fetch('http://168.138.144.35:8000/api/commune-list');
+    }catch(e){
+      res = await fetch('http://localhost:8000/api/commune-list');
+    }
+    //const res = await fetch('http://localhost:8000/api/commune-list');
     const communesJSON = await res.json();
     setCommunes(communesJSON);
   };
@@ -64,7 +70,13 @@ const Register = (props)=>{
       });
     }else{
       if(values.password == values.password2){
-        const res = await axios.post(`http://localhost:8000/api/client-create`,values)
+        let res = ''
+        try{
+          res = await axios.post(`http://168.138.144.35:8000/api/client-create`,values)
+        }catch(e){
+          res = await axios.post(`http://localhost:8000/api/client-create`,values)
+        }
+        //const res = await axios.post(`http://localhost:8000/api/client-create`,values)
         if(res.status == 200){
           toast.success("Cuenta creada, le enviamos un correo para validar cuenta",{
             position:"top-center",

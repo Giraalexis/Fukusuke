@@ -14,10 +14,23 @@ export async function getServerSideProps(ctx){
   const idTicket = ctx.query.id;
   
   //Obtener Token para realizar cancelacion del ticket
-  const resTicket = await axios.get(`http://localhost:8000/api/ticket-detail/${idTicket}`)
+  let resTicket = ''
+  try{
+    resTicket = await axios.get(`http://168.138.144.35:8000/api/ticket-detail/${idTicket}`)
+  }catch(e){
+    resTicket = await axios.get(`http://localhost:8000/api/ticket-detail/${idTicket}`)
+  }
+  //const resTicket = await axios.get(`http://localhost:8000/api/ticket-detail/${idTicket}`)
 
   //Obtener todos el detalle de venta segun Ticket
-  const resDetalle = await axios.get(`http://localhost:8000/api/saildetail-list`); //obtener detalle de ventas
+  let resDetalle = ''
+  try{
+    resDetalle = await axios.get(`http://168.138.144.35:8000/api/saildetail-list`);
+  }catch(e){
+    resDetalle = await axios.get(`http://localhost:8000/api/saildetail-list`);
+  }
+  //const resDetalle = await axios.get(`http://localhost:8000/api/saildetail-list`); //obtener detalle de ventas
+
   const detalle = []
   for (let i = 0; i < resDetalle.data.length; i++) {
     if(resDetalle.data[i].ticket_id == idTicket){ //si es el detalle de la boleta, lo guarda
@@ -26,7 +39,13 @@ export async function getServerSideProps(ctx){
   }
 
   //Obtener la orden de despacho
-  const resDispatch = await axios.get(`http://localhost:8000/api/orderdispatch-list`) //obtener despacho
+  let resDispatch = ''
+  try{
+    resDispatch = await axios.get(`http://168.138.144.35:8000/api/orderdispatch-list`)
+  }catch(e){
+    resDispatch = await axios.get(`http://localhost:8000/api/orderdispatch-list`)
+  }
+  //const resDispatch = await axios.get(`http://localhost:8000/api/orderdispatch-list`) //obtener despacho
   let order = ''
   for (let i = 0; i < resDispatch.data.length; i++) {
     if(resDispatch.data[i].ticket_id == idTicket){
@@ -53,7 +72,13 @@ const SailDetail = (props)=>{
     //Obtener Datos de Cliente
     const getAccount = async () =>{
       const id = JSON.parse(localStorage.getItem('session')).id
-      const res = await axios.get('http://localhost:8000/api/client-detail/'+id)
+      let res = ''
+      try{
+        res = await axios.get('http://168.138.144.35:8000/api/client-detail/'+id)
+      }catch(e){
+        res = await axios.get('http://localhost:8000/api/client-detail/'+id)
+      }
+      //const res = await axios.get('http://localhost:8000/api/client-detail/'+id)
       setAccount(res.data);
     }
     getAccount();

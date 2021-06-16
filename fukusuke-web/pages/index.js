@@ -5,10 +5,16 @@ import fetch from "isomorphic-unfetch";
 import Carousel from '../components/Carousel'
 
 //peticion por defecto
-const defaultEndpoint = 'http://localhost:8000/api/product-list';
 export async function getServerSideProps(){
+  //obtener datos
+  let res = ''
   try{
-    const res = await fetch(defaultEndpoint);
+    res = await fetch('http://http://168.138.144.35:8000/api/product-list');
+  }catch(e){
+    res = await fetch('http://localhost:8000/api/product-list');
+  }
+
+  try{
     const products = await res.json();
     return{
       props:{

@@ -19,14 +19,26 @@ const DetailAccount = (props)=> {
     //Obtener Datos de Cliente
     const getAccount = async () =>{
       const id = JSON.parse(localStorage.getItem('session')).id
-      const res = await axios.get('http://localhost:8000/api/client-detail/'+id)
+      let res = ''
+      try{
+        res = await axios.get('http://168.138.144.35:8000/api/client-detail/'+id)
+      }catch(e){
+        res = await axios.get('http://localhost:8000/api/client-detail/'+id)
+      }
+      //const res = await axios.get('http://localhost:8000/api/client-detail/'+id)
       setValues(res.data);
     }
     getAccount();
     
     //obtener las comunas
     const getCommunes = async () => { 
-      const res = await fetch('http://localhost:8000/api/commune-list');
+      let res = ''
+      try{
+        res = await fetch('http://168.138.144.35:8000/api/commune-list');
+      }catch(e){
+        res = await fetch('http://localhost:8000/api/commune-list');
+      }
+      //const res = await fetch('http://localhost:8000/api/commune-list');
       const communesJSON = await res.json();
       setCommunes(communesJSON);
     };
@@ -59,7 +71,13 @@ const DetailAccount = (props)=> {
       });
     }else{
       try{
-        const res = await axios.put(`http://localhost:8000/api/client-update/${values.id}`,values)
+        let res = ''
+        try{
+          res = await axios.put(`http://168.138.144.35:8000/api/client-update/${values.id}`,values)
+        }catch(e){
+          res = await axios.put(`http://localhost:8000/api/client-update/${values.id}`,values)
+        }
+        //const res = await axios.put(`http://localhost:8000/api/client-update/${values.id}`,values)
         console.log(res);
         if(res.status == 200){
           localStorage.setItem('session',JSON.stringify(values))

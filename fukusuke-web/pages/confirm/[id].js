@@ -6,10 +6,16 @@ import Head from 'next/head'
 import Container from "../../components/Container";
 
 //peticion por defecto al cargar esta pagina
-const defaultEndpoint = 'http://localhost:8000/api/client-detail/';
 export async function getServerSideProps(ctx){
+
   try{
-    const res = await fetch(defaultEndpoint+ctx.query.id);
+    let res = ''
+    try{
+      res = await fetch('http://168.138.144.35:8000/api/client-detail/'+ctx.query.id);
+    }catch(e){
+      res = await fetch('http://localhost:8000/api/client-detail/'+ctx.query.id);
+    }
+    //const res = await fetch(defaultEndpoint+ctx.query.id);
     const account = await res.json();
     return{
       props:{
@@ -38,7 +44,13 @@ const Confirm = (props) =>{
 
     const confirmAccount = async() =>{
         values.state = true;
-        const res = await axios.put(`http://localhost:8000/api/client-update/${values.id}`,values)
+        let res = ''
+        try{
+          res = await axios.put(`http://168.138.144.35:8000/api/client-update/${values.id}`,values)
+        }catch(e){
+          res = await axios.put(`http://localhost:8000/api/client-update/${values.id}`,values)
+        }
+        //const res = await axios.put(`http://localhost:8000/api/client-update/${values.id}`,values)
         if(res.status == 200){
             console.log("cuenta confirmada")
             toast.success("Cuenta confirmada con exito",{

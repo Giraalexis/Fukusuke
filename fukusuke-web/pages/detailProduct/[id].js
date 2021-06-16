@@ -12,10 +12,15 @@ import {faCartPlus} from '@fortawesome/free-solid-svg-icons' //FAS --> SOLIDO
 //import {} from '@fortawesome/free-brands-svg-icons' //FAB --> MARCA
 
 //peticion por defecto al cargar esta pagina
-const defaultEndpoint = 'http://localhost:8000/api/product-detail/';
 export async function getServerSideProps(ctx){
   try{
-    const res = await fetch(defaultEndpoint+ctx.query.id);
+    let res = ''
+    try{
+      res = await fetch('http://168.138.144.35:8000/api/product-detail/'+ctx.query.id);
+    }catch(e){
+      res = await fetch('http://localhost:8000/api/product-detail/'+ctx.query.id);
+    }
+    //const res = await fetch(defaultEndpoint+ctx.query.id);
     const product = await res.json();
     return{
       props:{
