@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Container from '../../components/Container';
 import PayDetail from './components/payDetail';
 import React, {useState, useEffect} from 'react'
+import Router from "next/router";
 
 //variables de entorno untilizando 'Transbank' como medio de pago
 const WebpayPlus = require('transbank-sdk').WebpayPlus;
@@ -28,7 +29,7 @@ export async function getServerSideProps(ctx){
       }
     }
   }catch(e){
-    const response = '';
+    const response = 'error';
     return {
       props:{
         response,
@@ -39,22 +40,38 @@ export async function getServerSideProps(ctx){
   }
 
 const Pay = (props)=> {
-  
+  const [response,setResponse] = useState(props.response)
   useEffect(()=>{
     const createResponse = ()=>{
       window.localStorage.setItem('response',JSON.stringify(props.response))
     };
     createResponse();
   },[])
-
-  return (
-    <Container>
-      <Head>
-        <title>Fukusuke | Pay</title>
-      </Head>
-      <PayDetail response={props.response}/>
-    </Container>
-  )
+  if(props.response == 'error'){ // si no pudo obtener la solicitud de webpay
+    return (
+      <Container>
+        <Head>
+          <title>Fukusuke | Pay</title>
+        </Head>
+        <div className="row mt-4">
+          <div className="col card card-body text-center">
+            <h6 className="m-4">Error al realizar solicitud a WebPay</h6>
+            <button onClick={()=>{Router.reload(window.location.pathname)}} className="col-lg-4 col-md-6 colsm-12 mx-auto btn btn-outline-dark">Volver a intentar</button>
+          </div>
+        </div>
+      </Container>
+    )
+  }else{ //si se obtubo solicitud de webpay
+    return (
+      <Container>
+        <Head>
+          <title>Fukusuke | Pay</title>
+        </Head>
+        <PayDetail response={response}/>
+      </Container>
+    )
+  }
+  
 }
 
 

@@ -1,12 +1,12 @@
 import React, {useState, useEffect} from 'react'
 import Link from "next/link";
-import Container from '../../../components/Container';
-import Head from 'next/head'
+
 
 
 
 const PayDetail = (props)=> {
-
+  const [url, setUrl] = useState(props.response.url)
+  const [token, setToken] = useState(props.response.token)
   const [cart,setCart] = useState([]);
   const [total,setTotal] = useState(0);
   const [direccion,setDireccion] = useState('');
@@ -22,7 +22,8 @@ const PayDetail = (props)=> {
       setTotal(subTotal);
       setCart(cartLocal);
     }
-    
+    setUrl(props.response.url)
+    setToken(props.response.token)
     loadData();
   },[])
 
@@ -35,9 +36,8 @@ const PayDetail = (props)=> {
   }
 
   return (
-    <>
-      <div className="row mt-4">
-      <form method="post" action={props.response.url} className="col-lg-10 col-md-10 col-sm-12 mx-auto p-0 card">
+    <div className="row mt-4">
+      <form method="post" action={url} className="col-lg-10 col-md-10 col-sm-12 mx-auto p-0 card">
         <div className="card-header">
           <h5>Detalle de la compra</h5>
         </div>
@@ -73,13 +73,12 @@ const PayDetail = (props)=> {
         </div> 
         <div className="card-footer row">
           <Link href="/"><button className="btn btn-secondary col-lg-6 col-md-6 col-sm-12 m-1">Seguir Comprando</button></Link>
-          <input type="hidden" name="token_ws" value={props.response.token} />
+          <input type="hidden" name="token_ws" value={token} />
           <input type="submit" value="Ir a pagar" className="btn btn-success col m-1"/>
         </div>
       </form>
-      </div>
-      
-    </>
+    </div>
+
   )
 }
   
