@@ -9,7 +9,7 @@ export async function getServerSideProps(){
   //obtener datos
   let res = ''
   try{
-    res = await fetch('http://http://168.138.144.35:8000/api/product-list');
+    res = await fetch('http://168.138.144.35:8000/api/product-list');
   }catch(e){
     res = await fetch('http://localhost:8000/api/product-list');
   }

@@ -138,11 +138,11 @@ const Cart = (props)=>{
 
   return(
     <div>
-      <a className="nav-link btn d-flex justify-content-center align-items-center" onClick={handleShow} onClick={refreshCart} data-bs-toggle="modal" data-bs-target="#CartModal">
+      <a className="nav-link btn d-flex justify-content-center align-items-center" onClick={handleShow,refreshCart} data-bs-toggle="modal" data-bs-target="#CartModal">
       <FontAwesomeIcon  icon={faShoppingCart} style={{width: "1.2em",marginRight:'5px'}}/>
         Carrito
       </a>
-
+ 
       <div className="modal fade modal-right" id="CartModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div className="modal-dialog">
           <div className="modal-content ">
