@@ -138,7 +138,8 @@ const Cart = (props)=>{
 
   return(
     <div>
-      <a className="nav-link btn d-flex justify-content-center align-items-center" onClick={handleShow,refreshCart} data-bs-toggle="modal" data-bs-target="#CartModal">
+      <a onClick={handleShow,refreshCart}
+        className="nav-link btn d-flex justify-content-center align-items-center"  data-bs-toggle="modal" data-bs-target="#CartModal">
       <FontAwesomeIcon  icon={faShoppingCart} style={{width: "1.2em",marginRight:'5px'}}/>
         Carrito
       </a>
@@ -169,9 +170,17 @@ const Cart = (props)=>{
                         </button>
                       </div>
                       <div className="d-flex mt-2 justify-content-between align-items-baseline">
-                        <button  onClick={()=> resProduct(product.id)} type="button" className="btn sombra border rounded-circle">-</button>
-                        <p>{product.cant}</p>
-                        <button onClick={()=> sumProduct(product.id)} type="button" className="btn sombra border rounded-circle">+</button>
+                        {Router.asPath == '/'
+                          ? <>
+                            <button  onClick={()=> resProduct(product.id)} type="button" className="btn sombra border rounded-circle">-</button>
+                              <p>{product.cant}</p>
+                            <button onClick={()=> sumProduct(product.id)} type="button" className="btn sombra border rounded-circle">+</button>
+                            </>
+                          :<>
+
+                            </>
+                        }
+                        
                       </div>
                     </div>
                   </div>
