@@ -56,10 +56,9 @@ export async function getServerSideProps(ctx){
     let sendEmailPay = ''
     let dataEmailSend = {
       nro_boleta: resBoleta.data.id,
-      nro_orden : resDespatch.data.id
+      nro_orden : resDespatch.data.id,
       fecha: resBoleta.data.fecha,
-      total: resBoleta.data.total,
-
+      total: resBoleta.data.total
     }
     try{
       sendEmailPay = await axios.post(`http://168.138.144.35:8000/api/client-send-payed/${resBoleta.data.id}`, dataEmailSend)
