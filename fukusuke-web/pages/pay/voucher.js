@@ -61,9 +61,9 @@ export async function getServerSideProps(ctx){
       total: resBoleta.data.total
     }
     try{
-      sendEmailPay = await axios.post(`http://168.138.144.35:8000/api/client-send-payed/${resBoleta.data.id}`, dataEmailSend)
+      sendEmailPay = await axios.post(`http://168.138.144.35:8000/api/client-send-payed/${idClient}`, dataEmailSend)
     }catch(e){
-      sendEmailPay = await axios.post(`http://localhost:8000/api/client-send-payed/${resBoleta.data.id}`, dataEmailSend)
+      sendEmailPay = await axios.post(`http://localhost:8000/api/client-send-payed/${idClient}`, dataEmailSend)
     }
 
     //Enviar parametros (props) al componente-----------------------
