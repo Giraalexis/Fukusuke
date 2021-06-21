@@ -39,7 +39,23 @@ def ticketCreate(request):
 
 	if serializer.is_valid():
 		serializer.save()
-
+		#enviar comprobante
+		nro_boleta = serializer.data.get("id",'')
+		fecha = serializer.data.get("fecha",'')
+		total = serializer.data.get("total",'')
+		client_id = serializer.data.get("client_id",'')
+		link = "168.138.144.35:3000/account/sailDetail/"+ nro_boleta
+		email = EmailMessage("Pedido realizado", #Subject ()
+            "<div>"+
+			 	"<h5> Boleta N° {}</h5>"+
+			 	"<h6>Total: {} </h6>"+
+			 	"<h6>Fecha: {} </h6>"+
+				"<a href='{}'>Ver Detalle</a>"+
+			"</div>".format(nro_boleta,total,fecha,link), #mensaje html
+            "gameduoc123@gmail.com", #from email (quien envia)
+            ['gameduoc123@gmail.com',correo], #to (para quien)
+            reply_to=[correo]) #reenviar
+		email.send()
 	return Response(serializer.data)
 
 @api_view(['PUT'])
