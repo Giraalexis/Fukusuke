@@ -71,14 +71,16 @@ def clientSendPayed(request,pk):
 	client_id = str(clients.id)
 	
 	nro_boleta = str(request.data.get('nro_boleta'))
+	nro_orden = str(request.data.get('nro_orden'))
 	fecha = str(request.data.get('fecha'))
 	total = str(request.data.get('total'))
 	link = "http://168.138.144.35:3000/account/sailDetail/"+ nro_boleta
 	email = EmailMessage("Fukusuke | Pedido realizado N°" + nro_boleta, #Subject ()
 		"<div>"+
-			"<h5> Boleta N° {}</h5>".format(nro_boleta)+
-			"<h6>Total: {} </h6>".format(total)+
-			"<h6>Fecha: {} </h6>".format(fecha)+
+			"<h2> Boleta N° {}</h2>".format(nro_boleta)+
+			"<h4> Orden despacho N° {}</h4>".format(nro_orden)+
+			"<h4>Total: ${} </h4>".format(total)+
+			"<h4>Fecha: {} </h4>".format(fecha)+
 			"<a href=""{}"">Ver Detalle</a>".format(link)+ 
 		"</div>", #mensaje html
 		"gameduoc123@gmail.com", #from email (quien envia)

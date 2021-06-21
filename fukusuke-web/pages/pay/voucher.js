@@ -52,7 +52,22 @@ export async function getServerSideProps(ctx){
     }
     //const resDespatch = await axios.post(`http://localhost:8000/api/orderdispatch-create`,dataOrderCreate)
     console.log(resDespatch)
+    //Enviar Comprobante al correo----------------------------------
+    let sendEmailPay = ''
+    let dataEmailSend = {
+      nro_boleta: resBoleta.data.id,
+      nro_orden : resDespatch.data.id
+      fecha: resBoleta.data.fecha,
+      total: resBoleta.data.total,
 
+    }
+    try{
+      sendEmailPay = await axios.post(`http://168.138.144.35:8000/api/client-send-payed/${resBoleta.data.id}`, dataEmailSend)
+    }catch(e){
+      sendEmailPay = await axios.post(`http://localhost:8000/api/client-send-payed/${resBoleta.data.id}`, dataEmailSend)
+    }
+
+    //Enviar parametros (props) al componente-----------------------
     return {
       props:{
         response : response,
