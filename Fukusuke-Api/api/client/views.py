@@ -7,6 +7,7 @@ from .serializers import ClientSerializer
 from django.forms.models import model_to_dict
 from .models import Client
 from django.core.mail import EmailMessage
+from django.core.mail import EmailMultiAlternatives
 
 # Create your views here.
 
@@ -18,7 +19,8 @@ def apiOverview(request):
 		'Create':'/client-create/',
 		'Update':'/client-update/<str:pk>/',
 		'Delete':'/client-delete/<str:pk>/',
-		'Search Email': '/client-search-email/<str:email>/'
+		'Search Email': '/client-search-email/<str:email>/',
+		'ClientSendPayed': '/client-send-payed/<str:pk>/'
 		}
 
 	return Response(api_urls)
@@ -59,6 +61,34 @@ def clientCreate(request):
 		email.send()
 
 	return Response(serializer.data)
+
+#Obtiene lso datos(de la compra) y la id para enviar como correo al cliente luego de realizar la compra
+@api_view(['POST'])
+def clientSendPayed(request,pk):
+	clients = Client.objects.get(id=pk)
+
+	correo = str(clients.email)
+	client_id = str(clients.id)
+	
+	nro_boleta = str(request.data.get('nro_boleta'))
+	fecha = str(request.data.get('fecha'))
+	total = str(request.data.get('total'))
+	link = "http://168.138.144.35:3000/account/sailDetail/"+ nro_boleta
+	email = EmailMessage("Fukusuke | Pedido realizado N°" + nro_boleta, #Subject ()
+		"<div>"+
+			"<h5> Boleta N° {}</h5>".format(nro_boleta)+
+			"<h6>Total: {} </h6>".format(total)+
+			"<h6>Fecha: {} </h6>".format(fecha)+
+			"<a href=""{}"">Ver Detalle</a>".format(link)+ 
+		"</div>", #mensaje html
+		"gameduoc123@gmail.com", #from email (quien envia)
+		['gameduoc123@gmail.com',correo], #to (para quien)
+		reply_to=[correo]) #reenviar
+	email.content_subtype = 'html'#convertir en html
+	email.send()
+
+	return JsonResponse(model_to_dict(clients))
+
 
 @api_view(['PUT'])
 def clientUpdate(request, pk):
