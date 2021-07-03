@@ -112,135 +112,156 @@ const SailDetail = (props)=>{
     modal.setAttribute("data-bs-dismiss","")
     setShow(true)
    };
-
-  return(
-    <Container>
-      <Head>
-        <title>Fukusuke | Sail Detail</title>
-      </Head>
-      <div className="row mt-4">
-        <div className="col-lg-10 col-md-10 col-sm-12 mx-auto p-0 card" id="imp1">
-          <div className="card-header bg-primary bg-gradient d-flex align-items-center justify-content-between">
-            <div className="d-flex align-items-center">
-              <FontAwesomeIcon  icon={faClipboardList} style={{width: "1.0em", marginRight:'5px',color:'white'}}/>
-              <h6 className="card-title text-white m-0">Boleta N° {props.ticket.id || 'Error al cargar'}</h6>
-            </div>
-            <button onClick={()=>{Router.push('/account')}} style={{minWidth:'100px'}}className="btn btn-outline-light btn-sm hide-print">Volver</button>
-          </div>
-          <div className="card-body">
-            <div className="card-body ">
-              <h6>Orden de despacho</h6>
-              <div className="card card-body col">
-                <div className="row">
-                  <h6 className="col-6 ">N° Orden: </h6>
-                  <h6 className="col">{props.orderDispatch.id || 'Error al cargar'}</h6>
-                </div>
-                <div className="row">
-                  <h6 className="col-6">Dirección de envío: </h6>
-                  <h6 className="col">{props.orderDispatch.adress || 'Error al cargar'}</h6>
-                </div>
-                <div className="row">
-                  <h6 className="col-6">Estado de envío:</h6>
-                  <h6 className={"col  "+(props.ticket.cancel ? 'tertiary-text': props.orderDispatch.state? 'primary-text' : 'tertiary-text')}>
-                    {(props.ticket.cancel ? 'Cancelado': props.orderDispatch.state? 'Despachado' : 'Pendiente') || 'Error al cargar'}
-                  </h6>
-                </div>
+  if(account == 'Error al cargar'){ //si no esta logueado
+    return(
+      <Container>
+        <Head>
+          <title>Fukusuke | Sail Detail</title>
+        </Head>
+        <h4>Inicia Sesion antes de continuar</h4>
+      </Container>
+    )
+  }
+  else if (!(props.ticket.client == JSON.parse(localStorage.getItem('session')).id)){ //si la boleta no le pertenece al cliente 
+    return(
+      <Container>
+        <Head>
+          <title>Fukusuke | Sail Detail</title>
+        </Head>
+        <h4>Esta boleta no se encuentra disponible</h4>
+      </Container>
+    )
+  }
+  else{   
+    return(
+      <Container>
+        <Head>
+          <title>Fukusuke | Sail Detail</title>
+        </Head>
+        <div className="row mt-4">
+          <div className="col-lg-10 col-md-10 col-sm-12 mx-auto p-0 card" id="imp1">
+            <div className="card-header bg-primary bg-gradient d-flex align-items-center justify-content-between">
+              <div className="d-flex align-items-center">
+                <FontAwesomeIcon  icon={faClipboardList} style={{width: "1.0em", marginRight:'5px',color:'white'}}/>
+                <h6 className="card-title text-white m-0">Boleta N° {props.ticket.id || 'Error al cargar'}</h6>
               </div>
+              <button onClick={()=>{Router.push('/account')}} style={{minWidth:'100px'}}className="btn btn-outline-light btn-sm hide-print">Volver</button>
             </div>
-
-            <div className="card-body ">
-              <h6>Datos del cliente</h6>
-              <div className="card card-body col">
-                <div className="row">
-                  <h6 className="col-6">Nombre: {props.ticket[1]}</h6>
-                  <h6 className="col">{account.name || 'Cargando...'}</h6>
-                </div>
-                <div className="row">
-                  <h6 className="col-6">Teléfono:</h6>
-                  <h6 className="col">{account.telphone || 'Cargando...'}</h6>
-                </div>
-              </div>
-            </div>
-
             <div className="card-body">
-              <h6>Detalle pedido</h6>
-              {detalle.map((sailDetail)=>{
-                return(
-                  <div key={sailDetail.id} className="card card-body mb-3">
-                    <div className="d-flex justify-content-between">
-                      <h6>{sailDetail.name}</h6>
-                      <h6>Cantidad: {sailDetail.amout}</h6>
-                    </div>
-                    <h6 className="tertiary-text mb-0" style={{marginLeft: "auto"}}>${sailDetail.sub_total}</h6>
+              <div className="card-body ">
+                <h6>Orden de despacho</h6>
+                <div className="card card-body col">
+                  <div className="row">
+                    <h6 className="col-6 ">N° Orden: </h6>
+                    <h6 className="col">{props.orderDispatch.id || 'Error al cargar'}</h6>
                   </div>
-                )
-              })}
-              <div className="d-flex justify-content-end">
-                <h6 className="">Total:&nbsp;</h6>
-                <h6 className="tertiary-text">{props.ticket.total}&nbsp;</h6>
-              </div>
-            </div>
-          
-          </div>
-
-          <div className="card-footer hide-print">
-            
-            <div className="d-flex justify-content-end align-items-baseline">
-              <div className="d-flex ">
-                <button className="btn btn-outline-success btn-sm hide-print"
-                      style={{marginRight:'10px'}}
-                      onClick={() =>{window.print()}}
-                      >
-                      Imprimir
-                </button>
-                <div className="hide-print">
-                  {!props.orderDispatch.state && !props.ticket.cancel
-                    ? <>
-                      <button 
-                        className="btn btn-outline-danger btn-sm d-flex align-items-center hide-print"
-                        data-bs-toggle="modal" data-bs-target="#cancelModal">
-                          <FontAwesomeIcon  icon={faBan} style={{width: "1.0em",marginRight:'5px'}}/>
-                          Cancelar Pedido
-                      </button>
-
-                      <div className={"modal fade "+(show? 'show': '')}  id="cancelModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div className="modal-dialog " style={{marginTop: '15vh'}}>
-                            <form className="modal-content" >
-                              <div className="modal-header">
-                                <h5 className="modal-title" id="exampleModalLabel">Cancelar Pedido</h5>
-                                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                              </div>
-                              <div className="modal-body p-4">
-                                <h5 className="text-center">¿ Estas seguro de cancelar el pedido ?</h5>
-                              </div>
-                              <div className="modal-footer">
-                                <button type="button" className="btn btn-secondary d-flex justify-content-center align-items-center" data-bs-dismiss="modal">
-                                  <FontAwesomeIcon  icon={faTimes} style={{width: "1.0em",height:'1em',marginRight:'5px'}}/>
-                                  Cerrar
-                                </button>
-                                <button onClick={()=>{cancelarPedido(props.ticket.token, handleShow)}} type="button" id="close-modal-cancel" className="btn btn-danger d-flex justify-content-center align-items-center" >
-                                  <FontAwesomeIcon  icon={faSignInAlt} style={{width: "1.0em",marginRight:'5px'}}/>
-                                  Cancelar
-                                </button> 
-                              </div>
-                            </form>
-                          </div>
-                        </div>
-                      </>
-                    : <> </>
-                  }
+                  <div className="row">
+                    <h6 className="col-6">Dirección de envío: </h6>
+                    <h6 className="col">{props.orderDispatch.adress || 'Error al cargar'}</h6>
+                  </div>
+                  <div className="row">
+                    <h6 className="col-6">Estado de envío:</h6>
+                    <h6 className={"col  "+(props.ticket.cancel ? 'tertiary-text': props.orderDispatch.state? 'primary-text' : 'tertiary-text')}>
+                      {(props.ticket.cancel ? 'Cancelado': props.orderDispatch.state? 'Despachado' : 'Pendiente') || 'Error al cargar'}
+                    </h6>
+                  </div>
                 </div>
-                
+              </div>
+
+              <div className="card-body ">
+                <h6>Datos del cliente</h6>
+                <div className="card card-body col">
+                  <div className="row">
+                    <h6 className="col-6">Nombre: {props.ticket[1]}</h6>
+                    <h6 className="col">{account.name || 'Cargando...'}</h6>
+                  </div>
+                  <div className="row">
+                    <h6 className="col-6">Teléfono:</h6>
+                    <h6 className="col">{account.telphone || 'Cargando...'}</h6>
+                  </div>
+                </div>
+              </div>
+
+              <div className="card-body">
+                <h6>Detalle pedido</h6>
+                {detalle.map((sailDetail)=>{
+                  return(
+                    <div key={sailDetail.id} className="card card-body mb-3">
+                      <div className="d-flex justify-content-between">
+                        <h6>{sailDetail.name}</h6>
+                        <h6>Cantidad: {sailDetail.amout}</h6>
+                      </div>
+                      <h6 className="tertiary-text mb-0" style={{marginLeft: "auto"}}>${sailDetail.sub_total}</h6>
+                    </div>
+                  )
+                })}
+                <div className="d-flex justify-content-end">
+                  <h6 className="">Total:&nbsp;</h6>
+                  <h6 className="tertiary-text">{props.ticket.total}&nbsp;</h6>
+                </div>
+              </div>
+            
+            </div>
+
+            <div className="card-footer hide-print">
+              
+              <div className="d-flex justify-content-end align-items-baseline">
+                <div className="d-flex ">
+                  <button className="btn btn-outline-success btn-sm hide-print"
+                        style={{marginRight:'10px'}}
+                        onClick={() =>{window.print()}}
+                        >
+                        Imprimir
+                  </button>
+                  <div className="hide-print">
+                    {!props.orderDispatch.state && !props.ticket.cancel
+                      ? <>
+                        <button 
+                          className="btn btn-outline-danger btn-sm d-flex align-items-center hide-print"
+                          data-bs-toggle="modal" data-bs-target="#cancelModal">
+                            <FontAwesomeIcon  icon={faBan} style={{width: "1.0em",marginRight:'5px'}}/>
+                            Cancelar Pedido
+                        </button>
+
+                        <div className={"modal fade "+(show? 'show': '')}  id="cancelModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                          <div className="modal-dialog " style={{marginTop: '15vh'}}>
+                              <form className="modal-content" >
+                                <div className="modal-header">
+                                  <h5 className="modal-title" id="exampleModalLabel">Cancelar Pedido</h5>
+                                  <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div className="modal-body p-4">
+                                  <h5 className="text-center">¿ Estas seguro de cancelar el pedido ?</h5>
+                                </div>
+                                <div className="modal-footer">
+                                  <button type="button" className="btn btn-secondary d-flex justify-content-center align-items-center" data-bs-dismiss="modal">
+                                    <FontAwesomeIcon  icon={faTimes} style={{width: "1.0em",height:'1em',marginRight:'5px'}}/>
+                                    Cerrar
+                                  </button>
+                                  <button onClick={()=>{cancelarPedido(props.ticket.token, handleShow)}} type="button" id="close-modal-cancel" className="btn btn-danger d-flex justify-content-center align-items-center" >
+                                    <FontAwesomeIcon  icon={faSignInAlt} style={{width: "1.0em",marginRight:'5px'}}/>
+                                    Cancelar
+                                  </button> 
+                                </div>
+                              </form>
+                            </div>
+                          </div>
+                        </>
+                      : <> </>
+                    }
+                  </div>
+                  
+                </div>
               </div>
             </div>
+            
           </div>
-          
         </div>
-      </div>
 
-    </Container>
-      
-  )
+      </Container>
+        
+    )
+  }
 }
 
 export default SailDetail;
