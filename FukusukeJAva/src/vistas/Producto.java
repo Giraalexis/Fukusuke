@@ -200,11 +200,11 @@ public class producto extends javax.swing.JFrame {
 
         lblDescripcion.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         lblDescripcion.setForeground(new java.awt.Color(0, 0, 0));
-        lblDescripcion.setText("Descripcion");
+        lblDescripcion.setText("Descripción");
 
         lblPromocion.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         lblPromocion.setForeground(new java.awt.Color(0, 0, 0));
-        lblPromocion.setText("Promocion");
+        lblPromocion.setText("Promoción");
 
         lblStock.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         lblStock.setForeground(new java.awt.Color(0, 0, 0));
