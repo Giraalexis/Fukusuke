@@ -36,10 +36,8 @@ def ticketDetail(request, pk):
 @api_view(['POST'])
 def ticketCreate(request):
 	serializer = TicketSerializer(data=request.data)
-
 	if serializer.is_valid():
 		serializer.save()
-
 	return Response(serializer.data)
 
 @api_view(['PUT'])

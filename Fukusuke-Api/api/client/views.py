@@ -7,6 +7,7 @@ from .serializers import ClientSerializer
 from django.forms.models import model_to_dict
 from .models import Client
 from django.core.mail import EmailMessage
+from django.core.mail import EmailMultiAlternatives
 
 # Create your views here.
 
@@ -18,7 +19,8 @@ def apiOverview(request):
 		'Create':'/client-create/',
 		'Update':'/client-update/<str:pk>/',
 		'Delete':'/client-delete/<str:pk>/',
-		'Search Email': '/client-search-email/<str:email>/'
+		'Search Email': '/client-search-email/<str:email>/',
+		'ClientSendPayed': '/client-send-payed/<str:pk>/'
 		}
 
 	return Response(api_urls)
@@ -50,15 +52,45 @@ def clientCreate(request):
 		#enviar correo de prueba
 		nombre = serializer.data.get("name",'')
 		correo = serializer.data.get("email",'')
-		link = "localhost:3000/confirm/"+ str(serializer.data.get("id",''))
-		email = EmailMessage("Confirma cuenta Fukusuke",
-            "Estimado {} Ingrese al siguiente enlace para confirmar la cuenta {}".format(nombre,link),
-            "gameduoc123@gmail.com",
-            ['gameduoc123@gmail.com',correo],
-            reply_to=[correo])
+		link = "168.138.144.35:3000/confirm/"+ str(serializer.data.get("id",''))
+		email = EmailMessage("Confirma cuenta Fukusuke", #Subject ()
+            "Estimado {}, Ingrese al siguiente enlace para confirmar su cuenta {}".format(nombre,link), #mensaje html
+            "gameduoc123@gmail.com", #from email (quien envia)
+            ['gameduoc123@gmail.com',correo], #to (para quien)
+            reply_to=[correo]) #reenviar
 		email.send()
 
 	return Response(serializer.data)
+
+#Obtiene lso datos(de la compra) y la id para enviar como correo al cliente luego de realizar la compra
+@api_view(['POST'])
+def clientSendPayed(request,pk):
+	clients = Client.objects.get(id=pk)
+
+	correo = str(clients.email)
+	client_id = str(clients.id)
+	
+	nro_boleta = str(request.data.get('nro_boleta'))
+	nro_orden = str(request.data.get('nro_orden'))
+	fecha = str(request.data.get('fecha'))
+	total = str(request.data.get('total'))
+	link = "http://168.138.144.35:3000/account/sailDetail/"+ nro_boleta
+	email = EmailMessage("Fukusuke | Pedido realizado N°" + nro_boleta, #Subject ()
+		"<div>"+
+			"<h2> Boleta N° {}</h2>".format(nro_boleta)+
+			"<h4> Orden despacho N° {}</h4>".format(nro_orden)+
+			"<h4>Total: ${} </h4>".format(total)+
+			"<h4>Fecha: {} </h4>".format(fecha)+
+			"<a href=""{}"">Ver Detalle</a>".format(link)+ 
+		"</div>", #mensaje html
+		"gameduoc123@gmail.com", #from email (quien envia)
+		['gameduoc123@gmail.com',correo], #to (para quien)
+		reply_to=[correo]) #reenviar
+	email.content_subtype = 'html'#convertir en html
+	email.send()
+
+	return JsonResponse(model_to_dict(clients))
+
 
 @api_view(['PUT'])
 def clientUpdate(request, pk):

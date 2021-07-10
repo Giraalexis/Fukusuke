@@ -12,10 +12,15 @@ import {faCartPlus} from '@fortawesome/free-solid-svg-icons' //FAS --> SOLIDO
 //import {} from '@fortawesome/free-brands-svg-icons' //FAB --> MARCA
 
 //peticion por defecto al cargar esta pagina
-const defaultEndpoint = 'http://localhost:8000/api/product-detail/';
 export async function getServerSideProps(ctx){
   try{
-    const res = await fetch(defaultEndpoint+ctx.query.id);
+    let res = ''
+    try{
+      res = await fetch('http://168.138.144.35:8000/api/product-detail/'+ctx.query.id);
+    }catch(e){
+      res = await fetch('http://localhost:8000/api/product-detail/'+ctx.query.id);
+    }
+    //const res = await fetch(defaultEndpoint+ctx.query.id);
     const product = await res.json();
     return{
       props:{
@@ -119,9 +124,9 @@ const Product = ({product}) => {
       </Head>
       <div className="row mt-4">
         <div className="col-lg-10 col-md-10 col-sm-12 mx-auto p-0 card">
-          <div className="card-header d-flex d-wrap  align-items-baseline justify-content-start">
-            <Link href="/"><a className={"btn sombra col-lg-2 col-md-3 col-sm-6"}>Volver</a></Link>
-            <h5 className="mx-auto text-capitalize">{product.name.toLowerCase()}</h5>
+          <div className="card-header d-flex d-wrap  align-items-baseline justify-content-between">
+            <h5 className="text-capitalize">{product.name.toLowerCase()}</h5>
+            <Link href="/"><a style={{minWidth:'100px'}} className={"btn btn-outline-dark btn-sm"}>Volver</a></Link>
           </div>
           <div className="card-body p-0">
             <div className="row">
@@ -143,7 +148,7 @@ const Product = ({product}) => {
               </div>
             </div>
             
-            <button className=" btn btn-dark secondary-background cuartiary-text d-flex align-items-center" onClick={() => addProduct(product.id)} type="button">
+            <button style={{minWidth:'100px'}} className="btn btn-dark secondary-background cuartiary-text d-flex align-items-center" onClick={() => addProduct(product.id)} type="button">
               <FontAwesomeIcon  icon={faCartPlus} style={{width: "1.2em",marginRight:'5px', color: 'white'}}/>
               Añadir
             </button>   

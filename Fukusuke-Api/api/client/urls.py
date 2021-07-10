@@ -10,5 +10,6 @@ urlpatterns = [
 	path('client-update/<str:pk>', views.clientUpdate, name="client-update"),
 	path('client-delete/<str:pk>', views.clientDelete, name="client-delete"),
 
-	path('client-search-email/<str:email>', views.clientSearchEmail,name="client-search-email")
+	path('client-search-email/<str:email>', views.clientSearchEmail,name="client-search-email"),
+	path('client-send-payed/<str:pk>', views.clientSendPayed, name="client-send-payed")
 ]

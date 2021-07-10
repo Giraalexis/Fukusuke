@@ -28,8 +28,15 @@ const Login = (props)=>{
   //cuando se realiza el submit en el form
   const handleSubmit = async e =>{
     e.preventDefault(); //prevenir recarga pagina
+    //obtener datos
+    let res = ''
     try{
-      const res = await axios.get('http://localhost:8000/api/client-search-email/'+values.correo) //enviar datos a api y verificar si existe, devolvera datos del usuario
+      res = await axios.get('http://168.138.144.35:8000/api/client-search-email/'+values.correo);
+    }catch(e){
+      res = await axios.get('http://localhost:8000/api/client-search-email/'+values.correo);
+    }
+    try{
+      //const res = await axios.get('http://localhost:8000/api/client-search-email/'+values.correo) //enviar datos a api y verificar si existe, devolvera datos del usuario
       const client = res.data;
       if(client.email == values.correo && client.password == values.password){
         if(client.state){ 

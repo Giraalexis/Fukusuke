@@ -23,9 +23,16 @@ export async function getServerSideProps(ctx){
     console.log(response.type)
     
     //Cancelar Ticket en la BD
-    const ticket = await axios.get(`http://localhost:8000/api/ticket-detail/${ctx.query.idTicket}`)
+    let ticket = ''
+    try{
+      ticket = await axios.get(`http://168.138.144.35:8000/api/ticket-detail/${ctx.query.idTicket}`)
+    }catch(e){
+      ticket = await axios.get(`http://localhost:8000/api/ticket-detail/${ctx.query.idTicket}`)
+    }
+    //const ticket = await axios.get(`http://localhost:8000/api/ticket-detail/${ctx.query.idTicket}`)
     console.log(ticket.data)
-    const resUpdate = await axios.put(`http://localhost:8000/api/ticket-update/${ctx.query.idTicket}`,{
+
+    const ticketUpData = {
       id: ticket.data.id,
       fecha: ticket.data.fecha,
       total: ticket.data.total,
@@ -34,9 +41,15 @@ export async function getServerSideProps(ctx){
       payment : ticket.data.payment,
       token : ticket.data.token || 'Sin Token',
       cancel: true
-    })
+    }
+    let resUpdate = ''
+    try{
+      resUpdate = await axios.put(`http://168.138.144.35:8000/api/ticket-update/${ctx.query.idTicket}`,ticketUpData)
+    }catch(e){
+      resUpdate = await axios.put(`http://localhost:8000/api/ticket-update/${ctx.query.idTicket}`,ticketUpData) 
+    }
+    //const resUpdate = await axios.put(`http://localhost:8000/api/ticket-update/${ctx.query.idTicket}`,ticketUpData)
     console.log(resUpdate.data)
-    
 
     return{
       props:{
@@ -63,20 +76,41 @@ const sailCancel = (props) =>{
   useEffect( ()=>{
     const updateStock = async ()=>{
       //Obtener todos el detalle de venta segun Ticket
-      const resDetalle = await axios.get(`http://localhost:8000/api/saildetail-list`); //obtener detalle de ventas
+      let resDetalle = ''
+      try{
+        resDetalle = await axios.get(`http://168.138.144.35:8000/api/saildetail-list`); //obtener detalle de ventas
+      }catch(e){
+        resDetalle = await axios.get(`http://localhost:8000/api/saildetail-list`); //obtener detalle de ventas
+      }
+      //const resDetalle = await axios.get(`http://localhost:8000/api/saildetail-list`); //obtener detalle de ventas
+
       for (let i = 0; i < resDetalle.data.length; i++) {
         if(resDetalle.data[i].ticket_id == props.idTicket){ //si es el detalle de la boleta
-          let resProduct = await axios.get(`http://localhost:8000/api/product-detail/${resDetalle.data[i].product_id}`)
+          let resProduct = ''
+          try{
+            resProduct = await axios.get(`http://168.138.144.35:8000/api/product-detail/${resDetalle.data[i].product_id}`)
+          }catch(e){
+            resProduct = await axios.get(`http://localhost:8000/api/product-detail/${resDetalle.data[i].product_id}`)
+          }
+          //let resProduct = await axios.get(`http://localhost:8000/api/product-detail/${resDetalle.data[i].product_id}`)
           console.log(resProduct.data)
-          let resProductUpdate = await axios.put(`http://localhost:8000/api/product-update/${resDetalle.data[i].product_id}`,{
-          name: resProduct.data.name,
-          description: resProduct.data.description,
-          promotion: resProduct.data.promotion,
-          stock: (resProduct.data.stock + resDetalle.data[i].amout),
-          price: resProduct.data.price,
-          state: resProduct.data.state,
-          image: resProduct.data.image
-          })
+          let dataUpProduct = {
+            name: resProduct.data.name,
+            description: resProduct.data.description,
+            promotion: resProduct.data.promotion,
+            stock: (resProduct.data.stock + resDetalle.data[i].amout),
+            price: resProduct.data.price,
+            state: resProduct.data.state,
+            image: resProduct.data.image
+            }
+
+            let resProductUpdate = ''
+            try{
+              resProductUpdate = await axios.put(`http://168.138.144.35:8000/api/product-update/${resDetalle.data[i].product_id}`,dataUpProduct)
+            }catch(e){
+              resProductUpdate = await axios.put(`http://localhost:8000/api/product-update/${resDetalle.data[i].product_id}`,dataUpProduct)
+            }
+          //let resProductUpdate = await axios.put(`http://localhost:8000/api/product-update/${resDetalle.data[i].product_id}`,dataUpProduct)
           console.log(resProductUpdate)
         }
       }

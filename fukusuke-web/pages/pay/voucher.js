@@ -17,28 +17,56 @@ export async function getServerSideProps(ctx){
   try{
     const response = await WebpayPlus.Transaction.commit(token);
 
-    //Crear Boleta
+    //Crear Boleta-----------------------------------------
     const date = new Date()
     const fecha = date.getFullYear()+"-"+(date.getMonth()+1)+"-"+date.getDate()
 
-    const resBoleta = await axios.post(`http://localhost:8000/api/ticket-create`,{
-        fecha: fecha,
-        total: response.amount,
-        employee: 101,
-        client: idClient,
-        payment: 1,
-        token: token,
-    })
+    const dataBoletaCreate = {
+      fecha: fecha,
+      total: response.amount,
+      employee: 101,
+      client: idClient,
+      payment: 1,
+      token: token,
+    }
+    let resBoleta = ''
+    try{
+      resBoleta = await axios.post(`http://168.138.144.35:8000/api/ticket-create`,dataBoletaCreate)
+    }catch(e){
+      resBoleta = await axios.post(`http://localhost:8000/api/ticket-create`,dataBoletaCreate)
+    }
+    //const resBoleta = await axios.post(`http://localhost:8000/api/ticket-create`,dataBoletaCreate)
     console.log(resBoleta)
 
-    //Crea orden de despacho
-    const resDespatch = await axios.post(`http://localhost:8000/api/orderdispatch-create`,{
+    //Crea orden de despacho--------------------------------
+    const dataOrderCreate = {
       adress: adress,
       state: 0,
       ticket: resBoleta.data.id
-    })
+    }
+    let resDespatch = ''
+    try{
+      resDespatch = await axios.post(`http://168.138.144.35:8000/api/orderdispatch-create`,dataOrderCreate)
+    }catch(e){
+      resDespatch = await axios.post(`http://localhost:8000/api/orderdispatch-create`,dataOrderCreate)
+    }
+    //const resDespatch = await axios.post(`http://localhost:8000/api/orderdispatch-create`,dataOrderCreate)
     console.log(resDespatch)
+    //Enviar Comprobante al correo----------------------------------
+    let sendEmailPay = ''
+    let dataEmailSend = {
+      nro_boleta: resBoleta.data.id,
+      nro_orden : resDespatch.data.id,
+      fecha: resBoleta.data.fecha,
+      total: resBoleta.data.total
+    }
+    try{
+      sendEmailPay = await axios.post(`http://168.138.144.35:8000/api/client-send-payed/${idClient}`, dataEmailSend)
+    }catch(e){
+      sendEmailPay = await axios.post(`http://localhost:8000/api/client-send-payed/${idClient}`, dataEmailSend)
+    }
 
+    //Enviar parametros (props) al componente-----------------------
     return {
       props:{
         response : response,
@@ -67,18 +95,26 @@ const Voucher = (props)=> {
     const sendDataBD = async() =>{
       const cartLocal = JSON.parse(localStorage.getItem('cart'));
       
-      //Guarda el detalle boleta
+      //Guarda el detalle boleta--------------------------------------------
       for (let i = 0; i < cartLocal.length; i++) {
-        let resDetalle = await axios.post(`http://localhost:8000/api/saildetail-create`,{
+        let dataDetailCreate = {
           name: cartLocal[i].name,
           amout: cartLocal[i].cant,
           sub_total: cartLocal[i].cant * cartLocal[i].price,
           product: cartLocal[i].id,
           ticket: props.resBoleta.id
-        })
+        }
+        let resDetalle = ''
+        try{
+          resDetalle = await axios.post(`http://168.138.144.35:8000/api/saildetail-create`,dataDetailCreate)
+        }catch(e){
+          resDetalle = await axios.post(`http://localhost:8000/api/saildetail-create`,dataDetailCreate)
+        }
+        //let resDetalle = await axios.post(`http://localhost:8000/api/saildetail-create`,dataDetailCreate)
         console.log(resDetalle);
-        //Actualizar Stock del producto
-        let resStock = await axios.put(`http://localhost:8000/api/product-update/${cartLocal[i].id}`,{
+
+        //Actualizar Stock del producto-------------------------------------
+        let dataUpdateStock = {
           name: cartLocal[i].name,
           description: cartLocal[i].description,
           promotion: cartLocal[i].promotion,
@@ -86,10 +122,18 @@ const Voucher = (props)=> {
           price: cartLocal[i].price,
           state: cartLocal[i].state,
           image: cartLocal[i].image
-        })
+        }
+        let resStock = ''
+        try{
+          resStock = await axios.put(`http://168.138.144.35:8000/api/product-update/${cartLocal[i].id}`,dataUpdateStock)
+        }catch(e){
+          resStock = await axios.put(`http://localhost:8000/api/product-update/${cartLocal[i].id}`,dataUpdateStock)
+        }
+        //let resStock = await axios.put(`http://localhost:8000/api/product-update/${cartLocal[i].id}`,dataUpdateStock)
+        console.log(resStock)
       }
 
-      //Limpia el Local Storage
+      //Limpia el Local Storage-------------------------------------------
       localStorage.removeItem('response');
       localStorage.removeItem('cart');
     }

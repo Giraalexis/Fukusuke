@@ -17,9 +17,9 @@ const ReturnPay = (props)=> {
       Router.push({
         pathname: '/pay/voucher',
         query: {
-          token: JSON.parse(localStorage.getItem('response')).token,
-          idClient: JSON.parse(localStorage.getItem('session')).id,
-          adress: JSON.parse(localStorage.getItem('adress'))
+          token: JSON.parse(localStorage.getItem('response')).token || 'token',
+          idClient: JSON.parse(localStorage.getItem('session')).id || '1',
+          adress: JSON.parse(localStorage.getItem('adress')) || 'adress'
         }
       })
     };

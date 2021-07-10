@@ -51,7 +51,7 @@ const Navigation = () => {
               <FontAwesomeIcon  icon={faStore} style={{width: "1.2em",marginRight:'5px'}}/>
               Comprar</a>
             </Link>
-            <Link href="/about"><a className={"nav-link"+(router.asPath == "/about" ?" active" : "")}>
+            <Link href="/about" ><a style={{display: 'none'}} className={"nav-link"+(router.asPath == "/about" ?" active" : "")}>
               <FontAwesomeIcon  icon={faBuilding} style={{width: "1.2em",marginRight:'5px'}}/>
               Acerca de</a>
             </Link>
