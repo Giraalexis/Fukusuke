@@ -28,14 +28,14 @@ const Login = (props)=>{
   //cuando se realiza el submit en el form
   const handleSubmit = async e =>{
     e.preventDefault(); //prevenir recarga pagina
-    //obtener datos
-    let res = ''
     try{
-      res = await axios.get('http://168.138.144.35:8000/api/client-search-email/'+values.correo);
-    }catch(e){
-      res = await axios.get('http://localhost:8000/api/client-search-email/'+values.correo);
-    }
-    try{
+      //obtener datos
+      let res = ''
+      try{
+        res = await axios.get('http://168.138.144.35:8000/api/client-search-email/'+values.correo);
+      }catch(e){
+        res = await axios.get('http://localhost:8000/api/client-search-email/'+values.correo);
+      }
       //const res = await axios.get('http://localhost:8000/api/client-search-email/'+values.correo) //enviar datos a api y verificar si existe, devolvera datos del usuario
       const client = res.data;
       if(client.email == values.correo && client.password == values.password){
@@ -65,7 +65,7 @@ const Login = (props)=>{
       }
     }catch(e){
       console.log(e);
-      toast.error("La cuenta no existe",{
+      toast.error("Error al iniciar sesion",{
         position:"top-center",
         autoClose: 2000,
         hideProgressBar: true

@@ -61,6 +61,7 @@ const Pay = (props)=> {
         subTotal += cartLocal[i].cant * cartLocal[i].price;
       }
       setDireccion(direccion);
+      localStorage.setItem('adress',JSON.stringify(direccion));
       setTotal(subTotal);
       setCart(cartLocal);
     }
