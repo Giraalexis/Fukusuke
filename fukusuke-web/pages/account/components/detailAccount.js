@@ -198,6 +198,15 @@ const DetailAccount = (props)=> {
                 </div>
             </div>
 
+            <div className="row mt-2">
+                <div className="col-lg-5 col-md-5 col-sm-12">
+                <label className="col-form-label">Dirección</label>
+                </div>
+                <div className="col">
+                <input name="adress" onChange={handleInputChange} className="form-control" type="text" value={values.adress || 'Cargando...'}/>
+                </div>
+            </div>
+
             <div className=" d-flex justify-content-end mt-3">
               <button type="submit" className="btn btn-secondary" >
                 <FontAwesomeIcon  icon={faSyncAlt} style={{width: "1em",marginRight:'5px', color: 'white'}}/>
