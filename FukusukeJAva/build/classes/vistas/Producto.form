@@ -248,7 +248,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Descripcion"/>
+            <Property name="text" type="java.lang.String" value="Descripci&#xf3;n"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblPromocion">
@@ -259,7 +259,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Promocion"/>
+            <Property name="text" type="java.lang.String" value="Promoci&#xf3;n"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblStock">

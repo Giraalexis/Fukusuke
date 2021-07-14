@@ -14,6 +14,11 @@ public class reporte extends javax.swing.JFrame {
     public reporte() {
         initComponents();
         
+        lblDetalle.setVisible(false);
+        tblDetalle2.setVisible(false);
+        lblResumen.setVisible(false);
+        tblResumen2.setVisible(false);
+        
         //ANCHO DE COLUMNAS
         tblResumen.getColumnModel().getColumn(0).setPreferredWidth(10);
     }
@@ -105,7 +110,7 @@ public class reporte extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         lblTitulo = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        tblResumen2 = new javax.swing.JScrollPane();
         tblResumen = new javax.swing.JTable();
         lblFukusuke = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -115,10 +120,12 @@ public class reporte extends javax.swing.JFrame {
         txtTermino = new javax.swing.JTextField();
         btnGenerar = new javax.swing.JButton();
         txtCerrar = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
+        tblDetalle2 = new javax.swing.JScrollPane();
         tblDetalle = new javax.swing.JTable();
         lblResumen = new javax.swing.JLabel();
         lblDetalle = new javax.swing.JLabel();
+        btnResumen = new javax.swing.JButton();
+        btnDetalle = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Fukusuke - Reportes");
@@ -150,7 +157,7 @@ public class reporte extends javax.swing.JFrame {
                 "ID", "Fecha", "Nombre", "Stock", "Cantidad", "Monto"
             }
         ));
-        jScrollPane1.setViewportView(tblResumen);
+        tblResumen2.setViewportView(tblResumen);
 
         lblFukusuke.setBackground(new java.awt.Color(255, 255, 255));
         lblFukusuke.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/FUKUSUKE-chico.jpg"))); // NOI18N
@@ -177,7 +184,7 @@ public class reporte extends javax.swing.JFrame {
         btnGenerar.setBackground(new java.awt.Color(255, 102, 0));
         btnGenerar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         btnGenerar.setForeground(new java.awt.Color(0, 0, 0));
-        btnGenerar.setText("Generar reporte");
+        btnGenerar.setText("Procesar Reporte");
         btnGenerar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGenerarActionPerformed(evt);
@@ -209,16 +216,13 @@ public class reporte extends javax.swing.JFrame {
                 {null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null}
             },
             new String [] {
                 "ID", "Fecha", "Folio", "Producto", "Cantidad", "Precio", "Empleado", "Tipo Pago"
             }
         ));
-        jScrollPane2.setViewportView(tblDetalle);
+        tblDetalle2.setViewportView(tblDetalle);
 
         lblResumen.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         lblResumen.setForeground(new java.awt.Color(0, 0, 0));
@@ -228,6 +232,26 @@ public class reporte extends javax.swing.JFrame {
         lblDetalle.setForeground(new java.awt.Color(0, 0, 0));
         lblDetalle.setText("DETALLE DE VENTAS");
 
+        btnResumen.setBackground(new java.awt.Color(255, 102, 0));
+        btnResumen.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        btnResumen.setForeground(new java.awt.Color(0, 0, 0));
+        btnResumen.setText("Resumen de Ventas");
+        btnResumen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnResumenActionPerformed(evt);
+            }
+        });
+
+        btnDetalle.setBackground(new java.awt.Color(255, 102, 0));
+        btnDetalle.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        btnDetalle.setForeground(new java.awt.Color(0, 0, 0));
+        btnDetalle.setText("Detalle de Ventas");
+        btnDetalle.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDetalleActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -235,43 +259,46 @@ public class reporte extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(325, 325, 325)
-                        .addComponent(lblDetalle, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(tblResumen2)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 341, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(lblInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                            .addComponent(btnResumen, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(btnDetalle, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                            .addComponent(txtInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(51, 51, 51)
+                                            .addComponent(lblTermino)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(txtTermino, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(lblInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(txtInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(51, 51, 51)
-                                        .addComponent(lblTermino)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(txtTermino, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 341, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(txtCerrar)
-                                        .addGap(60, 60, 60)
-                                        .addComponent(lblFukusuke)
-                                        .addGap(63, 63, 63))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(60, 60, 60)
-                                        .addComponent(btnGenerar, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 256, Short.MAX_VALUE)
-                                        .addComponent(jLabel1)
-                                        .addGap(43, 43, 43))))
-                            .addComponent(jScrollPane1)
-                            .addComponent(jScrollPane2))
-                        .addContainerGap())))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(342, 342, 342)
-                .addComponent(lblResumen, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                                        .addGap(38, 38, 38)
+                                        .addComponent(lblResumen, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(lblDetalle, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addGap(2, 2, 2)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txtCerrar)
+                                .addGap(60, 60, 60)
+                                .addComponent(lblFukusuke)
+                                .addGap(63, 63, 63))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(60, 60, 60)
+                                .addComponent(btnGenerar, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 228, Short.MAX_VALUE)
+                                .addComponent(jLabel1)
+                                .addGap(43, 43, 43))))
+                    .addComponent(tblDetalle2))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -287,19 +314,23 @@ public class reporte extends javax.swing.JFrame {
                             .addComponent(lblTermino)
                             .addComponent(txtTermino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnGenerar))
-                        .addGap(46, 46, 46)
-                        .addComponent(lblResumen))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnResumen)
+                            .addComponent(btnDetalle)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(lblFukusuke)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel1))
                     .addComponent(txtCerrar))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41)
-                .addComponent(lblDetalle)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 308, Short.MAX_VALUE)
+                .addGap(36, 36, 36)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblResumen)
+                    .addComponent(lblDetalle))
+                .addGap(18, 18, 18)
+                .addComponent(tblResumen2, javax.swing.GroupLayout.PREFERRED_SIZE, 526, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(tblDetalle2, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -342,6 +373,23 @@ public class reporte extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnGenerarActionPerformed
 
+    private void btnResumenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResumenActionPerformed
+        
+        lblDetalle.setVisible(false);
+        tblDetalle2.setVisible(false);
+        lblResumen.setVisible(true);
+        tblResumen2.setVisible(true);
+    }//GEN-LAST:event_btnResumenActionPerformed
+
+    private void btnDetalleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDetalleActionPerformed
+        
+        lblDetalle.setVisible(true);
+        tblDetalle2.setVisible(true);
+        lblResumen.setVisible(false);
+        tblResumen2.setVisible(false);
+        
+    }//GEN-LAST:event_btnDetalleActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -378,11 +426,11 @@ public class reporte extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnDetalle;
     private javax.swing.JButton btnGenerar;
+    private javax.swing.JButton btnResumen;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblDetalle;
     private javax.swing.JLabel lblFukusuke;
     private javax.swing.JLabel lblInicio;
@@ -390,7 +438,9 @@ public class reporte extends javax.swing.JFrame {
     private javax.swing.JLabel lblTermino;
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JTable tblDetalle;
+    private javax.swing.JScrollPane tblDetalle2;
     private javax.swing.JTable tblResumen;
+    private javax.swing.JScrollPane tblResumen2;
     private javax.swing.JButton txtCerrar;
     private javax.swing.JTextField txtInicio;
     private javax.swing.JTextField txtTermino;

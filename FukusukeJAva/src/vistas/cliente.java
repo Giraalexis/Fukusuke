@@ -378,7 +378,7 @@ public class cliente extends javax.swing.JFrame {
         lblDireccion.setBackground(new java.awt.Color(255, 255, 255));
         lblDireccion.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         lblDireccion.setForeground(new java.awt.Color(0, 0, 0));
-        lblDireccion.setText("Direccion");
+        lblDireccion.setText("Dirección");
 
         lblRut.setBackground(new java.awt.Color(255, 255, 255));
         lblRut.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
@@ -393,7 +393,7 @@ public class cliente extends javax.swing.JFrame {
         lblTelefono.setBackground(new java.awt.Color(255, 255, 255));
         lblTelefono.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         lblTelefono.setForeground(new java.awt.Color(0, 0, 0));
-        lblTelefono.setText("Telefono");
+        lblTelefono.setText("Teléfono");
 
         lblEmail.setBackground(new java.awt.Color(255, 255, 255));
         lblEmail.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N

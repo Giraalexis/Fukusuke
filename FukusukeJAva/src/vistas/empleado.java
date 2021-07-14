@@ -597,7 +597,7 @@ public class empleado extends javax.swing.JFrame {
         jLabel1.setText("xx.xxx.xxx-x");
 
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel2.setText("aaa-mm-dd");
+        jLabel2.setText("aaaa-mm-dd");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
